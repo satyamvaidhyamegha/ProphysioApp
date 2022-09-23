@@ -1,0 +1,170 @@
+import 'package:flutter/material.dart';
+import 'package:physio/constants/colors.dart';
+
+//Montserrat light
+const headerStyle = TextStyle(
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w300,
+    fontSize: 42.0,
+    color: Color(0xFFFFFFFF));
+const titleStyle = TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
+const titleStyle2 = TextStyle(fontSize: 16, color: Colors.black45);
+const subtitleStyle = TextStyle(fontSize: 14, fontWeight: FontWeight.w500);
+
+//mulish regular
+const infoStyle = TextStyle(
+  color: Color(0xFFC4C4C4),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 16,
+);
+
+const infoStyle2 = TextStyle(
+  color: Color(0xFFC4C4C4),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 22,
+);
+
+const info1style = TextStyle(
+  color: Colors.grey,
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 12,
+);
+const info1style1 = TextStyle(
+  color: Colors.white,
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 12,
+);
+const summaryTitleText = TextStyle(
+  color: Color(0xffCCCCCC),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 12,
+);
+const summarySubtitile = TextStyle(
+  color: Color(0xffFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.normal,
+  fontSize: 16,
+);
+const buttonTextStyle = TextStyle(
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w500,
+    fontSize: 18.0,
+    color: Color(0xFFCCCCCC));
+
+const inputfieldtextStyle = TextStyle(
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w400,
+    fontSize: 16.0,
+    color: Color(0xFFCCCCCC));
+
+const labletextStyle = TextStyle(
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w400,
+    fontSize: 15.0,
+    color: Color(0xFFC4C4C4));
+
+const profilefieldtextStyle = TextStyle(
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w400,
+    overflow: TextOverflow.visible,
+    fontSize: 16.0,
+    color: Color(0xFFFFFFFF));
+const profilefieldtextStyle1 = TextStyle(
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w700,
+    overflow: TextOverflow.visible,
+    fontSize: 16.0,
+    color: Color(0xFFFFFFFF));
+
+const datefieldtextStyle = TextStyle(
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w400,
+    overflow: TextOverflow.visible,
+    fontSize: 10.0,
+    color: Color(0xFFFFFFFF));
+const inputtexttextStyle = TextStyle(
+    decoration: TextDecoration.none,
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w400,
+    fontSize: 21.0,
+    color: Color(0xFFFFFFFF));
+
+const iconlablecolor = TextStyle(
+  color: Color(0xFF757575),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w700,
+  fontSize: 10,
+);
+const navlablecolor = TextStyle(
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w700,
+  fontSize: 10,
+);
+//welcome text
+
+const headertext = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w700,
+  fontSize: 18,
+);
+
+const midheadertext = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w700,
+  fontSize: 14,
+);
+const bluetext = TextStyle(
+  color: Color(0xFF007CE2),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 12,
+);
+const bluetext1 = TextStyle(
+  color: Color(0xFF007CE2),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 17,
+);
+const subtitle1 = TextStyle(
+  color: Color(0xFF757575),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w700,
+  fontSize: 12,
+);
+const subtitle = TextStyle(
+  color: Color(0xFFEBEBF599),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w700,
+  fontSize: 12,
+);
+const subheadertext = TextStyle(
+    decoration: TextDecoration.none,
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w700,
+    fontSize: 21.0,
+    color: Color(0xFFFFFFFF));
+const subheadertext1 = TextStyle(
+    decoration: TextDecoration.none,
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w400,
+    fontSize: 34.0,
+    color: Color(0xFFFFFFFF));
+const subheadertext2 = TextStyle(
+    decoration: TextDecoration.none,
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w400,
+    fontSize: 28.0,
+    color: Color(0xFFFFFFFF));
+
+const headingTextStyle = TextStyle(
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w500,
+    fontSize: 22.0,
+    color: AppColors.baseTextColor);
