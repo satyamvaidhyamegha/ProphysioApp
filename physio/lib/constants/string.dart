@@ -47,7 +47,7 @@ class Strings {
   static const VERIFY_OTP = "Verify OTP";
   static const PRO_PHYSIO = "PRO PHYSIO";
   static const BELIEVE_YOU_CAN = "BELIEVE YOU CAN";
-  static const TAKE_YOUR_HELTH_TO = "Take your health to ";
+  static const TAKE_THEIR_HELTH_TO = "Help people take their";
   static const LAVEL = "level";
   static const ONE_ON_ONE_WITH = "One on one with ";
   static const TRUE_WELLNESS = "True Wellness";
@@ -219,5 +219,5 @@ class CustomLogo {
 }
 
 class AppVersion {
-  static const APP_VERSION_NUMBER = "Version- 29";
+  static const APP_VERSION_NUMBER = "Version- 1.0";
 }
