@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:physio/BaseWidget/base_image_widget.dart';
 import 'package:physio/BaseWidget/text.dart';

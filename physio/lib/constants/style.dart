@@ -8,12 +8,14 @@ class BaseStyles {
     color: AppColors.textColor,
     fontFamily: "Montserrat",
     fontWeight: FontWeight.w300,
+    height: 1.5,
     fontSize: 22,
   );
   static TextStyle textStyleForSilderScreenw500 = TextStyle(
     color: AppColors.textColor,
     fontFamily: "Montserrat",
     fontWeight: FontWeight.w500,
+    height: 1.5,
     fontSize: 22,
   );
   static TextStyle buttonTextStyle = TextStyle(
@@ -116,8 +118,8 @@ class BaseStyles {
   static const TextStyle beliveYou = TextStyle(
     color: Color(0xFFD6D6D6),
     fontFamily: "Montserrat",
-    fontWeight: FontWeight.w200,
-    fontSize: 15,
+    fontWeight: FontWeight.w500,
+    fontSize: 11,
   );
   static const TextStyle smallSizeText = TextStyle(
       decoration: TextDecoration.none,
