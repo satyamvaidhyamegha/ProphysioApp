@@ -5,6 +5,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:physio/screens/onboarding/splash_screen2.dart';
 import 'package:physio/screens/onboarding/splash_screen.dart';
 import 'package:physio/screens/onboarding/about_screen.dart';
+import 'package:physio/screens/onboarding/auth_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/splash': (BuildContext context) => const SplashPage(),
         '/SplashPage2': (BuildContext context) => const SplashPage2(),
         '/about': (BuildContext context) => const AboutPage(),
+        '/authPage':(BuildContext context) => const AuthPage(),
         //       '/login': (BuildContext context) => const LoginPage(),
         //     '/detail1': (BuildContext context) => const DetailPage(),
         //     '/welcomeuser': (BuildContext context) => const Welcomeuser(),
