@@ -45,8 +45,12 @@ class _AuthScreenPageState extends State<AuthPage> {
                         fit: BoxFit.cover,
                       ),
                     ),
-          child: Column(
-            children: [
+         child: Center(
+
+            child: SingleChildScrollView(
+
+               child: Column(
+                 children: [
              Padding(padding: EdgeInsets.all(45)),
 
                 Align(alignment: Alignment.centerLeft,
@@ -147,9 +151,11 @@ class _AuthScreenPageState extends State<AuthPage> {
             ],
 
                 ),
-              )
+              ),
+              ),
 
-          );
+          )
+    );
 
 
 
