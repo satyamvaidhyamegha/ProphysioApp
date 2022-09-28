@@ -143,9 +143,12 @@ class _AboutPagePageState extends State<AboutPage> {
                           padding: EdgeInsets.only(
                               top: MediaQuery.of(context).size.height * 0.08,
                               left: 16),
-                          child: Icon(
-                            Icons.arrow_back_ios_new_rounded,
-                            color: Colors.white,
+                          child: GestureDetector(
+                            onTap: () => Navigator.of(context).pop(),
+                            child: Icon(
+                              Icons.arrow_back_ios_new_rounded,
+                              color: AppColors.textColor,
+                            ),
                           ),
                         ),
                       ),
@@ -185,9 +188,12 @@ class _AboutPagePageState extends State<AboutPage> {
                       padding: EdgeInsets.only(
                           top: MediaQuery.of(context).size.height * 0.08,
                           left: 16),
-                      child: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: AppColors.textColor,
+                      child: GestureDetector(
+                        onTap: () => Navigator.of(context).pop(),
+                        child: Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: AppColors.textColor,
+                        ),
                       ),
                     ),
                   ),

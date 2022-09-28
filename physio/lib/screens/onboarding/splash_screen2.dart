@@ -20,7 +20,7 @@ class _SplashPage2PageState extends State<SplashPage2> {
   var windowHeight;
 
   _startNextScreen() {
-    Navigator.pushNamedAndRemoveUntil(context, "/about", (r) => false);
+    Navigator.pushNamedAndRemoveUntil(context, "/selection", (r) => false);
   }
 
   @override
@@ -43,7 +43,7 @@ class _SplashPage2PageState extends State<SplashPage2> {
     if (email != null) {
       Navigator.pushNamedAndRemoveUntil(context, "/welcomeuser", (r) => true);
     } else {
-      Navigator.pushNamedAndRemoveUntil(context, "/about", (r) => true);
+      Navigator.pushNamedAndRemoveUntil(context, "/selection", (r) => true);
     }
   }
 

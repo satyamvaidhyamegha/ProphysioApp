@@ -18,6 +18,13 @@ class BaseStyles {
     height: 1.5,
     fontSize: 22,
   );
+  static TextStyle textStyleForProfileSelection = TextStyle(
+    color: AppColors.textColor,
+    fontFamily: "Montserrat",
+    fontWeight: FontWeight.w300,
+    height: 1.5,
+    fontSize: 42,
+  );
   static TextStyle buttonTextStyle = TextStyle(
       fontFamily: 'Montserrat',
       fontWeight: FontWeight.w500,
@@ -29,11 +36,11 @@ class BaseStyles {
       fontSize: 16.0,
       color: Color(0xFFCCCCCC));
 
-  static TextStyle signInText = TextStyle(
-    color: AppColors.buttonColor,
+  static TextStyle subText = TextStyle(
+    color: Color(0xFFCCCCCC),
     fontFamily: "Mulish",
-    fontWeight: FontWeight.w600,
-    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    fontSize: 20,
   );
   static TextStyle headingTextStyle = TextStyle(
       fontFamily: 'Montserrat',
@@ -50,8 +57,14 @@ class BaseStyles {
   static TextStyle orSignInWithText = TextStyle(
       fontFamily: 'Mulish',
       fontWeight: FontWeight.w600,
-      fontSize: 18.0,
+      fontSize: 16.0,
       color: Color(0xFF767C83));
+
+  static TextStyle orSignInWithbutton = TextStyle(
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w600,
+    fontSize: 18.0,
+  );
 
   static TextStyle forgotPasswordTextStyle = TextStyle(
       color: AppColors.textColor,

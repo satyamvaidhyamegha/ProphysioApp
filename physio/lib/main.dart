@@ -4,6 +4,7 @@ import 'package:physio/constants/colors.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:physio/screens/onboarding/splash_screen2.dart';
 import 'package:physio/screens/onboarding/splash_screen.dart';
+import 'package:physio/screens/onboarding/profile_selection.dart';
 import 'package:physio/screens/onboarding/about_screen.dart';
 
 void main() {
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/splash': (BuildContext context) => const SplashPage(),
         '/SplashPage2': (BuildContext context) => const SplashPage2(),
+        '/selection': (BuildContext context) => const ProfileSelectionPage(),
         '/about': (BuildContext context) => const AboutPage(),
         //       '/login': (BuildContext context) => const LoginPage(),
         //     '/detail1': (BuildContext context) => const DetailPage(),
