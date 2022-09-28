@@ -138,6 +138,18 @@ const authtext = TextStyle(
   fontWeight: FontWeight.w400,
   fontSize: 17,
 );
+const verifiedText = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w300,
+  fontSize: 40,
+);
+const registeredText = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w200,
+  fontSize: 19,
+);
 const numberText = TextStyle(
   color: Color(0xFFFFFFFF),
   fontFamily: "Mulish",
