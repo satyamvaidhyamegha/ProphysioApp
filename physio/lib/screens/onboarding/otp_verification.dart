@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-
 import '../../BaseWidget/base_image_widget.dart';
-import '../../BaseWidget/text.dart';
-import '../../constants/colors.dart';
 import '../../constants/string.dart';
 import '../../constants/style.dart';
-import '../../constants/text_constants.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class OtpVerificationPage extends StatefulWidget {
@@ -84,7 +79,8 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                   ),
                   OtpTextField(
                     numberOfFields: 6,
-                    borderColor: Color(0xFF512DA8),
+                    enabledBorderColor: Color(0xFF3C3C3C),
+                    fillColor: Color(0xff1C1C1E),
                     showFieldAsBox: true,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     onCodeChanged: (String code) {

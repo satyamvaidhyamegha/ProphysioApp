@@ -16,6 +16,7 @@ class AppColors {
   static const greyColors = Color(0xFF3C3C3C);
   static const whiteGrey = Color(0xFF767C83);
   static const black = Color(0xFF000000);
+  static const otpBoxborder = Color(0xFF3C3C3C);
   static const yellowColor = Color(0xffFFBA00);
   static const nonVerifyOtpButton = Color(0Xff797979);
   static const orange = Color(0xffFF7340);
