@@ -11,6 +11,8 @@ import 'package:physio/constants/string.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
 
+import 'auth_screen.dart';
+
 //import 'package:physio/screens/Login/mobilelogin/login_screen.dart';
 //import 'package:physio/screens/Login/mobilelogin/signup_screen.dart.dart';
 //import 'package:physio/screens/Success%20Screen/register_success.dart';
@@ -286,6 +288,12 @@ class _AboutPagePageState extends State<AboutPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     GestureDetector(
+                  onTap: () {
+        Navigator.pushReplacement(
+           context,
+      MaterialPageRoute(
+      builder: (context) => AuthPage()));
+      },
                       child: Container(
                         width: 100,
                         child: Padding(
@@ -324,12 +332,12 @@ class _AboutPagePageState extends State<AboutPage> {
                                 )),
                           )
                         : GestureDetector(
-                            //    onTap: () {
-                            //    Navigator.pushReplacement(
-                            //        context,
-                            //       MaterialPageRoute(
-                            //            builder: (context) => SigninPage()));
-                            // },
+                               onTap: () {
+                               Navigator.pushReplacement(
+                                   context,
+                                  MaterialPageRoute(
+                                       builder: (context) => AuthPage()));
+                            },
                             child: Container(
                                 width: MediaQuery.of(context).size.width * 0.4,
                                 height:

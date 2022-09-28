@@ -54,7 +54,7 @@ const buttonTextStyle = TextStyle(
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w500,
     fontSize: 18.0,
-    color: Color(0xFFCCCCCC));
+    color: Color(0xffFFFFFF));
 
 const inputfieldtextStyle = TextStyle(
     fontFamily: 'Mulish',
@@ -130,6 +130,18 @@ const bluetext1 = TextStyle(
   color: Color(0xFF007CE2),
   fontFamily: "Mulish",
   fontWeight: FontWeight.w400,
+  fontSize: 17,
+);
+const authtext = TextStyle(
+  color: Color(0xFF007CE2),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 17,
+);
+const numberText = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w300,
   fontSize: 17,
 );
 const subtitle1 = TextStyle(
