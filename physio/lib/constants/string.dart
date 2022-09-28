@@ -128,6 +128,7 @@ class Strings {
   static const MEH = "Meh";
   static const TERRIBLE = "Terrible";
   static const GET_STARTED = "Get Started";
+  static const BTN_OTP = "Send OTP";
 }
 
 class SuccessfullMsg {
@@ -212,6 +213,7 @@ class ImagePath {
   static const ASSES_SUGGESTED_IMAGE2 = "assets/Image 92.png";
   static const ASSES_SUGGESTED_IMAGE3 = "assets/Group 74761.png";
   static const ROUTINE_UP_NEXT_IMAGE = "assets/Mask Group 135@2x.png";
+  static const AUTH_SCREEN = "assets/Group 74772.png";
 }
 
 class CustomLogo {

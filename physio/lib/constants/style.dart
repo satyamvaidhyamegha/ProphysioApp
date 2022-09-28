@@ -103,6 +103,14 @@ class BaseStyles {
       fontSize: 22.0,
       color: Color(0xFF5FE3FF));
 
+  static TextStyle textStyleForAuthScreen = TextStyle(
+    color: AppColors.textColor,
+    fontFamily: "Montserrat",
+    fontWeight: FontWeight.w400,
+    height: 1.5,
+    fontSize: 40,
+  );
+
   static const TextStyle selfCareTextStyle = TextStyle(
     color: Color(0xFF000000),
     fontFamily: "Mulish",
