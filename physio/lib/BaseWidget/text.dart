@@ -15,3 +15,17 @@ getText(
     maxLines: 3,
   );
 }
+
+buttonText(
+    {required String text,
+    required TextStyle textStyle,
+    TextAlign? textAlign}) {
+  return Text(
+    text,
+    textAlign: textAlign,
+    style: textStyle,
+    overflow: TextOverflow.clip,
+    softWrap: true,
+    maxLines: 3,
+  );
+}

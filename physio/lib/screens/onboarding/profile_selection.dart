@@ -1,0 +1,195 @@
+//import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:physio/BaseWidget/text.dart';
+import 'package:physio/constants/colors.dart';
+import 'package:physio/constants/style.dart';
+import 'package:blurrycontainer/blurrycontainer.dart';
+
+import 'about_screen.dart';
+
+//import 'package:physio/constants/raddi.dart';
+
+class ProfileSelectionPage extends StatefulWidget {
+  const ProfileSelectionPage({Key? key}) : super(key: key);
+
+  @override
+  State<ProfileSelectionPage> createState() => _ProfileSelectionPageState();
+}
+
+bool isButtonPressed = false;
+bool isButtonPressed1 = false;
+bool isTxtbtnPressed = false;
+
+class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: AppColors.kBGcolor,
+        body: Column(children: [
+          Padding(
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.04,
+                  right: MediaQuery.of(context).size.width * 0.04),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.10,
+                        right: MediaQuery.of(context).size.width * 0.05),
+                    child: getText(
+                        text: "Tell us who\nyou are joining \nas?",
+                        textStyle: BaseStyles.textStyleForProfileSelection),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.02,
+                        left: MediaQuery.of(context).size.width * 0.02,
+                        right: MediaQuery.of(context).size.width * 0.26),
+                    child: getText(
+                        text: "So that we can personalise \nyour experience",
+                        textStyle: BaseStyles.subText),
+                  ),
+                ],
+              )),
+          Container(
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.05,
+                left: MediaQuery.of(context).size.width * 0.02,
+                right: MediaQuery.of(context).size.width * 0.02),
+          ),
+          BlurryContainer(
+              blur: 80,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.33,
+              elevation: 0,
+              color: Colors.transparent,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0),
+              ),
+              child: Container(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.10,
+                    left: MediaQuery.of(context).size.width * 0.02,
+                    right: MediaQuery.of(context).size.width * 0.02),
+                child: Center(
+                    child: Column(children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: isButtonPressed ? Colors.blue : Colors.white,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 146.0, vertical: 22.0),
+                      shape: const StadiumBorder(),
+                    ),
+                    child: Text(
+                      'Physio',
+                      style: isButtonPressed
+                          ? const TextStyle(color: Colors.white, fontSize: 18)
+                          : const TextStyle(color: Colors.blue, fontSize: 18),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        isButtonPressed = !isButtonPressed;
+
+                        if (isButtonPressed = true) {
+                          isButtonPressed1 = false;
+                          isTxtbtnPressed = false;
+                        }
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AboutPage()),
+                        );
+                      });
+                    },
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.04),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: isButtonPressed1 ? Colors.blue : Colors.white,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 146.0, vertical: 22.0),
+                      shape: const StadiumBorder(),
+                    ),
+                    child: buttonText(
+                      text: 'Patient',
+                      textStyle: isButtonPressed1
+                          ? const TextStyle(color: Colors.white, fontSize: 18)
+                          : const TextStyle(color: Colors.blue, fontSize: 18),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        isButtonPressed1 = !isButtonPressed1;
+
+                        if (isButtonPressed1 = true) {
+                          isButtonPressed = false;
+                          isTxtbtnPressed = false;
+                        }
+                      });
+                    },
+                  ),
+                ])),
+              )),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.05,
+                  left: MediaQuery.of(context).size.width * 0.05,
+                ),
+                child: Container(
+                  height: 2.0,
+                  width: 80.0,
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.05,
+                  left: MediaQuery.of(context).size.width * 0.06,
+                ),
+                child: getText(
+                    text: "Already a member?",
+                    textStyle: BaseStyles.orSignInWithText),
+              ),
+              Container(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.05,
+                  left: MediaQuery.of(context).size.width * 0.06,
+                ),
+                child: Container(
+                  height: 2.0,
+                  width: 80.0,
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+          Center(
+              child: TextButton(
+            style: TextButton.styleFrom(
+              primary:
+                  isTxtbtnPressed ? Colors.white : Colors.blue, // foreground
+            ),
+            onPressed: () {
+              isTxtbtnPressed = !isTxtbtnPressed;
+              if (isTxtbtnPressed = true) {
+                isButtonPressed1 = false;
+                isButtonPressed = false;
+              }
+              //  Navigator.pushReplacement(
+              //             context,
+              //                 MaterialPageRoute(
+              //                      builder: (context) => LoginPage()));
+            },
+            child: getText(
+                text: 'Sign in', textStyle: BaseStyles.orSignInWithbutton),
+          ))
+        ]));
+  }
+}
