@@ -37,7 +37,7 @@ class AppColors {
   static const loginPageBorderColorIcons = Color(0xff3C3C3C);
   static const verifyOtpEnterOtpColor = Color(0xff6E6E6E);
   static const inactiveButtonColor = Colors.grey;
-
+  static const otpSuccessBackground = Color(0xff182021);
   static const progressYellowLine = Color.fromRGBO(255, 181, 13, 1);
   static const progressYellowlineBgColor = Color.fromRGBO(255, 255, 255, 1);
   static const checkboxActiveColor = Colors.green;
