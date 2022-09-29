@@ -215,7 +215,7 @@ class ImagePath {
   static const ROUTINE_UP_NEXT_IMAGE = "assets/Mask Group 135@2x.png";
   static const AUTH_SCREEN = "assets/Group 74772.png";
   static const AUTH_SUCCESS = "assets/Successfull_tick.png";
-
+  static const OTP_SCREEN = "assets/Group74772Blur.png";
 }
 
 class CustomLogo {
