@@ -51,6 +51,7 @@ class AppColors {
   static const routineStepColor2 = Color.fromRGBO(34, 155, 255, 1);
   static const greateJobScreen = Color.fromRGBO(63, 190, 131, 1);
   static const greateJobCardColor = Color.fromRGBO(30, 44, 44, 1);
+  static const PROACTIVE_APPBAR_COLOR = Color(0XFFFBA9562);
 }
 
 class ErrorColor {

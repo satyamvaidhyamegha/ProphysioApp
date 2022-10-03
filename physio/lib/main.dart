@@ -8,6 +8,7 @@ import 'package:physio/screens/onboarding/splash_screen.dart';
 import 'package:physio/screens/onboarding/profile_selection.dart';
 import 'package:physio/screens/onboarding/about_screen.dart';
 import 'package:physio/screens/onboarding/auth_screen.dart';
+import 'package:physio/screens/onboarding/pro_active';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
               const TextSelectionThemeData(cursorColor: Colors.white)),
       title: 'Pro Physio',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/otpVerify',
+      initialRoute: '/splash',
       builder: EasyLoading.init(),
       routes: {
         '/splash': (BuildContext context) => const SplashPage(),
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         '/about': (BuildContext context) => const AboutPage(),
         '/authPage': (BuildContext context) => const AuthPage(),
         '/otpVerify': (BuildContext context) => const OtpVerificationPage(),
+        '/prosactive': (BuildContext context) => const ProActive(),
         //       '/login': (BuildContext context) => const LoginPage(),
         //     '/detail1': (BuildContext context) => const DetailPage(),
         //     '/welcomeuser': (BuildContext context) => const Welcomeuser(),
