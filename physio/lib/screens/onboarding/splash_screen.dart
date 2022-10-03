@@ -18,7 +18,9 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPagePageState extends State<SplashPage> {
+  // ignore: prefer_typing_uninitialized_variables
   var windowWidth;
+  // ignore: prefer_typing_uninitialized_variables
   var windowHeight;
 
   _startNextScreen() {

@@ -1,5 +1,3 @@
-//import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/colors.dart';
@@ -7,8 +5,7 @@ import 'package:physio/constants/style.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
 
 import 'about_screen.dart';
-
-//import 'package:physio/constants/raddi.dart';
+import 'package:physio/screens/onboarding/policy_terms/privacy_policy.dart';
 
 class ProfileSelectionPage extends StatefulWidget {
   const ProfileSelectionPage({Key? key}) : super(key: key);
@@ -22,11 +19,24 @@ bool isButtonPressed1 = false;
 bool isTxtbtnPressed = false;
 
 class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
+  // ignore: prefer_typing_uninitialized_variables
+  var windowWidth;
+  // ignore: prefer_typing_uninitialized_variables
+  var windowHeight;
   @override
   Widget build(BuildContext context) {
+    windowWidth = MediaQuery.of(context).size.width;
+    windowHeight = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: initScreen(context),
+    );
+  }
+
+  initScreen(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.kBGcolor,
-        body: Column(children: [
+        body: SingleChildScrollView(
+            child: Column(children: [
           Padding(
               padding: EdgeInsets.only(
                   left: MediaQuery.of(context).size.width * 0.04,
@@ -55,23 +65,39 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
               )),
           Container(
             padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.05,
                 left: MediaQuery.of(context).size.width * 0.02,
                 right: MediaQuery.of(context).size.width * 0.02),
           ),
-          BlurryContainer(
-              blur: 80,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.33,
-              elevation: 0,
-              color: Colors.transparent,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20.0),
-                topRight: Radius.circular(20.0),
+          Container(),
+          Stack(
+            children: <Widget>[
+              Image.asset(
+                'assets/Group 74744.png',
+                fit: BoxFit.cover,
+                height: 410,
+                width: 390,
               ),
-              child: Container(
+              Positioned(
+                  top: 165,
+                  child: BlurryContainer(
+                    blur: 90,
+                    child: Container(
+                      width: 378,
+                      height: 500,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20.0),
+                          topRight: Radius.circular(20.0),
+                          bottomLeft: Radius.circular(20.0),
+                          bottomRight: Radius.circular(20.0),
+                        ),
+                        color: Colors.transparent,
+                      ),
+                    ),
+                  )),
+              Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.10,
+                    top: MediaQuery.of(context).size.height * 0.26,
                     left: MediaQuery.of(context).size.width * 0.02,
                     right: MediaQuery.of(context).size.width * 0.02),
                 child: Center(
@@ -80,7 +106,7 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                     style: ElevatedButton.styleFrom(
                       primary: isButtonPressed ? Colors.blue : Colors.white,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 146.0, vertical: 22.0),
+                          horizontal: 146.0, vertical: 20.0),
                       shape: const StadiumBorder(),
                     ),
                     child: Text(
@@ -113,7 +139,7 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                     style: ElevatedButton.styleFrom(
                       primary: isButtonPressed1 ? Colors.blue : Colors.white,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 146.0, vertical: 22.0),
+                          horizontal: 146.0, vertical: 20.0),
                       shape: const StadiumBorder(),
                     ),
                     child: buttonText(
@@ -129,67 +155,79 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                         if (isButtonPressed1 = true) {
                           isButtonPressed = false;
                           isTxtbtnPressed = false;
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const PrivacyPolicy()),
+                          );
                         }
                       });
                     },
                   ),
+                  Row(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.04,
+                          left: MediaQuery.of(context).size.width * 0.05,
+                        ),
+                        child: Container(
+                          height: 2.0,
+                          width: 80.0,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.05,
+                          left: MediaQuery.of(context).size.width * 0.06,
+                        ),
+                        child: getText(
+                            text: "Already a member?",
+                            textStyle: BaseStyles.orSignInWithText),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.06,
+                          left: MediaQuery.of(context).size.width * 0.06,
+                        ),
+                        child: Container(
+                          height: 2.0,
+                          width: 80.0,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Center(
+                      child: TextButton(
+                    style: TextButton.styleFrom(
+                      primary: isTxtbtnPressed
+                          ? Colors.blue
+                          : Colors.white, // foreground
+                    ),
+                    onPressed: () {
+                      isTxtbtnPressed = !isTxtbtnPressed;
+                      setState(() {
+                        if (isTxtbtnPressed = true) {
+                          isButtonPressed1 = false;
+                          isButtonPressed = false;
+                        }
+                        //  Navigator.pushReplacement(
+                        //             context,
+                        //                 MaterialPageRoute(
+                        //
+                        //                      builder: (context) => LoginPage()));
+                      });
+                    },
+                    child: getText(
+                        text: 'Login',
+                        textStyle: BaseStyles.orSignInWithbutton),
+                  ))
                 ])),
-              )),
-          Row(
-            children: [
-              Container(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.05,
-                  left: MediaQuery.of(context).size.width * 0.05,
-                ),
-                child: Container(
-                  height: 2.0,
-                  width: 80.0,
-                  color: Colors.grey,
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.05,
-                  left: MediaQuery.of(context).size.width * 0.06,
-                ),
-                child: getText(
-                    text: "Already a member?",
-                    textStyle: BaseStyles.orSignInWithText),
-              ),
-              Container(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.05,
-                  left: MediaQuery.of(context).size.width * 0.06,
-                ),
-                child: Container(
-                  height: 2.0,
-                  width: 80.0,
-                  color: Colors.grey,
-                ),
-              ),
+              )
             ],
           ),
-          Center(
-              child: TextButton(
-            style: TextButton.styleFrom(
-              primary:
-                  isTxtbtnPressed ? Colors.white : Colors.blue, // foreground
-            ),
-            onPressed: () {
-              isTxtbtnPressed = !isTxtbtnPressed;
-              if (isTxtbtnPressed = true) {
-                isButtonPressed1 = false;
-                isButtonPressed = false;
-              }
-              //  Navigator.pushReplacement(
-              //             context,
-              //                 MaterialPageRoute(
-              //                      builder: (context) => LoginPage()));
-            },
-            child: getText(
-                text: 'Sign in', textStyle: BaseStyles.orSignInWithbutton),
-          ))
-        ]));
+        ])));
   }
 }
