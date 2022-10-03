@@ -41,6 +41,7 @@ dependencies:
   google_fonts: ^3.0.1
   blurrycontainer: ^1.0.2
   flutter_otp_text_field: ^1.1.1
+  percent_indicator: ^4.0.1
 
   
 dev_dependencies:

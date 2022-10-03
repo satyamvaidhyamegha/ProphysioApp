@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
               const TextSelectionThemeData(cursorColor: Colors.white)),
       title: 'Pro Physio',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/otpVerify',
+      initialRoute: '/authPage',
       builder: EasyLoading.init(),
       routes: {
         '/splash': (BuildContext context) => const SplashPage(),
@@ -39,7 +39,6 @@ class MyApp extends StatelessWidget {
         '/selection': (BuildContext context) => const ProfileSelectionPage(),
         '/about': (BuildContext context) => const AboutPage(),
         '/authPage': (BuildContext context) => const AuthPage(),
-
         '/otpVerify': (BuildContext context) => const OtpVerificationPage(),
 
         //       '/login': (BuildContext context) => const LoginPage(),
