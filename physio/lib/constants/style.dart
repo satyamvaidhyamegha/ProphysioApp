@@ -48,6 +48,13 @@ class BaseStyles {
       fontSize: 42.0,
       color: Color(0xFFFFFFFF));
 
+  static TextStyle privacyTextStyle = TextStyle(
+      fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w300,
+      fontSize: 16.0,
+      height: 1.5,
+      color: Color(0xFFFFFFFF));
+
   static TextStyle subHeadingTextStyle = TextStyle(
     color: AppColors.subTextColor,
     fontFamily: "Mulish",
