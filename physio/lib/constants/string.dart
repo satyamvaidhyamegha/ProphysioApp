@@ -129,6 +129,7 @@ class Strings {
   static const TERRIBLE = "Terrible";
   static const GET_STARTED = "Get Started";
   static const BTN_OTP = "Send OTP";
+  static const VERIFY_OTP_TEXT = "Verify OTP";
 }
 
 class SuccessfullMsg {
@@ -214,6 +215,9 @@ class ImagePath {
   static const ASSES_SUGGESTED_IMAGE3 = "assets/Group 74761.png";
   static const ROUTINE_UP_NEXT_IMAGE = "assets/Mask Group 135@2x.png";
   static const AUTH_SCREEN = "assets/Group 74772.png";
+
+  static const PATRN = "assets/Group 74744.png";
+
   static const AUTH_SUCCESS = "assets/Successfull_tick.png";
   static const OTP_SCREEN = "assets/Group74772Blur.png";
 }

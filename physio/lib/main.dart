@@ -32,7 +32,11 @@ class MyApp extends StatelessWidget {
               const TextSelectionThemeData(cursorColor: Colors.white)),
       title: 'Pro Physio',
       debugShowCheckedModeBanner: false,
+<<<<<<< HEAD
       initialRoute: '/splash',
+=======
+      initialRoute: '/authPage',
+>>>>>>> f7d5c8a25700a04a36978861c75fd5a1020374c5
       builder: EasyLoading.init(),
       routes: {
         '/splash': (BuildContext context) => const SplashPage(),
@@ -41,7 +45,11 @@ class MyApp extends StatelessWidget {
         '/about': (BuildContext context) => const AboutPage(),
         '/authPage': (BuildContext context) => const AuthPage(),
         '/otpVerify': (BuildContext context) => const OtpVerificationPage(),
+<<<<<<< HEAD
         '/prosactive': (BuildContext context) => const ProActive(),
+=======
+
+>>>>>>> f7d5c8a25700a04a36978861c75fd5a1020374c5
         //       '/login': (BuildContext context) => const LoginPage(),
         //     '/detail1': (BuildContext context) => const DetailPage(),
         //     '/welcomeuser': (BuildContext context) => const Welcomeuser(),

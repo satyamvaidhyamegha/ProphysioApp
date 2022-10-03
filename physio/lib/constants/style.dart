@@ -48,6 +48,13 @@ class BaseStyles {
       fontSize: 42.0,
       color: Color(0xFFFFFFFF));
 
+  static TextStyle privacyTextStyle = TextStyle(
+      fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w300,
+      fontSize: 16.0,
+      height: 1.5,
+      color: Color(0xFFFFFFFF));
+
   static TextStyle subHeadingTextStyle = TextStyle(
     color: AppColors.subTextColor,
     fontFamily: "Mulish",
@@ -183,9 +190,21 @@ class BaseStyles {
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(255, 255, 255, 1));
 
+  static const TextStyle otpTextStyleFour = TextStyle(
+      fontSize: 18,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(255, 255, 255, 1));
+
   static const TextStyle otpTextStyleThree = TextStyle(
       fontSize: 12,
       fontFamily: "Mulish",
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(142, 142, 142, 1));
+
+  static const TextStyle otpTextStyleFive = TextStyle(
+      fontSize: 16,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(0, 124, 226, 1));
 }
