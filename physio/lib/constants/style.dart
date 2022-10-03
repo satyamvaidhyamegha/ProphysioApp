@@ -190,9 +190,21 @@ class BaseStyles {
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(255, 255, 255, 1));
 
+  static const TextStyle otpTextStyleFour = TextStyle(
+      fontSize: 18,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(255, 255, 255, 1));
+
   static const TextStyle otpTextStyleThree = TextStyle(
       fontSize: 12,
       fontFamily: "Mulish",
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(142, 142, 142, 1));
+
+  static const TextStyle otpTextStyleFive = TextStyle(
+      fontSize: 16,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(0, 124, 226, 1));
 }
