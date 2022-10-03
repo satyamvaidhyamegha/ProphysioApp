@@ -39,10 +39,9 @@ class MyApp extends StatelessWidget {
         '/selection': (BuildContext context) => const ProfileSelectionPage(),
         '/about': (BuildContext context) => const AboutPage(),
         '/authPage': (BuildContext context) => const AuthPage(),
-<<<<<<< HEAD
-=======
+
         '/otpVerify': (BuildContext context) => const OtpVerificationPage(),
->>>>>>> 27a2778ed16327e66cf7b739122da838e5c5a623
+
         //       '/login': (BuildContext context) => const LoginPage(),
         //     '/detail1': (BuildContext context) => const DetailPage(),
         //     '/welcomeuser': (BuildContext context) => const Welcomeuser(),

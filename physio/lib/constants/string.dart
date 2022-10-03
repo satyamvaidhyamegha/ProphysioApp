@@ -214,12 +214,11 @@ class ImagePath {
   static const ASSES_SUGGESTED_IMAGE3 = "assets/Group 74761.png";
   static const ROUTINE_UP_NEXT_IMAGE = "assets/Mask Group 135@2x.png";
   static const AUTH_SCREEN = "assets/Group 74772.png";
-<<<<<<< HEAD
+
   static const PATRN = "assets/Group 74744.png";
-=======
+
   static const AUTH_SUCCESS = "assets/Successfull_tick.png";
   static const OTP_SCREEN = "assets/Group74772Blur.png";
->>>>>>> 27a2778ed16327e66cf7b739122da838e5c5a623
 }
 
 class CustomLogo {
