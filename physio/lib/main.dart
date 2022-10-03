@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:physio/screens/onboarding/otp_verification.dart';
 import 'package:physio/screens/onboarding/splash_screen2.dart';
 import 'package:physio/screens/onboarding/splash_screen.dart';
 import 'package:physio/screens/onboarding/profile_selection.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
               const TextSelectionThemeData(cursorColor: Colors.white)),
       title: 'Pro Physio',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/splash',
+      initialRoute: '/otpVerify',
       builder: EasyLoading.init(),
       routes: {
         '/splash': (BuildContext context) => const SplashPage(),
@@ -38,6 +39,10 @@ class MyApp extends StatelessWidget {
         '/selection': (BuildContext context) => const ProfileSelectionPage(),
         '/about': (BuildContext context) => const AboutPage(),
         '/authPage': (BuildContext context) => const AuthPage(),
+<<<<<<< HEAD
+=======
+        '/otpVerify': (BuildContext context) => const OtpVerificationPage(),
+>>>>>>> 27a2778ed16327e66cf7b739122da838e5c5a623
         //       '/login': (BuildContext context) => const LoginPage(),
         //     '/detail1': (BuildContext context) => const DetailPage(),
         //     '/welcomeuser': (BuildContext context) => const Welcomeuser(),
