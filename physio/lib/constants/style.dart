@@ -131,6 +131,14 @@ class BaseStyles {
     fontSize: 40,
   );
 
+  static TextStyle textStyleForSignupScreen = TextStyle(
+    color: AppColors.textColor,
+    fontFamily: "Montserrat",
+    fontWeight: FontWeight.w400,
+    height: 1.5,
+    fontSize: 20,
+  );
+
   static const TextStyle selfCareTextStyle = TextStyle(
     color: Color(0xFF000000),
     fontFamily: "Mulish",

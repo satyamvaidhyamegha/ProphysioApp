@@ -47,7 +47,7 @@ class _AuthScreenPageState extends State<AuthPage> {
               child: Column(
                 children: [
                   const Padding(padding: EdgeInsets.all(45)),
-                  Align(
+                  Container(
                     alignment: Alignment.centerLeft,
                     child: Container(
                       padding: const EdgeInsets.only(left: 20),
@@ -55,7 +55,7 @@ class _AuthScreenPageState extends State<AuthPage> {
                           style: BaseStyles.textStyleForAuthScreen),
                     ),
                   ),
-                  Align(
+                  Container(
                     alignment: Alignment.centerLeft,
                     child: Container(
                       padding: const EdgeInsets.only(left: 20, bottom: 50),

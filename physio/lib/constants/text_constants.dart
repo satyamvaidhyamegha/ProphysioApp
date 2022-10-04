@@ -150,6 +150,24 @@ const registeredText = TextStyle(
   fontWeight: FontWeight.w200,
   fontSize: 19,
 );
+const doctorNameText = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 27,
+);
+const signupText = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w200,
+  fontSize: 50,
+);
+const signupText2 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w200,
+  fontSize: 40,
+);
 const numberText = TextStyle(
   color: Color(0xFFFFFFFF),
   fontFamily: "Mulish",
