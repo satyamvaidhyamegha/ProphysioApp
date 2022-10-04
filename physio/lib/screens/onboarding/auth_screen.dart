@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:physio/screens/onboarding/otp_verification.dart';
 import '../../BaseWidget/base_image_widget.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
@@ -64,7 +64,8 @@ class _AuthScreenPageState extends State<AuthPage> {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30, top: 30),
+                    padding: const EdgeInsets.only(
+                        left: 20, right: 20, bottom: 30, top: 30),
                     child: TextField(
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -78,7 +79,8 @@ class _AuthScreenPageState extends State<AuthPage> {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(bottom: 30, left: 20, right: 20),
+                    padding:
+                        const EdgeInsets.only(bottom: 30, left: 20, right: 20),
                     child: TextField(
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -92,7 +94,8 @@ class _AuthScreenPageState extends State<AuthPage> {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(bottom: 120, left: 20, right: 20),
+                    padding:
+                        const EdgeInsets.only(bottom: 120, left: 20, right: 20),
                     child: TextField(
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -108,19 +111,17 @@ class _AuthScreenPageState extends State<AuthPage> {
 
                   //Button
                   Container(
-
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      height: MediaQuery.of(context).size.height * 0.07,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: AppColors.buttonColor),
-
-                    child :GestureDetector(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.07,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: AppColors.buttonColor),
+                    child: GestureDetector(
                       onTap: () {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => AuthPage3()));
+                                builder: (context) => OtpVerificationPage()));
                       },
                       child: Center(
                         child: getText(
@@ -129,20 +130,24 @@ class _AuthScreenPageState extends State<AuthPage> {
                             textStyle: buttonTextStyle),
                       ),
                     ),
-                       ),
-                  Container(
-                      margin: const EdgeInsets.only(top: 30, right: 20, left: 20, bottom: 10),
-                      child: const Divider(color: Colors.white,)
                   ),
                   Container(
-                    margin: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+                      margin: const EdgeInsets.only(
+                          top: 30, right: 20, left: 20, bottom: 10),
+                      child: const Divider(
+                        color: Colors.white,
+                      )),
+                  Container(
+                    margin:
+                        const EdgeInsets.only(right: 20, left: 20, bottom: 20),
                     child: getText(
                         textAlign: TextAlign.center,
                         text: "Don't have Indian number?",
                         textStyle: numberText),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(right: 20, left: 20, bottom: 10),
+                    margin:
+                        const EdgeInsets.only(right: 20, left: 20, bottom: 10),
                     child: getText(
                         textAlign: TextAlign.center,
                         text: "Click here",
@@ -152,7 +157,6 @@ class _AuthScreenPageState extends State<AuthPage> {
               ),
             ),
           ),
-        )
-    );
+        ));
   }
 }

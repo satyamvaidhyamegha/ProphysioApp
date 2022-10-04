@@ -18,6 +18,13 @@ class BaseStyles {
     height: 1.5,
     fontSize: 22,
   );
+  static TextStyle textStyleForProfileSelection = TextStyle(
+    color: AppColors.textColor,
+    fontFamily: "Montserrat",
+    fontWeight: FontWeight.w300,
+    height: 1.5,
+    fontSize: 42,
+  );
   static TextStyle buttonTextStyle = TextStyle(
       fontFamily: 'Montserrat',
       fontWeight: FontWeight.w500,
@@ -29,16 +36,23 @@ class BaseStyles {
       fontSize: 16.0,
       color: Color(0xFFCCCCCC));
 
-  static TextStyle signInText = TextStyle(
-    color: AppColors.buttonColor,
+  static TextStyle subText = TextStyle(
+    color: Color(0xFFCCCCCC),
     fontFamily: "Mulish",
-    fontWeight: FontWeight.w600,
-    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    fontSize: 20,
   );
   static TextStyle headingTextStyle = TextStyle(
       fontFamily: 'Montserrat',
       fontWeight: FontWeight.w300,
       fontSize: 42.0,
+      color: Color(0xFFFFFFFF));
+
+  static TextStyle privacyTextStyle = TextStyle(
+      fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w300,
+      fontSize: 16.0,
+      height: 1.5,
       color: Color(0xFFFFFFFF));
 
   static TextStyle subHeadingTextStyle = TextStyle(
@@ -50,8 +64,14 @@ class BaseStyles {
   static TextStyle orSignInWithText = TextStyle(
       fontFamily: 'Mulish',
       fontWeight: FontWeight.w600,
-      fontSize: 18.0,
+      fontSize: 16.0,
       color: Color(0xFF767C83));
+
+  static TextStyle orSignInWithbutton = TextStyle(
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w600,
+    fontSize: 18.0,
+  );
 
   static TextStyle forgotPasswordTextStyle = TextStyle(
       color: AppColors.textColor,
@@ -165,4 +185,34 @@ class BaseStyles {
       fontFamily: "Mulish",
       fontWeight: FontWeight.normal,
       color: Color.fromRGBO(235, 235, 245, 1));
+
+  static const TextStyle otpTextStyle = TextStyle(
+      fontSize: 16,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.normal,
+      color: Color.fromRGBO(196, 196, 196, 1));
+
+  static const TextStyle otpTextStyleTwo = TextStyle(
+      fontSize: 16,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(255, 255, 255, 1));
+
+  static const TextStyle otpTextStyleFour = TextStyle(
+      fontSize: 18,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(255, 255, 255, 1));
+
+  static const TextStyle otpTextStyleThree = TextStyle(
+      fontSize: 12,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(142, 142, 142, 1));
+
+  static const TextStyle otpTextStyleFive = TextStyle(
+      fontSize: 16,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(0, 124, 226, 1));
 }

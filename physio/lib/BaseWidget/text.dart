@@ -12,6 +12,34 @@ getText(
     style: textStyle,
     overflow: TextOverflow.clip,
     softWrap: true,
-    maxLines: 3,
+    maxLines: 100,
+  );
+}
+
+buttonText(
+    {required String text,
+    required TextStyle textStyle,
+    TextAlign? textAlign}) {
+  return Text(
+    text,
+    textAlign: textAlign,
+    style: textStyle,
+    overflow: TextOverflow.clip,
+    softWrap: true,
+    maxLines: 100,
+  );
+}
+
+getParaText(
+    {required String text,
+    required TextStyle textStyle,
+    TextAlign? textAlign}) {
+  return Text(
+    text,
+    textAlign: textAlign,
+    style: textStyle,
+    overflow: TextOverflow.clip,
+    softWrap: true,
+    maxLines: 100,
   );
 }

@@ -145,9 +145,12 @@ class _AboutPagePageState extends State<AboutPage> {
                           padding: EdgeInsets.only(
                               top: MediaQuery.of(context).size.height * 0.08,
                               left: 16),
-                          child: Icon(
-                            Icons.arrow_back_ios_new_rounded,
-                            color: Colors.white,
+                          child: GestureDetector(
+                            onTap: () => Navigator.of(context).pop(),
+                            child: Icon(
+                              Icons.arrow_back_ios_new_rounded,
+                              color: AppColors.textColor,
+                            ),
                           ),
                         ),
                       ),
@@ -187,9 +190,12 @@ class _AboutPagePageState extends State<AboutPage> {
                       padding: EdgeInsets.only(
                           top: MediaQuery.of(context).size.height * 0.08,
                           left: 16),
-                      child: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: AppColors.textColor,
+                      child: GestureDetector(
+                        onTap: () => Navigator.of(context).pop(),
+                        child: Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: AppColors.textColor,
+                        ),
                       ),
                     ),
                   ),
@@ -278,75 +284,70 @@ class _AboutPagePageState extends State<AboutPage> {
                       : _buildPageIndicator(false),
               ]),
               Container(height: MediaQuery.of(context).size.height * 0.07),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    GestureDetector(
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: <
+                  Widget>[
+                GestureDetector(
                   onTap: () {
-        Navigator.pushReplacement(
-           context,
-      MaterialPageRoute(
-      builder: (context) => AuthPage()));
-      },
-                      child: Container(
-                        width: 100,
-                        child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: getText(
-                              text: Strings.SKIP,
-                              textAlign: TextAlign.center,
-                              textStyle: BaseStyles.skipTextStyle,
-                            )),
-                      ),
-                    ),
-                    isLastPage == false
-                        ? GestureDetector(
-                            onTap: () {
-                              // Navigator.pushReplacement(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => LoginPage()));
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => AuthPage()));
+                  },
+                  child: Container(
+                    width: 100,
+                    child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: getText(
+                          text: Strings.SKIP,
+                          textAlign: TextAlign.center,
+                          textStyle: BaseStyles.skipTextStyle,
+                        )),
+                  ),
+                ),
+                isLastPage == false
+                    ? GestureDetector(
+                        onTap: () {
+                          // Navigator.pushReplacement(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => LoginPage()));
 
-                              _pageController.nextPage(
-                                  duration: Duration(milliseconds: 500),
-                                  curve: Curves.easeInOut);
-                            },
-                            child: Container(
-                                width: MediaQuery.of(context).size.width * 0.3,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.05,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: AppColors.buttonColor),
-                                child: Center(
-                                  child: getText(
-                                      textAlign: TextAlign.center,
-                                      text: Strings.NEXT,
-                                      textStyle: buttonTextStyle),
-                                )),
-                          )
-                        : GestureDetector(
-                               onTap: () {
-                               Navigator.pushReplacement(
-                                   context,
-                                  MaterialPageRoute(
-                                       builder: (context) => AuthPage()));
-                            },
-                            child: Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.05,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: Colors.blue),
-                                child: Center(
-                                  child: getText(
-                                      textAlign: TextAlign.center,
-                                      text: Strings.GET_STARTED,
-                                      textStyle: buttonTextStyle),
-                                )),
-                          )
-                  ]),
+                          _pageController.nextPage(
+                              duration: Duration(milliseconds: 500),
+                              curve: Curves.easeInOut);
+                        },
+                        child: Container(
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            height: MediaQuery.of(context).size.height * 0.05,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: AppColors.buttonColor),
+                            child: Center(
+                              child: getText(
+                                  textAlign: TextAlign.center,
+                                  text: Strings.NEXT,
+                                  textStyle: buttonTextStyle),
+                            )),
+                      )
+                    : GestureDetector(
+                        onTap: () async {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AuthPage()));
+                        },
+                        child: Container(
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            height: MediaQuery.of(context).size.height * 0.05,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.blue),
+                            child: Center(
+                              child: getText(
+                                  textAlign: TextAlign.center,
+                                  text: Strings.GET_STARTED,
+                                  textStyle: buttonTextStyle),
+                            )),
+                      )
+              ]),
             ]),
       ),
     ]));
