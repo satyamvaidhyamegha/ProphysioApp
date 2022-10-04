@@ -16,11 +16,11 @@ class CustomButton extends StatelessWidget {
 
   const CustomButton(
       {required this.onTap,
-      required this.text,
-      required this.borderRadius,
-      required this.buttonColor,
-      required this.height,
-      required this.width});
+        required this.text,
+        required this.borderRadius,
+        required this.buttonColor,
+        required this.height,
+        required this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class CustomButton extends StatelessWidget {
         width: width,
         height: height,
         decoration:
-            BoxDecoration(borderRadius: borderRadius, color: buttonColor),
+        BoxDecoration(borderRadius: borderRadius, color: buttonColor),
         child: Container(
             alignment: Alignment.center,
             child: getText(
@@ -45,22 +45,23 @@ class CustomButton extends StatelessWidget {
 
 getBackIconButton({required BuildContext context}) {
   return
-      // ignore: prefer_const_constructors
-      InkWell(
-    onTap: () {
-      backFromPreviousScreen(context: context);
-    },
-    child: Icon(
-      Icons.arrow_back_ios,
-      color: Colors.white,
-    ),
-  );
+    // ignore: prefer_const_constructors
+    InkWell(
+      onTap: () {
+        backFromPreviousScreen(context: context,
+            child: const Icon(
+          Icons.arrow_back_ios,
+          color: Colors.white,
+            )
+        );
+      },
+    );
 }
 
 getTwoButtonSplit(
     {required BuildContext context,
-    required String buttonText,
-    required VoidCallback onPress}) {
+      required String buttonText,
+      required VoidCallback onPress}) {
   return InkWell(
     onTap: onPress,
     child: Container(
@@ -73,7 +74,7 @@ getTwoButtonSplit(
         child: getText(
             text: buttonText,
             textStyle:
-                profilefieldtextStyle.copyWith(color: AppColors.buttonColor)),
+            profilefieldtextStyle.copyWith(color: AppColors.buttonColor)),
       ),
     ),
   );

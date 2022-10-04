@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       title: 'Pro Physio',
       debugShowCheckedModeBanner: false,
 
-      initialRoute: '/authPage',
+      initialRoute: '/splash',
 
       builder: EasyLoading.init(),
       routes: {
