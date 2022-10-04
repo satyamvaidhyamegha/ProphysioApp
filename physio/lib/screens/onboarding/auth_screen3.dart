@@ -1,6 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:physio/constants/colors.dart';
-
+import 'package:physio/screens/onboarding/signup_screen1.dart';
 import '../../BaseWidget/base_image_widget.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/string.dart';
@@ -72,7 +73,7 @@ class _AuthScreenPageState3 extends State<AuthPage3> {
                       textStyle: registeredText),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 250),
+                  margin: const EdgeInsets.only(top: 220),
                   alignment: Alignment.bottomCenter,
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: MediaQuery.of(context).size.height * 0.07,
@@ -82,7 +83,7 @@ class _AuthScreenPageState3 extends State<AuthPage3> {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => AuthPage()));
+                          MaterialPageRoute(builder: (context) => const SignupScreen1()));
                     },
                     child: Center(
                       child: getText(

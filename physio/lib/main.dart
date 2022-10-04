@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:physio/screens/onboarding/auth_screen3.dart';
+import 'package:physio/screens/onboarding/signup_screen1.dart';
 import 'package:physio/screens/onboarding/splash_screen2.dart';
 import 'package:physio/screens/onboarding/splash_screen.dart';
 import 'package:physio/screens/onboarding/about_screen.dart';
@@ -29,13 +31,15 @@ class MyApp extends StatelessWidget {
               const TextSelectionThemeData(cursorColor: Colors.white)),
       title: 'Pro Physio',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/splash',
+      initialRoute: '/authPage',
       builder: EasyLoading.init(),
       routes: {
         '/splash': (BuildContext context) => const SplashPage(),
         '/SplashPage2': (BuildContext context) => const SplashPage2(),
         '/about': (BuildContext context) => const AboutPage(),
         '/authPage':(BuildContext context) => const AuthPage(),
+        '/authPage3':(BuildContext context) => const AuthPage3(),
+        '/signupScreen1':(BuildContext context) => const SignupScreen1(),
         //       '/login': (BuildContext context) => const LoginPage(),
         //     '/detail1': (BuildContext context) => const DetailPage(),
         //     '/welcomeuser': (BuildContext context) => const Welcomeuser(),

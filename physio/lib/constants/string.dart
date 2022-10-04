@@ -129,6 +129,7 @@ class Strings {
   static const TERRIBLE = "Terrible";
   static const GET_STARTED = "Get Started";
   static const BTN_OTP = "Send OTP";
+  static const DOCTOR_NAME = "Dr. Somvanshi";
 }
 
 class SuccessfullMsg {
