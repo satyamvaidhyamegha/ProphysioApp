@@ -108,16 +108,16 @@ const navlablecolor = TextStyle(
 //welcome text
 
 const headertext = TextStyle(
-  color: Color(0xFFFFFFFF),
+  color: Color(0xFFCCCCCC),
   fontFamily: "Mulish",
   fontWeight: FontWeight.w700,
-  fontSize: 18,
+  fontSize: 16,
 );
 
 const midheadertext = TextStyle(
   color: Color(0xFFFFFFFF),
   fontFamily: "Mulish",
-  fontWeight: FontWeight.w700,
+  fontWeight: FontWeight.normal,
   fontSize: 14,
 );
 const bluetext = TextStyle(
@@ -155,6 +155,13 @@ const doctorNameText = TextStyle(
   fontFamily: "Mulish",
   fontWeight: FontWeight.w400,
   fontSize: 27,
+);
+
+const professionProfileHeading1 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 18,
 );
 const signupText = TextStyle(
   color: Color(0xFFFFFFFF),
