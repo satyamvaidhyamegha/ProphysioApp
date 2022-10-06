@@ -8,16 +8,16 @@ import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/text_constants.dart';
 
-class SignupScreen2 extends StatefulWidget {
-  const SignupScreen2({Key? key}) : super(key: key);
+class CertificationScreen extends StatefulWidget {
+  const CertificationScreen({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _SignupScreenPageState2();
+    return _CertificationScreenPageState();
   }
 }
 
-class _SignupScreenPageState2 extends State<SignupScreen2> {
+class _CertificationScreenPageState extends State<CertificationScreen> {
   var windowWidth;
   var windowHeight;
 
@@ -39,7 +39,8 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const SignupScreen1()),
+            MaterialPageRoute(
+                builder: (context) => const ProfessionalProfile()),
           ),
         ),
       ),
@@ -52,7 +53,7 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
             Container(
               margin: const EdgeInsets.only(right: 20, left: 20, top: 10),
               child: LinearPercentIndicator(
-                percent: 0.4,
+                percent: 0.6,
                 animation: true,
                 animationDuration: 1000,
                 lineHeight: 10,
@@ -67,7 +68,7 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                   right: 20, left: 20, bottom: 10, top: 30),
               child: getText(
                   textAlign: TextAlign.center,
-                  text: "Create Password",
+                  text: "Certificate Name",
                   textStyle: signupText2),
             ),
             Container(
@@ -81,7 +82,7 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                 autofocus: false,
                 obscureText: true,
                 decoration: InputDecoration(
-                    labelText: "Enter Password",
+                    labelText: "Issuing Organization",
                     labelStyle: headertext,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15.0),
@@ -125,12 +126,12 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ProfessionalProfile()));
+                          builder: (context) => const CertificationScreen()));
                 },
                 child: Center(
                   child: getText(
                       textAlign: TextAlign.center,
-                      text: "Create Profile",
+                      text: "Next",
                       textStyle: buttonTextStyle),
                 ),
               ),
