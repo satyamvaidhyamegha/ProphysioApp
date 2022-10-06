@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:physio/screens/onboarding/professional_profile.dart';
-import 'package:physio/screens/onboarding/signup_screen1.dart';
+import 'package:flutter/foundation.dart';
 
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
@@ -68,8 +68,29 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                   right: 20, left: 20, bottom: 10, top: 30),
               child: getText(
                   textAlign: TextAlign.center,
-                  text: "Certificate Name",
+                  text: "Certification",
                   textStyle: signupText2),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  border: Border.all(color: Colors.blueGrey, width: 1),
+                  borderRadius: BorderRadius.circular(15)),
+              child: TextFormField(
+                style: const TextStyle(color: Colors.white),
+                autofocus: false,
+                obscureText: true,
+                decoration: InputDecoration(
+                    labelText: "Certificate Name",
+                    labelStyle: headertext,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    filled: true,
+                    hintStyle: TextStyle(color: Colors.grey[300]),
+                    fillColor: Colors.black),
+              ),
             ),
             Container(
               margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
@@ -92,26 +113,122 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                     fillColor: Colors.black),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
-              decoration: BoxDecoration(
-                  color: Colors.black,
-                  border: Border.all(color: Colors.blueGrey, width: 1),
-                  borderRadius: BorderRadius.circular(15)),
-              child: TextFormField(
-                style: const TextStyle(color: Colors.white),
-                autofocus: false,
-                obscureText: true,
-                decoration: InputDecoration(
-                    labelText: "Re-Enter Password",
-                    labelStyle: headertext,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    filled: true,
-                    hintStyle: TextStyle(color: Colors.grey[300]),
-                    fillColor: Colors.black),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              Expanded(
+                flex: 8,
+                child: Container(
+                    alignment: Alignment.centerRight,
+                    margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        border: Border.all(color: Colors.blueGrey, width: 1),
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(
+                                  top: 10, right: 20, bottom: 5),
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "Issue Date",
+                                style: const TextStyle(
+                                  color: Color(0xFFCCCCCC),
+                                  fontFamily: "Mulish",
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 14,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(
+                                  top: 5, left: 15, bottom: 10),
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "24/10/2022",
+                                style: certificationHeader2,
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                          ],
+                        ),
+                        InkWell(
+                          child: Container(
+                            margin: const EdgeInsets.only(left: 20),
+                            alignment: Alignment.centerRight,
+                            child: Image.asset("assets/calendar.png"),
+                          ),
+                          onTap: () {
+                            debugPrint("calendar click event");
+                          },
+                        )
+                      ],
+                    )),
               ),
+              Expanded(
+                flex: 6,
+                child: Container(),
+              ),
+            ]),
+            Row(children: [
+              Expanded(
+                flex: 1,
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.only(
+                      right: 20, left: 25, bottom: 5, top: 20),
+                  child: getText(
+                      textAlign: TextAlign.center,
+                      text: "Media",
+                      textStyle: professionProfileHeading1),
+                ),
+              ),
+              Expanded(
+                flex: 3,
+                child: Container(
+                    alignment: Alignment.centerRight,
+                    margin: const EdgeInsets.only(
+                        top: 20, right: 20, bottom: 5, left: 0),
+                    child: const Divider(
+                      thickness: 1,
+                      color: Colors.white24,
+                    )),
+              ),
+            ]),
+            Row(
+              children: [
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        border: Border.all(color: Colors.blueGrey, width: 1),
+                        borderRadius: BorderRadius.circular(15)),
+                    child: TextFormField(
+                      style: const TextStyle(color: Colors.white),
+                      autofocus: false,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          labelText: "Add or link document",
+                          labelStyle: headertext,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          filled: true,
+                          hintStyle: TextStyle(color: Colors.grey[300]),
+                          fillColor: Colors.black),
+                    ),
+                  ),
+                ),
+                Expanded(
+                    flex: 1,
+                    child: Container(
+                      child: Image.asset("assets/groupplus.svg"),
+                    ))
+              ],
             ),
             Container(
               margin: const EdgeInsets.only(top: 80),
