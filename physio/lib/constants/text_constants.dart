@@ -187,6 +187,21 @@ const subtitle1 = TextStyle(
   fontWeight: FontWeight.w700,
   fontSize: 12,
 );
+
+const certificationHeader1 = TextStyle(
+  color: Color(0xFFCCCCCC),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w900,
+  fontSize: 14,
+);
+
+const certificationHeader2 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.normal,
+  fontSize: 20,
+);
+
 const subtitle = TextStyle(
   color: Color(0xFFEBEBF599),
   fontFamily: "Mulish",
