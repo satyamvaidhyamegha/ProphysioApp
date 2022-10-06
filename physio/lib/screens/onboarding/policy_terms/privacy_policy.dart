@@ -56,7 +56,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   right: MediaQuery.of(context).size.width * 0.04,
                 ),
                 child: new LinearPercentIndicator(
-                  width: 361,
+                  width: 358,
                   animation: true,
                   lineHeight: 6.0,
                   animationDuration: 2500,
@@ -116,7 +116,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.blue,
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 146.0, vertical: 22.0),
+                                    horizontal: 145.0, vertical: 18.0),
                                 shape: const StadiumBorder(),
                               ),
                               child: buttonText(
