@@ -8,6 +8,6 @@ doNavigateWithPushName({required Widget route, required BuildContext context}) {
   Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => route));
 }
 
-backFromPreviousScreen({required BuildContext context, required Icon child}) {
+backFromPreviousScreen({required BuildContext context}) {
   return Navigator.pop(context);
 }
