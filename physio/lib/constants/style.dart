@@ -131,6 +131,14 @@ class BaseStyles {
     fontSize: 40,
   );
 
+  static TextStyle textStyleForSignupScreen = TextStyle(
+    color: AppColors.textColor,
+    fontFamily: "Montserrat",
+    fontWeight: FontWeight.w400,
+    height: 1.5,
+    fontSize: 20,
+  );
+
   static const TextStyle selfCareTextStyle = TextStyle(
     color: Color(0xFF000000),
     fontFamily: "Mulish",
@@ -190,9 +198,21 @@ class BaseStyles {
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(255, 255, 255, 1));
 
+  static const TextStyle otpTextStyleFour = TextStyle(
+      fontSize: 18,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(255, 255, 255, 1));
+
   static const TextStyle otpTextStyleThree = TextStyle(
       fontSize: 12,
       fontFamily: "Mulish",
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(142, 142, 142, 1));
+
+  static const TextStyle otpTextStyleFive = TextStyle(
+      fontSize: 16,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(0, 124, 226, 1));
 }

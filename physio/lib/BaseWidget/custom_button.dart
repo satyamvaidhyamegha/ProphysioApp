@@ -21,7 +21,6 @@ class CustomButton extends StatelessWidget {
       required this.buttonColor,
       required this.height,
       required this.width});
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -55,6 +54,8 @@ getBackIconButton({required BuildContext context}) {
       color: Colors.white,
     ),
   );
+  // ignore: prefer_const_constructors
+  // ignore: dead_code
 }
 
 getTwoButtonSplit(

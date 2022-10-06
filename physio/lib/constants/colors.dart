@@ -39,6 +39,7 @@ class AppColors {
   static const verifyOtpEnterOtpColor = Color(0xff6E6E6E);
   static const inactiveButtonColor = Colors.grey;
   static const otpSuccessBackground = Color(0xff182021);
+  static const signupBackground = Color(0xff182021);
   static const progressYellowLine = Color.fromRGBO(255, 181, 13, 1);
   static const progressYellowlineBgColor = Color.fromRGBO(255, 255, 255, 1);
   static const checkboxActiveColor = Colors.green;
@@ -51,6 +52,12 @@ class AppColors {
   static const routineStepColor2 = Color.fromRGBO(34, 155, 255, 1);
   static const greateJobScreen = Color.fromRGBO(63, 190, 131, 1);
   static const greateJobCardColor = Color.fromRGBO(30, 44, 44, 1);
+
+  static const PROACTIVE_APPBAR_COLOR = Color(0XFFFBA9562);
+
+  static const buttonVerify = Color.fromRGBO(121, 121, 121, 1);
+  static const buttonVerifyBG = Color(0xff0D0E0E);
+
 }
 
 class ErrorColor {

@@ -9,5 +9,7 @@ doNavigateWithPushName({required Widget route, required BuildContext context}) {
 }
 
 backFromPreviousScreen({required BuildContext context}) {
-  return Navigator.pop(context);
+  backFromPreviousScreen({required BuildContext context, required Icon child}) {
+    return Navigator.pop(context);
+  }
 }
