@@ -38,10 +38,9 @@ class MyApp extends StatelessWidget {
               const TextSelectionThemeData(cursorColor: Colors.white)),
       title: 'Pro Physio',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/signup3',
+      initialRoute: '/splash',
       builder: EasyLoading.init(),
       routes: {
-        '/signup3': (BuildContext context) => const SignupScreen3(),
         '/splash': (BuildContext context) => const SplashPage(),
         '/SplashPage2': (BuildContext context) => const SplashPage2(),
         '/selection': (BuildContext context) => const ProfileSelectionPage(),
