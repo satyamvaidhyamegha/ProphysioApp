@@ -34,7 +34,7 @@ class _SplashPagePageState extends State<SplashPage> {
   }
 
   startTime() async {
-    var duration = const Duration(seconds: 4);
+    var duration = const Duration(seconds: 2);
     return Timer(duration, _startNextScreen);
   }
 
