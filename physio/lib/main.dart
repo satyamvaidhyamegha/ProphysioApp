@@ -14,6 +14,7 @@ import 'package:physio/screens/onboarding/profile_selection.dart';
 import 'package:physio/screens/onboarding/about_screen.dart';
 import 'package:physio/screens/onboarding/auth_screen.dart';
 import 'package:physio/screens/onboarding/pro_active';
+import 'package:physio/screens/signup_screen3.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,25 +38,22 @@ class MyApp extends StatelessWidget {
               const TextSelectionThemeData(cursorColor: Colors.white)),
       title: 'Pro Physio',
       debugShowCheckedModeBanner: false,
-
-      initialRoute: '/splash',
-
+      initialRoute: '/signup3',
       builder: EasyLoading.init(),
       routes: {
+        '/signup3': (BuildContext context) => const SignupScreen3(),
         '/splash': (BuildContext context) => const SplashPage(),
         '/SplashPage2': (BuildContext context) => const SplashPage2(),
         '/selection': (BuildContext context) => const ProfileSelectionPage(),
         '/about': (BuildContext context) => const AboutPage(),
 
-        '/authPage':(BuildContext context) => const AuthPage(),
-        '/authPage3':(BuildContext context) => const AuthPage3(),
-        '/signupScreen1':(BuildContext context) => const SignupScreen1(),
-        
+        '/authPage': (BuildContext context) => const AuthPage(),
+        '/authPage3': (BuildContext context) => const AuthPage3(),
+        '/signupScreen1': (BuildContext context) => const SignupScreen1(),
+
         '/otpVerify': (BuildContext context) => const OtpVerificationPage(),
 
         '/prosactive': (BuildContext context) => const ProActive(),
-
-
 
         //       '/login': (BuildContext context) => const LoginPage(),
         //     '/detail1': (BuildContext context) => const DetailPage(),

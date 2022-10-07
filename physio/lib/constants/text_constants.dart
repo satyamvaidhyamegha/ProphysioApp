@@ -210,3 +210,9 @@ const headingTextStyle = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 22.0,
     color: AppColors.baseTextColor);
+
+const aboutYouText = TextStyle(
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Mulish');
