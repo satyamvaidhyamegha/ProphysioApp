@@ -133,7 +133,8 @@ class Strings {
   static const DOCTOR_NAME = "Dr. Somvanshi";
 
   static const VERIFY_OTP_TEXT = "Verify OTP";
-
+  static const BTN_CERTIFICATE = "Next";
+  static const BTN_CERTIFICATE_TEXT = "Later";
 }
 
 class SuccessfullMsg {

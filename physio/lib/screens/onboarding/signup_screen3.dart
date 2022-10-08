@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import '../../BaseWidget/text.dart';
-import '../../constants/colors.dart';
-import '../../constants/text_constants.dart';
+import '../../../BaseWidget/text.dart';
+import '../../../constants/colors.dart';
+import '../../../constants/text_constants.dart';
 
 class SignupScreen3 extends StatefulWidget {
   const SignupScreen3({Key? key}) : super(key: key);

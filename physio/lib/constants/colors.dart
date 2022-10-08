@@ -57,7 +57,7 @@ class AppColors {
 
   static const buttonVerify = Color.fromRGBO(121, 121, 121, 1);
   static const buttonVerifyBG = Color(0xff0D0E0E);
-
+  static const buttonNextCertificate = Color(0xff182021);
 }
 
 class ErrorColor {
