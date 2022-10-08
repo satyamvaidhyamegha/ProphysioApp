@@ -17,7 +17,6 @@ import 'package:physio/screens/onboarding/profile_selection.dart';
 import 'package:physio/screens/onboarding/about_screen.dart';
 import 'package:physio/screens/onboarding/auth_screen.dart';
 import 'package:physio/screens/onboarding/pro_active';
-import 'package:physio/screens/signup_screen3.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,16 +51,11 @@ class MyApp extends StatelessWidget {
         '/authPage': (BuildContext context) => const AuthPage(),
         '/authPage3': (BuildContext context) => const AuthPage3(),
         '/signupScreen1': (BuildContext context) => const SignupScreen1(),
-
         '/signupScreen2': (BuildContext context) => const SignupScreen2(),
         '/certificationScreen': (BuildContext context) =>
             const CertificationScreen(),
         '/professionalProfile': (BuildContext context) =>
             const ProfessionalProfile(),
-
-        '/otpVerify': (BuildContext context) => const OtpVerificationPage(),
-
-        '/prosactive': (BuildContext context) => const ProActive(),
 
         //       '/login': (BuildContext context) => const LoginPage(),
         //     '/detail1': (BuildContext context) => const DetailPage(),

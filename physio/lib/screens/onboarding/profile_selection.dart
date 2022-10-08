@@ -1,11 +1,9 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/style.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
-
+import 'package:physio/screens/onboarding/camera.dart';
 import 'about_screen.dart';
 import 'package:physio/screens/onboarding/policy_terms/privacy_policy.dart';
 
@@ -210,11 +208,10 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                           isButtonPressed1 = false;
                           isButtonPressed = false;
                         }
-                        //  Navigator.pushReplacement(
-                        //             context,
-                        //                 MaterialPageRoute(
-                        //
-                        //                      builder: (context) => LoginPage()));
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const CameraPage()));
                       });
                     },
                     child: getText(
