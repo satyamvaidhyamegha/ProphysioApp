@@ -215,4 +215,6 @@ class BaseStyles {
       fontFamily: "Mulish",
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(0, 124, 226, 1));
+
+  
 }
