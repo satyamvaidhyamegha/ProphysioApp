@@ -4,6 +4,7 @@ import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:physio/screens/onboarding/certification_screen.dart';
 import 'package:physio/screens/onboarding/signup_screen2.dart';
+import 'package:physio/screens/onboarding/signup_screen3.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/style.dart';
@@ -264,8 +265,7 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    const CertificationScreen()));
+                                builder: (context) => const SignupScreen3()));
                       },
                       child: Center(
                         child: getText(

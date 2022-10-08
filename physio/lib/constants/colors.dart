@@ -16,6 +16,7 @@ class AppColors {
   static const greyColors = Color(0xFF3C3C3C);
   static const whiteGrey = Color(0xFF767C83);
   static const black = Color(0xFF000000);
+  static const CHECKBOX_ACTIVE_COLOR = Colors.green;
   static const otpBoxborder = Color(0xFF3C3C3C);
   static const yellowColor = Color(0xffFFBA00);
   static const nonVerifyOtpButton = Color(0Xff797979);
@@ -40,6 +41,7 @@ class AppColors {
   static const inactiveButtonColor = Colors.grey;
   static const otpSuccessBackground = Color(0xff182021);
   static const signupBackground = Color(0xff182021);
+  static const helpusBackground = Color(0xff161E1F);
   static const progressYellowLine = Color.fromRGBO(255, 181, 13, 1);
   static const progressYellowlineBgColor = Color.fromRGBO(255, 255, 255, 1);
   static const checkboxActiveColor = Colors.green;

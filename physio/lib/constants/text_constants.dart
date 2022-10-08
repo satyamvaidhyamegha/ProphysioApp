@@ -181,6 +181,33 @@ const signupText2 = TextStyle(
   fontWeight: FontWeight.w200,
   fontSize: 40,
 );
+
+const pushNoti1 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w300,
+  fontSize: 42,
+);
+
+const pushNoti2 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w300,
+  fontSize: 16,
+);
+const helpusText1 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w400,
+  fontSize: 34,
+);
+
+const helpusText2 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w300,
+  fontSize: 16,
+);
 const numberText = TextStyle(
   color: Color(0xFFFFFFFF),
   fontFamily: "Mulish",

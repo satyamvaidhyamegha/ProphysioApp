@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:physio/screens/onboarding/helpus_helpyou.dart';
 import 'package:physio/screens/onboarding/professional_profile.dart';
 import 'package:flutter/foundation.dart';
+import 'package:physio/screens/onboarding/signup_screen3.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/string.dart';
+import 'package:intl/intl.dart';
 import '../../constants/text_constants.dart';
 import 'auth_screen3.dart';
 
@@ -29,6 +32,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
     windowWidth = MediaQuery.of(context).size.width;
     windowHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: initScreen(context),
     );
   }
@@ -42,8 +46,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pushReplacement(
             context,
-            MaterialPageRoute(
-                builder: (context) => const ProfessionalProfile()),
+            MaterialPageRoute(builder: (context) => const SignupScreen3()),
           ),
         ),
       ),
@@ -300,7 +303,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const AuthPage3()));
+                                            const HelpUsScreen()));
                               },
                               child: Center(
                                 child: getText(
@@ -335,33 +338,6 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
           ],
         ),
       ),
-
-      // bottomNavigationBar: Container(
-      //   color: AppColors.buttonNextCertificate,
-      //   child: Padding(
-      //     padding: const EdgeInsets.only(left: 13, right: 13, bottom: 15),
-      //     child: Container(
-      //       alignment: Alignment.bottomCenter,
-      //       width: MediaQuery.of(context).size.width * 0.9,
-      //       height: MediaQuery.of(context).size.height * 0.07,
-      //       decoration: BoxDecoration(
-      //           borderRadius: BorderRadius.circular(30),
-      //           color: AppColors.buttonColor),
-      //       child: GestureDetector(
-      //         onTap: () {
-      //           Navigator.pushReplacement(context,
-      //               MaterialPageRoute(builder: (context) => const AuthPage3()));
-      //         },
-      //         child: Center(
-      //           child: getText(
-      //               textAlign: TextAlign.center,
-      //               text: Strings.BTN_CERTIFICATE,
-      //               textStyle: buttonTextStyle),
-      //         ),
-      //       ),
-      //     ),
-      //   ),
-      // ),
     );
   }
 }

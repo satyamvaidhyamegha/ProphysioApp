@@ -135,6 +135,7 @@ class Strings {
   static const VERIFY_OTP_TEXT = "Verify OTP";
   static const BTN_CERTIFICATE = "Next";
   static const BTN_CERTIFICATE_TEXT = "Later";
+  static const BTN_HELPUS = "Lets do it";
 }
 
 class SuccessfullMsg {
@@ -196,6 +197,7 @@ class ImagePath {
   static const FOOD_AND_LIFESTYLE = "assets/Mask Group 144@2x.jpg";
   static const ARROW_LEFT_TIMER = "assets/Polygon 7.png";
   static const ARROW_RIGHT_TIMER = "assets/Polygon 8.png";
+  static const HELPUS_BG = "assets/helpus_helpyou.png";
   static const TELL_ABOUT_YOUR_HEALTH = "assets/Mask Group 154@2x.png";
   static const FIRST_PHOTO_SUMMARY = "assets/Mask Group 146@2x.png";
   static const SECOND_PHOTO_SUMMARY = "assets/Mask Group 147@2x.png";
