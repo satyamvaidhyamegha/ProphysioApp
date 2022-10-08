@@ -155,11 +155,6 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                         if (isButtonPressed1 = true) {
                           isButtonPressed = false;
                           isTxtbtnPressed = false;
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const PrivacyPolicy()),
-                          );
                         }
                       });
                     },

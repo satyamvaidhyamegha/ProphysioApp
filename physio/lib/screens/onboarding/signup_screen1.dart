@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:physio/constants/string.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
@@ -52,179 +51,177 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
         ),
       ),
       body: Container(
-        height: double.maxFinite,
-        width: double.maxFinite,
-        color: AppColors.signupBackground,
-        child: Center(
-          child: SingleChildScrollView(
-            child:  Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(right: 20, left: 20, top: 10),
-                  child: LinearPercentIndicator(
-                    percent: 0.2,
-                    animation: true,
-                    animationDuration: 1000,
-                    lineHeight: 10,
-                    progressColor: Colors.amber,
-                    barRadius: const Radius.circular(16),
-                    backgroundColor: const Color(0xff707070),
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(
-                      right: 20, left: 20, bottom: 10, top: 30),
-                  child: getText(
-                      textAlign: TextAlign.center,
-                      text: "Sign-up",
-                      textStyle: signupText),
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(
-                      right: 20, left: 20, bottom: 5, top: 20),
-                  child: getText(
-                      textAlign: TextAlign.center,
-                      text: "Welcome",
-                      textStyle: doctorNameText),
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
-                  child: getText(
-                      textAlign: TextAlign.center,
-                      text: Strings.DOCTOR_NAME,
-                      textStyle: doctorNameText),
-                ),
-                Container(
-                    margin: const EdgeInsets.only(top: 10, left: 20),
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      width: 150,
-                      height: MediaQuery.of(context).size.height * 0.07,
-                      alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      decoration: BoxDecoration(
-                          color: Colors.black,
-                          border: Border.all(color: Colors.blueGrey, width: 1),
-                          borderRadius: BorderRadius.circular(15)),
-                      child: DropdownButton(
-                        // Initial Value
-                        value: dropdownvalue,
-                        underline: const SizedBox(),
-                        focusColor: Colors.white,
-                        dropdownColor: AppColors.signupBackground,
-                        style: BaseStyles.textStyleForSignupScreen,
-                        iconEnabledColor: Colors.white,
-
-                        // Down Arrow Icon
-                        icon: const Icon(Icons.keyboard_arrow_down),
-
-                        // Array list of items
-                        items: items.map((String items) {
-                          return DropdownMenuItem(
-                            value: items,
-                            child: Text(items),
-                          );
-                        }).toList(),
-                        // After selecting the desired option,it will
-                        // change button value to selected value
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            dropdownvalue = newValue!;
-                          });
-                        },
-                      ),
-                    )),
-                Container(
-                  margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      border: Border.all(color: Colors.blueGrey, width: 1),
-                      borderRadius: BorderRadius.circular(15)),
-                  child: TextFormField(
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                        labelText: "First Name",
-                        labelStyle: headertext,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        filled: true,
-                        hintStyle: TextStyle(color: Colors.grey[300]),
-                        fillColor: Colors.black),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      border: Border.all(color: Colors.blueGrey, width: 1),
-                      borderRadius: BorderRadius.circular(15)),
-                  child: TextFormField(
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                        labelText: "Last Name",
-                        labelStyle: headertext,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        filled: true,
-                        hintStyle: TextStyle(color: Colors.grey[300]),
-                        fillColor: Colors.black),
-                  ),
-                ),
-
-                Container(
-                  margin: const EdgeInsets.only(top: 30,left: 20, right: 20),
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      border: Border.all(color: Colors.blueGrey, width: 1),
-                      borderRadius: BorderRadius.circular(15)
-                  ),
-                  child: TextFormField(
-
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                        labelText: "Email id",
-                        labelStyle: headertext,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        filled: true,
-                        hintStyle: TextStyle(color: Colors.grey[300]),
-                        fillColor: Colors.black),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 40),
-                  alignment: Alignment.bottomCenter,
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.07,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: AppColors.buttonColor),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => const SignupScreen2()));
-                    },
-                    child: Center(
-                      child: getText(
-                          textAlign: TextAlign.center,
-                          text: "Next",
-                          textStyle: buttonTextStyle),
+          height: double.maxFinite,
+          width: double.maxFinite,
+          color: AppColors.signupBackground,
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(right: 20, left: 20, top: 10),
+                    child: LinearPercentIndicator(
+                      percent: 0.2,
+                      animation: true,
+                      animationDuration: 1000,
+                      lineHeight: 10,
+                      progressColor: Colors.amber,
+                      barRadius: const Radius.circular(16),
+                      backgroundColor: const Color(0xff707070),
                     ),
                   ),
-                ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    margin: const EdgeInsets.only(
+                        right: 20, left: 20, bottom: 10, top: 30),
+                    child: getText(
+                        textAlign: TextAlign.center,
+                        text: "Sign-up",
+                        textStyle: signupText),
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    margin: const EdgeInsets.only(
+                        right: 20, left: 20, bottom: 5, top: 20),
+                    child: getText(
+                        textAlign: TextAlign.center,
+                        text: "Welcome",
+                        textStyle: doctorNameText),
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    margin:
+                        const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+                    child: getText(
+                        textAlign: TextAlign.center,
+                        text: Strings.DOCTOR_NAME,
+                        textStyle: doctorNameText),
+                  ),
+                  Container(
+                      margin: const EdgeInsets.only(top: 10, left: 20),
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        width: 150,
+                        height: MediaQuery.of(context).size.height * 0.07,
+                        alignment: Alignment.centerLeft,
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            border:
+                                Border.all(color: Colors.blueGrey, width: 1),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: DropdownButton(
+                          // Initial Value
+                          value: dropdownvalue,
+                          underline: const SizedBox(),
+                          focusColor: Colors.white,
+                          dropdownColor: AppColors.signupBackground,
+                          style: BaseStyles.textStyleForSignupScreen,
+                          iconEnabledColor: Colors.white,
 
-              ],
+                          // Down Arrow Icon
+                          icon: const Icon(Icons.keyboard_arrow_down),
+
+                          // Array list of items
+                          items: items.map((String items) {
+                            return DropdownMenuItem(
+                              value: items,
+                              child: Text(items),
+                            );
+                          }).toList(),
+                          // After selecting the desired option,it will
+                          // change button value to selected value
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              dropdownvalue = newValue!;
+                            });
+                          },
+                        ),
+                      )),
+                  Container(
+                    margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        border: Border.all(color: Colors.blueGrey, width: 1),
+                        borderRadius: BorderRadius.circular(15)),
+                    child: TextFormField(
+                      style: const TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                          labelText: "First Name",
+                          labelStyle: headertext,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          filled: true,
+                          hintStyle: TextStyle(color: Colors.grey[300]),
+                          fillColor: Colors.black),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        border: Border.all(color: Colors.blueGrey, width: 1),
+                        borderRadius: BorderRadius.circular(15)),
+                    child: TextFormField(
+                      style: const TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                          labelText: "Last Name",
+                          labelStyle: headertext,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          filled: true,
+                          hintStyle: TextStyle(color: Colors.grey[300]),
+                          fillColor: Colors.black),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        border: Border.all(color: Colors.blueGrey, width: 1),
+                        borderRadius: BorderRadius.circular(15)),
+                    child: TextFormField(
+                      style: const TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                          labelText: "Email id",
+                          labelStyle: headertext,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          filled: true,
+                          hintStyle: TextStyle(color: Colors.grey[300]),
+                          fillColor: Colors.black),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 40),
+                    alignment: Alignment.bottomCenter,
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.07,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: AppColors.buttonColor),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignupScreen2()));
+                      },
+                      child: Center(
+                        child: getText(
+                            textAlign: TextAlign.center,
+                            text: "Next",
+                            textStyle: buttonTextStyle),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        )
-
-      ),
+          )),
     );
   }
 }
