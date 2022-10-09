@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import '../../BaseWidget/text.dart';
-import '../../constants/colors.dart';
-import '../../constants/text_constants.dart';
+import 'package:physio/screens/onboarding/certification_screen.dart';
+import '../../../BaseWidget/text.dart';
+import '../../../constants/colors.dart';
+import '../../../constants/text_constants.dart';
 
 class SignupScreen3 extends StatefulWidget {
   const SignupScreen3({Key? key}) : super(key: key);
@@ -69,7 +70,7 @@ class _SignupScreenPageState3 extends State<SignupScreen3> {
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: const EdgeInsets.only(
-                      right: 20, left: 20, bottom: 10, top: 30),
+                      right: 20, left: 20, bottom: 10, top: 25),
                   child: getText(
                       textAlign: TextAlign.center,
                       text: "About you",
@@ -100,7 +101,7 @@ class _SignupScreenPageState3 extends State<SignupScreen3> {
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: const EdgeInsets.only(
-                      right: 20, left: 20, bottom: 10, top: 30),
+                      right: 20, left: 20, bottom: 5, top: 15),
                   child: getText(
                       textAlign: TextAlign.center,
                       text: "Education/Experience",
@@ -126,7 +127,7 @@ class _SignupScreenPageState3 extends State<SignupScreen3> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 30, left: 20, right: 70),
+                  margin: const EdgeInsets.only(top: 15, left: 20, right: 70),
                   decoration: BoxDecoration(
                       color: Colors.black,
                       border: Border.all(color: Colors.blueGrey, width: 1),
@@ -216,7 +217,13 @@ class _SignupScreenPageState3 extends State<SignupScreen3> {
                       borderRadius: BorderRadius.circular(30),
                       color: AppColors.buttonColor),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const CertificationScreen()));
+                    },
                     child: Center(
                       child: getText(
                           textAlign: TextAlign.center,

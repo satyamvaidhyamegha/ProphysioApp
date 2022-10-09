@@ -21,6 +21,10 @@ class APIPath {
   static const homepageCareIdeas = "$BASEURL/mobile/content/ContentSection";
   static const welbeingCreateApi = "$BASEURL/mobile/wellbeing";
   static const welbeingPainRecoverySaveApi = "$BASEURL/mobile/recovery";
-  static const demoNotificationList =
+
+  //added to fix erros, will be configured later
+  static const NOTIFICATION_LIST = "$BASEURL/mobile/pushnotif/list";
+  static const NOTIFICATION_ADD = "$BASEURL/mobile/pushnotif";
+  static const DEMO_NOTIFICATION_LIST =
       "$BASEURL/mobile/userNotification/list/0/10";
 }
