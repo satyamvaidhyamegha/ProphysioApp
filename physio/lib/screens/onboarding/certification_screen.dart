@@ -1,6 +1,8 @@
+import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:physio/constants/style.dart';
 import 'package:physio/screens/onboarding/helpus_helpyou.dart';
 import 'package:physio/screens/onboarding/professional_profile.dart';
 import 'package:flutter/foundation.dart';
@@ -43,7 +45,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.signupBackground,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => const SignupScreen3()),
@@ -88,6 +90,42 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                         color: Colors.black,
                         border: Border.all(color: Colors.blueGrey, width: 1),
                         borderRadius: BorderRadius.circular(15)),
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(
+                                  top: 10, right: 20, bottom: 5),
+                              alignment: Alignment.topLeft,
+                              child: const Text(
+                                "Issue Date",
+                                style: TextStyle(
+                                  color: Color(0xFFCCCCCC),
+                                  fontFamily: "Mulish",
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 14,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(
+                                  top: 5, left: 15, bottom: 10),
+                              alignment: Alignment.topLeft,
+                              child: const Text(
+                                "24/10/2022",
+                                style: certificationHeader2,
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                          ],
+                        ),
+                        InkWell(
+                          child: Container(
+                            margin: const EdgeInsets.only(left: 20),
+                            alignment: Alignment.centerRight,
+                            child: Image.asset("assets/calendar.png"),
                     child: TextFormField(
                       style: const TextStyle(color: Colors.white),
                       autofocus: false,
@@ -124,6 +162,37 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                           fillColor: Colors.black),
                     ),
                   ),
+
+                ),
+                Expanded(
+                    flex: 1,
+                    child: Container(
+                      child: Image.asset("assets/groupplus.svg"),
+                    ))
+              ],
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 80),
+              alignment: Alignment.bottomCenter,
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.07,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: AppColors.buttonColor),
+              child: GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) =>
+                        _buildPopupDialog(context),
+                  );
+                },
+                child: Center(
+                  child: getText(
+                      textAlign: TextAlign.center,
+                      text: "Next",
+                      textStyle: buttonTextStyle),
+                ),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -338,6 +407,112 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildPopupDialog(BuildContext context) {
+    return SingleChildScrollView( child:BlurryContainer(
+      child: Column(
+        children: [
+          Container(
+            padding:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.6),
+          ),
+          BlurryContainer(
+            blur: 100,
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.02,
+                right: MediaQuery.of(context).size.width * 0.02),
+            child: Column(
+              children: [
+                Container(
+                    width: 400,
+                    height: 250,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(22.0),
+                        topRight: Radius.circular(22.0),
+                        bottomLeft: Radius.circular(22.0),
+                        bottomRight: Radius.circular(22.0),
+                      ),
+                      color: AppColors.kBGcolor,
+                    ),
+                    child: Column(children: [
+                      Container(
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width * 0.74,
+                              right: MediaQuery.of(context).size.width * 0.04,
+                              top: MediaQuery.of(context).size.height * 0.02,
+                              bottom: MediaQuery.of(context).size.width * 0.02),
+                          child: Column(
+                            children: [
+                              GestureDetector(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: AppColors.textColor, width: 2),
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(5.0),
+                                        topRight: Radius.circular(5.0),
+                                        bottomLeft: Radius.circular(5.0),
+                                        bottomRight: Radius.circular(5.0)),
+                                  ),
+                                  child: const Icon(
+                                    Icons.close,
+                                    size: 16,
+                                    color: AppColors.textColor,
+                                  ),
+                                ),
+                                onTap: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.1,
+                          right: MediaQuery.of(context).size.width * 0.1,
+                          top: MediaQuery.of(context).size.height * 0.06,
+                        ),
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: getText(
+                              text:
+                                  'Don’t; forget to verify your credentials\nin the profile section, to use the app to\nthe fullest.',
+                              textStyle: BaseStyles.popuptextStyle,textAlign: TextAlign.center),
+                        ),
+                      ),
+    Container(
+    padding: EdgeInsets.only(
+    top: MediaQuery.of(context).size.height * 0.02,
+    ),),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.blue,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 120.0, vertical: 20.0),
+                            shape: const StadiumBorder(),
+                          ),
+                          child: buttonText(
+                              text: 'Let’s Do It',
+                              textStyle:
+                              const TextStyle(color: Colors.white, fontSize: 18)),
+                          onPressed: () {
+                            //  Navigator.pushReplacement(
+                            //   context,
+                            //   MaterialPageRoute(
+                             //     builder: (context) => const PreviewFile()));
+                          }),
+                    ])),
+              ],
+            ),
+          ),
+        ],
+      ),),
     );
   }
 }
