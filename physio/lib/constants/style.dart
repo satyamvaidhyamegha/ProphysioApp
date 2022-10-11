@@ -35,6 +35,11 @@ class BaseStyles {
       fontWeight: FontWeight.w400,
       fontSize: 16.0,
       color: Color(0xFFCCCCCC));
+  static TextStyle popuptextStyle = TextStyle(
+      fontFamily: 'Mulish',
+      fontWeight: FontWeight.w300,
+      fontSize: 16.0,
+      color: Color(0xFFCCCCCC));
 
   static TextStyle subText = TextStyle(
     color: Color(0xFFCCCCCC),
@@ -215,6 +220,4 @@ class BaseStyles {
       fontFamily: "Mulish",
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(0, 124, 226, 1));
-
-  
 }
