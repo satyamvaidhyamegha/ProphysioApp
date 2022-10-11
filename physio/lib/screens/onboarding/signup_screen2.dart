@@ -52,7 +52,7 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
             Container(
               margin: const EdgeInsets.only(right: 20, left: 20, top: 10),
               child: LinearPercentIndicator(
-                percent: 0.4,
+                percent: 0.3,
                 animation: true,
                 animationDuration: 1000,
                 lineHeight: 10,

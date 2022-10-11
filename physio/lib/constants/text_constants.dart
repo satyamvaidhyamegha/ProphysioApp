@@ -56,6 +56,12 @@ const buttonTextStyle = TextStyle(
     fontSize: 18.0,
     color: Color(0xffFFFFFF));
 
+const textButtonTextStyle = TextStyle(
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w500,
+    fontSize: 18.0,
+    color: Color(0xff007CE2));
+
 const inputfieldtextStyle = TextStyle(
     fontFamily: 'Mulish',
     fontWeight: FontWeight.w400,
@@ -161,7 +167,7 @@ const professionProfileHeading1 = TextStyle(
   color: Color(0xFFFFFFFF),
   fontFamily: "Mulish",
   fontWeight: FontWeight.w400,
-  fontSize: 18,
+  fontSize: 16,
 );
 const signupText = TextStyle(
   color: Color(0xFFFFFFFF),
@@ -174,6 +180,33 @@ const signupText2 = TextStyle(
   fontFamily: "Mulish",
   fontWeight: FontWeight.w200,
   fontSize: 40,
+);
+
+const pushNoti1 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w300,
+  fontSize: 42,
+);
+
+const pushNoti2 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w300,
+  fontSize: 16,
+);
+const helpusText1 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w400,
+  fontSize: 34,
+);
+
+const helpusText2 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w300,
+  fontSize: 16,
 );
 const numberText = TextStyle(
   color: Color(0xFFFFFFFF),
