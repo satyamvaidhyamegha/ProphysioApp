@@ -60,13 +60,23 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                       style: BaseStyles.otpTextStyle),
                 ),
               ),
-              Container(
-                alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.only(left: 15, bottom: 15, top: 70),
-                child: const Text(
-                  "+91 7098910064",
-                  style: BaseStyles.otpTextStyleTwo,
-                ),
+              Row(
+                children: [
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding:
+                        const EdgeInsets.only(left: 15, bottom: 15, top: 70),
+                    child: const Text(
+                      "+91 7098910064",
+                      style: BaseStyles.otpTextStyleTwo,
+                    ),
+                  ),
+                  Container(
+                      alignment: Alignment.centerLeft,
+                      padding:
+                          const EdgeInsets.only(left: 15, bottom: 15, top: 70),
+                      child: Image.asset("assets/editicon.png")),
+                ],
               ),
               Container(
                   alignment: Alignment.centerLeft,

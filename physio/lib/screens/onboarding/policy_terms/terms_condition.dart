@@ -3,6 +3,7 @@ import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/style.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:physio/screens/onboarding/subscription_screen.dart';
 
 class TermsCondition extends StatefulWidget {
   const TermsCondition({Key? key}) : super(key: key);
@@ -108,10 +109,11 @@ class _TermsConditionState extends State<TermsCondition> {
                         textStyle:
                             const TextStyle(color: Colors.white, fontSize: 18)),
                     onPressed: () {
-                      //  Navigator.pushReplacement(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //      builder: (context) => const PreviewFile()));
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const SubscriptionScreen()));
                     }),
                 Padding(
                     padding: EdgeInsets.only(
@@ -122,10 +124,10 @@ class _TermsConditionState extends State<TermsCondition> {
                       // foreground
                       ),
                   onPressed: () {
-                    //   Navigator.pushReplacement(
-                    //      context,
-                    //       MaterialPageRoute(
-                    //      builder: (context) => TermsCondition()));
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SubscriptionScreen()));
                   },
                   child: getText(
                       text: 'Disagree',

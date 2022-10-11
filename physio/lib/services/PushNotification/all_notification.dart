@@ -65,7 +65,7 @@ class AllNotification {
         "Content-Type": "application/json; charset=UTF-8"
       };
 
-      String url = APIPath.demoNotificationList;
+      String url = APIPath.DEMO_NOTIFICATION_LIST;
       http.Response response = await http.post(
         Uri.parse(url),
         headers: headers,

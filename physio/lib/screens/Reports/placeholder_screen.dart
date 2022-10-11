@@ -1,32 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:physio/screens/onboarding/certification_screen.dart';
-import 'package:physio/screens/onboarding/professional_profile.dart';
 import 'package:flutter/foundation.dart';
 import 'package:physio/screens/onboarding/push_notifications.dart';
+import 'package:physio/screens/onboarding/splash_screen.dart';
 import '../../BaseWidget/base_image_widget.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/string.dart';
-import 'package:intl/intl.dart';
 import '../../constants/text_constants.dart';
-import 'auth_screen3.dart';
 
-class HelpUsScreen extends StatefulWidget {
-  const HelpUsScreen({Key? key}) : super(key: key);
+class DummyPlaceholder extends StatefulWidget {
+  const DummyPlaceholder({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _HelpUsScreenPageState();
+    return _DummyPlaceholderPageState();
   }
 }
 
-class _HelpUsScreenPageState extends State<HelpUsScreen> {
+class _DummyPlaceholderPageState extends State<DummyPlaceholder> {
   var windowWidth;
   var windowHeight;
-
-  DateTime date = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +68,7 @@ class _HelpUsScreenPageState extends State<HelpUsScreen> {
                         right: 20, left: 20, bottom: 5, top: 30),
                     child: getText(
                         textAlign: TextAlign.left,
-                        text: "Help us\nHelp you!",
+                        text: "Reports Section\nStarts from here",
                         textStyle: helpusText1),
                   ),
                   Container(
@@ -83,7 +78,7 @@ class _HelpUsScreenPageState extends State<HelpUsScreen> {
                     child: getText(
                         textAlign: TextAlign.left,
                         text:
-                            "Personalised Proactive to help you\nachieve your goals effectively",
+                            "This is a placeholder added only\nfor the purpose of navigation,\nwill be removed later.",
                         textStyle: helpusText2),
                   ),
                 ],
@@ -111,13 +106,12 @@ class _HelpUsScreenPageState extends State<HelpUsScreen> {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const PushNotifications()));
+                                    builder: (context) => const SplashPage()));
                           },
                           child: Center(
                             child: getText(
                                 textAlign: TextAlign.center,
-                                text: Strings.BTN_HELPUS,
+                                text: "Go back to First Page",
                                 textStyle: buttonTextStyle),
                           ),
                         ),
