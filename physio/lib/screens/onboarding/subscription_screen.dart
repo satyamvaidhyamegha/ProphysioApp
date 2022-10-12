@@ -6,22 +6,23 @@ import 'package:physio/constants/raddi.dart';
 import 'package:physio/constants/string.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
+import 'package:physio/screens/Reports/placeholder_screen.dart';
 
 //import 'package:prophysiopatient/screens/app_in_detail/welcome_screen.dart';
 //import 'package:prophysiopatient/screens/profiledetail/helpus_to_helpyou.dart';
 import 'package:physio/utility/gap_between.dart';
 import 'package:physio/utility/navigation.dart';
 
-class ProActive extends StatefulWidget {
-  const ProActive({Key? key}) : super(key: key);
+class SubscriptionScreen extends StatefulWidget {
+  const SubscriptionScreen({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _ProActivePageState();
+    return _SubscriptionScreenPageState();
   }
 }
 
-class _ProActivePageState extends State<ProActive> {
+class _SubscriptionScreenPageState extends State<SubscriptionScreen> {
   List<String> list = [
     "Fully Personalised",
     "Real Time Tracking",
@@ -57,7 +58,7 @@ class _ProActivePageState extends State<ProActive> {
                       decoration: BoxDecoration(
                         border:
                             Border.all(color: AppColors.textColor, width: 2),
-                       // borderRadius: Raddi.textFieldBorderRadius,
+                        // borderRadius: Raddi.textFieldBorderRadius,
                       ),
                       child: const Icon(
                         Icons.close,
@@ -153,7 +154,8 @@ class _ProActivePageState extends State<ProActive> {
                                           return new Text(
                                             "•  " + list[index],
                                             style: const TextStyle(
-                                              color: AppColors.PROACTIVE_APPBAR_COLOR,
+                                              color: AppColors
+                                                  .PROACTIVE_APPBAR_COLOR,
                                               fontFamily: "Mulish",
                                               fontWeight: FontWeight.w400,
                                               fontSize: 18,
@@ -182,7 +184,7 @@ class _ProActivePageState extends State<ProActive> {
             verticalGap(context: context, screenSize: 0.02),
             CustomButton(
                 onTap: () {
-                 // doNavigate(route: HelpUsToHelpYouScreen(), context: context);
+                  // doNavigate(route: HelpUsToHelpYouScreen(), context: context);
                   //doNavigate(route: WelcomePage(), context: context);
                 },
                 text: Strings.SUBSCRIBE_NOW,
@@ -193,10 +195,10 @@ class _ProActivePageState extends State<ProActive> {
             verticalGap(context: context, screenSize: 0.02),
             GestureDetector(
                 onTap: () {
-               //   Navigator.pushReplacement(
-                //      context,
-               //       MaterialPageRoute(
-               //           builder: (context) => const WelcomePage()));
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DummyPlaceholder()));
                 },
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -210,5 +212,3 @@ class _ProActivePageState extends State<ProActive> {
         ));
   }
 }
-
-

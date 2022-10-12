@@ -3,7 +3,7 @@ import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/style.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
-
+import 'package:physio/screens/onboarding/camera.dart';
 import 'about_screen.dart';
 import 'package:physio/screens/onboarding/policy_terms/privacy_policy.dart';
 
@@ -82,7 +82,7 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                   child: BlurryContainer(
                     blur: 90,
                     child: Container(
-                      width: 378,
+                      width: 375,
                       height: 500,
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -106,7 +106,7 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                     style: ElevatedButton.styleFrom(
                       primary: isButtonPressed ? Colors.blue : Colors.white,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 146.0, vertical: 20.0),
+                          horizontal: 145.0, vertical: 18.0),
                       shape: const StadiumBorder(),
                     ),
                     child: Text(
@@ -139,7 +139,7 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                     style: ElevatedButton.styleFrom(
                       primary: isButtonPressed1 ? Colors.blue : Colors.white,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 146.0, vertical: 20.0),
+                          horizontal: 145.0, vertical: 18.0),
                       shape: const StadiumBorder(),
                     ),
                     child: buttonText(
@@ -148,18 +148,13 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                           ? const TextStyle(color: Colors.white, fontSize: 18)
                           : const TextStyle(color: Colors.blue, fontSize: 18),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       setState(() {
                         isButtonPressed1 = !isButtonPressed1;
 
                         if (isButtonPressed1 = true) {
                           isButtonPressed = false;
                           isTxtbtnPressed = false;
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const PrivacyPolicy()),
-                          );
                         }
                       });
                     },
@@ -188,7 +183,7 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                       ),
                       Container(
                         padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * 0.06,
+                          top: MediaQuery.of(context).size.height * 0.05,
                           left: MediaQuery.of(context).size.width * 0.06,
                         ),
                         child: Container(
@@ -213,11 +208,10 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                           isButtonPressed1 = false;
                           isButtonPressed = false;
                         }
-                        //  Navigator.pushReplacement(
-                        //             context,
-                        //                 MaterialPageRoute(
-                        //
-                        //                      builder: (context) => LoginPage()));
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const CameraPage()));
                       });
                     },
                     child: getText(

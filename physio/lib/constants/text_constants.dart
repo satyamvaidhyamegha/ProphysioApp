@@ -56,6 +56,12 @@ const buttonTextStyle = TextStyle(
     fontSize: 18.0,
     color: Color(0xffFFFFFF));
 
+const textButtonTextStyle = TextStyle(
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w500,
+    fontSize: 18.0,
+    color: Color(0xff007CE2));
+
 const inputfieldtextStyle = TextStyle(
     fontFamily: 'Mulish',
     fontWeight: FontWeight.w400,
@@ -108,16 +114,16 @@ const navlablecolor = TextStyle(
 //welcome text
 
 const headertext = TextStyle(
-  color: Color(0xFFFFFFFF),
+  color: Color(0xFFCCCCCC),
   fontFamily: "Mulish",
   fontWeight: FontWeight.w700,
-  fontSize: 18,
+  fontSize: 16,
 );
 
 const midheadertext = TextStyle(
   color: Color(0xFFFFFFFF),
   fontFamily: "Mulish",
-  fontWeight: FontWeight.w700,
+  fontWeight: FontWeight.normal,
   fontSize: 14,
 );
 const bluetext = TextStyle(
@@ -156,6 +162,13 @@ const doctorNameText = TextStyle(
   fontWeight: FontWeight.w400,
   fontSize: 27,
 );
+
+const professionProfileHeading1 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 16,
+);
 const signupText = TextStyle(
   color: Color(0xFFFFFFFF),
   fontFamily: "Mulish",
@@ -167,6 +180,33 @@ const signupText2 = TextStyle(
   fontFamily: "Mulish",
   fontWeight: FontWeight.w200,
   fontSize: 40,
+);
+
+const pushNoti1 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w300,
+  fontSize: 42,
+);
+
+const pushNoti2 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w300,
+  fontSize: 16,
+);
+const helpusText1 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w400,
+  fontSize: 34,
+);
+
+const helpusText2 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w300,
+  fontSize: 16,
 );
 const numberText = TextStyle(
   color: Color(0xFFFFFFFF),
@@ -180,6 +220,21 @@ const subtitle1 = TextStyle(
   fontWeight: FontWeight.w700,
   fontSize: 12,
 );
+
+const certificationHeader1 = TextStyle(
+  color: Color(0xFFCCCCCC),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w900,
+  fontSize: 14,
+);
+
+const certificationHeader2 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.normal,
+  fontSize: 20,
+);
+
 const subtitle = TextStyle(
   color: Color(0xFFEBEBF599),
   fontFamily: "Mulish",
@@ -210,3 +265,9 @@ const headingTextStyle = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 22.0,
     color: AppColors.baseTextColor);
+
+const aboutYouText = TextStyle(
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Mulish');

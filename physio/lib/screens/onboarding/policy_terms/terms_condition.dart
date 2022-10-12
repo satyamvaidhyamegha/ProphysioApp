@@ -3,6 +3,7 @@ import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/style.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:physio/screens/onboarding/subscription_screen.dart';
 
 class TermsCondition extends StatefulWidget {
   const TermsCondition({Key? key}) : super(key: key);
@@ -55,7 +56,7 @@ class _TermsConditionState extends State<TermsCondition> {
                 right: MediaQuery.of(context).size.width * 0.04,
               ),
               child: LinearPercentIndicator(
-                width: 361,
+                width: 358,
                 animation: true,
                 lineHeight: 6.0,
                 animationDuration: 2500,
@@ -91,24 +92,48 @@ class _TermsConditionState extends State<TermsCondition> {
                         "Ipsum aute dolor eu labore. In tempor aliquip in anim nulla eu consectetur nostrud elit minim adipisicing sint id. Aliquip est reprehenderit eiusmod irure sit exercitation magna non commodo excepteur ex voluptate. Minim aliqua fugiat ipsum nulla esse id sint.Qui eu velit mollit dolor. Est aliquip cillum ad dolor duis aute labore. Voluptate est deserunt duis labore do reprehenderit in reprehenderit minim aliqua. Veniam reprehenderit proident qui voluptate elit non eiusmod velit. Eu occaecat amet incididunt adipisicing id ut. Magna aliquip incididunt do anim magna voluptate. In pariatur do sunt mollit est occaecat ad consectetur., textStyle: textStyle Ipsum aute dolor eu labore. In tempor aliquip in anim nulla eu consectetur nostrud elit minim adipisicing sint id. Aliquip est reprehenderit eiusmod irure sit exercitation magna non commodo excepteur ex voluptate. Minim aliqua fugiat ipsum nulla esse id sint.Qui eu velit mollit dolor. Est aliquip cillum ad dolor duis aute labore. Voluptate est deserunt duis labore do reprehenderit in reprehenderit minim aliqua. Veniam reprehenderit proident qui voluptate elit non eiusmod velit. Eu occaecat amet incididunt adipisicing id ut. Magna aliquip incididunt do anim magna voluptate. In pariatur do sunt mollit est occaecat ad consectetur., textStyle: textStyl",
                     textStyle: BaseStyles.privacyTextStyle)),
           ])),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(left: 13, right: 13),
-        child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: Colors.blue,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 146.0, vertical: 22.0),
-              shape: const StadiumBorder(),
-            ),
-            child: buttonText(
-              text: 'I Agree',
-              textStyle: const TextStyle(color: Colors.white, fontSize: 18),
-            ),
-            onPressed: () {
-              //  Navigator.pushReplacement(context,
-              //    MaterialPageRoute(builder: (context) => TermsCondition()));
-            }),
-      ),
+      bottomNavigationBar: SizedBox(
+          height: 150,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blue,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 146.0, vertical: 20.0),
+                      shape: const StadiumBorder(),
+                    ),
+                    child: buttonText(
+                        text: 'I Agree',
+                        textStyle:
+                            const TextStyle(color: Colors.white, fontSize: 18)),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const SubscriptionScreen()));
+                    }),
+                Padding(
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.03)),
+                Center(
+                    child: TextButton(
+                  style: TextButton.styleFrom(primary: Colors.blue
+                      // foreground
+                      ),
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SubscriptionScreen()));
+                  },
+                  child: getText(
+                      text: 'Disagree',
+                      textStyle: BaseStyles.orSignInWithbutton),
+                ))
+              ])),
     );
   }
 }
