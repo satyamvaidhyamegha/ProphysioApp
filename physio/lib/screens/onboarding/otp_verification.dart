@@ -109,13 +109,13 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 padding: const EdgeInsets.only(left: 15, right: 15, top: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
+                  children: const [
+                    Text(
                       "Resend in 00:30s",
                       style: BaseStyles.otpTextStyleThree,
                       textAlign: TextAlign.left,
                     ),
-                    const Text(
+                    Text(
                       "Resend OTP",
                       style: BaseStyles.otpTextStyleFive,
                       textAlign: TextAlign.right,
