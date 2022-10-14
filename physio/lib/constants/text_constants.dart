@@ -202,6 +202,13 @@ const helpusText1 = TextStyle(
   fontSize: 34,
 );
 
+const appointmentScreen1 = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.normal,
+  fontSize: 42,
+);
+
 const helpusText2 = TextStyle(
   color: Color(0xFFFFFFFF),
   fontFamily: "Montserrat",
