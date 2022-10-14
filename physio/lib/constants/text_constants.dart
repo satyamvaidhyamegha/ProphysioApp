@@ -80,19 +80,33 @@ const profilefieldtextStyle = TextStyle(
     overflow: TextOverflow.visible,
     fontSize: 16.0,
     color: Color(0xFFFFFFFF));
-const profilefieldtextStyle1 = TextStyle(
+const profilefieldtextStyle2 = TextStyle(
     fontFamily: 'Mulish',
-    fontWeight: FontWeight.w700,
-    overflow: TextOverflow.visible,
+    fontWeight: FontWeight.w400,
+
+    /// overflow: TextOverflow.visible,
     fontSize: 16.0,
     color: Color(0xFFFFFFFF));
 
-const datefieldtextStyle = TextStyle(
+const profilefieldtextStyle1 = TextStyle(
+  fontFamily: 'Mulish',
+  fontWeight: FontWeight.w700,
+  overflow: TextOverflow.visible,
+  fontSize: 16.0,
+  color: Color(0xFFFFFFFF),
+);
+const profilefieldtextStyle3 = TextStyle(
     fontFamily: 'Mulish',
-    fontWeight: FontWeight.w400,
-    overflow: TextOverflow.visible,
-    fontSize: 10.0,
+    fontWeight: FontWeight.w700,
+    fontSize: 18.0,
     color: Color(0xFFFFFFFF));
+const datefieldtextStyle = TextStyle(
+  fontFamily: 'Mulish',
+  fontWeight: FontWeight.w400,
+  overflow: TextOverflow.visible,
+  fontSize: 10.0,
+  color: Color(0xFFFFFFFF),
+);
 const inputtexttextStyle = TextStyle(
     decoration: TextDecoration.none,
     fontFamily: 'Mulish',
@@ -149,6 +163,12 @@ const verifiedText = TextStyle(
   fontFamily: "Mulish",
   fontWeight: FontWeight.w300,
   fontSize: 40,
+);
+const yesButtonText = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 15,
 );
 const registeredText = TextStyle(
   color: Color(0xFFFFFFFF),
@@ -270,4 +290,20 @@ const aboutYouText = TextStyle(
     color: Colors.white,
     fontSize: 16,
     fontWeight: FontWeight.w600,
+    fontFamily: 'Mulish');
+const cancel = TextStyle(
+    color: Colors.blue,
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'Mulish');
+const sessionSubmit = TextStyle(
+    color: Colors.white,
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'Mulish');
+
+const share = TextStyle(
+    color: Colors.white,
+    fontSize: 22,
+    fontWeight: FontWeight.w400,
     fontFamily: 'Mulish');
