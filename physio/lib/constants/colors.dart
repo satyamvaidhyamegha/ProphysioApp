@@ -11,6 +11,8 @@ class AppColors {
   static const cursorColor = Color(0xFFFFFFFF);
   //Frequently User Colors
   static const kBGcolor = Color(0xff182021);
+  static const schedulebg = Color.fromRGBO(22, 22, 22, 0.8);
+  static const schedulecard = Color.fromRGBO(147, 167, 190, 0.19);
   static const blueColor = Color(0xff007BE2);
   static const subTextColor = Color(0xFFC4C4C4);
   static const goldColorText = Color(0xFFBA9562);
