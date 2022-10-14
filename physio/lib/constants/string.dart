@@ -136,6 +136,8 @@ class Strings {
   static const BTN_CERTIFICATE = "Next";
   static const BTN_CERTIFICATE_TEXT = "Later";
   static const BTN_HELPUS = "Lets do it";
+  static const BTN_ONLINE = "Online";
+  static const BTN_OFFLINE = "Offline";
 }
 
 class SuccessfullMsg {
