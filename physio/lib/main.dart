@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:physio/screens/Reports/placeholder_screen.dart';
-import 'package:physio/screens/dashboard/schedule/calendar.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:physio/screens/onboarding/otp_verification.dart';
 import 'package:physio/screens/onboarding/signup_screen1.dart';
@@ -49,8 +48,6 @@ class MyApp extends StatelessWidget {
         '/authPage3': (BuildContext context) => const AuthPage3(),
         '/signupScreen1': (BuildContext context) => const SignupScreen1(),
         '/signupScreen2': (BuildContext context) => const SignupScreen2(),
-        // '/calenderappointmant': (BuildContext context) =>
-        //     const Calenderappointmant(),
       },
     );
   }
