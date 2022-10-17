@@ -283,13 +283,13 @@ class BaseStyles {
       fontFamily: "Mulish",
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(142, 142, 142, 1));
-  static const TextStyle monthStyle = TextStyle(
+  static const TextStyle monthStyles = TextStyle(
     color: Colors.white,
     fontFamily: "Mulish",
     fontWeight: FontWeight.w600,
     fontSize: 14,
   );
-  static const TextStyle dateStyle = TextStyle(
+  static const TextStyle dateStyles = TextStyle(
     color: Colors.white,
     fontFamily: "Mulish",
     height: 0.01,
