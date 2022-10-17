@@ -4,11 +4,15 @@ class AppColors {
   static const kPrimaryColor = Color(0x000A0A0A);
 
   static const buttonColor = Color.fromRGBO(0, 124, 226, 1);
+  static const onlineButtonColor = Color.fromRGBO(0, 124, 226, 1);
+  static const offlineButtonColor = Color.fromRGBO(46, 46, 46, 1);
   static const baseTextColor = Color(0xFFCCCCCC);
   static const textColor = Color(0xFFFFFFFF);
   static const cursorColor = Color(0xFFFFFFFF);
   //Frequently User Colors
   static const kBGcolor = Color(0xff182021);
+  static const schedulebg = Color.fromRGBO(22, 22, 22, 0.8);
+  static const schedulecard = Color.fromRGBO(147, 167, 190, 0.19);
   static const blueColor = Color(0xff007BE2);
   static const subTextColor = Color(0xFFC4C4C4);
   static const goldColorText = Color(0xFFBA9562);
@@ -26,6 +30,7 @@ class AppColors {
   static const healthConditionChipsColorList = Color(0XffFFB50D);
   static const profileAppbarBgColor = Color(0xff1C1C1E);
   static const backgroundColor = Color(0xff182021);
+  static const appointmentBackgroundColor = Color(0xff1C1C1E);
   static const profileSubtitleColor = Color.fromRGBO(235, 235, 245, 0.6);
   static const profileCardColor = Color.fromRGBO(28, 28, 30, 1);
   static const allDoctorBackGroundColor = Color.fromRGBO(34, 34, 34, 1);
@@ -41,6 +46,7 @@ class AppColors {
   static const inactiveButtonColor = Colors.grey;
   static const otpSuccessBackground = Color(0xff182021);
   static const signupBackground = Color(0xff182021);
+  static const appointmentAppBarBackground = Color(0xff222222);
   static const helpusBackground = Color(0xff161E1F);
   static const progressYellowLine = Color.fromRGBO(255, 181, 13, 1);
   static const progressYellowlineBgColor = Color.fromRGBO(255, 255, 255, 1);

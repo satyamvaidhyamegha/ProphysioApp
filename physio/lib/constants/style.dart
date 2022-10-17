@@ -77,6 +77,12 @@ class BaseStyles {
     fontWeight: FontWeight.w600,
     fontSize: 18.0,
   );
+  static TextStyle sessionreport = TextStyle(
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w400,
+    color: Colors.white,
+    fontSize: 18.0,
+  );
 
   static TextStyle forgotPasswordTextStyle = TextStyle(
       color: AppColors.textColor,
@@ -175,11 +181,50 @@ class BaseStyles {
     fontWeight: FontWeight.w700,
     fontSize: 34,
   );
+  static const TextStyle scheduleHeaddingStyle = TextStyle(
+    color: Colors.white,
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w400,
+    fontSize: 34,
+  );
+  static const TextStyle pendingRequestStyle = TextStyle(
+    color: Colors.white,
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w400,
+    fontSize: 22,
+  );
+  static const TextStyle dateStyle = TextStyle(
+    color: Colors.blue,
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w700,
+    fontSize: 22,
+  );
+  static const TextStyle monthStyle = TextStyle(
+    color: Colors.white,
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+  static const TextStyle monthStyletext = TextStyle(
+    color: Colors.white,
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w600,
+    fontSize: 14,
+  );
+  static const TextStyle nameStyle = TextStyle(
+    color: Colors.white,
+    fontFamily: "Mulish",
+    height: 0.01,
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+
   static const TextStyle appBarTextStyle = TextStyle(
       fontSize: 16,
       color: Colors.white,
       fontWeight: FontWeight.normal,
       fontFamily: "Mulish");
+
   static const TextStyle profileTitle = TextStyle(
       fontSize: 16,
       fontFamily: "Mulish",
@@ -214,6 +259,18 @@ class BaseStyles {
       fontFamily: "Mulish",
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(142, 142, 142, 1));
+
+  static const TextStyle carddetailsStyle = TextStyle(
+      fontSize: 12,
+      fontFamily: "Mulish",
+      height: 1,
+      fontWeight: FontWeight.w400,
+      color: Colors.white);
+  static const TextStyle sessionName = TextStyle(
+      fontSize: 22,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.bold,
+      color: Colors.white);
 
   static const TextStyle otpTextStyleFive = TextStyle(
       fontSize: 16,

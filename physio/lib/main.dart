@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter/services.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:physio/screens/Reports/placeholder_screen.dart';
+
+import 'package:physio/screens/dashboard/schedule/schedule_report_screen.dart';
+import 'package:physio/screens/dashboard/schedule/session_report.dart';
+
+import 'package:physio/screens/dashboard/schedule/addAppointment/appointmentTypeScreen.dart';
+
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:physio/screens/onboarding/otp_verification.dart';
 import 'package:physio/screens/onboarding/signup_screen1.dart';
@@ -36,14 +40,15 @@ class MyApp extends StatelessWidget {
               const TextSelectionThemeData(cursorColor: Colors.white)),
       title: 'Pro Physio',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/calenderappointmant',
+      initialRoute: '/splash',
       builder: EasyLoading.init(),
       routes: {
+        '/schedule': (BuildContext context) => const SessionReport(),
         '/splash': (BuildContext context) => const SplashPage(),
         '/SplashPage2': (BuildContext context) => const SplashPage2(),
         '/selection': (BuildContext context) => const ProfileSelectionPage(),
         '/about': (BuildContext context) => const AboutPage(),
-        '/subs': (BuildContext context) => const OtpVerificationPage(),
+        '/test': (BuildContext context) => const appointmentTypeScreen(),
         '/authPage': (BuildContext context) => const AuthPage(),
         '/authPage3': (BuildContext context) => const AuthPage3(),
         '/signupScreen1': (BuildContext context) => const SignupScreen1(),
