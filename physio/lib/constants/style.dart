@@ -277,4 +277,30 @@ class BaseStyles {
       fontFamily: "Mulish",
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(0, 124, 226, 1));
+
+  static const TextStyle calendarnoapp = TextStyle(
+      fontSize: 12,
+      fontFamily: "Mulish",
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(142, 142, 142, 1));
+  static const TextStyle monthStyles = TextStyle(
+    color: Colors.white,
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w600,
+    fontSize: 14,
+  );
+  static const TextStyle dateStyles = TextStyle(
+    color: Colors.white,
+    fontFamily: "Mulish",
+    height: 0.01,
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+  static const TextStyle name = TextStyle(
+    color: Colors.white,
+    fontFamily: "Mulish",
+    height: 0.01,
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
 }
