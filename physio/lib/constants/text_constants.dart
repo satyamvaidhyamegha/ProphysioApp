@@ -271,3 +271,15 @@ const aboutYouText = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w600,
     fontFamily: 'Mulish');
+const calendar = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 40,
+);
+const calendarnoapp = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w100,
+  fontSize: 25,
+);

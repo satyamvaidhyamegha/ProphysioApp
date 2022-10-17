@@ -54,12 +54,16 @@ class AppColors {
   static const routineStepColor2 = Color.fromRGBO(34, 155, 255, 1);
   static const greateJobScreen = Color.fromRGBO(63, 190, 131, 1);
   static const greateJobCardColor = Color.fromRGBO(30, 44, 44, 1);
+  static const calenderColor = Color.fromRGBO(34, 34, 34, 1);
+  static const calenderColor2 = Color.fromRGBO(28, 28, 30, 1);
+  static const numberwhite = Color.fromRGBO(235, 235, 245, 0.6);
 
   static const PROACTIVE_APPBAR_COLOR = Color(0XFFFBA9562);
 
   static const buttonVerify = Color.fromRGBO(121, 121, 121, 1);
   static const buttonVerifyBG = Color(0xff0D0E0E);
   static const buttonNextCertificate = Color(0xff182021);
+  static const schedulebg = Color.fromRGBO(22, 22, 22, 0.8);
 }
 
 class ErrorColor {
