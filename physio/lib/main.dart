@@ -14,7 +14,6 @@ import 'package:physio/screens/onboarding/splash_screen.dart';
 import 'package:physio/screens/onboarding/profile_selection.dart';
 import 'package:physio/screens/onboarding/about_screen.dart';
 import 'package:physio/screens/onboarding/auth_screen.dart';
-import 'package:physio/screens/dashboard/schedule/calendar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,8 +49,8 @@ class MyApp extends StatelessWidget {
         '/authPage3': (BuildContext context) => const AuthPage3(),
         '/signupScreen1': (BuildContext context) => const SignupScreen1(),
         '/signupScreen2': (BuildContext context) => const SignupScreen2(),
-        '/calenderappointmant': (BuildContext context) =>
-            const Calenderappointmant(),
+        // '/calenderappointmant': (BuildContext context) =>
+        //     const Calenderappointmant(),
       },
     );
   }
