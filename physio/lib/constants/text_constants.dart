@@ -304,6 +304,14 @@ const popupcontent1 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w600,
     fontFamily: 'Mulish');
+
+const calendar = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 40,
+);
+
 const cancel = TextStyle(
     color: Colors.blue,
     fontSize: 18,
