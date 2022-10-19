@@ -2,10 +2,11 @@
 
 import 'package:flutter/material.dart';
 
-getText(
-    {required String text,
-    required TextStyle textStyle,
-    TextAlign? textAlign}) {
+getText({
+  required String text,
+  required TextStyle textStyle,
+  TextAlign? textAlign,
+}) {
   return Text(
     text,
     textAlign: textAlign,
