@@ -19,6 +19,7 @@ class AppColors {
   static const blueLightColor = Color(0xff0A84FF);
   static const greyColors = Color(0xFF3C3C3C);
   static const whiteGrey = Color(0xFF767C83);
+  static const customGray = Color.fromRGBO(235, 235, 245, 0.6);
   static const black = Color(0xFF000000);
   static const CHECKBOX_ACTIVE_COLOR = Colors.green;
   static const otpBoxborder = Color(0xFF3C3C3C);
