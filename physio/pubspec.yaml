@@ -48,6 +48,10 @@ dependencies:
   json_annotation: ^4.7.0
   flutter_slidable: ^2.0.0
 
+  flutter_advanced_calendar: ^1.2.1
+
+  url_launcher: ^6.1.6
+  share_plus: "^0.0.1"
 
   
 dev_dependencies:

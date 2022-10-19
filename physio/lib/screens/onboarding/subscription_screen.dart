@@ -6,12 +6,7 @@ import 'package:physio/constants/raddi.dart';
 import 'package:physio/constants/string.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
-import 'package:physio/screens/Reports/placeholder_screen.dart';
-
-//import 'package:prophysiopatient/screens/app_in_detail/welcome_screen.dart';
-//import 'package:prophysiopatient/screens/profiledetail/helpus_to_helpyou.dart';
 import 'package:physio/utility/gap_between.dart';
-import 'package:physio/utility/navigation.dart';
 
 class SubscriptionScreen extends StatefulWidget {
   const SubscriptionScreen({Key? key}) : super(key: key);
@@ -195,10 +190,10 @@ class _SubscriptionScreenPageState extends State<SubscriptionScreen> {
             verticalGap(context: context, screenSize: 0.02),
             GestureDetector(
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const DummyPlaceholder()));
+                  // Navigator.pushReplacement(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => const DummyPlaceholder()));
                 },
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [

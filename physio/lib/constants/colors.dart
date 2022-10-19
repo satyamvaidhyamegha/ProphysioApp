@@ -4,17 +4,22 @@ class AppColors {
   static const kPrimaryColor = Color(0x000A0A0A);
 
   static const buttonColor = Color.fromRGBO(0, 124, 226, 1);
+  static const onlineButtonColor = Color.fromRGBO(0, 124, 226, 1);
+  static const offlineButtonColor = Color.fromRGBO(46, 46, 46, 1);
   static const baseTextColor = Color(0xFFCCCCCC);
   static const textColor = Color(0xFFFFFFFF);
   static const cursorColor = Color(0xFFFFFFFF);
   //Frequently User Colors
   static const kBGcolor = Color(0xff182021);
+  static const schedulebg = Color.fromRGBO(22, 22, 22, 0.8);
+  static const schedulecard = Color.fromRGBO(147, 167, 190, 0.19);
   static const blueColor = Color(0xff007BE2);
   static const subTextColor = Color(0xFFC4C4C4);
   static const goldColorText = Color(0xFFBA9562);
   static const blueLightColor = Color(0xff0A84FF);
   static const greyColors = Color(0xFF3C3C3C);
   static const whiteGrey = Color(0xFF767C83);
+  static const customGray = Color.fromRGBO(235, 235, 245, 0.6);
   static const black = Color(0xFF000000);
   static const CHECKBOX_ACTIVE_COLOR = Colors.green;
   static const otpBoxborder = Color(0xFF3C3C3C);
@@ -26,6 +31,7 @@ class AppColors {
   static const healthConditionChipsColorList = Color(0XffFFB50D);
   static const profileAppbarBgColor = Color(0xff1C1C1E);
   static const backgroundColor = Color(0xff182021);
+  static const appointmentBackgroundColor = Color(0xff1C1C1E);
   static const profileSubtitleColor = Color.fromRGBO(235, 235, 245, 0.6);
   static const profileCardColor = Color.fromRGBO(28, 28, 30, 1);
   static const allDoctorBackGroundColor = Color.fromRGBO(34, 34, 34, 1);
@@ -41,6 +47,7 @@ class AppColors {
   static const inactiveButtonColor = Colors.grey;
   static const otpSuccessBackground = Color(0xff182021);
   static const signupBackground = Color(0xff182021);
+  static const appointmentAppBarBackground = Color(0xff222222);
   static const helpusBackground = Color(0xff161E1F);
   static const progressYellowLine = Color.fromRGBO(255, 181, 13, 1);
   static const progressYellowlineBgColor = Color.fromRGBO(255, 255, 255, 1);
@@ -54,6 +61,9 @@ class AppColors {
   static const routineStepColor2 = Color.fromRGBO(34, 155, 255, 1);
   static const greateJobScreen = Color.fromRGBO(63, 190, 131, 1);
   static const greateJobCardColor = Color.fromRGBO(30, 44, 44, 1);
+  static const calenderColor = Color.fromRGBO(34, 34, 34, 1);
+  static const calenderColor2 = Color.fromRGBO(28, 28, 30, 1);
+  static const numberwhite = Color.fromRGBO(235, 235, 245, 0.6);
 
   static const PROACTIVE_APPBAR_COLOR = Color(0XFFFBA9562);
 
@@ -62,7 +72,8 @@ class AppColors {
   static const buttonNextCertificate = Color(0xff182021);
   static const PROFILE_CARD_COLOR = Color.fromRGBO(28, 28, 30, 1);
   static const SearchBarColor = Color(0xff2C2C2E);
-  static const schedulecard = Color.fromRGBO(46, 46, 46, 1);
+
+  static const schedulebgs = Color.fromRGBO(22, 22, 22, 0.8);
 }
 
 class ErrorColor {
