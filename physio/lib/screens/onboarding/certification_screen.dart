@@ -1,18 +1,14 @@
+
 import 'package:blurrycontainer/blurrycontainer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/screens/onboarding/helpus_helpyou.dart';
-import 'package:physio/screens/onboarding/professional_profile.dart';
-import 'package:flutter/foundation.dart';
 import 'package:physio/screens/onboarding/signup_screen3.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/string.dart';
-import 'package:intl/intl.dart';
 import '../../constants/text_constants.dart';
-import 'auth_screen3.dart';
 
 class CertificationScreen extends StatefulWidget {
   const CertificationScreen({Key? key}) : super(key: key);
@@ -148,9 +144,9 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                                         margin: const EdgeInsets.only(
                                             top: 10, right: 20, bottom: 5),
                                         alignment: Alignment.topLeft,
-                                        child: Text(
+                                        child: const Text(
                                           "Issue Date",
-                                          style: const TextStyle(
+                                          style: TextStyle(
                                             color: Color(0xFFCCCCCC),
                                             fontFamily: "Mulish",
                                             fontWeight: FontWeight.w900,
