@@ -60,6 +60,9 @@ class AppColors {
   static const buttonVerify = Color.fromRGBO(121, 121, 121, 1);
   static const buttonVerifyBG = Color(0xff0D0E0E);
   static const buttonNextCertificate = Color(0xff182021);
+  static const PROFILE_CARD_COLOR = Color.fromRGBO(28, 28, 30, 1);
+  static const SearchBarColor = Color(0xff2C2C2E);
+  static const schedulecard = Color.fromRGBO(46, 46, 46, 1);
 }
 
 class ErrorColor {

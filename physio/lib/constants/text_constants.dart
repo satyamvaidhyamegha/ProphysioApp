@@ -271,3 +271,10 @@ const aboutYouText = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w600,
     fontFamily: 'Mulish');
+
+const todaytext = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 22,
+);
