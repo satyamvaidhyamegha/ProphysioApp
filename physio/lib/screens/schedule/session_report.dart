@@ -7,8 +7,8 @@ import 'package:physio/constants/raddi.dart';
 import 'package:physio/constants/string.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
-import 'package:physio/screens/dashboard/schedule/satisfaction.dart';
-import 'package:physio/screens/dashboard/schedule/schedule_report_screen.dart';
+import 'package:physio/screens/schedule/satisfaction.dart';
+import 'package:physio/screens/schedule/schedule_report_screen.dart';
 import 'package:physio/utility/gap_between.dart';
 
 class SessionReport extends StatefulWidget {
