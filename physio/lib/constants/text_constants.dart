@@ -298,6 +298,12 @@ const aboutYouText = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w600,
     fontFamily: 'Mulish');
+
+const popupcontent1 = TextStyle(
+    color: AppColors.customGray,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Mulish');
 const cancel = TextStyle(
     color: Colors.blue,
     fontSize: 18,
@@ -313,4 +319,11 @@ const share = TextStyle(
     color: Colors.white,
     fontSize: 22,
     fontWeight: FontWeight.w400,
+    fontFamily: 'Mulish');
+
+const popup = TextStyle(
+    color: Colors.white,
+    fontSize: 22,
+    height: 1.5,
+    fontWeight: FontWeight.w700,
     fontFamily: 'Mulish');

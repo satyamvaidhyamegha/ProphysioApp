@@ -225,7 +225,13 @@ class _SessionReportState extends State<SessionReport> {
               children: [
                 horizontalGap(context: context, screenSize: 0.08),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) =>
+                          _buildPopupDialog1(context),
+                    );
+                  },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(width: 2.0, color: Colors.blue),
                   ),
@@ -234,12 +240,9 @@ class _SessionReportState extends State<SessionReport> {
                   child: Row(
                     children: [
                       horizontalGap(context: context, screenSize: 0.06),
-                      IconButton(
-                        icon: const Icon(Icons.check_circle),
-                        color: Colors.blue,
-                        onPressed: () {},
-                      ),
+                      const Icon(Icons.check_circle, color: Colors.blue),
                       verticalGap(context: context, screenSize: 0.06),
+                      horizontalGap(context: context, screenSize: 0.06),
                       getText(text: 'Yes', textStyle: yesButtonText),
                       horizontalGap(context: context, screenSize: 0.08),
                     ],
@@ -481,5 +484,99 @@ class _SessionReportState extends State<SessionReport> {
         ],
       ),
     );
+  }
+
+  Widget _buildPopupDialog1(BuildContext context) {
+    return SingleChildScrollView(
+        child: BlurryContainer(
+            child: Column(children: [
+      verticalGap(context: context, screenSize: 0.2),
+      BlurryContainer(
+        blur: 100,
+        child: Column(
+          children: [
+            Container(
+              width: 400,
+              height: 380,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(22.0),
+                  topRight: Radius.circular(22.0),
+                  bottomLeft: Radius.circular(22.0),
+                  bottomRight: Radius.circular(22.0),
+                ),
+                color: AppColors.kBGcolor,
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      verticalGap(context: context, screenSize: 0.08),
+                      horizontalGap(context: context, screenSize: 0.80),
+                      GestureDetector(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: AppColors.textColor, width: 4),
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(5.0),
+                                topRight: Radius.circular(5.0),
+                                bottomLeft: Radius.circular(5.0),
+                                bottomRight: Radius.circular(5.0)),
+                          ),
+                          child: const Icon(
+                            Icons.close,
+                            size: 16,
+                            color: AppColors.textColor,
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  ),
+                  verticalGap(context: context, screenSize: 0.01),
+                  Row(
+                    children: [
+                      Center(
+                        child: getText(
+                            text:
+                                '         Session report shared and \n        a notification has been sent \n                         to patient',
+                            textStyle: popup),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      horizontalGap(context: context, screenSize: 0.3),
+                      Image.asset(
+                        'assets/Successfull_tick.png',
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      horizontalGap(context: context, screenSize: 0.25),
+                      getText(
+                          text: 'Ashish Mehta (M, 67)',
+                          textStyle: sessionSubmit)
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      horizontalGap(context: context, screenSize: 0.25),
+                      getText(
+                          text: 'Last session - 12/2/22',
+                          textStyle: popupcontent1)
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ])));
   }
 }
