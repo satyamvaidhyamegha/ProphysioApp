@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_launcher_icons/xml_templates.dart';
+import 'package:physio/constants/raddi.dart';
 import 'package:physio/main.dart';
 import 'package:physio/screens/onboarding/policy_terms/privacy_policy.dart';
 import 'package:physio/utility/gap_between.dart';
@@ -14,16 +15,17 @@ import '../../../constants/style.dart';
 import '../../../constants/text_constants.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-class myCare16Screen extends StatefulWidget {
-  const myCare16Screen({Key? key}) : super(key: key);
+class myCare20Screen extends StatefulWidget {
+  const myCare20Screen({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _myCare16ScreenState();
+    // ignore: no_logic_in_create_state
+    return _myCare20ScreenState();
   }
 }
 
-class _myCare16ScreenState extends State<myCare16Screen> {
+class _myCare20ScreenState extends State<myCare20Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,11 +41,11 @@ initScreen(BuildContext context) {
   ScrollController mycontroller2 = ScrollController();
 
   return Scaffold(
-    backgroundColor: Color(0xff1C1C1E),
+    backgroundColor: const Color(0xff1C1C1E),
     appBar: PreferredSize(
-      preferredSize: Size.fromHeight(120),
+      preferredSize: const Size.fromHeight(120),
       child: Container(
-        color: Color(0xff1B232366),
+        color: const Color(0xff1B232366),
         child: Padding(
           padding: EdgeInsets.only(
             top: MediaQuery.of(context).size.height * 0.05,
@@ -66,8 +68,8 @@ initScreen(BuildContext context) {
                 ),
                 Container(
                   height: 44,
-                  padding: EdgeInsets.only(top: 5),
-                  child: Text(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: const Text(
                     "Complaint",
                     style: TextStyle(
                       fontSize: 34,
@@ -96,11 +98,12 @@ initScreen(BuildContext context) {
               children: [
                 verticalGap(context: context, screenSize: 0.02),
                 SearchWidget(
-                    suffixIcon: Icon(
+                    suffixIcon: const Icon(
                       Icons.mic_none,
                       color: Colors.white,
                     ),
-                    prefixIcon: Icon(Icons.search, color: Color(0xff9E9EA5)),
+                    prefixIcon: const Icon(Icons.search,
+                        color: const Color(0xff9E9EA5)),
                     controller: myCareSearch,
                     hintText: Strings.SEARCH,
                     inputAction: TextInputAction.search),
@@ -151,7 +154,7 @@ initScreen(BuildContext context) {
                 Padding(padding: EdgeInsets.all(0.2)),
                 SlidableAction(
                   flex: 2,
-                  onPressed: doNothing,
+                  onPressed: giveReason,
                   backgroundColor: Color(0xFF07C333),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -168,7 +171,7 @@ initScreen(BuildContext context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      color: Color(0xff1C1C1E),
+                      color: const Color(0xff1C1C1E),
                       child: Column(
                         children: [
                           Padding(
@@ -205,7 +208,7 @@ initScreen(BuildContext context) {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Color(0xff2E2E2E)),
+                      color: const Color(0xff2E2E2E)),
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.135,
                   // color: Colors.white,
@@ -297,7 +300,7 @@ initScreen(BuildContext context) {
                 Padding(padding: EdgeInsets.all(0.2)),
                 SlidableAction(
                   flex: 2,
-                  onPressed: doNothing,
+                  onPressed: giveReason,
                   backgroundColor: Color(0xFF07C333),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -314,7 +317,7 @@ initScreen(BuildContext context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      color: Color(0xff1C1C1E),
+                      color: const Color(0xff1C1C1E),
                       child: Column(
                         children: [
                           Padding(
@@ -351,7 +354,7 @@ initScreen(BuildContext context) {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Color(0xff2E2E2E)),
+                      color: const Color(0xff2E2E2E)),
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.135,
                   child: Column(
@@ -442,7 +445,7 @@ initScreen(BuildContext context) {
                 Padding(padding: EdgeInsets.all(0.2)),
                 SlidableAction(
                   flex: 2,
-                  onPressed: doNothing,
+                  onPressed: giveReason,
                   backgroundColor: Color(0xFF07C333),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -459,7 +462,7 @@ initScreen(BuildContext context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      color: Color(0xff1C1C1E),
+                      color: const Color(0xff1C1C1E),
                       child: Column(
                         children: [
                           Padding(
@@ -496,7 +499,7 @@ initScreen(BuildContext context) {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Color(0xff2E2E2E)),
+                      color: const Color(0xff2E2E2E)),
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.135,
                   child: Column(
@@ -589,7 +592,7 @@ initScreen(BuildContext context) {
                 SlidableAction(
                   // An action can be bigger than the others.
                   flex: 2,
-                  onPressed: doNothing,
+                  onPressed: nextScreen,
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -605,7 +608,7 @@ initScreen(BuildContext context) {
                 Padding(padding: EdgeInsets.all(0.2)),
                 SlidableAction(
                   flex: 2,
-                  onPressed: doNothing,
+                  onPressed: nextScreen,
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
@@ -615,7 +618,7 @@ initScreen(BuildContext context) {
                 Padding(padding: EdgeInsets.all(0.2)),
                 SlidableAction(
                   flex: 2,
-                  onPressed: doNothing,
+                  onPressed: nextScreen,
                   backgroundColor: Color(0xFF07C333),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -632,7 +635,7 @@ initScreen(BuildContext context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      color: Color(0xff1C1C1E),
+                      color: const Color(0xff1C1C1E),
                       child: Column(
                         children: [
                           Padding(
@@ -669,7 +672,7 @@ initScreen(BuildContext context) {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Color(0xff2E2E2E)),
+                      color: const Color(0xff2E2E2E)),
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.135,
                   child: Column(
@@ -738,7 +741,7 @@ initScreen(BuildContext context) {
                 SlidableAction(
                   // An action can be bigger than the others.
                   flex: 2,
-                  onPressed: doNothing,
+                  onPressed: nextScreen,
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -752,7 +755,7 @@ initScreen(BuildContext context) {
                 Padding(padding: EdgeInsets.all(0.2)),
                 SlidableAction(
                   flex: 2,
-                  onPressed: doNothing,
+                  onPressed: nextScreen,
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
@@ -762,7 +765,7 @@ initScreen(BuildContext context) {
                 Padding(padding: EdgeInsets.all(0.2)),
                 SlidableAction(
                   flex: 2,
-                  onPressed: doNothing,
+                  onPressed: nextScreen,
                   backgroundColor: Color(0xFF07C333),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -779,7 +782,7 @@ initScreen(BuildContext context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      color: Color(0xff1C1C1E),
+                      color: const Color(0xff1C1C1E),
                       child: Column(
                         children: [
                           Padding(
@@ -816,7 +819,7 @@ initScreen(BuildContext context) {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Color(0xff2E2E2E)),
+                      color: const Color(0xff2E2E2E)),
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.135,
                   child: Column(
@@ -884,7 +887,7 @@ initScreen(BuildContext context) {
               children: [
                 SlidableAction(
                   flex: 2,
-                  onPressed: doNothing,
+                  onPressed: nextScreen,
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -897,7 +900,7 @@ initScreen(BuildContext context) {
                 Padding(padding: EdgeInsets.all(0.2)),
                 SlidableAction(
                   flex: 2,
-                  onPressed: doNothing,
+                  onPressed: nextScreen,
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
@@ -907,7 +910,7 @@ initScreen(BuildContext context) {
                 Padding(padding: EdgeInsets.all(0.2)),
                 SlidableAction(
                   flex: 2,
-                  onPressed: doNothing,
+                  onPressed: nextScreen,
                   backgroundColor: Color(0xFF07C333),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -924,7 +927,7 @@ initScreen(BuildContext context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      color: Color(0xff1C1C1E),
+                      color: const Color(0xff1C1C1E),
                       child: Column(
                         children: [
                           Padding(
@@ -961,7 +964,7 @@ initScreen(BuildContext context) {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Color(0xff2E2E2E)),
+                      color: const Color(0xff2E2E2E)),
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.135,
                   // color: Colors.white,
@@ -1025,8 +1028,52 @@ initScreen(BuildContext context) {
   );
 }
 
-void complaintPOpup(BuildContext context) {}
-void doNothing(BuildContext context) {}
+Future complaintPOpup(BuildContext context) {
+  return showDialog(context: context, builder: _buildPopupDialog);
+}
+
+Widget _buildPopupDialog(BuildContext context) {
+  return AlertDialog(
+    backgroundColor: Color(0xff2C2D31),
+    alignment: Alignment.centerLeft,
+    // alignment:  MainAxisAlignment.center,
+    content: Container(
+      width: 250,
+      height: 96,
+      color: Color(0xff2C2D31),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(0),
+                child: FlatButton(
+                  onPressed: () {},
+                  child: const Text('Shift Appointment',
+                      style: BaseStyles.PopUpText),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(0),
+                child: FlatButton(
+                  onPressed: () {},
+                  child: const Text('Cancel Appointment',
+                      style: BaseStyles.PopUpText),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+void nextScreen(BuildContext context) {}
 void giveReason(BuildContext context) {}
 
 void tomessage(BuildContext context) {}
