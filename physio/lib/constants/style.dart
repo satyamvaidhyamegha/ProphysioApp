@@ -317,4 +317,10 @@ class BaseStyles {
     fontWeight: FontWeight.w400,
     fontSize: 16,
   );
+
+  static const TextStyle PopUpText = TextStyle(
+      color: Color(0xffFFFFFF),
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      fontFamily: 'Montserrat');
 }
