@@ -278,6 +278,20 @@ class BaseStyles {
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(0, 124, 226, 1));
 
+  static TextStyle numStyleForslideScreen = TextStyle(
+    color: Color.fromRGBO(0, 124, 226, 1),
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w700,
+    fontSize: 18,
+  );
+
+  static TextStyle textStyleForslideScreen = TextStyle(
+    color: Color.fromRGBO(196, 196, 196, 1),
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+
   static const TextStyle calendarnoapp = TextStyle(
       fontSize: 12,
       fontFamily: "Mulish",
@@ -303,4 +317,10 @@ class BaseStyles {
     fontWeight: FontWeight.w400,
     fontSize: 16,
   );
+
+  static const TextStyle PopUpText = TextStyle(
+      color: Color(0xffFFFFFF),
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      fontFamily: 'Montserrat');
 }

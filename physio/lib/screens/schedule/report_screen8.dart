@@ -1,10 +1,9 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/text_constants.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
-import '../../constants/colors.dart';
+import '../../../constants/colors.dart';
 import '../onboarding/signup_screen2.dart';
 
 class ReportScreen8 extends StatefulWidget {
