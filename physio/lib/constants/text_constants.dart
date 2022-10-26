@@ -73,6 +73,11 @@ const labletextStyle = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 15.0,
     color: Color(0xFFC4C4C4));
+const labletextStyle1 = TextStyle(
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w400,
+    fontSize: 16.0,
+    color: Color(0xFFC4C4C4));
 
 const profilefieldtextStyle = TextStyle(
     fontFamily: 'Mulish',
@@ -100,6 +105,13 @@ const profilefieldtextStyle3 = TextStyle(
     fontWeight: FontWeight.w700,
     fontSize: 18.0,
     color: Color(0xFFFFFFFF));
+
+const profilefieldtextStyle4 = TextStyle(
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w500,
+    fontSize: 18.0,
+    color: Color(0xFFFFFFFF));
+
 const datefieldtextStyle = TextStyle(
   fontFamily: 'Mulish',
   fontWeight: FontWeight.w400,
@@ -241,6 +253,12 @@ const numberText = TextStyle(
   fontWeight: FontWeight.w300,
   fontSize: 17,
 );
+const numberText1 = TextStyle(
+  color: AppColors.blueColor,
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 17,
+);
 const subtitle1 = TextStyle(
   color: Color(0xFF757575),
   fontFamily: "Mulish",
@@ -298,6 +316,11 @@ const aboutYouText = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w600,
     fontFamily: 'Mulish');
+const aboutYouText1 = TextStyle(
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'Mulish');
 
 const popupcontent1 = TextStyle(
     color: AppColors.customGray,
@@ -335,3 +358,10 @@ const popup = TextStyle(
     height: 1.5,
     fontWeight: FontWeight.w700,
     fontFamily: 'Mulish');
+
+const subtitle2 = TextStyle(
+  color: AppColors.routineSubheading,
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 12,
+);
