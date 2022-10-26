@@ -322,6 +322,13 @@ const aboutYouText1 = TextStyle(
     fontWeight: FontWeight.w400,
     fontFamily: 'Mulish');
 
+const todaytext = TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 22,
+);
+
 const popupcontent1 = TextStyle(
     color: AppColors.customGray,
     fontSize: 16,
