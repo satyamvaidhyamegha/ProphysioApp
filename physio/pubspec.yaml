@@ -55,7 +55,7 @@ dependencies:
   sms_autofill: ^2.2.0
   snippet_coder_utils: ^1.0.9
 
-  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

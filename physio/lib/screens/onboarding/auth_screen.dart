@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:physio/API/otp_api_service.dart';
 import 'package:physio/screens/onboarding/otp_verification.dart';
 import '../../BaseWidget/base_image_widget.dart';
@@ -7,7 +8,6 @@ import '../../constants/colors.dart';
 import '../../constants/string.dart';
 import '../../constants/style.dart';
 import '../../constants/text_constants.dart';
-import 'auth_screen3.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -36,8 +36,8 @@ class _AuthScreenPageState extends State<AuthPage> {
 
   String userExist = "User already exist";
 
- String firstName = "";
- String secondName = "";
+  String firstName = "";
+  String secondName = "";
   String mobileNumber = '';
   bool enableBtn = false;
   bool isAPIcallProcess = false;
@@ -108,7 +108,7 @@ class _AuthScreenPageState extends State<AuthPage> {
                   ),
                   Container(
                     padding:
-                        const EdgeInsets.only(bottom: 30, left: 20, right: 20),
+                    const EdgeInsets.only(bottom: 30, left: 20, right: 20),
                     child: TextField(
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -129,7 +129,7 @@ class _AuthScreenPageState extends State<AuthPage> {
                   ),
                   Container(
                     padding:
-                        const EdgeInsets.only(bottom: 120, left: 20, right: 20),
+                    const EdgeInsets.only(bottom: 120, left: 20, right: 20),
                     child: TextFormField(
                       maxLength: 10,
                       maxLines: 1,
@@ -161,57 +161,58 @@ class _AuthScreenPageState extends State<AuthPage> {
 
                   //Button
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    height: MediaQuery.of(context).size.height * 0.07,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: AppColors.buttonColor),
-                    child: GestureDetector(
-                      child:  Center(
-                          child: getText(
-                              textAlign: TextAlign.center,
-                              text: Strings.BTN_OTP,
-                              textStyle: buttonTextStyle)
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      height: MediaQuery.of(context).size.height * 0.07,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: AppColors.buttonColor),
+                      child: GestureDetector(
+                          child:  Center(
+                              child: getText(
+                                  textAlign: TextAlign.center,
+                                  text: Strings.BTN_OTP,
+                                  textStyle: buttonTextStyle)
 
-                      ),
-                      onTap: () async {
-                        if (enableBtn && mobileNumber.length > 8) {
-                          setState(() {
-                            isAPIcallProcess = true;
-                          });
+                          ),
+                          onTap: () async {
+                            if (enableBtn && mobileNumber.length > 8) {
+                              setState(() {
+                                isAPIcallProcess = true;
+                              });
 
-                          OtpApiService.otpSignup(firstName,secondName,"+91"+"$mobileNumber").then((
-                              response) async {
-                            setState(() {
-                              isAPIcallProcess = false;
-                            });
+                              OtpApiService.otpSignup(firstName,secondName,"+91"+"$mobileNumber").then((
+                                  response) async {
+                                SharedPreferences prefs = await SharedPreferences.getInstance();
+                                prefs.setString('stringValue', mobileNumber);
+                                setState(() {
+                                  isAPIcallProcess = false;
+                                });
 
-                            if (response.data != null) {
-                              debugPrint("Hogaya");
-                              Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => OtpVerificationPage(
-                                    otpHash: response.data,
-                                    mobileNo: mobileNumber,
-                                  ),
-                                ),
-                                    (route) => false,
+                                if (response.randomOtp != null) {
+                                  debugPrint("Hogaya");
+                                  Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => OtpVerificationPage(
+                                        mobileNo: mobileNumber,
+                                      ),
+                                    ),
+                                        (route) => false,
+                                  );
+                                }
+                              }
                               );
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          OtpVerificationPage()));
                             }
+
                           }
-                          );
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      OtpVerificationPage()));
-                        }
+                      )
 
-                      }
-    )
-
-    ),
+                  ),
                   Container(
                       margin: const EdgeInsets.only(
                           top: 30, right: 20, left: 20, bottom: 10),
@@ -220,7 +221,7 @@ class _AuthScreenPageState extends State<AuthPage> {
                       )),
                   Container(
                     margin:
-                        const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+                    const EdgeInsets.only(right: 20, left: 20, bottom: 20),
                     child: getText(
                         textAlign: TextAlign.center,
                         text: "Don't have Indian number?",
@@ -228,7 +229,7 @@ class _AuthScreenPageState extends State<AuthPage> {
                   ),
                   Container(
                     margin:
-                        const EdgeInsets.only(right: 20, left: 20, bottom: 10),
+                    const EdgeInsets.only(right: 20, left: 20, bottom: 10),
                     child: getText(
                         textAlign: TextAlign.center,
                         text: "Click here",

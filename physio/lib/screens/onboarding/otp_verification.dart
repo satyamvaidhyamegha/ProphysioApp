@@ -11,12 +11,13 @@ import '../../constants/style.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import '../../constants/text_constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OtpVerificationPage extends StatefulWidget {
-  final String? mobileNo;
-  final String? otpHash;
 
-  const OtpVerificationPage({this.mobileNo, this.otpHash});
+  final String? mobileNo;
+
+  const OtpVerificationPage({this.mobileNo});
 
   @override
   _OtpVerificationPageState createState() => _OtpVerificationPageState();
@@ -87,7 +88,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                   Container(
                     alignment: Alignment.centerLeft,
                     padding:
-                        const EdgeInsets.only(left: 15, bottom: 15, top: 70),
+                    const EdgeInsets.only(left: 15, bottom: 15, top: 70),
                     child: const Text(
                       "+91 7098910064",
                       style: BaseStyles.otpTextStyleTwo,
@@ -96,7 +97,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                   Container(
                       alignment: Alignment.centerLeft,
                       padding:
-                          const EdgeInsets.only(left: 15, bottom: 15, top: 70),
+                      const EdgeInsets.only(left: 15, bottom: 15, top: 70),
                       child: Image.asset("assets/editicon.png")),
                 ],
               ),
@@ -111,7 +112,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 alignment: Alignment.centerLeft,
                 padding: const EdgeInsets.only(left: 15, bottom: 10, top: 40),
                 child:
-                    const Text("Enter the OTP", style: BaseStyles.otpTextStyle),
+                const Text("Enter the OTP", style: BaseStyles.otpTextStyle),
               ),
               Container(
                 padding: const EdgeInsets.only(top: 15, bottom: 15),
@@ -123,12 +124,10 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                   showFieldAsBox: true,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   onCodeChanged: (code) {
-                    print(code);
-                    if (code!.length == _otpCodeLength) {
-                      _otpCode = code;
+
                       _enableButton = true;
                       FocusScope.of(context).requestFocus(FocusNode());
-                    }
+
                   },
                 ),
               ),
@@ -166,45 +165,48 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 borderRadius: BorderRadius.circular(30),
                 color: AppColors.buttonColor),
             child: GestureDetector(
-              onTap: () {
+              onTap: () async{
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                String? mobileNumber = prefs.getString('stringValue');
                 if (_enableButton) {
                   setState(() {
                     isAPICallProcess = true;
                   });
 
                   OtpApiService.verifyOtp(
-                          widget.mobileNo!, widget.otpHash!, _otpCode)
+                      mobileNumber!, _otpCode)
                       .then((response) {
                     setState(() {
                       isAPICallProcess = false;
                     });
 
-                    if (response.data != null) {
-                      //REDIRECT TO HOME SCREEN
+                    if (response.valid != false) {
                       FormHelper.showSimpleAlertDialog(
                         context,
                         Config.appName,
                         response.message,
                         "OK",
-                        () {
+                            () {
                           Navigator.pop(context);
                         },
                       );
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => const AuthPage3()));
                     } else {
                       FormHelper.showSimpleAlertDialog(
                         context,
                         Config.appName,
                         response.message,
                         "OK",
-                        () {
+                            () {
                           Navigator.pop(context);
                         },
                       );
                     }
                   });
+
                 }
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const AuthPage3()));
+
               },
               child: Center(
                 child: getText(

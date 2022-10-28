@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:physio/API/otp_config.dart';
 import 'package:physio/model/Otp%20Model/otp_signup_response.dart';
+import 'package:physio/screens/onboarding/otp_verification.dart';
 
 class OtpApiService {
   static var client = http.Client();
@@ -14,7 +15,6 @@ class OtpApiService {
       'Content-Type' : 'application/json'
     };
 
-    // var url = Uri.http(Config.apiURL, Config.otpSignupApi);
     var url = Uri.parse('https://api.prophysio.in/mobile/physios/sendotp');
 
     var response = await client.post(
@@ -30,7 +30,7 @@ class OtpApiService {
     return otpSignupResponse(response.body);
   }
 
-  static Future<OtpSignupResponse> verifyOtp(String mobileNo,String otpHash, String otpCode,) async {
+  static Future<OtpSignupResponse> verifyOtp(String mobileNo,String otpCode,) async {
     Map<String,String> requestHeaders = {
       'Content-Type' : 'application/json'
     };
@@ -41,9 +41,9 @@ class OtpApiService {
       url,
       headers: requestHeaders,
       body: jsonEncode(
-        {"phone":mobileNo,
-        "otp": otpCode,
-        "hash": otpHash,
+        {"mobileNumber":mobileNo,
+          "otp": otpCode,
+
         },
       ),
     );
