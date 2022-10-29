@@ -38,10 +38,9 @@ class _AuthScreenPageState extends State<AuthPage> {
 
   String firstName = "";
   String secondName = "";
-  String mobileNumber = '';
+  String mobileNumber = "";
   bool enableBtn = false;
   bool isAPIcallProcess = false;
-
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +98,7 @@ class _AuthScreenPageState extends State<AuthPage> {
                           hintText: "First Name",
                           fillColor: Colors.black54),
                       controller: firstsNameController,
-                      onChanged: (String name){
+                      onChanged: (String name) {
                         name = firstsNameController.text;
                         firstName = name;
                         debugPrint("FirstName: $firstName");
@@ -108,7 +107,7 @@ class _AuthScreenPageState extends State<AuthPage> {
                   ),
                   Container(
                     padding:
-                    const EdgeInsets.only(bottom: 30, left: 20, right: 20),
+                        const EdgeInsets.only(bottom: 30, left: 20, right: 20),
                     child: TextField(
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -120,7 +119,7 @@ class _AuthScreenPageState extends State<AuthPage> {
                           hintText: "Last Name",
                           fillColor: Colors.black54),
                       controller: lastNameController,
-                      onChanged: (String lastName){
+                      onChanged: (String lastName) {
                         lastName = lastNameController.text;
                         secondName = lastName;
                         debugPrint("LastName: $secondName");
@@ -129,13 +128,13 @@ class _AuthScreenPageState extends State<AuthPage> {
                   ),
                   Container(
                     padding:
-                    const EdgeInsets.only(bottom: 120, left: 20, right: 20),
+                        const EdgeInsets.only(bottom: 120, left: 20, right: 20),
                     child: TextFormField(
                       maxLength: 10,
                       maxLines: 1,
                       keyboardType: TextInputType.phone,
                       controller: phoneNumberController,
-                      onChanged: (String value){
+                      onChanged: (String value) {
                         value = phoneNumberController.text;
                         if (value.length == 10) {
                           mobileNumber = value;
@@ -143,10 +142,9 @@ class _AuthScreenPageState extends State<AuthPage> {
                           debugPrint("value: $mobileNumber");
                         }
                       },
-                      validator: (value){
+                      validator: (value) {
                         return null;
                       },
-
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -167,22 +165,22 @@ class _AuthScreenPageState extends State<AuthPage> {
                           borderRadius: BorderRadius.circular(30),
                           color: AppColors.buttonColor),
                       child: GestureDetector(
-                          child:  Center(
+                          child: Center(
                               child: getText(
                                   textAlign: TextAlign.center,
                                   text: Strings.BTN_OTP,
-                                  textStyle: buttonTextStyle)
-
-                          ),
+                                  textStyle: buttonTextStyle)),
                           onTap: () async {
                             if (enableBtn && mobileNumber.length > 8) {
                               setState(() {
                                 isAPIcallProcess = true;
                               });
 
-                              OtpApiService.otpSignup(firstName,secondName,"+91"+"$mobileNumber").then((
-                                  response) async {
-                                SharedPreferences prefs = await SharedPreferences.getInstance();
+                              OtpApiService.otpSignup(firstName, secondName,
+                                      "+91" + "$mobileNumber")
+                                  .then((response) async {
+                                SharedPreferences prefs =
+                                    await SharedPreferences.getInstance();
                                 prefs.setString('stringValue', mobileNumber);
                                 setState(() {
                                   isAPIcallProcess = false;
@@ -190,6 +188,8 @@ class _AuthScreenPageState extends State<AuthPage> {
 
                                 if (response.randomOtp != null) {
                                   debugPrint("Hogaya");
+                                  debugPrint((response.send).toString());
+                                  debugPrint((response.randomOtp).toString());
                                   Navigator.pushAndRemoveUntil(
                                     context,
                                     MaterialPageRoute(
@@ -197,22 +197,18 @@ class _AuthScreenPageState extends State<AuthPage> {
                                         mobileNo: mobileNumber,
                                       ),
                                     ),
-                                        (route) => false,
+                                    (route) => false,
                                   );
                                 }
-                              }
-                              );
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          OtpVerificationPage()));
+                              });
+                              // Navigator.pushReplacement(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //       builder: (context) => OtpVerificationPage(
+                              //           mobileNo: phoneNumberController.text),
+                              //     ));
                             }
-
-                          }
-                      )
-
-                  ),
+                          })),
                   Container(
                       margin: const EdgeInsets.only(
                           top: 30, right: 20, left: 20, bottom: 10),
@@ -221,7 +217,7 @@ class _AuthScreenPageState extends State<AuthPage> {
                       )),
                   Container(
                     margin:
-                    const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+                        const EdgeInsets.only(right: 20, left: 20, bottom: 20),
                     child: getText(
                         textAlign: TextAlign.center,
                         text: "Don't have Indian number?",
@@ -229,7 +225,7 @@ class _AuthScreenPageState extends State<AuthPage> {
                   ),
                   Container(
                     margin:
-                    const EdgeInsets.only(right: 20, left: 20, bottom: 10),
+                        const EdgeInsets.only(right: 20, left: 20, bottom: 10),
                     child: getText(
                         textAlign: TextAlign.center,
                         text: "Click here",

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:physio/API/otp_api_service.dart';
 import 'package:physio/API/otp_config.dart';
+import 'package:physio/API/otp_verify_service.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:sms_autofill/sms_autofill.dart';
@@ -14,20 +15,25 @@ import '../../constants/text_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OtpVerificationPage extends StatefulWidget {
+  String? veriCode;
 
-  final String? mobileNo;
-
-  const OtpVerificationPage({this.mobileNo});
+  String? mobileNo;
+  OtpVerificationPage({required this.mobileNo});
 
   @override
-  _OtpVerificationPageState createState() => _OtpVerificationPageState();
+  _OtpVerificationPageState createState() =>
+      _OtpVerificationPageState(mobileNo);
 }
 
 class _OtpVerificationPageState extends State<OtpVerificationPage> {
+  String? mobileNo;
+  _OtpVerificationPageState(this.mobileNo);
+
   String _otpCode = "";
   bool _enableButton = false;
   bool enableResendBtn = false;
   final int _otpCodeLength = 4;
+  bool isVerifyApiCall = false;
   bool isAPICallProcess = false;
   late FocusNode myFocusNode;
 
@@ -88,16 +94,16 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                   Container(
                     alignment: Alignment.centerLeft,
                     padding:
-                    const EdgeInsets.only(left: 15, bottom: 15, top: 70),
-                    child: const Text(
-                      "+91 7098910064",
+                        const EdgeInsets.only(left: 15, bottom: 15, top: 70),
+                    child: Text(
+                      mobileNo!,
                       style: BaseStyles.otpTextStyleTwo,
                     ),
                   ),
                   Container(
                       alignment: Alignment.centerLeft,
                       padding:
-                      const EdgeInsets.only(left: 15, bottom: 15, top: 70),
+                          const EdgeInsets.only(left: 15, bottom: 15, top: 70),
                       child: Image.asset("assets/editicon.png")),
                 ],
               ),
@@ -112,7 +118,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 alignment: Alignment.centerLeft,
                 padding: const EdgeInsets.only(left: 15, bottom: 10, top: 40),
                 child:
-                const Text("Enter the OTP", style: BaseStyles.otpTextStyle),
+                    const Text("Enter the OTP", style: BaseStyles.otpTextStyle),
               ),
               Container(
                 padding: const EdgeInsets.only(top: 15, bottom: 15),
@@ -121,13 +127,27 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                   enabledBorderColor: Color(0xFF3C3C3C),
                   filled: true,
                   fillColor: AppColors.buttonVerifyBG,
+                  textStyle: otpText,
                   showFieldAsBox: true,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   onCodeChanged: (code) {
+                    _enableButton = true;
+                    FocusScope.of(context).requestFocus(FocusNode());
+                  },
+                  onSubmit: (String verificationCode) {
+                    debugPrint("+91" + "$mobileNo");
+                    debugPrint("$verificationCode");
 
-                      _enableButton = true;
-                      FocusScope.of(context).requestFocus(FocusNode());
-
+                    OtpVerifyService.verifyOtp(
+                            int.parse(verificationCode), "+91${mobileNo!}")
+                        .then((response) async {
+                      if (response.valid == true) {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AuthPage3()));
+                      }
+                    });
                   },
                 ),
               ),
@@ -165,49 +185,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 borderRadius: BorderRadius.circular(30),
                 color: AppColors.buttonColor),
             child: GestureDetector(
-              onTap: () async{
-                SharedPreferences prefs = await SharedPreferences.getInstance();
-                String? mobileNumber = prefs.getString('stringValue');
-                if (_enableButton) {
-                  setState(() {
-                    isAPICallProcess = true;
-                  });
-
-                  OtpApiService.verifyOtp(
-                      mobileNumber!, _otpCode)
-                      .then((response) {
-                    setState(() {
-                      isAPICallProcess = false;
-                    });
-
-                    if (response.valid != false) {
-                      FormHelper.showSimpleAlertDialog(
-                        context,
-                        Config.appName,
-                        response.message,
-                        "OK",
-                            () {
-                          Navigator.pop(context);
-                        },
-                      );
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => const AuthPage3()));
-                    } else {
-                      FormHelper.showSimpleAlertDialog(
-                        context,
-                        Config.appName,
-                        response.message,
-                        "OK",
-                            () {
-                          Navigator.pop(context);
-                        },
-                      );
-                    }
-                  });
-
-                }
-
-              },
+              onTap: () async {},
               child: Center(
                 child: getText(
                     textAlign: TextAlign.center,

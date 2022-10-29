@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:physio/API/otp_config.dart';
@@ -8,12 +9,9 @@ import 'package:physio/screens/onboarding/otp_verification.dart';
 class OtpApiService {
   static var client = http.Client();
 
-  static Future<OtpSignupResponse> otpSignup(String firstName,String secondName,String mobileNumber) async {
-    print(mobileNumber);
-    debugPrint('mobileNumber = $mobileNumber');
-    Map<String,String> requestHeaders = {
-      'Content-Type' : 'application/json'
-    };
+  static Future<OtpSignupResponse> otpSignup(
+      String firstName, String secondName, String mobileNumber) async {
+    Map<String, String> requestHeaders = {'Content-Type': 'application/json'};
 
     var url = Uri.parse('https://api.prophysio.in/mobile/physios/sendotp');
 
@@ -21,33 +19,36 @@ class OtpApiService {
       url,
       headers: requestHeaders,
       body: jsonEncode(
-        { "firstname":firstName,
-          "secondname":secondName,
-          "mobileNumber":mobileNumber},
-      ),
-    );
-
-    return otpSignupResponse(response.body);
-  }
-
-  static Future<OtpSignupResponse> verifyOtp(String mobileNo,String otpCode,) async {
-    Map<String,String> requestHeaders = {
-      'Content-Type' : 'application/json'
-    };
-
-    var url = Uri.http(Config.apiURL, Config.verifyOtpApi);
-
-    var response = await client.post(
-      url,
-      headers: requestHeaders,
-      body: jsonEncode(
-        {"mobileNumber":mobileNo,
-          "otp": otpCode,
-
+        {
+          "firstname": firstName,
+          "secondname": secondName,
+          "mobileNumber": mobileNumber
         },
       ),
     );
 
-    return otpSignupResponse(response.body);
+    return OtpSignupResponse.fromJson(json.decode(response.body));
   }
+
+  // static Future<OtpSignupResponse> verifyOtp(
+  //   String mobileNo,
+  //   int otpCode,
+  // ) async {
+  //   Map<String, String> requestHeaders = {'Content-Type': 'application/json'};
+  //
+  //   var url = Uri.parse('https://api.prophysio.in/mobile/physios/validateotp');
+  //
+  //   var response = await client.post(
+  //     url,
+  //     headers: requestHeaders,
+  //     body: jsonEncode(
+  //       {
+  //         "mobileNumber": mobileNo,
+  //         "otp": otpCode,
+  //       },
+  //     ),
+  //   );
+  //
+  //   return otpSignupResponse(response.body);
+  // }
 }
