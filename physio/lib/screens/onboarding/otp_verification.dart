@@ -1,24 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:physio/API/otp_api_service.dart';
+import 'package:physio/API/otp_config.dart';
+import 'package:physio/API/otp_verify_service.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 import '../../BaseWidget/base_image_widget.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/string.dart';
 import '../../constants/style.dart';
+import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-
 import '../../constants/text_constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OtpVerificationPage extends StatefulWidget {
-  const OtpVerificationPage({Key? key}) : super(key: key);
+  String? veriCode;
+
+  String? mobileNo;
+  OtpVerificationPage({required this.mobileNo});
 
   @override
-  State<OtpVerificationPage> createState() => _OtpVerificationPageState();
+  _OtpVerificationPageState createState() =>
+      _OtpVerificationPageState(mobileNo);
 }
 
 class _OtpVerificationPageState extends State<OtpVerificationPage> {
+  String? mobileNo;
+  _OtpVerificationPageState(this.mobileNo);
+
+  String _otpCode = "";
+  bool _enableButton = false;
+  bool enableResendBtn = false;
+  final int _otpCodeLength = 4;
+  bool isVerifyApiCall = false;
+  bool isAPICallProcess = false;
+  late FocusNode myFocusNode;
+
   var windowWidth;
   var windowHeight;
+
+  @override
+  void initSate() {
+    super.initState();
+    myFocusNode = FocusNode();
+    myFocusNode.requestFocus();
+
+    SmsAutoFill().listenForCode.call();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,8 +95,8 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                     alignment: Alignment.centerLeft,
                     padding:
                         const EdgeInsets.only(left: 15, bottom: 15, top: 70),
-                    child: const Text(
-                      "+91 7098910064",
+                    child: Text(
+                      mobileNo!,
                       style: BaseStyles.otpTextStyleTwo,
                     ),
                   ),
@@ -94,25 +123,32 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
               Container(
                 padding: const EdgeInsets.only(top: 15, bottom: 15),
                 child: OtpTextField(
-                  numberOfFields: 6,
-                  enabledBorderColor: const Color(0xFF3C3C3C),
+                  numberOfFields: 4,
+                  enabledBorderColor: Color(0xFF3C3C3C),
                   filled: true,
                   fillColor: AppColors.buttonVerifyBG,
+                  textStyle: otpText,
                   showFieldAsBox: true,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  onCodeChanged: (String code) {
-                    //handle validation or checks here
+                  onCodeChanged: (code) {
+                    _enableButton = true;
+                    FocusScope.of(context).requestFocus(FocusNode());
                   },
                   onSubmit: (String verificationCode) {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: const Text("Verification Code"),
-                            content: Text('Code entered is $verificationCode'),
-                          );
-                        });
-                  }, // end onSubmit
+                    debugPrint("+91" + "$mobileNo");
+                    debugPrint("$verificationCode");
+
+                    OtpVerifyService.verifyOtp(
+                            int.parse(verificationCode), "+91${mobileNo!}")
+                        .then((response) async {
+                      if (response.valid == true) {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AuthPage3()));
+                      }
+                    });
+                  },
                 ),
               ),
               Container(
@@ -149,10 +185,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 borderRadius: BorderRadius.circular(30),
                 color: AppColors.buttonColor),
             child: GestureDetector(
-              onTap: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const AuthPage3()));
-              },
+              onTap: () async {},
               child: Center(
                 child: getText(
                     textAlign: TextAlign.center,
@@ -162,6 +195,84 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    SmsAutoFill().unregisterListener();
+    myFocusNode.dispose();
+    super.dispose();
+  }
+}
+
+class CodeAutoFillTestPage extends StatefulWidget {
+  @override
+  _CodeAutoFillTestPageState createState() => _CodeAutoFillTestPageState();
+}
+
+class _CodeAutoFillTestPageState extends State<CodeAutoFillTestPage>
+    with CodeAutoFill {
+  String? appSignature;
+  String? otpCode;
+
+  @override
+  void codeUpdated() {
+    setState(() {
+      otpCode = code!;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    listenForCode();
+
+    SmsAutoFill().getAppSignature.then((signature) {
+      setState(() {
+        appSignature = signature;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    cancel;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final textStyle = TextStyle(fontSize: 18);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Listening for code"),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.fromLTRB(32, 32, 32, 0),
+            child: Text(
+              "This is the current app signature: $appSignature",
+            ),
+          ),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Builder(
+              builder: (_) {
+                if (otpCode == null) {
+                  return Text("Listening for code...", style: textStyle);
+                }
+                return Text("Code Received: $otpCode", style: textStyle);
+              },
+            ),
+          ),
+          const Spacer(),
+        ],
       ),
     );
   }
