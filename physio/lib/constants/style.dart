@@ -214,7 +214,7 @@ class BaseStyles {
   static const TextStyle nameStyle = TextStyle(
     color: Colors.white,
     fontFamily: "Mulish",
-    height: 0.01,
+    // height: 0.01,
     fontWeight: FontWeight.w400,
     fontSize: 16,
   );
@@ -261,7 +261,7 @@ class BaseStyles {
       color: Color.fromRGBO(142, 142, 142, 1));
 
   static const TextStyle carddetailsStyle = TextStyle(
-      fontSize: 12,
+      fontSize: 14,
       fontFamily: "Mulish",
       height: 1,
       fontWeight: FontWeight.w400,
@@ -323,4 +323,11 @@ class BaseStyles {
       fontSize: 16,
       fontWeight: FontWeight.w500,
       fontFamily: 'Montserrat');
+
+  static const TextStyle closeStyle = TextStyle(
+    color: Color(0xFFFFFFFF),
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w400,
+    fontSize: 11,
+  );
 }
