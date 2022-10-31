@@ -3,6 +3,7 @@ import 'package:physio/constants/style.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:physio/screens/onboarding/certification_screen.dart';
+import 'package:physio/utility/gap_between.dart';
 import '../../../BaseWidget/text.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/text_constants.dart';
@@ -98,6 +99,7 @@ class _SignupScreenPageState3 extends State<SignupScreen3> {
                     maxLines: null,
                   ),
                 ),
+                verticalGap(context: context, screenSize: 0.03),
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: const EdgeInsets.only(
@@ -107,47 +109,95 @@ class _SignupScreenPageState3 extends State<SignupScreen3> {
                       text: "Education/Experience",
                       textStyle: aboutYouText),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 10, left: 20, right: 70),
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      border: Border.all(color: Colors.blueGrey, width: 1),
-                      borderRadius: BorderRadius.circular(15)),
-                  child: TextFormField(
-                    style: const TextStyle(color: Color(0xCCCCCC)),
-                    decoration: InputDecoration(
-                        labelText: "Education",
-                        labelStyle: headertext,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50.0),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 5,
+                      child: Container(
+                        margin:
+                            const EdgeInsets.only(top: 30, left: 20, right: 20),
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            border:
+                                Border.all(color: Colors.blueGrey, width: 1),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: TextFormField(
+                          style: const TextStyle(color: Colors.white),
+                          autofocus: false,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                              labelText: "Education",
+                              labelStyle: headertext,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              filled: true,
+                              hintStyle: TextStyle(color: Colors.grey[300]),
+                              fillColor: Colors.black),
                         ),
-                        filled: true,
-                        hintStyle: TextStyle(color: Colors.grey[300]),
-                        fillColor: Colors.black),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 15, left: 20, right: 70),
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      border: Border.all(color: Colors.blueGrey, width: 1),
-                      borderRadius: BorderRadius.circular(15)),
-                  child: TextFormField(
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                        labelText: "speciality",
-                        labelStyle: headertext,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: InkWell(
+                        child: Container(
+                          margin: const EdgeInsets.only(right: 30, top: 20),
+                          alignment: Alignment.centerRight,
+                          child: Image.asset("assets/plusBtn.png"),
                         ),
-                        filled: true,
-                        hintStyle: TextStyle(color: Colors.grey[300]),
-                        fillColor: Colors.black),
-                    minLines: 4,
-                    keyboardType: TextInputType.multiline,
-                    maxLines: null,
-                  ),
+                        onTap: () {
+                          debugPrint("Add media event");
+                        },
+                      ),
+                    ),
+                  ],
                 ),
+                verticalGap(context: context, screenSize: 0.01),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 5,
+                      child: Container(
+                        margin:
+                            const EdgeInsets.only(top: 30, left: 20, right: 20),
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            border:
+                                Border.all(color: Colors.blueGrey, width: 1),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: TextFormField(
+                          style: const TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                              labelText: "speciality",
+                              labelStyle: headertext,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              filled: true,
+                              hintStyle: TextStyle(color: Colors.grey[300]),
+                              fillColor: Colors.black),
+                          minLines: 4,
+                          keyboardType: TextInputType.multiline,
+                          maxLines: null,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: InkWell(
+                        child: Container(
+                          margin: const EdgeInsets.only(right: 30, top: 20),
+                          alignment: Alignment.centerRight,
+                          child: Image.asset("assets/plusBtn.png"),
+                        ),
+                        onTap: () {
+                          debugPrint("Add media event");
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                verticalGap(context: context, screenSize: 0.02),
                 Container(
                   margin: const EdgeInsets.only(top: 10, left: 20, right: 70),
                   decoration: BoxDecoration(
@@ -167,6 +217,7 @@ class _SignupScreenPageState3 extends State<SignupScreen3> {
                         fillColor: Colors.black),
                   ),
                 ),
+                verticalGap(context: context, screenSize: 0.02),
                 Container(
                     margin: const EdgeInsets.only(top: 10, left: 20),
                     alignment: Alignment.centerLeft,
@@ -208,6 +259,7 @@ class _SignupScreenPageState3 extends State<SignupScreen3> {
                         },
                       ),
                     )),
+                verticalGap(context: context, screenSize: 0.03),
                 Container(
                   margin: const EdgeInsets.only(top: 10),
                   alignment: Alignment.bottomCenter,
