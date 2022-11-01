@@ -54,6 +54,7 @@ dependencies:
   share_plus: "^0.0.1"
   sms_autofill: ^2.2.0
   snippet_coder_utils: ^1.0.9
+  otp_timer_button: ^1.1.0
 
 
 dev_dependencies:

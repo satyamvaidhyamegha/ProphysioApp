@@ -99,9 +99,9 @@ class _AuthScreenPageState extends State<AuthPage> {
                           fillColor: Colors.black54),
                       controller: firstsNameController,
                       onChanged: (String name) {
-                        name = firstsNameController.text;
-                        firstName = name;
-                        debugPrint("FirstName: $firstName");
+                          name = firstsNameController.text;
+                          firstName = name;
+                          debugPrint("FirstName: $firstName");
                       },
                     ),
                   ),
@@ -120,9 +120,9 @@ class _AuthScreenPageState extends State<AuthPage> {
                           fillColor: Colors.black54),
                       controller: lastNameController,
                       onChanged: (String lastName) {
-                        lastName = lastNameController.text;
-                        secondName = lastName;
-                        debugPrint("LastName: $secondName");
+                          lastName = lastNameController.text;
+                          secondName = lastName;
+                          debugPrint("LastName: $secondName");
                       },
                     ),
                   ),
@@ -171,7 +171,7 @@ class _AuthScreenPageState extends State<AuthPage> {
                                   text: Strings.BTN_OTP,
                                   textStyle: buttonTextStyle)),
                           onTap: () async {
-                            if (enableBtn && mobileNumber.length > 8) {
+                            if (enableBtn && mobileNumber.length > 8 && (firstName!="") && (secondName!="") ) {
                               setState(() {
                                 isAPIcallProcess = true;
                               });
@@ -182,33 +182,32 @@ class _AuthScreenPageState extends State<AuthPage> {
                                 SharedPreferences prefs =
                                     await SharedPreferences.getInstance();
                                 prefs.setString('stringValue', mobileNumber);
+                                prefs.setString('firstName', firstName);
+                                prefs.setString('secondName', secondName);
                                 setState(() {
                                   isAPIcallProcess = false;
                                 });
 
                                 if (response.randomOtp != null) {
-                                  debugPrint("Hogaya");
-                                  debugPrint((response.send).toString());
-                                  debugPrint((response.randomOtp).toString());
                                   Navigator.pushAndRemoveUntil(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => OtpVerificationPage(
                                         mobileNo: mobileNumber,
+                                        firstName: firstName,
+                                        secondName: secondName,
+
                                       ),
                                     ),
                                     (route) => false,
                                   );
                                 }
-                              });
-                              // Navigator.pushReplacement(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //       builder: (context) => OtpVerificationPage(
-                              //           mobileNo: phoneNumberController.text),
-                              //     ));
+                              }
+                              );
                             }
-                          })),
+                          }
+                          )
+                  ),
                   Container(
                       margin: const EdgeInsets.only(
                           top: 30, right: 20, left: 20, bottom: 10),
