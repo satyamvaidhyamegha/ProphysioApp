@@ -15,7 +15,6 @@ import '../../constants/style.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import '../../constants/text_constants.dart';
 
-
 class OtpVerificationPage extends StatefulWidget {
   String? veriCode;
 
@@ -23,11 +22,14 @@ class OtpVerificationPage extends StatefulWidget {
   String? firstName;
   String? secondName;
 
-  OtpVerificationPage({required this.mobileNo,required this.firstName, required this.secondName});
+  OtpVerificationPage(
+      {required this.mobileNo,
+      required this.firstName,
+      required this.secondName});
 
   @override
   _OtpVerificationPageState createState() =>
-      _OtpVerificationPageState(mobileNo,firstName,secondName);
+      _OtpVerificationPageState(mobileNo, firstName, secondName);
 }
 
 class _OtpVerificationPageState extends State<OtpVerificationPage> {
@@ -37,8 +39,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
 
   final TextEditingController phoneNumberController = TextEditingController();
 
-
-  _OtpVerificationPageState(this.mobileNo,this.firstName,this.secondName);
+  _OtpVerificationPageState(this.mobileNo, this.firstName, this.secondName);
 
   bool _enableButton = false;
   bool enableResendBtn = false;
@@ -50,8 +51,6 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
   var windowWidth;
   var windowHeight;
 
-
-
   @override
   void initSate() {
     super.initState();
@@ -59,20 +58,16 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
     myFocusNode.requestFocus();
 
     SmsAutoFill().listenForCode.call();
-
-
   }
 
   @override
   Widget build(BuildContext context) {
-
     windowWidth = MediaQuery.of(context).size.width;
     windowHeight = MediaQuery.of(context).size.height;
     return Scaffold(body: initScreen(context));
   }
 
   initScreen(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Container(
@@ -116,21 +111,16 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                       style: BaseStyles.otpTextStyleTwo,
                     ),
                   ),
-
                   InkWell(
                     onTap: () {
-                     openDialog();
+                      openDialog();
                     },
-                    child:  Container(
-
+                    child: Container(
                         alignment: Alignment.centerLeft,
-                        padding:
-                        const EdgeInsets.only(left: 15, bottom: 15, top: 70),
-                        child: Image.asset("assets/editicon.png")
-
-                    ),
+                        padding: const EdgeInsets.only(
+                            left: 15, bottom: 15, top: 70),
+                        child: Image.asset("assets/editicon.png")),
                   )
-
                 ],
               ),
               Container(
@@ -163,7 +153,6 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                   onSubmit: (String verificationCode) {
                     debugPrint("+91" + "$mobileNo");
 
-
                     OtpVerifyService.verifyOtp(
                             int.parse(verificationCode), "+91${mobileNo!}")
                         .then((response) async {
@@ -182,14 +171,12 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-
                     OtpTimerButton(
                         backgroundColor: Colors.transparent,
                         onPressed: () async {
-                          var req = await OtpApiService
-                              .otpSignup(firstName!, secondName!,
-                              "+91" + "$mobileNo")
-                          .then((response) async{
+                          var req = await OtpApiService.otpSignup(
+                                  firstName!, secondName!, "+91" + "$mobileNo")
+                              .then((response) async {
                             setState(() {
                               isAPICallProcess = false;
                             });
@@ -197,7 +184,6 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                           print(req.body);
                         },
                         text: Text(
-
                           Strings.RESEND_OTP,
                           style: TextStyle(
                               color: Colors.white,
@@ -242,48 +228,41 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
   Future openDialog() => showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: Colors.blueGrey,
-        title: new Text('INPUT'),
-
-        content: TextFormField(
-            maxLines: 1,
-            controller: phoneNumberController,
-            keyboardType: TextInputType.phone,
-            autofocus: true,
-            style: TextStyle(fontSize: 15),
-            decoration: const InputDecoration(
-
-              hintText: 'Mobile Number',
+            backgroundColor: Colors.blueGrey,
+            title: new Text('INPUT'),
+            content: TextFormField(
+              maxLines: 1,
+              controller: phoneNumberController,
+              keyboardType: TextInputType.phone,
+              autofocus: true,
+              style: TextStyle(fontSize: 15),
+              decoration: const InputDecoration(
+                hintText: 'Mobile Number',
+              ),
+              onChanged: (value) async {
+                value = phoneNumberController.text;
+              },
+              maxLength: 10,
             ),
-            onChanged: (value) async {
-              value = phoneNumberController.text;
-            },
-            maxLength: 10,
-        ),
-        actions: [
-          TextButton(
-              onPressed: submit,
-              child: Text("SUBMIT")
-          ),
-        ],
-      ));
+            actions: [
+              TextButton(onPressed: submit, child: Text("SUBMIT")),
+            ],
+          ));
 
-  void submit() async{
+  void submit() async {
     var value = phoneNumberController.text;
-    if(value.length == 10){
+    if (value.length == 10) {
       mobileNo = value;
 
-      var req = await OtpApiService
-          .otpSignup(firstName!, secondName!,
-          "+91" + "$mobileNo")
-          .then((response) async{
+      var req = await OtpApiService.otpSignup(
+              firstName!, secondName!, "+91" + "$mobileNo")
+          .then((response) async {
         setState(() {
           isAPICallProcess = false;
         });
       });
       Navigator.of(context).pop();
     }
-
   }
 
   @override

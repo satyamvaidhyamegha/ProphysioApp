@@ -9,17 +9,39 @@ import '../../constants/colors.dart';
 import '../../constants/text_constants.dart';
 
 class SignupScreen2 extends StatefulWidget {
-  const SignupScreen2({Key? key}) : super(key: key);
+  String? firstName;
+  String? lastName;
+  String? emailId;
+
+  SignupScreen2(
+      {required this.firstName, required this.lastName, required this.emailId});
 
   @override
-  State<StatefulWidget> createState() {
-    return _SignupScreenPageState2();
-  }
+  _SignupScreenPageState2 createState() =>
+      _SignupScreenPageState2(firstName, lastName, emailId);
 }
 
 class _SignupScreenPageState2 extends State<SignupScreen2> {
   var windowWidth;
   var windowHeight;
+
+  String? firstName;
+  String? lastName;
+  String? emailId;
+
+  _SignupScreenPageState2(this.firstName, this.lastName, this.emailId);
+
+  @override
+  void dispose() {
+    super.dispose();
+    passController.dispose();
+  }
+
+  final TextEditingController passController = TextEditingController();
+  final TextEditingController repassController = TextEditingController();
+
+  String pass = "";
+  String repass = "";
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +100,7 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                   borderRadius: BorderRadius.circular(15)),
               child: TextFormField(
                 style: const TextStyle(color: Colors.white),
+                controller: passController,
                 autofocus: false,
                 obscureText: true,
                 decoration: InputDecoration(
@@ -89,6 +112,10 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                     filled: true,
                     hintStyle: TextStyle(color: Colors.grey[300]),
                     fillColor: Colors.black),
+                onChanged: (String passW) {
+                  passW = passController.text;
+                  pass = passW;
+                },
               ),
             ),
             Container(
@@ -99,6 +126,7 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                   borderRadius: BorderRadius.circular(15)),
               child: TextFormField(
                 style: const TextStyle(color: Colors.white),
+                controller: repassController,
                 autofocus: false,
                 obscureText: true,
                 decoration: InputDecoration(
@@ -110,6 +138,10 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                     filled: true,
                     hintStyle: TextStyle(color: Colors.grey[300]),
                     fillColor: Colors.black),
+                onChanged: (String repassW) {
+                  repassW = repassController.text;
+                  repass = repassW;
+                },
               ),
             ),
             Container(
@@ -122,10 +154,16 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                   color: AppColors.buttonColor),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ProfessionalProfile()));
+                  if (pass == repass) {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProfessionalProfile(
+                                firstName: firstName,
+                                lastName: lastName,
+                                emailId: emailId,
+                                pass: pass)));
+                  }
                 },
                 child: Center(
                   child: getText(
