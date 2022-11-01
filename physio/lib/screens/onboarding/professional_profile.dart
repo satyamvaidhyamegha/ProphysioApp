@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:physio/API/signup_service.dart';
 import 'package:physio/constants/string.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -11,17 +12,33 @@ import '../../constants/style.dart';
 import '../../constants/text_constants.dart';
 
 class ProfessionalProfile extends StatefulWidget {
-  const ProfessionalProfile({Key? key}) : super(key: key);
+  String? firstName;
+  String? lastName;
+  String? emailId;
+  String? pass;
+
+  ProfessionalProfile(
+      {required this.firstName,
+      required this.lastName,
+      required this.emailId,
+      required this.pass});
 
   @override
-  State<StatefulWidget> createState() {
-    return _ProfessionalProfilePageState();
-  }
+  _ProfessionalProfilePageState createState() =>
+      _ProfessionalProfilePageState(firstName, lastName, emailId, pass);
 }
 
 class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
   var windowWidth;
   var windowHeight;
+
+  String? firstName;
+  String? lastName;
+  String? emailId;
+  String? pass;
+
+  _ProfessionalProfilePageState(
+      this.firstName, this.lastName, this.emailId, this.pass);
 
   String dropdownCurrency = 'Rupees';
   List<String> itemsCurrency = [
@@ -37,6 +54,14 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
     'Sol',
   ];
 
+  final TextEditingController addressController = TextEditingController();
+  final TextEditingController contactNoController = TextEditingController();
+  final TextEditingController rateController = TextEditingController();
+
+  String address = "";
+  String contactNo = "";
+  String rate = "";
+  String yoe = "69";
   @override
   Widget build(BuildContext context) {
     windowWidth = MediaQuery.of(context).size.width;
@@ -55,7 +80,12 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const SignupScreen2()),
+            MaterialPageRoute(
+                builder: (context) => SignupScreen2(
+                      firstName: firstName,
+                      lastName: lastName,
+                      emailId: emailId,
+                    )),
           ),
         ),
       ),
@@ -122,6 +152,7 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                         borderRadius: BorderRadius.circular(15)),
                     child: TextFormField(
                       style: const TextStyle(color: Colors.white),
+                      controller: addressController,
                       decoration: InputDecoration(
                           labelText: "Address",
                           labelStyle: headertext,
@@ -132,6 +163,10 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                           hintStyle: TextStyle(color: Colors.grey[300]),
                           fillColor: Colors.black),
                       maxLines: 5,
+                      onChanged: (String addresss) {
+                        addresss = addressController.text;
+                        address = addresss;
+                      },
                     ),
                   ),
                   Container(
@@ -142,6 +177,7 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                         borderRadius: BorderRadius.circular(15)),
                     child: TextFormField(
                       style: const TextStyle(color: Colors.white),
+                      controller: contactNoController,
                       decoration: InputDecoration(
                           labelText: "Enter Contact no.",
                           labelStyle: headertext,
@@ -151,6 +187,10 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                           filled: true,
                           hintStyle: TextStyle(color: Colors.grey[300]),
                           fillColor: Colors.black),
+                      onChanged: (String mobile) {
+                        mobile = contactNoController.text;
+                        contactNo = mobile;
+                      },
                     ),
                   ),
                   Row(children: [
@@ -193,8 +233,9 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                               borderRadius: BorderRadius.circular(15)),
                           child: TextFormField(
                             style: const TextStyle(color: Colors.white),
+                            controller: rateController,
                             decoration: InputDecoration(
-                                labelText: "Email id",
+                                labelText: "Charges per hour",
                                 labelStyle: headertext,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(15.0),
@@ -202,6 +243,10 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                                 filled: true,
                                 hintStyle: TextStyle(color: Colors.grey[300]),
                                 fillColor: Colors.black),
+                            onChanged: (String charges) {
+                              charges = rateController.text;
+                              rate = charges;
+                            },
                           ),
                         ),
                       ),
@@ -262,10 +307,34 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                         color: AppColors.buttonColor),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SignupScreen3()));
+                        debugPrint("Tap Ho Rha hai");
+                        debugPrint(firstName! +
+                            lastName! +
+                            address +
+                            rate +
+                            yoe +
+                            contactNo +
+                            emailId! +
+                            pass!);
+                        SignupService.signup(
+                                firstName!,
+                                lastName!,
+                                address,
+                                int.parse(rate),
+                                int.parse(yoe),
+                                "+91$contactNo",
+                                emailId!,
+                                pass!)
+                            .then((response) async {
+                          debugPrint(response.name);
+                          if (response.name != null) {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const SignupScreen3()));
+                          }
+                        });
                       },
                       child: Center(
                         child: getText(

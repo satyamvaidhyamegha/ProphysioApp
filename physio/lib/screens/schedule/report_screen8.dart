@@ -195,10 +195,8 @@ class _ReportScreen8PageState extends State<ReportScreen8> {
                       color: AppColors.buttonColor),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignupScreen2()));
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => AuthPage3()));
                     },
                     child: Center(
                       child: getText(

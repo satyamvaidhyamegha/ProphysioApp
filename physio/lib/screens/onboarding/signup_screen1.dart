@@ -21,12 +21,28 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
   var windowWidth;
   var windowHeight;
 
+  @override
+  void dispose() {
+    super.dispose();
+    firstNameController.dispose();
+    secondNameController.dispose();
+    emailIdController.dispose();
+  }
+
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController secondNameController = TextEditingController();
+  final TextEditingController emailIdController = TextEditingController();
+
   String dropdownvalue = 'Doctor';
   var items = [
     'Doctor',
     'Mr.',
     'Mrs.',
   ];
+
+  String firstName = "";
+  String lastName = "";
+  String emailId = "";
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +58,6 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: AppColors.signupBackground,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const AuthPage3()),
-          ),
-        ),
       ),
       body: Container(
           height: double.maxFinite,
@@ -146,6 +155,7 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                         borderRadius: BorderRadius.circular(15)),
                     child: TextFormField(
                       style: const TextStyle(color: Colors.white),
+                      controller: firstNameController,
                       decoration: InputDecoration(
                           labelText: "First Name",
                           labelStyle: headertext,
@@ -155,6 +165,10 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                           filled: true,
                           hintStyle: TextStyle(color: Colors.grey[300]),
                           fillColor: Colors.black),
+                      onChanged: (String fname) {
+                        fname = firstNameController.text;
+                        firstName = fname;
+                      },
                     ),
                   ),
                   Container(
@@ -165,6 +179,7 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                         borderRadius: BorderRadius.circular(15)),
                     child: TextFormField(
                       style: const TextStyle(color: Colors.white),
+                      controller: secondNameController,
                       decoration: InputDecoration(
                           labelText: "Last Name",
                           labelStyle: headertext,
@@ -174,6 +189,10 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                           filled: true,
                           hintStyle: TextStyle(color: Colors.grey[300]),
                           fillColor: Colors.black),
+                      onChanged: (String lname) {
+                        lname = secondNameController.text;
+                        lastName = lname;
+                      },
                     ),
                   ),
                   Container(
@@ -184,6 +203,7 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                         borderRadius: BorderRadius.circular(15)),
                     child: TextFormField(
                       style: const TextStyle(color: Colors.white),
+                      controller: emailIdController,
                       decoration: InputDecoration(
                           labelText: "Email id",
                           labelStyle: headertext,
@@ -193,6 +213,10 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                           filled: true,
                           hintStyle: TextStyle(color: Colors.grey[300]),
                           fillColor: Colors.black),
+                      onChanged: (String email) {
+                        email = emailIdController.text;
+                        emailId = email;
+                      },
                     ),
                   ),
                   Container(
@@ -208,7 +232,10 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const SignupScreen2()));
+                                builder: (context) => SignupScreen2(
+                                    firstName: firstName,
+                                    lastName: lastName,
+                                    emailId: emailId)));
                       },
                       child: Center(
                         child: getText(
