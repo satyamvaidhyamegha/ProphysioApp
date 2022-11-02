@@ -3,12 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:physio/screens/schedule/report_screen8.dart';
-import 'package:physio/screens/schedule/schedule_report_screen.dart';
 import 'package:physio/screens/schedule/session_report.dart';
 import 'package:physio/screens/schedule/addAppointment/appointmentTypeScreen.dart';
 
 import 'package:physio/screens/onboarding/auth_screen3.dart';
-import 'package:physio/screens/onboarding/otp_verification.dart';
 import 'package:physio/screens/onboarding/signup_screen1.dart';
 import 'package:physio/screens/onboarding/signup_screen2.dart';
 import 'package:physio/screens/onboarding/splash_screen2.dart';
@@ -39,7 +37,7 @@ class MyApp extends StatelessWidget {
               const TextSelectionThemeData(cursorColor: Colors.white)),
       title: 'Pro Physio',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/reportScreen8',
+      initialRoute: '/signupScreen1',
       builder: EasyLoading.init(),
       routes: {
         '/schedule': (BuildContext context) => const SessionReport(),
@@ -51,7 +49,6 @@ class MyApp extends StatelessWidget {
         '/authPage': (BuildContext context) => const AuthPage(),
         '/authPage3': (BuildContext context) => const AuthPage3(),
         '/signupScreen1': (BuildContext context) => const SignupScreen1(),
-        '/signupScreen2': (BuildContext context) => const SignupScreen2(),
         '/reportScreen8': (BuildContext context) => const ReportScreen8(),
       },
     );

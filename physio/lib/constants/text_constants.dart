@@ -19,6 +19,13 @@ const infoStyle = TextStyle(
   fontSize: 16,
 );
 
+const otpText = TextStyle(
+  color: Color(0xFFC4C4C4),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 18,
+);
+
 const infoStyle2 = TextStyle(
   color: Color(0xFFC4C4C4),
   fontFamily: "Mulish",
