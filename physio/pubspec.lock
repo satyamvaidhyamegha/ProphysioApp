@@ -191,6 +191,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  grouped_list:
+    dependency: "direct main"
+    description:
+      name: grouped_list
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.2.0"
   http:
     dependency: transitive
     description:
@@ -205,6 +212,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.2"
+  iconly:
+    dependency: "direct main"
+    description:
+      name: iconly
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   image:
     dependency: transitive
     description:

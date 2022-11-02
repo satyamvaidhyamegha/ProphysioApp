@@ -65,6 +65,7 @@ class AppColors {
   static const calenderColor = Color.fromRGBO(34, 34, 34, 1);
   static const calenderColor2 = Color.fromRGBO(28, 28, 30, 1);
   static const numberwhite = Color.fromRGBO(235, 235, 245, 0.6);
+  static const numberwhite1 = Color.fromRGBO(112, 112, 112, 1);
 
   static const PROACTIVE_APPBAR_COLOR = Color(0XFFFBA9562);
 

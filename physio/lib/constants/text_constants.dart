@@ -32,6 +32,12 @@ const infoStyle2 = TextStyle(
   fontWeight: FontWeight.w400,
   fontSize: 22,
 );
+const infoStyle3 = TextStyle(
+  color: AppColors.profileSubtitleColor,
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 22,
+);
 
 const info1style = TextStyle(
   color: Colors.grey,
@@ -232,6 +238,12 @@ const pushNoti2 = TextStyle(
   color: Color(0xFFFFFFFF),
   fontFamily: "Montserrat",
   fontWeight: FontWeight.w300,
+  fontSize: 16,
+);
+const pushNot = TextStyle(
+  color: Colors.blue,
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w500,
   fontSize: 16,
 );
 const helpusText1 = TextStyle(
