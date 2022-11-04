@@ -115,6 +115,10 @@ class Strings {
   static const UPLOAD = "Uploaded";
   static const TAKE_PICTURE = "Take Picture";
   static const HOME = "Home";
+  static const SCHEDULE = "Schedule";
+  static const PEOPLE = "People";
+  static const REPORT = "Report";
+  static const HUB = "Hub";
   static const AWESOME_TEXT = "Awesome!";
   static const TERMS_CONDITION = "Terms & \n Condition";
   static const SUBSCRIPTION_THAN_TEXT =
