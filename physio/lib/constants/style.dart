@@ -181,6 +181,12 @@ class BaseStyles {
     fontWeight: FontWeight.w700,
     fontSize: 34,
   );
+  static const TextStyle numberStyle = TextStyle(
+    color: Color(0xFF007CE2),
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w500,
+    fontSize: 34,
+  );
   static const TextStyle scheduleHeaddingStyle = TextStyle(
     color: Colors.white,
     fontFamily: "Mulish",
@@ -326,6 +332,13 @@ class BaseStyles {
 
   static const TextStyle closeStyle = TextStyle(
     color: Color(0xFFFFFFFF),
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w400,
+    fontSize: 11,
+  );
+
+  static const TextStyle closeStyle1 = TextStyle(
+    color: AppColors.numberwhite1,
     fontFamily: "Mulish",
     fontWeight: FontWeight.w400,
     fontSize: 11,

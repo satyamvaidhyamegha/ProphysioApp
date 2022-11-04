@@ -59,6 +59,9 @@ dependencies:
   sms_autofill: ^2.2.0
   snippet_coder_utils: ^1.0.9
   otp_timer_button: ^1.1.0
+  badges: ^2.0.3
+ 
+  syncfusion_flutter_charts: ^20.3.52
 
 dev_dependencies:
   flutter_test:
