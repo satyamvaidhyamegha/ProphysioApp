@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 class SignUpResponse {
-  final String name;
+  final String id;
 
-  SignUpResponse({required this.name});
+  SignUpResponse({required this.id});
 
   factory SignUpResponse.fromJson(Map<dynamic, dynamic> json) {
-    return SignUpResponse(name: json['result']['rate']);
+    return SignUpResponse(id: json['_id'].toString());
   }
 }

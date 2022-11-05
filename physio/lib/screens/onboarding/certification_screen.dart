@@ -2,6 +2,7 @@
 import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:physio/API/signupDetails_service.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/screens/onboarding/helpus_helpyou.dart';
 import 'package:physio/screens/onboarding/signup_screen3.dart';
@@ -11,17 +12,49 @@ import '../../constants/string.dart';
 import '../../constants/text_constants.dart';
 
 class CertificationScreen extends StatefulWidget {
-  const CertificationScreen({Key? key}) : super(key: key);
+
+  String? aboutYou;
+  String? education;
+  String? speciality;
+  String? dropdownLanguage;
+  String? physioId;
+
+  CertificationScreen(
+  {
+    required this.aboutYou,
+    required this.education,
+    required this.speciality,
+    required this.dropdownLanguage,
+    required this.physioId
+});
 
   @override
-  State<StatefulWidget> createState() {
-    return _CertificationScreenPageState();
-  }
+  _CertificationScreenPageState createState()=>
+      _CertificationScreenPageState(aboutYou,education,speciality,dropdownLanguage,physioId);
 }
 
 class _CertificationScreenPageState extends State<CertificationScreen> {
   var windowWidth;
   var windowHeight;
+
+  final TextEditingController certificationNameController = TextEditingController();
+  final TextEditingController organisationController = TextEditingController();
+  final TextEditingController mediaController = TextEditingController();
+
+  String? aboutYou;
+  String? education;
+  String? speciality;
+  String? dropdownLanguage;
+  String? physioId;
+
+  String certificationName = "";
+  String organisationName = "";
+  String media = "";
+
+
+
+
+  _CertificationScreenPageState(this.aboutYou,this.education,this.speciality,this.dropdownLanguage,this.physioId);
 
   DateTime date = DateTime.now();
 
@@ -44,7 +77,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const SignupScreen3()),
+            MaterialPageRoute(builder: (context) => SignupScreen3(physioid: "")),
           ),
         ),
       ),
@@ -99,6 +132,10 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                           filled: true,
                           hintStyle: TextStyle(color: Colors.grey[300]),
                           fillColor: Colors.black),
+                      onChanged: (String certificateValue){
+                          certificateValue = certificationNameController.text;
+                          certificationName = certificateValue;
+                      },
                     ),
                   ),
                   Container(
@@ -120,6 +157,10 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                           filled: true,
                           hintStyle: TextStyle(color: Colors.grey[300]),
                           fillColor: Colors.black),
+                      onChanged: (String issuingOrg){
+                        issuingOrg = organisationController.text;
+                        organisationName = issuingOrg;
+                      },
                     ),
                   ),
                   Row(
@@ -297,11 +338,21 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                                 color: AppColors.buttonColor),
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const HelpUsScreen()));
+
+                                SignupDetailsService.signupDetails(physioId!, aboutYou!, education!, speciality!, certificationName, organisationName, date.toString(), media)
+                                .then((response)async{
+
+                                  if (response.id != null) {
+                                    debugPrint("physioid:$physioId");
+
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                HelpUsScreen()));
+                                  }
+                                });
+
                               },
                               child: Center(
                                 child: getText(

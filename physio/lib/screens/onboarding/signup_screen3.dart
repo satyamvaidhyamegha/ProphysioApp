@@ -9,23 +9,41 @@ import '../../../constants/colors.dart';
 import '../../../constants/text_constants.dart';
 
 class SignupScreen3 extends StatefulWidget {
-  const SignupScreen3({Key? key}) : super(key: key);
+
+  SignupScreen3(
+      {
+        required this.physioid,
+      });
+
+  String physioid;
 
   @override
-  State<StatefulWidget> createState() {
-    return _SignupScreenPageState3();
-  }
+  _SignupScreen3PageState createState()=>
+      _SignupScreen3PageState(physioid);
 }
 
-class _SignupScreenPageState3 extends State<SignupScreen3> {
+class _SignupScreen3PageState extends State<SignupScreen3> {
   var windowWidth;
   var windowHeight;
+
+  final TextEditingController aboutYouController = TextEditingController();
+  final TextEditingController educationController = TextEditingController();
+  final TextEditingController specialityController = TextEditingController();
+
+
+  String aboutYou = "";
+  String education = "";
+  String speciality = "";
   String dropdownLanguage = 'Language';
   var itemsLanguage = [
     'Language',
     'Engligh',
     'kannada',
   ];
+
+  String physioid;
+
+  _SignupScreen3PageState(this.physioid);
 
   @override
   Widget build(BuildContext context) {
@@ -97,6 +115,10 @@ class _SignupScreenPageState3 extends State<SignupScreen3> {
                     minLines: 3,
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
+                    onChanged: (String aboutValue){
+                      aboutValue = aboutYouController.text;
+                      aboutYou = aboutValue;
+                    },
                   ),
                 ),
                 verticalGap(context: context, screenSize: 0.03),
@@ -134,6 +156,10 @@ class _SignupScreenPageState3 extends State<SignupScreen3> {
                               filled: true,
                               hintStyle: TextStyle(color: Colors.grey[300]),
                               fillColor: Colors.black),
+                          onChanged: (String educationValue){
+                            educationValue = educationController.text;
+                            education = educationValue;
+                          },
                         ),
                       ),
                     ),
@@ -179,6 +205,10 @@ class _SignupScreenPageState3 extends State<SignupScreen3> {
                           minLines: 4,
                           keyboardType: TextInputType.multiline,
                           maxLines: null,
+                          onChanged: (String specialityValue){
+                            specialityValue = specialityController.text;
+                            speciality = specialityValue;
+                          },
                         ),
                       ),
                     ),
@@ -274,7 +304,15 @@ class _SignupScreenPageState3 extends State<SignupScreen3> {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  const CertificationScreen()));
+                                   CertificationScreen(
+                                     physioId: physioid,
+                                    aboutYou: aboutYou,
+                                     education: education,
+                                     speciality: speciality,
+                                     dropdownLanguage: dropdownLanguage,
+                                  ),
+                          ),
+                      );
                     },
                     child: Center(
                       child: getText(

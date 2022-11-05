@@ -326,13 +326,14 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                                 emailId!,
                                 pass!)
                             .then((response) async {
-                          debugPrint(response.name);
-                          if (response.name != null) {
+                          debugPrint(response.id);
+                          if (response.id != null) {
+
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const SignupScreen3()));
+                                         SignupScreen3(physioid: response.id)));
                           }
                         });
                       },
