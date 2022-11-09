@@ -1,13 +1,9 @@
-
-
 class SignUpDetailsResponse {
-  final int id;
-  final int physioId;
-  final String language;
+  final String speciality;
 
-  SignUpDetailsResponse({required this.id,required this.physioId,required this.language});
+  SignUpDetailsResponse({required this.speciality});
 
   factory SignUpDetailsResponse.fromJson(Map<dynamic, dynamic> json) {
-    return SignUpDetailsResponse(id: json['id'], physioId: json['physioid'], language: json['language']);
+    return SignUpDetailsResponse(speciality: json['result']['speciality']);
   }
 }

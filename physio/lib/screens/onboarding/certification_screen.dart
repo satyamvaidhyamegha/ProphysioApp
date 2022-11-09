@@ -1,4 +1,3 @@
-
 import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -12,32 +11,32 @@ import '../../constants/string.dart';
 import '../../constants/text_constants.dart';
 
 class CertificationScreen extends StatefulWidget {
-
   String? aboutYou;
   String? education;
   String? speciality;
   String? dropdownLanguage;
   String? physioId;
+  String? name;
 
   CertificationScreen(
-  {
-    required this.aboutYou,
-    required this.education,
-    required this.speciality,
-    required this.dropdownLanguage,
-    required this.physioId
-});
+      {required this.aboutYou,
+      required this.education,
+      required this.speciality,
+      required this.dropdownLanguage,
+      required this.physioId,
+      required this.name});
 
   @override
-  _CertificationScreenPageState createState()=>
-      _CertificationScreenPageState(aboutYou,education,speciality,dropdownLanguage,physioId);
+  _CertificationScreenPageState createState() => _CertificationScreenPageState(
+      aboutYou, education, speciality, dropdownLanguage, physioId, name);
 }
 
 class _CertificationScreenPageState extends State<CertificationScreen> {
   var windowWidth;
   var windowHeight;
 
-  final TextEditingController certificationNameController = TextEditingController();
+  final TextEditingController certificationNameController =
+      TextEditingController();
   final TextEditingController organisationController = TextEditingController();
   final TextEditingController mediaController = TextEditingController();
 
@@ -46,15 +45,14 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
   String? speciality;
   String? dropdownLanguage;
   String? physioId;
+  String? name;
 
   String certificationName = "";
   String organisationName = "";
   String media = "";
 
-
-
-
-  _CertificationScreenPageState(this.aboutYou,this.education,this.speciality,this.dropdownLanguage,this.physioId);
+  _CertificationScreenPageState(this.aboutYou, this.education, this.speciality,
+      this.dropdownLanguage, this.physioId, this.name);
 
   DateTime date = DateTime.now();
 
@@ -77,7 +75,8 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => SignupScreen3(physioid: "")),
+            MaterialPageRoute(
+                builder: (context) => SignupScreen3(physioid: "", name: "")),
           ),
         ),
       ),
@@ -121,6 +120,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                         borderRadius: BorderRadius.circular(15)),
                     child: TextFormField(
                       style: const TextStyle(color: Colors.white),
+                      controller: certificationNameController,
                       autofocus: false,
                       obscureText: true,
                       decoration: InputDecoration(
@@ -132,9 +132,9 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                           filled: true,
                           hintStyle: TextStyle(color: Colors.grey[300]),
                           fillColor: Colors.black),
-                      onChanged: (String certificateValue){
-                          certificateValue = certificationNameController.text;
-                          certificationName = certificateValue;
+                      onChanged: (String certificateValue) {
+                        certificateValue = certificationNameController.text;
+                        certificationName = certificateValue;
                       },
                     ),
                   ),
@@ -146,6 +146,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                         borderRadius: BorderRadius.circular(15)),
                     child: TextFormField(
                       style: const TextStyle(color: Colors.white),
+                      controller: organisationController,
                       autofocus: false,
                       obscureText: true,
                       decoration: InputDecoration(
@@ -157,7 +158,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                           filled: true,
                           hintStyle: TextStyle(color: Colors.grey[300]),
                           fillColor: Colors.black),
-                      onChanged: (String issuingOrg){
+                      onChanged: (String issuingOrg) {
                         issuingOrg = organisationController.text;
                         organisationName = issuingOrg;
                       },
@@ -276,6 +277,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                               borderRadius: BorderRadius.circular(15)),
                           child: TextFormField(
                             style: const TextStyle(color: Colors.white),
+                            controller: mediaController,
                             autofocus: false,
                             obscureText: true,
                             decoration: InputDecoration(
@@ -287,6 +289,10 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                                 filled: true,
                                 hintStyle: TextStyle(color: Colors.grey[300]),
                                 fillColor: Colors.black),
+                            onChanged: (String mediaW) {
+                              mediaW = mediaController.text;
+                              media = mediaW;
+                            },
                           ),
                         ),
                       ),
@@ -338,12 +344,24 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                                 color: AppColors.buttonColor),
                             child: GestureDetector(
                               onTap: () {
-
-                                SignupDetailsService.signupDetails(physioId!, aboutYou!, education!, speciality!, certificationName, organisationName, date.toString(), media)
-                                .then((response)async{
-
-                                  if (response.id != null) {
-                                    debugPrint("physioid:$physioId");
+                                debugPrint("Click hua");
+                                debugPrint(
+                                    "${physioId!} ${aboutYou!} ${education!} ${speciality!} ${dropdownLanguage!} $certificationName $organisationName $date $media ${name!}");
+                                SignupDetailsService.signupDetails(
+                                        physioId!,
+                                        aboutYou!,
+                                        education!,
+                                        speciality!,
+                                        dropdownLanguage!,
+                                        certificationName,
+                                        organisationName,
+                                        date.toString(),
+                                        media,
+                                        name!)
+                                    .then((response) async {
+                                  debugPrint(response.speciality);
+                                  if (response.speciality != null) {
+                                    debugPrint(response.speciality);
 
                                     Navigator.pushReplacement(
                                         context,
@@ -352,7 +370,6 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                                                 HelpUsScreen()));
                                   }
                                 });
-
                               },
                               child: Center(
                                 child: getText(

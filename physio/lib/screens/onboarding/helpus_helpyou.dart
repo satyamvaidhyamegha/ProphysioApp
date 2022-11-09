@@ -14,7 +14,6 @@ import '../../constants/text_constants.dart';
 import 'auth_screen3.dart';
 
 class HelpUsScreen extends StatefulWidget {
-
   const HelpUsScreen({Key? key}) : super(key: key);
 
   @override
@@ -32,6 +31,7 @@ class _HelpUsScreenPageState extends State<HelpUsScreen> {
   String speciality = "";
   String dropdownLanguage = 'Language';
   String physioId = "";
+  String name = "";
 
   DateTime date = DateTime.now();
 
@@ -53,9 +53,15 @@ class _HelpUsScreenPageState extends State<HelpUsScreen> {
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pushReplacement(
             context,
-
             MaterialPageRoute(
-                builder: (context) =>  CertificationScreen(physioId:physioId, aboutYou:aboutYou,education: education,speciality: speciality,dropdownLanguage: dropdownLanguage)),
+                builder: (context) => CertificationScreen(
+                      physioId: physioId,
+                      aboutYou: aboutYou,
+                      education: education,
+                      speciality: speciality,
+                      dropdownLanguage: dropdownLanguage,
+                      name: name,
+                    )),
           ),
         ),
       ),

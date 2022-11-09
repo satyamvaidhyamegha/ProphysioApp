@@ -26,6 +26,7 @@ class _appointmentTypeScreenPageState extends State<appointmentTypeScreen> {
   String speciality = "";
   String dropdownLanguage = 'Language';
   String physioId = "";
+  String name = "";
 
   DateTime date = DateTime.now();
 
@@ -48,7 +49,13 @@ class _appointmentTypeScreenPageState extends State<appointmentTypeScreen> {
           onPressed: () => Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) =>  CertificationScreen(physioId: physioId,aboutYou: aboutYou,education: education,speciality: speciality,dropdownLanguage: dropdownLanguage)),
+                builder: (context) => CertificationScreen(
+                    physioId: physioId,
+                    aboutYou: aboutYou,
+                    education: education,
+                    speciality: speciality,
+                    dropdownLanguage: dropdownLanguage,
+                    name: name)),
           ),
         ),
       ),

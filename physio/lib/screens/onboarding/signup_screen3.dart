@@ -9,17 +9,14 @@ import '../../../constants/colors.dart';
 import '../../../constants/text_constants.dart';
 
 class SignupScreen3 extends StatefulWidget {
-
-  SignupScreen3(
-      {
-        required this.physioid,
-      });
+  SignupScreen3({required this.physioid, required this.name});
 
   String physioid;
+  String name;
 
   @override
-  _SignupScreen3PageState createState()=>
-      _SignupScreen3PageState(physioid);
+  _SignupScreen3PageState createState() =>
+      _SignupScreen3PageState(physioid, name);
 }
 
 class _SignupScreen3PageState extends State<SignupScreen3> {
@@ -29,7 +26,6 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
   final TextEditingController aboutYouController = TextEditingController();
   final TextEditingController educationController = TextEditingController();
   final TextEditingController specialityController = TextEditingController();
-
 
   String aboutYou = "";
   String education = "";
@@ -42,8 +38,9 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
   ];
 
   String physioid;
+  String name;
 
-  _SignupScreen3PageState(this.physioid);
+  _SignupScreen3PageState(this.physioid, this.name);
 
   @override
   Widget build(BuildContext context) {
@@ -103,6 +100,7 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
                       borderRadius: BorderRadius.circular(15)),
                   child: TextFormField(
                     style: const TextStyle(color: Color(0xCCCCCC)),
+                    controller: aboutYouController,
                     decoration: InputDecoration(
                         labelText: "Tell us a little bit about yourself",
                         labelStyle: headertext,
@@ -115,7 +113,7 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
                     minLines: 3,
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
-                    onChanged: (String aboutValue){
+                    onChanged: (String aboutValue) {
                       aboutValue = aboutYouController.text;
                       aboutYou = aboutValue;
                     },
@@ -145,6 +143,7 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
                             borderRadius: BorderRadius.circular(15)),
                         child: TextFormField(
                           style: const TextStyle(color: Colors.white),
+                          controller: educationController,
                           autofocus: false,
                           obscureText: true,
                           decoration: InputDecoration(
@@ -156,7 +155,7 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
                               filled: true,
                               hintStyle: TextStyle(color: Colors.grey[300]),
                               fillColor: Colors.black),
-                          onChanged: (String educationValue){
+                          onChanged: (String educationValue) {
                             educationValue = educationController.text;
                             education = educationValue;
                           },
@@ -193,6 +192,7 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
                             borderRadius: BorderRadius.circular(15)),
                         child: TextFormField(
                           style: const TextStyle(color: Colors.white),
+                          controller: specialityController,
                           decoration: InputDecoration(
                               labelText: "speciality",
                               labelStyle: headertext,
@@ -205,7 +205,7 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
                           minLines: 4,
                           keyboardType: TextInputType.multiline,
                           maxLines: null,
-                          onChanged: (String specialityValue){
+                          onChanged: (String specialityValue) {
                             specialityValue = specialityController.text;
                             speciality = specialityValue;
                           },
@@ -237,7 +237,7 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
                   child: TextFormField(
                     style: const TextStyle(color: Color(0xCCCCCC)),
                     decoration: InputDecoration(
-                        labelText: "Years of experence",
+                        labelText: "Years of experience",
                         labelStyle: headertext,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50.0),
@@ -301,17 +301,16 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                   CertificationScreen(
-                                     physioId: physioid,
-                                    aboutYou: aboutYou,
-                                     education: education,
-                                     speciality: speciality,
-                                     dropdownLanguage: dropdownLanguage,
-                                  ),
-                          ),
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CertificationScreen(
+                              physioId: physioid,
+                              aboutYou: aboutYou,
+                              education: education,
+                              speciality: speciality,
+                              dropdownLanguage: dropdownLanguage,
+                              name: name),
+                        ),
                       );
                     },
                     child: Center(

@@ -50,7 +50,6 @@ class MyApp extends StatelessWidget {
         '/authPage': (BuildContext context) => const AuthPage(),
         '/authPage3': (BuildContext context) => const AuthPage3(),
         '/signupScreen1': (BuildContext context) => const SignupScreen1(),
-
         '/reportScreen8': (BuildContext context) => const ReportScreen8(),
       },
     );
