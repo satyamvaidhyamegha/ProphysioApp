@@ -1,10 +1,12 @@
 import 'package:badges/badges.dart';
+import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
-import 'package:physio/screens/schedule/barchart_model.dart';
+import 'package:physio/screens/Home/barchart_model.dart';
 import 'package:physio/utility/gap_between.dart';
 
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -31,7 +33,8 @@ class _Home2State extends State<Home2> {
   void initState() {
     _tooltipBehavior = TooltipBehavior(
         enable: true,
-        // Templating the tooltip
+
+        /// Templating the tooltip
         builder: (dynamic data, dynamic point, dynamic series, int pointIndex,
             int seriesIndex) {
           return SizedBox(
@@ -73,14 +76,23 @@ class _Home2State extends State<Home2> {
                 horizontalGap(context: context, screenSize: 0.445),
                 Align(
                   alignment: Alignment.topCenter,
-                  child: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              image: AssetImage("assets/DoctorImage.png"),
-                              fit: BoxFit.cover))),
+                  child: GestureDetector(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) =>
+                            _buildPopupDialog(context),
+                      );
+                    },
+                    child: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                image: AssetImage("assets/DoctorImage.png"),
+                                fit: BoxFit.cover))),
+                  ),
                 ),
                 horizontalGap(context: context, screenSize: 0.04),
               ],
@@ -1242,6 +1254,115 @@ class _Home2State extends State<Home2> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildPopupDialog(BuildContext context) {
+    return Column(
+      children: [
+        verticalGap(context: context, screenSize: 0.15),
+        Row(
+          children: [
+            horizontalGap(context: context, screenSize: 0.28),
+            Container(
+              width: 266,
+              height: 284,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10.0),
+                ),
+                color: AppColors.bacColor,
+              ),
+              child: Column(
+                children: [
+                  verticalGap(context: context, screenSize: 0.02),
+                  Row(
+                    children: [
+                      horizontalGap(context: context, screenSize: 0.58),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Icon(
+                          Icons.close,
+                          color: Colors.white,
+                          size: 20.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                  verticalGap(context: context, screenSize: 0.02),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Row(
+                      children: [
+                        horizontalGap(context: context, screenSize: 0.06),
+                        getText(text: 'My Profile', textStyle: buttonTextStyle)
+                      ],
+                    ),
+                  ),
+                  verticalGap(context: context, screenSize: 0.02),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Row(
+                      children: [
+                        horizontalGap(context: context, screenSize: 0.06),
+                        getText(
+                            text: 'Notifications', textStyle: buttonTextStyle)
+                      ],
+                    ),
+                  ),
+                  verticalGap(context: context, screenSize: 0.02),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Row(
+                      children: [
+                        horizontalGap(context: context, screenSize: 0.06),
+                        getText(
+                            text: 'Payment & Subscription',
+                            textStyle: buttonTextStyle)
+                      ],
+                    ),
+                  ),
+                  verticalGap(context: context, screenSize: 0.02),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Row(
+                      children: [
+                        horizontalGap(context: context, screenSize: 0.06),
+                        getText(
+                            text: 'Password & Security',
+                            textStyle: buttonTextStyle)
+                      ],
+                    ),
+                  ),
+                  verticalGap(context: context, screenSize: 0.02),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Row(
+                      children: [
+                        horizontalGap(context: context, screenSize: 0.06),
+                        getText(text: 'Settings', textStyle: buttonTextStyle)
+                      ],
+                    ),
+                  ),
+                  verticalGap(context: context, screenSize: 0.02),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Row(
+                      children: [
+                        horizontalGap(context: context, screenSize: 0.06),
+                        getText(
+                            text: 'Privacy Policy', textStyle: buttonTextStyle)
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        )
+      ],
     );
   }
 }
