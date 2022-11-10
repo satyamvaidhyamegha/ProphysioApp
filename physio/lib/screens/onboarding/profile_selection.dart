@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/colors.dart';
@@ -115,7 +114,7 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                           ? const TextStyle(color: Colors.white, fontSize: 18)
                           : const TextStyle(color: Colors.blue, fontSize: 18),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       setState(() {
                         isButtonPressed = !isButtonPressed;
 
