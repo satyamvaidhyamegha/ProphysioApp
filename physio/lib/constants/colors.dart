@@ -60,6 +60,7 @@ class AppColors {
   static const routinHeadingColor = Color.fromRGBO(245, 245, 245, 1);
   static const routineSubheading = Color.fromRGBO(235, 235, 245, 0.6);
   static const routineCardColor = Color.fromRGBO(28, 28, 30, 1);
+  static const routineCardColor1 = Color.fromRGBO(34, 34, 34, 1);
   static const routineStepColor = Color.fromRGBO(239, 160, 57, 1);
   static const barStepColor = Color.fromRGBO(255, 149, 25, 1);
   static const routineStepColor2 = Color.fromRGBO(34, 155, 255, 1);
@@ -68,6 +69,7 @@ class AppColors {
   static const calenderColor = Color.fromRGBO(34, 34, 34, 1);
   static const calenderColor2 = Color.fromRGBO(28, 28, 30, 1);
   static const numberwhite = Color.fromRGBO(235, 235, 245, 0.6);
+  static const numberwhite2 = Color.fromRGBO(235, 235, 245, 1);
   static const numberwhite1 = Color.fromRGBO(112, 112, 112, 1);
   static const barBlueGreen = Color.fromRGBO(16, 213, 213, 1);
 
