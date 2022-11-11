@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_launcher_icons/xml_templates.dart';
+import 'package:iconly/iconly.dart';
+import 'package:physio/constants/colors.dart';
 import 'package:physio/utility/gap_between.dart';
 import 'package:physio/constants/string.dart';
 import '../../../BaseWidget/search_widget.dart';
@@ -35,11 +37,11 @@ initScreen(BuildContext context) {
   ScrollController mycontroller2 = ScrollController();
 
   return Scaffold(
-    backgroundColor: Color(0xff1C1C1E),
+    backgroundColor: const Color.fromRGBO(28, 28, 30, 1),
     appBar: PreferredSize(
       preferredSize: Size.fromHeight(120),
       child: Container(
-        color: Color(0xff1B232366),
+        color: const Color.fromRGBO(34, 34, 34, 1),
         child: Padding(
           padding: EdgeInsets.only(
             top: MediaQuery.of(context).size.height * 0.05,
@@ -52,12 +54,13 @@ initScreen(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  height: 44,
                   alignment: Alignment.centerLeft,
-                  child: const Icon(
-                    Icons.arrow_back_ios_new_rounded,
-                    size: 24,
-                    color: Colors.white,
+                  child: GestureDetector(
+                    onTap: () => Navigator.of(context).pop(false),
+                    child: const Icon(
+                      Icons.arrow_back_ios_new_rounded,
+                      color: AppColors.textColor,
+                    ),
                   ),
                 ),
                 Container(
@@ -94,10 +97,11 @@ initScreen(BuildContext context) {
               verticalGap(context: context, screenSize: 0.01),
               SearchWidget(
                   suffixIcon: const Icon(
-                    Icons.mic_none,
+                    IconlyLight.voice,
                     color: Colors.white,
                   ),
-                  prefixIcon: Icon(Icons.search, color: Color(0xff9E9EA5)),
+                  prefixIcon:
+                      const Icon(IconlyLight.search, color: Color(0xff9E9EA5)),
                   controller: myCareSearch,
                   hintText: Strings.SEARCH,
                   inputAction: TextInputAction.search),
@@ -231,7 +235,11 @@ initScreen(BuildContext context) {
                     ),
                     Container(
                       child: IconButton(
-                        icon: const Icon(CupertinoIcons.videocam),
+                        icon: const Icon(
+                          CupertinoIcons.videocam,
+                          color: Colors.blue,
+                          size: 30.0,
+                        ),
                         color: Colors.blue,
                         onPressed: () {},
                         iconSize: 30,
@@ -374,8 +382,8 @@ initScreen(BuildContext context) {
         Padding(
           padding: EdgeInsets.only(
             top: MediaQuery.of(context).size.height * 0.001,
-            left: MediaQuery.of(context).size.width * 0.0001,
-            // right: MediaQuery.of(context).size.width * 0.3,
+            left: MediaQuery.of(context).size.width * 0.05,
+            // right: MediaQuery.of(context).size.width * 0.6,
           ),
           child: getText(
             text: "27th March",
@@ -636,6 +644,7 @@ initScreen(BuildContext context) {
             ),
           ),
         ),
+        verticalGap(context: context, screenSize: 0.03),
       ],
     ),
   );

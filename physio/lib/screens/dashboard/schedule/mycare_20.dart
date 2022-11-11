@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_launcher_icons/xml_templates.dart';
+import 'package:iconly/iconly.dart';
 import 'package:physio/constants/raddi.dart';
 import 'package:physio/main.dart';
 import 'package:physio/screens/onboarding/policy_terms/privacy_policy.dart';
@@ -41,11 +43,11 @@ initScreen(BuildContext context) {
   ScrollController mycontroller2 = ScrollController();
 
   return Scaffold(
-    backgroundColor: const Color(0xff1C1C1E),
+    backgroundColor: const Color.fromRGBO(28, 28, 30, 1),
     appBar: PreferredSize(
       preferredSize: const Size.fromHeight(120),
       child: Container(
-        color: const Color(0xff1B232366),
+        color: const Color.fromRGBO(34, 34, 34, 1),
         child: Padding(
           padding: EdgeInsets.only(
             top: MediaQuery.of(context).size.height * 0.05,
@@ -58,12 +60,13 @@ initScreen(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  height: 44,
                   alignment: Alignment.centerLeft,
-                  child: const Icon(
-                    Icons.arrow_back_ios_new_rounded,
-                    size: 24,
-                    color: Colors.white,
+                  child: GestureDetector(
+                    onTap: () => Navigator.of(context).pop(false),
+                    child: const Icon(
+                      Icons.arrow_back_ios_new_rounded,
+                      color: AppColors.textColor,
+                    ),
                   ),
                 ),
                 Container(
@@ -138,7 +141,7 @@ initScreen(BuildContext context) {
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
-                  icon: Icons.more_horiz,
+                  icon: IconlyLight.more_square,
                   label: 'More',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -148,7 +151,7 @@ initScreen(BuildContext context) {
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
-                  icon: Icons.messenger,
+                  icon: IconlyLight.message,
                   label: 'Message',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -160,7 +163,7 @@ initScreen(BuildContext context) {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(8),
                       bottomRight: Radius.circular(8)),
-                  icon: Icons.play_arrow,
+                  icon: IconlyLight.play,
                   label: 'start',
                 ),
               ],
@@ -225,7 +228,7 @@ initScreen(BuildContext context) {
                                 right:
                                     MediaQuery.of(context).size.width * 0.02),
                             child: getText(
-                                text: 'Suraj Deshmukh, M 46',
+                                text: 'Kanti Roy, F 35',
                                 textStyle: BaseStyles.nameStyle),
                           ),
                           IconButton(
@@ -234,7 +237,11 @@ initScreen(BuildContext context) {
                                 left: MediaQuery.of(context).size.width * 0.004,
                                 right:
                                     MediaQuery.of(context).size.width * 0.04),
-                            icon: const Icon(Icons.videocam_outlined),
+                            icon: const Icon(
+                              CupertinoIcons.videocam,
+                              color: Colors.blue,
+                              size: 30.0,
+                            ),
                             color: Colors.blue,
                             onPressed: () {},
                           ),
@@ -247,8 +254,8 @@ initScreen(BuildContext context) {
                           right: MediaQuery.of(context).size.width * 0.27,
                         ),
                         child: getText(
-                            text: 'Wed, 12:00 pm - 1:00 pm',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            text: 'Thu, May 27, 3:00 pm - 4:00 pm',
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -258,7 +265,7 @@ initScreen(BuildContext context) {
                             bottom: MediaQuery.of(context).size.width * 0.02),
                         child: getText(
                             text: 'Condition: Back and shoulder pain',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                     ],
                   ),
@@ -284,7 +291,7 @@ initScreen(BuildContext context) {
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
-                  icon: Icons.more_horiz,
+                  icon: IconlyLight.more_square,
                   label: 'More',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -294,7 +301,7 @@ initScreen(BuildContext context) {
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
-                  icon: Icons.messenger,
+                  icon: IconlyLight.message,
                   label: 'Message',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -306,7 +313,7 @@ initScreen(BuildContext context) {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(8),
                       bottomRight: Radius.circular(8)),
-                  icon: Icons.play_arrow,
+                  icon: IconlyLight.play,
                   label: 'start',
                 ),
               ],
@@ -370,7 +377,7 @@ initScreen(BuildContext context) {
                                 right:
                                     MediaQuery.of(context).size.width * 0.02),
                             child: getText(
-                                text: 'Suraj Deshmukh, M 46',
+                                text: 'Kanti Roy, F 35',
                                 textStyle: BaseStyles.nameStyle),
                           ),
                           IconButton(
@@ -379,7 +386,11 @@ initScreen(BuildContext context) {
                                 left: MediaQuery.of(context).size.width * 0.004,
                                 right:
                                     MediaQuery.of(context).size.width * 0.04),
-                            icon: const Icon(Icons.videocam_outlined),
+                            icon: const Icon(
+                              CupertinoIcons.videocam,
+                              color: Colors.blue,
+                              size: 30.0,
+                            ),
                             color: Colors.blue,
                             onPressed: () {},
                           ),
@@ -392,8 +403,8 @@ initScreen(BuildContext context) {
                           right: MediaQuery.of(context).size.width * 0.27,
                         ),
                         child: getText(
-                            text: 'Wed, 12:00 pm - 1:00 pm',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            text: 'Thu, May 27, 3:00 pm - 4:00 pm',
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -403,7 +414,7 @@ initScreen(BuildContext context) {
                             bottom: MediaQuery.of(context).size.width * 0.02),
                         child: getText(
                             text: 'Condition: Back and shoulder pain',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                     ],
                   ),
@@ -429,7 +440,7 @@ initScreen(BuildContext context) {
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
-                  icon: Icons.more_horiz,
+                  icon: IconlyLight.more_square,
                   label: 'More',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -439,7 +450,7 @@ initScreen(BuildContext context) {
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
-                  icon: Icons.messenger,
+                  icon: IconlyLight.message,
                   label: 'Message',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -451,7 +462,7 @@ initScreen(BuildContext context) {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(8),
                       bottomRight: Radius.circular(8)),
-                  icon: Icons.play_arrow,
+                  icon: IconlyLight.play,
                   label: 'start',
                 ),
               ],
@@ -515,7 +526,7 @@ initScreen(BuildContext context) {
                                 right:
                                     MediaQuery.of(context).size.width * 0.02),
                             child: getText(
-                                text: 'Suraj Deshmukh, M 46',
+                                text: 'Kanti Roy, F 35',
                                 textStyle: BaseStyles.nameStyle),
                           ),
                           IconButton(
@@ -524,7 +535,11 @@ initScreen(BuildContext context) {
                                 left: MediaQuery.of(context).size.width * 0.004,
                                 right:
                                     MediaQuery.of(context).size.width * 0.04),
-                            icon: const Icon(Icons.videocam_outlined),
+                            icon: const Icon(
+                              CupertinoIcons.videocam,
+                              color: Colors.blue,
+                              size: 30.0,
+                            ),
                             color: Colors.blue,
                             onPressed: () {},
                           ),
@@ -538,8 +553,8 @@ initScreen(BuildContext context) {
                           // bottom: MediaQuery.of(context).size.width * 0.02
                         ),
                         child: getText(
-                            text: 'Wed, 12:00 pm - 1:00 pm',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            text: 'Thu, May 27, 3:00 pm - 4:00 pm',
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -549,7 +564,7 @@ initScreen(BuildContext context) {
                             bottom: MediaQuery.of(context).size.width * 0.02),
                         child: getText(
                             text: 'Condition: Back and shoulder pain',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                     ],
                   ),
@@ -601,7 +616,7 @@ initScreen(BuildContext context) {
                     bottomLeft: Radius.circular(8),
                     // bottomRight: Radius.circular(8)
                   ),
-                  icon: Icons.restart_alt_outlined,
+                  icon: IconlyLight.arrow_right_square,
 
                   label: 'shift',
                 ),
@@ -612,7 +627,7 @@ initScreen(BuildContext context) {
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
-                  icon: Icons.cancel_outlined,
+                  icon: IconlyLight.close_square,
                   label: 'cancel',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -624,7 +639,7 @@ initScreen(BuildContext context) {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(8),
                       bottomRight: Radius.circular(8)),
-                  icon: Icons.messenger,
+                  icon: IconlyLight.message,
                   label: 'Message',
                 ),
               ],
@@ -688,7 +703,7 @@ initScreen(BuildContext context) {
                                 right:
                                     MediaQuery.of(context).size.width * 0.02),
                             child: getText(
-                                text: 'Suraj Deshmukh, M 46',
+                                text: 'Ashish Mehta, M 67',
                                 textStyle: BaseStyles.nameStyle),
                           ),
                           IconButton(
@@ -697,7 +712,11 @@ initScreen(BuildContext context) {
                                 left: MediaQuery.of(context).size.width * 0.004,
                                 right:
                                     MediaQuery.of(context).size.width * 0.04),
-                            icon: const Icon(Icons.videocam_outlined),
+                            icon: const Icon(
+                              CupertinoIcons.videocam,
+                              color: Colors.blue,
+                              size: 30.0,
+                            ),
                             color: Colors.blue,
                             onPressed: () {},
                           ),
@@ -710,8 +729,8 @@ initScreen(BuildContext context) {
                           right: MediaQuery.of(context).size.width * 0.27,
                         ),
                         child: getText(
-                            text: 'Wed, 12:00 pm - 1:00 pm',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            text: 'Thu, 3:00 pm - 4:00 pm',
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -721,7 +740,7 @@ initScreen(BuildContext context) {
                             bottom: MediaQuery.of(context).size.width * 0.02),
                         child: getText(
                             text: 'Condition: Back and shoulder pain',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                     ],
                   ),
@@ -748,7 +767,7 @@ initScreen(BuildContext context) {
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
-                  icon: Icons.restart_alt_outlined,
+                  icon: IconlyLight.arrow_right_square,
 
                   label: 'Shift',
                 ),
@@ -759,7 +778,7 @@ initScreen(BuildContext context) {
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
-                  icon: Icons.cancel_outlined,
+                  icon: IconlyLight.close_square,
                   label: 'Cancel',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -771,7 +790,7 @@ initScreen(BuildContext context) {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(8),
                       bottomRight: Radius.circular(8)),
-                  icon: Icons.messenger,
+                  icon: IconlyLight.message,
                   label: 'Message',
                 ),
               ],
@@ -844,7 +863,11 @@ initScreen(BuildContext context) {
                                 left: MediaQuery.of(context).size.width * 0.004,
                                 right:
                                     MediaQuery.of(context).size.width * 0.04),
-                            icon: const Icon(Icons.videocam_outlined),
+                            icon: const Icon(
+                              CupertinoIcons.videocam,
+                              color: Colors.blue,
+                              size: 30.0,
+                            ),
                             color: Colors.blue,
                             onPressed: () {},
                           ),
@@ -858,7 +881,7 @@ initScreen(BuildContext context) {
                         ),
                         child: getText(
                             text: 'Wed, 12:00 pm - 1:00 pm',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -868,7 +891,7 @@ initScreen(BuildContext context) {
                             bottom: MediaQuery.of(context).size.width * 0.02),
                         child: getText(
                             text: 'Condition: Back and shoulder pain',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                     ],
                   ),
@@ -894,7 +917,7 @@ initScreen(BuildContext context) {
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
-                  icon: Icons.restart_alt_outlined,
+                  icon: IconlyLight.arrow_right_square,
                   label: 'Shift',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -904,7 +927,7 @@ initScreen(BuildContext context) {
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
-                  icon: Icons.cancel_outlined,
+                  icon: IconlyLight.close_square,
                   label: 'cancel',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -916,7 +939,7 @@ initScreen(BuildContext context) {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(8),
                       bottomRight: Radius.circular(8)),
-                  icon: Icons.messenger,
+                  icon: IconlyLight.message,
                   label: 'Message',
                 ),
               ],
@@ -981,7 +1004,7 @@ initScreen(BuildContext context) {
                                 right:
                                     MediaQuery.of(context).size.width * 0.02),
                             child: getText(
-                                text: 'Suraj Deshmukh, M 46',
+                                text: 'Ashish Mehta, M 67',
                                 textStyle: BaseStyles.nameStyle),
                           ),
                           IconButton(
@@ -990,7 +1013,11 @@ initScreen(BuildContext context) {
                                 left: MediaQuery.of(context).size.width * 0.004,
                                 right:
                                     MediaQuery.of(context).size.width * 0.04),
-                            icon: const Icon(Icons.videocam_outlined),
+                            icon: const Icon(
+                              CupertinoIcons.videocam,
+                              color: Colors.blue,
+                              size: 30.0,
+                            ),
                             color: Colors.blue,
                             onPressed: () {},
                           ),
@@ -1003,8 +1030,8 @@ initScreen(BuildContext context) {
                           right: MediaQuery.of(context).size.width * 0.27,
                         ),
                         child: getText(
-                            text: 'Wed, 12:00 pm - 1:00 pm',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            text: 'Thu, 3:00 pm - 4:00 pm',
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -1014,7 +1041,7 @@ initScreen(BuildContext context) {
                             bottom: MediaQuery.of(context).size.width * 0.02),
                         child: getText(
                             text: 'Condition: Back and shoulder pain',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                     ],
                   ),
@@ -1023,6 +1050,7 @@ initScreen(BuildContext context) {
             ),
           ),
         ),
+        verticalGap(context: context, screenSize: 0.03),
       ],
     ),
   );

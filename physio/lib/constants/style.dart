@@ -343,4 +343,11 @@ class BaseStyles {
     fontWeight: FontWeight.w400,
     fontSize: 11,
   );
+
+  static const TextStyle carddetailsStyle1 = TextStyle(
+      fontSize: 12,
+      fontFamily: "Mulish",
+      height: 1,
+      fontWeight: FontWeight.w400,
+      color: Colors.white);
 }
