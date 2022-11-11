@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:physio/constants/colors.dart';
+import 'package:physio/screens/Home/home5.dart';
 import 'package:physio/screens/Home/my_earning_home3.dart';
 import 'package:physio/screens/onboarding/about_screen.dart';
 import 'package:physio/constants/string.dart';
@@ -27,7 +28,7 @@ class _DashboardIconsState extends State<DashboardIcons> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> children = [
-      const Home2(),
+      const Home5(),
       const AboutPage(),
       const AboutPage(),
       const AboutPage(),
