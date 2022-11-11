@@ -76,6 +76,7 @@ class AppColors {
   static const SearchBarColor = Color(0xff2C2C2E);
 
   static const schedulebgs = Color.fromRGBO(22, 22, 22, 0.8);
+  static const signupscreen = Color.fromRGBO(28, 28, 30, 1);
 }
 
 class ErrorColor {

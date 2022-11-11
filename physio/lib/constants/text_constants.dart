@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/physics.dart';
 import 'package:physio/constants/colors.dart';
 
 //Montserrat light
@@ -359,7 +360,7 @@ const aboutYouText1 = TextStyle(
 const todaytext = TextStyle(
   color: Color(0xFFFFFFFF),
   fontFamily: "Mulish",
-  fontWeight: FontWeight.w400,
+  fontWeight: FontWeight.bold,
   fontSize: 22,
 );
 
@@ -404,5 +405,12 @@ const subtitle2 = TextStyle(
   color: AppColors.routineSubheading,
   fontFamily: "Mulish",
   fontWeight: FontWeight.w400,
+  fontSize: 12,
+);
+
+const Description = TextStyle(
+  color: Color.fromRGBO(235, 235, 245, 0.6),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.normal,
   fontSize: 12,
 );
