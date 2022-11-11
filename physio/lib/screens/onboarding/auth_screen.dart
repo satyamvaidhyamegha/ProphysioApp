@@ -179,11 +179,6 @@ class _AuthScreenPageState extends State<AuthPage> {
                               OtpApiService.otpSignup(firstName, secondName,
                                       "+91" + "$mobileNumber")
                                   .then((response) async {
-                                SharedPreferences prefs =
-                                    await SharedPreferences.getInstance();
-                                prefs.setString('stringValue', mobileNumber);
-                                prefs.setString('firstName', firstName);
-                                prefs.setString('secondName', secondName);
                                 setState(() {
                                   isAPIcallProcess = false;
                                 });

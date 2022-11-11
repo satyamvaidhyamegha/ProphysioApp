@@ -6,6 +6,7 @@ class AppColors {
   static const buttonColor = Color.fromRGBO(0, 124, 226, 1);
   static const onlineButtonColor = Color.fromRGBO(0, 124, 226, 1);
   static const offlineButtonColor = Color.fromRGBO(46, 46, 46, 1);
+  static const bacColor = Color.fromRGBO(44, 45, 49, 1);
   static const baseTextColor = Color(0xFFCCCCCC);
   static const textColor = Color(0xFFFFFFFF);
   static const cursorColor = Color(0xFFFFFFFF);
@@ -14,6 +15,7 @@ class AppColors {
   static const bgcolor = Color.fromARGB(34, 34, 34, 1);
   static const schedulebg = Color.fromRGBO(22, 22, 22, 0.8);
   static const schedulecard = Color.fromRGBO(147, 167, 190, 0.19);
+  static const schedulecard1 = Color.fromRGBO(118, 118, 128, 0.24);
   static const blueColor = Color(0xff007BE2);
   static const subTextColor = Color(0xFFC4C4C4);
   static const goldColorText = Color(0xFFBA9562);
@@ -59,6 +61,7 @@ class AppColors {
   static const routineSubheading = Color.fromRGBO(235, 235, 245, 0.6);
   static const routineCardColor = Color.fromRGBO(28, 28, 30, 1);
   static const routineStepColor = Color.fromRGBO(239, 160, 57, 1);
+  static const barStepColor = Color.fromRGBO(255, 149, 25, 1);
   static const routineStepColor2 = Color.fromRGBO(34, 155, 255, 1);
   static const greateJobScreen = Color.fromRGBO(63, 190, 131, 1);
   static const greateJobCardColor = Color.fromRGBO(30, 44, 44, 1);
@@ -66,6 +69,7 @@ class AppColors {
   static const calenderColor2 = Color.fromRGBO(28, 28, 30, 1);
   static const numberwhite = Color.fromRGBO(235, 235, 245, 0.6);
   static const numberwhite1 = Color.fromRGBO(112, 112, 112, 1);
+  static const barBlueGreen = Color.fromRGBO(16, 213, 213, 1);
 
   static const PROACTIVE_APPBAR_COLOR = Color(0XFFFBA9562);
 

@@ -26,6 +26,13 @@ class _HelpUsScreenPageState extends State<HelpUsScreen> {
   var windowWidth;
   var windowHeight;
 
+  String aboutYou = "";
+  String education = "";
+  String speciality = "";
+  String dropdownLanguage = 'Language';
+  String physioId = "";
+  String name = "";
+
   DateTime date = DateTime.now();
 
   @override
@@ -47,7 +54,14 @@ class _HelpUsScreenPageState extends State<HelpUsScreen> {
           onPressed: () => Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => const CertificationScreen()),
+                builder: (context) => CertificationScreen(
+                      physioId: physioId,
+                      aboutYou: aboutYou,
+                      education: education,
+                      speciality: speciality,
+                      dropdownLanguage: dropdownLanguage,
+                      name: name,
+                    )),
           ),
         ),
       ),

@@ -308,14 +308,6 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                     child: GestureDetector(
                       onTap: () {
                         debugPrint("Tap Ho Rha hai");
-                        debugPrint(firstName! +
-                            lastName! +
-                            address +
-                            rate +
-                            yoe +
-                            contactNo +
-                            emailId! +
-                            pass!);
                         SignupService.signup(
                                 firstName!,
                                 lastName!,
@@ -326,13 +318,15 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                                 emailId!,
                                 pass!)
                             .then((response) async {
-                          debugPrint(response.name);
-                          if (response.name != null) {
+                          debugPrint("Api hit done");
+                          debugPrint(response.id);
+                          if (response.id != null) {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const SignupScreen3()));
+                                    builder: (context) => SignupScreen3(
+                                        physioid: response.id,
+                                        name: response.name)));
                           }
                         });
                       },
