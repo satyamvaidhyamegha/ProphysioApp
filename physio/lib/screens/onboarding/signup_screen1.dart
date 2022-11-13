@@ -1,10 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:physio/constants/string.dart';
 import 'package:physio/database/model/onboardingDetailsModel.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:physio/screens/onboarding/signup_screen2.dart';
+import 'package:snippet_coder_utils/ProgressHUD.dart';
+import 'package:snippet_coder_utils/multi_images_utils.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/style.dart';
@@ -25,6 +30,9 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
   var windowHeight;
 
   final detailsViewModel = Get.put(OnboardViewModel());
+
+  bool isApiCallProcess = false;
+  String singleImageFile ="";
 
   @override
   void dispose() {
@@ -154,54 +162,9 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                           },
                         ),
                       )),
-                  Container(
-                    margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        border: Border.all(color: Colors.blueGrey, width: 1),
-                        borderRadius: BorderRadius.circular(15)),
-                    child: TextFormField(
-                      style: const TextStyle(color: Colors.white),
-                      controller: firstNameController,
-                      decoration: InputDecoration(
-                          labelText: "First Name",
-                          labelStyle: headertext,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          filled: true,
-                          hintStyle: TextStyle(color: Colors.grey[300]),
-                          fillColor: Colors.black),
-                      onChanged: (String fname) {
-                        fname = firstNameController.text;
-                        firstName = fname;
-                      },
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        border: Border.all(color: Colors.blueGrey, width: 1),
-                        borderRadius: BorderRadius.circular(15)),
-                    child: TextFormField(
-                      style: const TextStyle(color: Colors.white),
-                      controller: secondNameController,
-                      decoration: InputDecoration(
-                          labelText: "Last Name",
-                          labelStyle: headertext,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          filled: true,
-                          hintStyle: TextStyle(color: Colors.grey[300]),
-                          fillColor: Colors.black),
-                      onChanged: (String lname) {
-                        lname = secondNameController.text;
-                        lastName = lname;
-                      },
-                    ),
-                  ),
+
+                ProgressHUD(key: UniqueKey(), child: uploadUI(), inAsyncCall: isApiCallProcess, opacity: .3,),
+
                   Container(
                     margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
                     decoration: BoxDecoration(
@@ -246,8 +209,10 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                                 detailsViewModel.allOnboardDetails[0].mobileNo,
                             email: emailId,
                         password: '',
-                        physioimg: ''),
+                        physioimg: singleImageFile),
                         );
+
+                        debugPrint("debz1"+singleImageFile);
 
                         Navigator.pushReplacement(
                             context,
@@ -270,5 +235,25 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
             ),
           )),
     );
+  }
+
+  uploadUI(){
+    return Padding(padding: const EdgeInsets.only(top: 10, left: 20),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        MultiImagePicker(
+          totalImages: 1,
+          initialValue: const [],
+          imageSource: ImagePickSource.gallery,
+          onImageChanged: (images) {
+            singleImageFile = images[0].imageFile;
+            debugPrint("debz $singleImageFile");
+            detailsViewModel.updateDetails(OnboardDetailsModel(id: detailsViewModel.allOnboardDetails[0].id, firstName: detailsViewModel.allOnboardDetails[0].firstName, lastName: detailsViewModel.allOnboardDetails[0].lastName, mobileNo: detailsViewModel.allOnboardDetails[0].mobileNo, email: emailId, password: '', physioimg: singleImageFile));
+          },
+        )
+      ],
+    ),);
   }
 }

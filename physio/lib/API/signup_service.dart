@@ -30,6 +30,7 @@ class SignupService {
           "phone": contactNo,
           "email": emailId,
           "password": pass,
+          "physioimg": physioimg
         },
       ),
     );

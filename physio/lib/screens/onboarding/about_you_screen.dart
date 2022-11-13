@@ -9,17 +9,15 @@ import '../../../constants/colors.dart';
 import '../../../constants/text_constants.dart';
 
 class AboutYouScreen extends StatefulWidget {
-  AboutYouScreen({required this.physioid, required this.name});
-
-  String physioid;
-  String name;
+  const AboutYouScreen({Key? key}) : super(key: key);
 
   @override
-  _SignupScreen3PageState createState() =>
-      _SignupScreen3PageState(physioid, name);
+  State<StatefulWidget> createState() {
+    return _AboutYouScreenPageState();
+  }
 }
 
-class _SignupScreen3PageState extends State<AboutYouScreen> {
+class _AboutYouScreenPageState extends State<AboutYouScreen> {
   var windowWidth;
   var windowHeight;
 
@@ -37,10 +35,7 @@ class _SignupScreen3PageState extends State<AboutYouScreen> {
     'kannada',
   ];
 
-  String physioid;
-  String name;
 
-  _SignupScreen3PageState(this.physioid, this.name);
 
   @override
   Widget build(BuildContext context) {
@@ -304,12 +299,12 @@ class _SignupScreen3PageState extends State<AboutYouScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => CertificationScreen(
-                              physioId: physioid,
+                              physioId: '',
                               aboutYou: aboutYou,
                               education: education,
                               speciality: speciality,
                               dropdownLanguage: dropdownLanguage,
-                              name: name),
+                              name: ''),
                         ),
                       );
                     },

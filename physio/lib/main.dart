@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
               const TextSelectionThemeData(cursorColor: Colors.white)),
       title: 'Pro Physio',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/helpUsScreen',
+      initialRoute: '/splash',
       builder: EasyLoading.init(),
       routes: {
         '/schedule': (BuildContext context) => const SessionReport(),
@@ -52,7 +52,6 @@ class MyApp extends StatelessWidget {
         '/authPage3': (BuildContext context) => const AuthPage3(),
         '/signupScreen1': (BuildContext context) => const SignupScreen1(),
         '/reportScreen8': (BuildContext context) => const ReportScreen8(),
-        '/aboutYouScreen': (BuildContext context) => AboutYouScreen(physioid: "", name: ""),
         '/helpUsScreen': (BuildContext context) => const HelpUsScreen(),
 
       },

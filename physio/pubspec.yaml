@@ -65,7 +65,7 @@ dependencies:
   iconly: ^1.0.1
 
   sms_autofill: ^2.2.0
-  snippet_coder_utils: ^1.0.9
+  snippet_coder_utils: ^1.0.12
   otp_timer_button: ^1.1.0
   badges: ^2.0.3
  

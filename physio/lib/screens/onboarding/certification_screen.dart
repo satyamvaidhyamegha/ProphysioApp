@@ -76,7 +76,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
           onPressed: () => Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => AboutYouScreen(physioid: "", name: "")),
+                builder: (context) => AboutYouScreen()),
           ),
         ),
       ),
@@ -362,14 +362,20 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                                   debugPrint(response.speciality);
                                   if (response.speciality != null) {
                                     debugPrint(response.speciality);
-
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                HelpUsScreen()));
+                                    //
+                                    // Navigator.pushReplacement(
+                                    //     context,
+                                    //     MaterialPageRoute(
+                                    //         builder: (context) =>
+                                    //             HelpUsScreen()));
                                   }
                                 });
+
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            HelpUsScreen()));
                               },
                               child: Center(
                                 child: getText(

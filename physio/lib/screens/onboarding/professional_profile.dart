@@ -314,15 +314,21 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                             .then((response) async {
                           debugPrint("Api hit done");
                           debugPrint(response.id);
-                          if (response.id != null) {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => AboutYouScreen(
-                                        physioid: response.id,
-                                        name: response.name)));
-                          }
+                          // if (response.id != null) {
+                          //   Navigator.pushReplacement(
+                          //       context,
+                          //       MaterialPageRoute(
+                          //           builder: (context) => AboutYouScreen(
+                          //               physioid: response.id,
+                          //               name: response.name)));
+                          // }
+
                         });
+
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AboutYouScreen()));
                       },
                       child: Center(
                         child: getText(
