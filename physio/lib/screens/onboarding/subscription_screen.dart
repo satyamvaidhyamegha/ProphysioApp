@@ -8,6 +8,8 @@ import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
 import 'package:physio/utility/gap_between.dart';
 
+import '../Home/home2.dart';
+
 class SubscriptionScreen extends StatefulWidget {
   const SubscriptionScreen({Key? key}) : super(key: key);
 
@@ -179,8 +181,10 @@ class _SubscriptionScreenPageState extends State<SubscriptionScreen> {
             verticalGap(context: context, screenSize: 0.02),
             CustomButton(
                 onTap: () {
-                  // doNavigate(route: HelpUsToHelpYouScreen(), context: context);
-                  //doNavigate(route: WelcomePage(), context: context);
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Home2()));
                 },
                 text: Strings.SUBSCRIBE_NOW,
                 borderRadius: Raddi.buttonCornerRadius,

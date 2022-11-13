@@ -4,7 +4,7 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:physio/API/signupDetails_service.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/screens/onboarding/helpus_helpyou.dart';
-import 'package:physio/screens/onboarding/signup_screen3.dart';
+import 'package:physio/screens/onboarding/about_you_screen.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/string.dart';
@@ -76,7 +76,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
           onPressed: () => Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => SignupScreen3(physioid: "", name: "")),
+                builder: (context) => AboutYouScreen(physioid: "", name: "")),
           ),
         ),
       ),

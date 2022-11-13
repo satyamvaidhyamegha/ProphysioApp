@@ -4,7 +4,7 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:physio/screens/onboarding/policy_terms/privacy_policy.dart';
 import 'package:physio/screens/onboarding/professional_profile.dart';
 import 'package:flutter/foundation.dart';
-import 'package:physio/screens/onboarding/signup_screen3.dart';
+import 'package:physio/screens/onboarding/about_you_screen.dart';
 import '../../BaseWidget/base_image_widget.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';

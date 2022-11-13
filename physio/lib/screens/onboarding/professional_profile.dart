@@ -6,7 +6,7 @@ import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:physio/screens/onboarding/certification_screen.dart';
 import 'package:physio/screens/onboarding/signup_screen2.dart';
-import 'package:physio/screens/onboarding/signup_screen3.dart';
+import 'package:physio/screens/onboarding/about_you_screen.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/style.dart';
@@ -80,18 +80,6 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: AppColors.signupBackground,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (context) => SignupScreen2(
-                      firstName: firstName,
-                      lastName: lastName,
-                      emailId: emailId,
-                    )),
-          ),
-        ),
       ),
       body: Container(
           height: double.maxFinite,
@@ -330,7 +318,7 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SignupScreen3(
+                                    builder: (context) => AboutYouScreen(
                                         physioid: response.id,
                                         name: response.name)));
                           }

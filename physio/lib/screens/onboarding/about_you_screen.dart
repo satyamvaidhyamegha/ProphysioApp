@@ -8,8 +8,8 @@ import '../../../BaseWidget/text.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/text_constants.dart';
 
-class SignupScreen3 extends StatefulWidget {
-  SignupScreen3({required this.physioid, required this.name});
+class AboutYouScreen extends StatefulWidget {
+  AboutYouScreen({required this.physioid, required this.name});
 
   String physioid;
   String name;
@@ -19,7 +19,7 @@ class SignupScreen3 extends StatefulWidget {
       _SignupScreen3PageState(physioid, name);
 }
 
-class _SignupScreen3PageState extends State<SignupScreen3> {
+class _SignupScreen3PageState extends State<AboutYouScreen> {
   var windowWidth;
   var windowHeight;
 
