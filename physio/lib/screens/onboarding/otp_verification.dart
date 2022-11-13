@@ -2,11 +2,14 @@ import 'dart:async';
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:physio/API/otp_api_service.dart';
 import 'package:otp_timer_button/otp_timer_button.dart';
 import 'package:physio/API/otp_verify_service.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
+import 'package:physio/viewmodel/onboard_view_model.dart';
+import 'package:provider/provider.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import '../../BaseWidget/base_image_widget.dart';
 import '../../BaseWidget/text.dart';
@@ -14,6 +17,7 @@ import '../../constants/string.dart';
 import '../../constants/style.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import '../../constants/text_constants.dart';
+import '../../database/model/onboardingDetailsModel.dart';
 
 class OtpVerificationPage extends StatefulWidget {
   String? veriCode;
@@ -33,6 +37,8 @@ class OtpVerificationPage extends StatefulWidget {
 }
 
 class _OtpVerificationPageState extends State<OtpVerificationPage> {
+  final detailsViewModel = Get.put(OnboardViewModel());
+
   String? mobileNo;
   String? firstName;
   String? secondName;
@@ -64,6 +70,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
   Widget build(BuildContext context) {
     windowWidth = MediaQuery.of(context).size.width;
     windowHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(body: initScreen(context));
   }
 
@@ -157,6 +164,11 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             int.parse(verificationCode), "+91${mobileNo!}")
                         .then((response) async {
                       if (response.valid == true) {
+                        // detailsViewModel.addDetails(OnboardDetailsModel(
+                        //     firstName: firstName!,
+                        //     lastName: secondName!,
+                        //     mobileNo: mobileNo!));
+
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
@@ -211,7 +223,18 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 borderRadius: BorderRadius.circular(30),
                 color: AppColors.buttonColor),
             child: GestureDetector(
-              onTap: () async {},
+              onTap: () async {
+                detailsViewModel.addDetails(
+                  OnboardDetailsModel(
+                      id: 0,
+                      firstName: firstName!,
+                      lastName: secondName!,
+                      mobileNo: mobileNo!,),
+                );
+
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const AuthPage3()));
+              },
               child: Center(
                 child: getText(
                     textAlign: TextAlign.center,

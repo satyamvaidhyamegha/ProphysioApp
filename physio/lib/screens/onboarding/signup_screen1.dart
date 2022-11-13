@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:physio/constants/string.dart';
+import 'package:physio/database/model/onboardingDetailsModel.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:physio/screens/onboarding/signup_screen2.dart';
@@ -7,6 +9,7 @@ import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/style.dart';
 import '../../constants/text_constants.dart';
+import '../../viewmodel/onboard_view_model.dart';
 
 class SignupScreen1 extends StatefulWidget {
   const SignupScreen1({Key? key}) : super(key: key);
@@ -20,6 +23,8 @@ class SignupScreen1 extends StatefulWidget {
 class _SignupScreenPageState1 extends State<SignupScreen1> {
   var windowWidth;
   var windowHeight;
+
+  final detailsViewModel = Get.put(OnboardViewModel());
 
   @override
   void dispose() {
@@ -103,7 +108,9 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                         const EdgeInsets.only(right: 20, left: 20, bottom: 20),
                     child: getText(
                         textAlign: TextAlign.center,
-                        text: Strings.DOCTOR_NAME,
+                        text: detailsViewModel.allOnboardDetails[0].firstName! +
+                            " " +
+                            detailsViewModel.allOnboardDetails[0].lastName!,
                         textStyle: doctorNameText),
                   ),
                   Container(
@@ -229,6 +236,9 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                         color: AppColors.buttonColor),
                     child: GestureDetector(
                       onTap: () {
+                        detailsViewModel.updateDetails(
+                            OnboardDetailsModel(id: 0, email: emailId));
+
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(

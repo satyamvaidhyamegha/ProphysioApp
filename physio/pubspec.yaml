@@ -51,6 +51,14 @@ dependencies:
   flutter_cache_manager: ^3.3.0
   flutter_advanced_calendar: ^1.2.1
 
+  path_provider:
+  sqflite: 2.0.3
+  path:
+  provider: ^4.0.4
+
+  get: ^4.6.1
+  get_storage: ^2.0.3
+
   url_launcher: ^6.1.6
   share_plus: "^0.0.1"
 

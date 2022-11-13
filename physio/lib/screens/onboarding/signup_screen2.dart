@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:physio/screens/onboarding/professional_profile.dart';
 import 'package:physio/screens/onboarding/signup_screen1.dart';
@@ -7,6 +8,7 @@ import 'package:physio/screens/onboarding/signup_screen1.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/text_constants.dart';
+import '../../viewmodel/onboard_view_model.dart';
 
 class SignupScreen2 extends StatefulWidget {
   String? firstName;
@@ -22,6 +24,8 @@ class SignupScreen2 extends StatefulWidget {
 }
 
 class _SignupScreenPageState2 extends State<SignupScreen2> {
+  final detailsViewModel = Get.put(OnboardViewModel());
+
   var windowWidth;
   var windowHeight;
 
@@ -89,7 +93,7 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                   right: 20, left: 20, bottom: 10, top: 30),
               child: getText(
                   textAlign: TextAlign.center,
-                  text: "Create Password",
+                  text: detailsViewModel.allOnboardDetails[0].email!,
                   textStyle: signupText2),
             ),
             Container(

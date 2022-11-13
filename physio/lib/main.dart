@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
               const TextSelectionThemeData(cursorColor: Colors.white)),
       title: 'Pro Physio',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/signupScreen1',
+      initialRoute: '/splash',
       builder: EasyLoading.init(),
       routes: {
         '/schedule': (BuildContext context) => const SessionReport(),

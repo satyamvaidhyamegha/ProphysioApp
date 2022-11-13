@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:physio/database/model/onboardingDetailsModel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:physio/API/otp_api_service.dart';
 import 'package:physio/screens/onboarding/otp_verification.dart';
 import '../../BaseWidget/base_image_widget.dart';
 import '../../BaseWidget/text.dart';
+import 'package:provider/provider.dart';
 import '../../constants/colors.dart';
 import '../../constants/string.dart';
 import '../../constants/style.dart';
 import '../../constants/text_constants.dart';
+import '../../viewmodel/onboard_view_model.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -46,6 +49,7 @@ class _AuthScreenPageState extends State<AuthPage> {
   Widget build(BuildContext context) {
     windowWidth = MediaQuery.of(context).size.width;
     windowHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: initScreen(context),
     );
@@ -99,9 +103,9 @@ class _AuthScreenPageState extends State<AuthPage> {
                           fillColor: Colors.black54),
                       controller: firstsNameController,
                       onChanged: (String name) {
-                          name = firstsNameController.text;
-                          firstName = name;
-                          debugPrint("FirstName: $firstName");
+                        name = firstsNameController.text;
+                        firstName = name;
+                        debugPrint("FirstName: $firstName");
                       },
                     ),
                   ),
@@ -120,9 +124,9 @@ class _AuthScreenPageState extends State<AuthPage> {
                           fillColor: Colors.black54),
                       controller: lastNameController,
                       onChanged: (String lastName) {
-                          lastName = lastNameController.text;
-                          secondName = lastName;
-                          debugPrint("LastName: $secondName");
+                        lastName = lastNameController.text;
+                        secondName = lastName;
+                        debugPrint("LastName: $secondName");
                       },
                     ),
                   ),
@@ -171,7 +175,10 @@ class _AuthScreenPageState extends State<AuthPage> {
                                   text: Strings.BTN_OTP,
                                   textStyle: buttonTextStyle)),
                           onTap: () async {
-                            if (enableBtn && mobileNumber.length > 8 && (firstName!="") && (secondName!="") ) {
+                            if (enableBtn &&
+                                mobileNumber.length > 8 &&
+                                (firstName != "") &&
+                                (secondName != "")) {
                               setState(() {
                                 isAPIcallProcess = true;
                               });
@@ -191,18 +198,14 @@ class _AuthScreenPageState extends State<AuthPage> {
                                         mobileNo: mobileNumber,
                                         firstName: firstName,
                                         secondName: secondName,
-
                                       ),
                                     ),
                                     (route) => false,
                                   );
                                 }
-                              }
-                              );
+                              });
                             }
-                          }
-                          )
-                  ),
+                          })),
                   Container(
                       margin: const EdgeInsets.only(
                           top: 30, right: 20, left: 20, bottom: 10),
