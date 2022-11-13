@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
 
 class OnboardDetailsModel {
-  final int? id;
-  final String? firstName;
-  final String? lastName;
-  final String? mobileNo;
-  final String? email;
+  final int id;
+  final String firstName;
+  final String lastName;
+  final String mobileNo;
+  final String email;
 
   OnboardDetailsModel(
-      {this.id, this.firstName, this.lastName, this.mobileNo, this.email});
+      {required this.id,required this.firstName,required this.lastName,required this.mobileNo,required this.email});
 
   toMap() => {
         'id': id,
@@ -19,11 +19,13 @@ class OnboardDetailsModel {
       };
 
   copy(
-          {required String firstName,
+          {required int id,
+            required String firstName,
           required String lastName,
           required String mobileNo,
           required String email}) =>
       OnboardDetailsModel(
+        id: this.id,
         firstName: this.firstName,
         lastName: this.lastName,
         mobileNo: this.mobileNo,

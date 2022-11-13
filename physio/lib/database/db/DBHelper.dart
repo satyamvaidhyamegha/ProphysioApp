@@ -28,7 +28,7 @@ class DatabaseOneHelper {
   }
 
   _onCreate(Database db, int newVersion) => db.execute(
-        "CREATE TABLE $tableName(id, INTEGER PRIMARY KEY,firstName TEXT, lastName TEXT, mobileNo TEXT, email TEXT)",
+        "CREATE TABLE $tableName(id INTEGER PRIMARY KEY,firstName TEXT, lastName TEXT, mobileNo TEXT, email TEXT)",
       );
 
   _onUpgrade(Database db, int oldVersion, int newVersion) async {

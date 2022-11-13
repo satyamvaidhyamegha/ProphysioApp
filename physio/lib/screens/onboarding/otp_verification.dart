@@ -22,9 +22,9 @@ import '../../database/model/onboardingDetailsModel.dart';
 class OtpVerificationPage extends StatefulWidget {
   String? veriCode;
 
-  String? mobileNo;
-  String? firstName;
-  String? secondName;
+  String mobileNo;
+  String firstName;
+  String secondName;
 
   OtpVerificationPage(
       {required this.mobileNo,
@@ -39,9 +39,9 @@ class OtpVerificationPage extends StatefulWidget {
 class _OtpVerificationPageState extends State<OtpVerificationPage> {
   final detailsViewModel = Get.put(OnboardViewModel());
 
-  String? mobileNo;
-  String? firstName;
-  String? secondName;
+  String mobileNo;
+  String firstName;
+  String secondName;
 
   final TextEditingController phoneNumberController = TextEditingController();
 
@@ -227,9 +227,10 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 detailsViewModel.addDetails(
                   OnboardDetailsModel(
                       id: 0,
-                      firstName: firstName!,
+                      firstName: firstName,
                       lastName: secondName!,
-                      mobileNo: mobileNo!,),
+                      mobileNo: mobileNo!,
+                  email: '',),
                 );
 
                 Navigator.pushReplacement(context,

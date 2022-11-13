@@ -26,6 +26,7 @@ class SignupScreen2 extends StatefulWidget {
 class _SignupScreenPageState2 extends State<SignupScreen2> {
   final detailsViewModel = Get.put(OnboardViewModel());
 
+
   var windowWidth;
   var windowHeight;
 
@@ -40,6 +41,7 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
     super.dispose();
     passController.dispose();
   }
+
 
   final TextEditingController passController = TextEditingController();
   final TextEditingController repassController = TextEditingController();
@@ -93,7 +95,7 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                   right: 20, left: 20, bottom: 10, top: 30),
               child: getText(
                   textAlign: TextAlign.center,
-                  text: detailsViewModel.allOnboardDetails[0].email!,
+                  text: detailsViewModel.allOnboardDetails[0].email,
                   textStyle: signupText2),
             ),
             Container(
@@ -159,6 +161,9 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
               child: GestureDetector(
                 onTap: () {
                   if (pass == repass) {
+
+                    debugPrint(detailsViewModel.allOnboardDetails[0].email);
+
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
