@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:physio/API/signup_service.dart';
 import 'package:physio/constants/string.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
@@ -10,6 +11,7 @@ import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/style.dart';
 import '../../constants/text_constants.dart';
+import '../../viewmodel/onboard_view_model.dart';
 
 class ProfessionalProfile extends StatefulWidget {
   String? firstName;
@@ -31,6 +33,8 @@ class ProfessionalProfile extends StatefulWidget {
 class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
   var windowWidth;
   var windowHeight;
+
+  final viewModel = Get.put(OnboardViewModel());
 
   String? firstName;
   String? lastName;
@@ -309,14 +313,16 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                       onTap: () {
                         debugPrint("Tap Ho Rha hai");
                         SignupService.signup(
-                                firstName!,
-                                lastName!,
+                                viewModel.allOnboardDetails[0].firstName,
+                            viewModel.allOnboardDetails[0].lastName,
                                 address,
                                 int.parse(rate),
                                 int.parse(yoe),
-                                "+91$contactNo",
-                                emailId!,
-                                pass!)
+                                "+91${viewModel.allOnboardDetails[0].mobileNo}",
+                            viewModel.allOnboardDetails[0].email,
+                          viewModel.allOnboardDetails[0].password,
+                          viewModel.allOnboardDetails[0].physioimg
+                        )
                             .then((response) async {
                           debugPrint("Api hit done");
                           debugPrint(response.id);

@@ -228,9 +228,11 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                   OnboardDetailsModel(
                       id: 0,
                       firstName: firstName,
-                      lastName: secondName!,
-                      mobileNo: mobileNo!,
-                  email: '',),
+                      lastName: secondName,
+                      mobileNo: mobileNo,
+                      email: '',
+                      password: '',
+                      physioimg: ''),
                 );
 
                 Navigator.pushReplacement(context,

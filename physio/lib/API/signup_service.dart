@@ -13,7 +13,8 @@ class SignupService {
       int yoe,
       String contactNo,
       String emailId,
-      String pass) async {
+      String pass,
+      String physioimg) async {
     var url = Uri.parse('https://api.prophysio.in/mobile/physios/signup');
 
     var response = await client.post(
@@ -33,6 +34,6 @@ class SignupService {
       ),
     );
 
-    return SignUpResponse.fromJson(json.decode(response.body));
+    return SignUpResponse.fromJson(json.decode(json.encode(response.body)));
   }
 }

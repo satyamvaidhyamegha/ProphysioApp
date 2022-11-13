@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:physio/database/model/onboardingDetailsModel.dart';
 import 'package:physio/screens/onboarding/professional_profile.dart';
 import 'package:physio/screens/onboarding/signup_screen1.dart';
 
@@ -95,7 +96,7 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                   right: 20, left: 20, bottom: 10, top: 30),
               child: getText(
                   textAlign: TextAlign.center,
-                  text: detailsViewModel.allOnboardDetails[0].email,
+                  text: "Create Password",
                   textStyle: signupText2),
             ),
             Container(
@@ -162,8 +163,8 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                 onTap: () {
                   if (pass == repass) {
 
-                    debugPrint(detailsViewModel.allOnboardDetails[0].email);
-
+                    detailsViewModel.updateDetails(OnboardDetailsModel(id: detailsViewModel.allOnboardDetails[0].id, firstName: detailsViewModel.allOnboardDetails[0].firstName, lastName: detailsViewModel.allOnboardDetails[0].lastName, mobileNo: detailsViewModel.allOnboardDetails[0].mobileNo, email: detailsViewModel.allOnboardDetails[0].email, password: pass, physioimg: ''));
+                    debugPrint(pass);
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(

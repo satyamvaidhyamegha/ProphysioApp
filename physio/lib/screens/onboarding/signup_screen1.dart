@@ -244,7 +244,10 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                                 detailsViewModel.allOnboardDetails[0].lastName,
                             mobileNo:
                                 detailsViewModel.allOnboardDetails[0].mobileNo,
-                            email: emailId));
+                            email: emailId,
+                        password: '',
+                        physioimg: ''),
+                        );
 
                         Navigator.pushReplacement(
                             context,
