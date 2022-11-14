@@ -7,6 +7,7 @@ import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
 import 'package:physio/screens/Home/barchart_model.dart';
+import 'package:physio/screens/onboarding/about_you_screen.dart';
 import 'package:physio/utility/gap_between.dart';
 
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -21,8 +22,12 @@ class Home2 extends StatefulWidget {
 late TooltipBehavior _tooltipBehavior;
 
 class _Home2State extends State<Home2> {
+  var windowWidth;
+  var windowHeight;
   @override
   Widget build(BuildContext context) {
+    windowWidth = MediaQuery.of(context).size.width;
+    windowHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: AppColors.kBGcolor,
       body: initScreen(context),
@@ -108,7 +113,18 @@ class _Home2State extends State<Home2> {
             Row(
               children: [
                 horizontalGap(context: context, screenSize: 0.04),
-                getText(text: '25', textStyle: BaseStyles.numberStyle),
+              GestureDetector( child: getText(text: '25', textStyle: BaseStyles.numberStyle),
+
+                onTap: (){
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AboutYouScreen(),
+                    ),
+                  );
+                },
+
+                ),
                 horizontalGap(context: context, screenSize: 0.02),
                 getText(
                     text: 'Upcoming \nAppointment', textStyle: navlablecolor1),

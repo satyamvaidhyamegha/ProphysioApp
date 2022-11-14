@@ -6,6 +6,7 @@ import 'package:physio/constants/raddi.dart';
 import 'package:physio/constants/string.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
+import 'package:physio/screens/schedule/dashboard_icon.dart';
 import 'package:physio/utility/gap_between.dart';
 
 import '../Home/home2.dart';
@@ -184,7 +185,7 @@ class _SubscriptionScreenPageState extends State<SubscriptionScreen> {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => Home2()));
+                          builder: (context) => DashboardIcons()));
                 },
                 text: Strings.SUBSCRIBE_NOW,
                 borderRadius: Raddi.buttonCornerRadius,

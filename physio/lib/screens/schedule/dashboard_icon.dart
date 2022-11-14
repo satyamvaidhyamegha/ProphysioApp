@@ -28,7 +28,7 @@ class _DashboardIconsState extends State<DashboardIcons> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> children = [
-      const Home5(),
+      const Home2(),
       const AboutPage(),
       const AboutPage(),
       const AboutPage(),
