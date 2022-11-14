@@ -201,6 +201,12 @@ const navlablecolor1 = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 10,
     color: AppColors.progressYellowlineBgColor);
+const navlablecolor3 = TextStyle(
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w400,
+    fontSize: 10,
+    color: AppColors.progressYellowlineBgColor);
+
 const navlablecolor2 = TextStyle(
     fontFamily: "Mulish",
     fontWeight: FontWeight.w400,
@@ -266,6 +272,12 @@ const doctorNameText = TextStyle(
 
 const professionProfileHeading1 = TextStyle(
   color: Color(0xFFFFFFFF),
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 16,
+);
+const professionProfileHeading2 = TextStyle(
+  color: AppColors.blueColor,
   fontFamily: "Mulish",
   fontWeight: FontWeight.w400,
   fontSize: 16,
@@ -412,5 +424,11 @@ const Description = TextStyle(
   color: Color.fromRGBO(235, 235, 245, 0.6),
   fontFamily: "Mulish",
   fontWeight: FontWeight.normal,
+);
+
+const subtitle3 = TextStyle(
+  color: Colors.white,
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w700,
   fontSize: 12,
 );

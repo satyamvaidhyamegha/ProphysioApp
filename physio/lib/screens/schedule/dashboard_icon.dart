@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:physio/constants/colors.dart';
+import 'package:physio/screens/Home/my_earning_home3.dart';
 import 'package:physio/screens/onboarding/about_screen.dart';
-import 'package:physio/screens/onboarding/profile_selection.dart';
 import 'package:physio/constants/string.dart';
-import 'package:physio/screens/schedule/home2.dart';
+import 'package:physio/screens/Home/home2.dart';
 
 class DashboardIcons extends StatefulWidget {
   const DashboardIcons({Key? key}) : super(key: key);
