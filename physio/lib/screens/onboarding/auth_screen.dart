@@ -5,6 +5,7 @@ import 'package:physio/API/otp_api_service.dart';
 import 'package:physio/screens/onboarding/otp_verification.dart';
 import '../../BaseWidget/base_image_widget.dart';
 import '../../BaseWidget/text.dart';
+import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 import '../../constants/colors.dart';
 import '../../constants/string.dart';
@@ -182,6 +183,18 @@ class _AuthScreenPageState extends State<AuthPage> {
                               setState(() {
                                 isAPIcallProcess = true;
                               });
+
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => OtpVerificationPage(
+                                    mobileNo: mobileNumber,
+                                    firstName: firstName,
+                                    secondName: secondName,
+                                  ),
+                                ),
+                                    (route) => false,
+                              );
 
                               OtpApiService.otpSignup(firstName, secondName,
                                       "+91" + "$mobileNumber")

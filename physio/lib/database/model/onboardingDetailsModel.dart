@@ -8,9 +8,10 @@ class OnboardDetailsModel {
   final String email;
   final String password;
   final String physioimg;
+  final int physioId;
 
   OnboardDetailsModel(
-      {required this.id,required this.firstName,required this.lastName,required this.mobileNo,required this.email, required this.password, required this.physioimg});
+      {required this.id,required this.firstName,required this.lastName,required this.mobileNo,required this.email, required this.password, required this.physioimg, required this.physioId});
 
   toMap() => {
         'id': id,
@@ -20,6 +21,7 @@ class OnboardDetailsModel {
         'email': email,
     'password': password,
     'physioimg': physioimg,
+    'physioId': physioId,
       };
 
   copy(
@@ -29,7 +31,8 @@ class OnboardDetailsModel {
           required String mobileNo,
           required String email,
           required String password,
-          required String physioimg,}) =>
+          required String physioimg,
+          required int physioId,}) =>
       OnboardDetailsModel(
         id: this.id,
         firstName: this.firstName,
@@ -38,6 +41,7 @@ class OnboardDetailsModel {
         email: this.email,
         password: this.password,
         physioimg: this.physioimg,
+        physioId: this.physioId
       );
 
   @override
@@ -54,7 +58,9 @@ class OnboardDetailsModel {
           " " +
           password +
           " " +
-          physioimg;
+          physioimg +
+          " " +
+          physioId.toString();
 
   static OnboardDetailsModel fromMap(Map<String, dynamic> json) {
     return OnboardDetailsModel(
@@ -65,6 +71,7 @@ class OnboardDetailsModel {
       email: json['email'],
       password: json['password'],
       physioimg: json['physioimg'],
+      physioId: json['physioId'],
     );
   }
 }

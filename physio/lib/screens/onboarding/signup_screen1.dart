@@ -2,14 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:physio/constants/string.dart';
+
 import 'package:physio/database/model/onboardingDetailsModel.dart';
-import 'package:physio/screens/onboarding/auth_screen3.dart';
+
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:image_picker/image_picker.dart' as imagePicker;
 import 'package:physio/screens/onboarding/signup_screen2.dart';
-import 'package:snippet_coder_utils/ProgressHUD.dart';
+
 import 'package:snippet_coder_utils/multi_images_utils.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
@@ -32,6 +31,7 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
 
   final detailsViewModel = Get.put(OnboardViewModel());
 
+  File? image;
   late final imagePicker.XFile? img;
 
   bool isApiCallProcess = false;
@@ -259,7 +259,8 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                                 detailsViewModel.allOnboardDetails[0].mobileNo,
                             email: emailId,
                         password: '',
-                        physioimg: detailsViewModel.allOnboardDetails[0].physioimg),
+                        physioimg: detailsViewModel.allOnboardDetails[0].physioimg,
+                        physioId: 0),
                         );
 
                         debugPrint("debz1"+singleImageFile);
@@ -287,39 +288,30 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
     );
   }
 
-  uploadUI(){
-    return Padding(padding: const EdgeInsets.only(top: 10, left: 20),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        MultiImagePicker(
-          totalImages: 1,
-          initialValue: const [],
-          imageSource: ImagePickSource.gallery,
-          onImageChanged: (images) {
-            singleImageFile = images[0].imageFile;
-            debugPrint("debz $singleImageFile");
-            detailsViewModel.updateDetails(OnboardDetailsModel(id: detailsViewModel.allOnboardDetails[0].id, firstName: detailsViewModel.allOnboardDetails[0].firstName, lastName: detailsViewModel.allOnboardDetails[0].lastName, mobileNo: detailsViewModel.allOnboardDetails[0].mobileNo, email: emailId, password: '', physioimg: singleImageFile));
-          },
-        )
-      ],
-    ),);
-  }
 
-  void uploadImage() async {
+
+  Future uploadImage() async {
     img = await imagePicker.ImagePicker().pickImage(
       source: imagePicker.ImageSource.gallery,
     );
     debugPrint("before"+img!.path);
 
-    setState(() {
+    if(img!=null){
       imgFile = File(img!.path);
-      debugPrint("after"+img!.path);
-      hasGotImage = true;
-    });
+      setState(() {
+        debugPrint("after"+img!.path);
+        hasGotImage = true;
+      });
 
-    detailsViewModel.updateDetails(OnboardDetailsModel(id: detailsViewModel.allOnboardDetails[0].id, firstName: detailsViewModel.allOnboardDetails[0].firstName, lastName: detailsViewModel.allOnboardDetails[0].lastName, mobileNo: detailsViewModel.allOnboardDetails[0].mobileNo, email: '', password: '', physioimg: img!.path.toString()));
+      debugPrint(imgFile.toString());
+
+      detailsViewModel.updateDetails(OnboardDetailsModel(id: detailsViewModel.allOnboardDetails[0].id, firstName: detailsViewModel.allOnboardDetails[0].firstName, lastName: detailsViewModel.allOnboardDetails[0].lastName, mobileNo: detailsViewModel.allOnboardDetails[0].mobileNo, email: '', password: '', physioimg: img!.path.toString(), physioId: 0));
+    }
+    else {
+      debugPrint('No image selected');
+    }
+
+
   }
 
 }

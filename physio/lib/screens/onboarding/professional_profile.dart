@@ -1,7 +1,13 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:physio/API/signup_service.dart';
 import 'package:physio/constants/string.dart';
+import 'package:physio/database/model/onboardingDetailsModel.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:physio/screens/onboarding/certification_screen.dart';
@@ -19,6 +25,8 @@ class ProfessionalProfile extends StatefulWidget {
   String? emailId;
   String? pass;
 
+
+
   ProfessionalProfile(
       {required this.firstName,
       required this.lastName,
@@ -35,6 +43,7 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
   var windowHeight;
 
   final viewModel = Get.put(OnboardViewModel());
+  File? imgFile;
 
   String? firstName;
   String? lastName;
@@ -299,36 +308,39 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
                         color: AppColors.buttonColor),
                     child: GestureDetector(
                       onTap: () {
+
                         debugPrint("Tap Ho Rha hai");
-                        SignupService.signup(
-                                viewModel.allOnboardDetails[0].firstName,
-                            viewModel.allOnboardDetails[0].lastName,
-                                address,
-                                int.parse(rate),
-                                int.parse(yoe),
-                                "+91${viewModel.allOnboardDetails[0].mobileNo}",
-                            viewModel.allOnboardDetails[0].email,
-                          viewModel.allOnboardDetails[0].password,
-                          viewModel.allOnboardDetails[0].physioimg
-                        )
-                            .then((response) async {
-                          debugPrint("Api hit done");
-                          debugPrint(response.id);
-                          // if (response.id != null) {
-                          //   Navigator.pushReplacement(
-                          //       context,
-                          //       MaterialPageRoute(
-                          //           builder: (context) => AboutYouScreen(
-                          //               physioid: response.id,
-                          //               name: response.name)));
-                          // }
+                        debugPrint(viewModel.allOnboardDetails[0].physioimg);
 
-                        });
+                        uploadImg();
 
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AboutYouScreen()));
+                        // SignupService.signup(
+                        //         viewModel.allOnboardDetails[0].firstName,
+                        //         viewModel.allOnboardDetails[0].lastName,
+                        //         address,
+                        //         int.parse(rate),
+                        //         int.parse(yoe),
+                        //         "+91${viewModel.allOnboardDetails[0].mobileNo}",
+                        //         viewModel.allOnboardDetails[0].email,
+                        //         viewModel.allOnboardDetails[0].password,
+                        //         viewModel.allOnboardDetails[0].physioimg,
+                        // )
+                        //     .then((response) async {
+                        //   debugPrint("Api hit done");
+                        //   debugPrint(response.id);
+                        //   if (response.id != null) {
+                        //     Navigator.pushReplacement(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //             builder: (context) => AboutYouScreen()));
+                        //   }
+                        //
+                        // });
+
+                        // Navigator.pushReplacement(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => AboutYouScreen()));
                       },
                       child: Center(
                         child: getText(
@@ -343,5 +355,51 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
             ),
           )),
     );
+  }
+
+  Future<void> uploadImg() async{
+
+    String path = viewModel.allOnboardDetails[0].physioimg;
+    debugPrint("debzpath $path");
+    imgFile = File(path);
+
+    var stream = new http.ByteStream(imgFile!.openRead());
+    stream.cast();
+
+    var uri = Uri.parse('http://api.prophysio.in/mobile/physios/signup');
+
+    var req = new http.MultipartRequest("POST", uri);
+
+    req.fields['firstname'] = viewModel.allOnboardDetails[0].firstName;
+    req.fields['secondname'] = viewModel.allOnboardDetails[0].lastName;
+    req.fields['address'] = address;
+    req.fields['rate'] = rate;
+    req.fields['yearOfExperience'] = yoe;
+    req.fields['phone'] = viewModel.allOnboardDetails[0].mobileNo;
+    req.fields['email'] = viewModel.allOnboardDetails[0].email;
+    req.fields['password'] = viewModel.allOnboardDetails[0].password;
+
+    http.MultipartFile imageFile = await http.MultipartFile.fromPath('physioimg', path, contentType: new MediaType('image', 'jpg'));
+
+    req.files.add(imageFile);
+
+    var response = await req.send();
+    response.stream.transform(utf8.decoder).listen((value) {
+
+      var results = jsonDecode(value);
+      int physioId = results['result']['id'];
+      viewModel.updateDetails(OnboardDetailsModel(id: viewModel.allOnboardDetails[0].id, firstName: viewModel.allOnboardDetails[0].firstName, lastName: viewModel.allOnboardDetails[0].lastName, mobileNo: viewModel.allOnboardDetails[0].mobileNo, email: viewModel.allOnboardDetails[0].email, password: viewModel.allOnboardDetails[0].password, physioimg: viewModel.allOnboardDetails[0].physioimg, physioId: physioId));
+    });
+
+
+    if(response.statusCode == 200){
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) => AboutYouScreen()));
+      debugPrint('Uploaded');
+    } else {
+      debugPrint('Not Uploaded');
+    }
   }
 }

@@ -164,20 +164,23 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             int.parse(verificationCode), "+91${mobileNo}")
                         .then((response) async {
                       if (response.valid == true) {
-                        detailsViewModel.addDetails(
-                          OnboardDetailsModel(
-                              id: 0,
-                              firstName: firstName,
-                              lastName: secondName,
-                              mobileNo: mobileNo,
-                              email: '',
-                              password: '',
-                              physioimg: ''),
-                        );
-
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => const AuthPage3()));
+                       debugPrint('aa rha');
                       }
+
+                      detailsViewModel.addDetails(
+                        OnboardDetailsModel(
+                            id: 0,
+                            firstName: firstName,
+                            lastName: secondName,
+                            mobileNo: mobileNo,
+                            email: '',
+                            password: '',
+                            physioimg: '',
+                        physioId: 0),
+                      );
+
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => const AuthPage3()));
                     });
                   },
                 ),
@@ -228,7 +231,20 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 color: AppColors.buttonColor),
             child: GestureDetector(
               onTap: () async {
+                detailsViewModel.addDetails(
+                  OnboardDetailsModel(
+                      id: 0,
+                      firstName: firstName,
+                      lastName: secondName,
+                      mobileNo: mobileNo,
+                      email: '',
+                      password: '',
+                      physioimg: '',
+                  physioId: 0),
+                );
 
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const AuthPage3()));
               },
               child: Center(
                 child: getText(

@@ -5,7 +5,7 @@ import 'package:physio/database/model/onboardingDetailsModel.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseOneHelper {
-  final String tableName = "OnboardingOneDetails";
+  final String tableName = "OnboardingTwoDetails";
 
   DatabaseOneHelper._();
 
@@ -23,13 +23,13 @@ class DatabaseOneHelper {
 
   initDB() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    return openDatabase(join(documentsDirectory.path, 'pro_physio1.db'),
+    return openDatabase(join(documentsDirectory.path, 'pro_physio2.db'),
         version: 1, onCreate: _onCreate, onUpgrade: _onUpgrade);
   }
 
   _onCreate(Database db, int newVersion) => db.execute(
-        "CREATE TABLE $tableName(id INTEGER PRIMARY KEY,firstName TEXT, lastName TEXT, mobileNo TEXT, email TEXT, password TEXT, physioimg TEXT, physioId INTEGER)",
-      );
+    "CREATE TABLE $tableName(id INTEGER PRIMARY KEY,aboutYou TEXT, education TEXT, speciality TEXT, language TEXT, certificateName TEXT, issuingOrg TEXT, issueDate TEXT, media TEXT, name TEXT)",
+  );
 
   _onUpgrade(Database db, int oldVersion, int newVersion) async {
     await db.execute("DROP TABLE IF EXISTS $tableName");

@@ -163,7 +163,7 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
                 onTap: () {
                   if (pass == repass) {
 
-                    detailsViewModel.updateDetails(OnboardDetailsModel(id: detailsViewModel.allOnboardDetails[0].id, firstName: detailsViewModel.allOnboardDetails[0].firstName, lastName: detailsViewModel.allOnboardDetails[0].lastName, mobileNo: detailsViewModel.allOnboardDetails[0].mobileNo, email: detailsViewModel.allOnboardDetails[0].email, password: pass, physioimg: detailsViewModel.allOnboardDetails[0].physioimg));
+                    detailsViewModel.updateDetails(OnboardDetailsModel(id: detailsViewModel.allOnboardDetails[0].id, firstName: detailsViewModel.allOnboardDetails[0].firstName, lastName: detailsViewModel.allOnboardDetails[0].lastName, mobileNo: detailsViewModel.allOnboardDetails[0].mobileNo, email: detailsViewModel.allOnboardDetails[0].email, password: pass, physioimg: detailsViewModel.allOnboardDetails[0].physioimg, physioId: 0));
                     debugPrint(pass);
                     Navigator.pushReplacement(
                         context,
