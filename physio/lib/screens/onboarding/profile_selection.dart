@@ -4,6 +4,7 @@ import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/style.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:physio/screens/onboarding/camera.dart';
+import 'package:physio/screens/onboarding/login_screen.dart';
 import 'about_screen.dart';
 
 class ProfileSelectionPage extends StatefulWidget {
@@ -210,7 +211,7 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const CameraPage()));
+                                builder: (context) => const LoginPage()));
                       });
                     },
                     child: getText(

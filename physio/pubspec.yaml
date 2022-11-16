@@ -66,6 +66,7 @@ dependencies:
   otp_timer_button: ^1.1.0
   badges: ^2.0.3
   syncfusion_flutter_charts: ^20.3.52
+  fluttertoast: ^8.0.9
 
 dev_dependencies:
   flutter_test:

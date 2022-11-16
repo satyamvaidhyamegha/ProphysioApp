@@ -5,6 +5,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:physio/screens/Home/home2.dart';
 import 'package:physio/screens/onboarding/about_you_screen.dart';
 import 'package:physio/screens/onboarding/helpus_helpyou.dart';
+import 'package:physio/screens/onboarding/login_screen.dart';
 import 'package:physio/screens/schedule/dashboard_icon.dart';
 import 'package:physio/screens/schedule/report_screen8.dart';
 import 'package:physio/screens/schedule/session_report.dart';
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget {
         '/reportScreen8': (BuildContext context) => const ReportScreen8(),
         '/helpUsScreen': (BuildContext context) => const HelpUsScreen(),
         '/dashboardIcons': (BuildContext context) => const DashboardIcons(),
+        '/loginScreen': (BuildContext context) => const LoginPage(),
 
       },
     );

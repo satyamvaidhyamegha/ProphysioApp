@@ -229,6 +229,7 @@ class ImagePath {
   static const ROUTINE_UP_NEXT_IMAGE = "assets/Mask Group 135@2x.png";
   static const AUTH_SCREEN = "assets/Group 74772.png";
   static const DOCTOR_IMAGE = "assets/DoctorImage.png";
+  static const GOOGLE_LOGO = "assets/google.png";
 
   static const PATRN = "assets/Group 74744.png";
 
@@ -237,7 +238,7 @@ class ImagePath {
 }
 
 class CustomLogo {
-  static const GOOGLE_LOGO = "${ImagePath.BASE_IMAGE_PATH}/google.png";
+  static const GOOGLE_LOGO = "assets/google.png";
 }
 
 class AppVersion {
