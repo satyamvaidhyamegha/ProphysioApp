@@ -114,7 +114,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                     padding:
                         const EdgeInsets.only(left: 15, bottom: 15, top: 70),
                     child: Text(
-                      mobileNo!,
+                      mobileNo,
                       style: BaseStyles.otpTextStyleTwo,
                     ),
                   ),
@@ -161,18 +161,22 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                     debugPrint("+91" + "$mobileNo");
 
                     OtpVerifyService.verifyOtp(
-                            int.parse(verificationCode), "+91${mobileNo!}")
+                            int.parse(verificationCode), "+91${mobileNo}")
                         .then((response) async {
                       if (response.valid == true) {
-                        // detailsViewModel.addDetails(OnboardDetailsModel(
-                        //     firstName: firstName!,
-                        //     lastName: secondName!,
-                        //     mobileNo: mobileNo!));
+                        detailsViewModel.addDetails(
+                          OnboardDetailsModel(
+                              id: 0,
+                              firstName: firstName,
+                              lastName: secondName,
+                              mobileNo: mobileNo,
+                              email: '',
+                              password: '',
+                              physioimg: ''),
+                        );
 
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const AuthPage3()));
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) => const AuthPage3()));
                       }
                     });
                   },
@@ -187,7 +191,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                         backgroundColor: Colors.transparent,
                         onPressed: () async {
                           var req = await OtpApiService.otpSignup(
-                                  firstName!, secondName!, "+91" + "$mobileNo")
+                                  firstName, secondName, "+91" + "$mobileNo")
                               .then((response) async {
                             setState(() {
                               isAPICallProcess = false;
@@ -224,19 +228,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 color: AppColors.buttonColor),
             child: GestureDetector(
               onTap: () async {
-                detailsViewModel.addDetails(
-                  OnboardDetailsModel(
-                      id: 0,
-                      firstName: firstName,
-                      lastName: secondName,
-                      mobileNo: mobileNo,
-                      email: '',
-                      password: '',
-                      physioimg: ''),
-                );
 
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const AuthPage3()));
               },
               child: Center(
                 child: getText(
@@ -281,7 +273,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
       mobileNo = value;
 
       var req = await OtpApiService.otpSignup(
-              firstName!, secondName!, "+91" + "$mobileNo")
+              firstName, secondName, "+91" + "$mobileNo")
           .then((response) async {
         setState(() {
           isAPICallProcess = false;

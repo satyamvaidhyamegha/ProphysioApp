@@ -7,6 +7,7 @@ import 'package:physio/constants/string.dart';
 import 'package:physio/database/model/onboardingDetailsModel.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:image_picker/image_picker.dart' as imagePicker;
 import 'package:physio/screens/onboarding/signup_screen2.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/multi_images_utils.dart';
@@ -31,6 +32,8 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
 
   final detailsViewModel = Get.put(OnboardViewModel());
 
+  late final imagePicker.XFile? img;
+
   bool isApiCallProcess = false;
   String singleImageFile ="";
 
@@ -45,6 +48,14 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController secondNameController = TextEditingController();
   final TextEditingController emailIdController = TextEditingController();
+
+  File? imgFile;
+
+  bool hasGotImage = false;
+
+  bool showSaveChangesLoader = false;
+
+
 
   String dropdownvalue = 'Doctor';
   var items = [
@@ -163,10 +174,49 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                         ),
                       )),
 
-                ProgressHUD(key: UniqueKey(), child: uploadUI(), inAsyncCall: isApiCallProcess, opacity: .3,),
+                //
 
+
+            Container(
+              alignment:Alignment.centerLeft,
+              margin: EdgeInsets.only(top: 15, left: 20),
+              child: Wrap(
+                runSpacing: 10,
+                children: [
+                  Stack(
+                    alignment: Alignment.topRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 50,
+                        backgroundImage: (hasGotImage)
+                            ? FileImage(imgFile!, scale: 1)
+                            : null,
+                        backgroundColor: Theme.of(context).primaryColor,
+                        child: (hasGotImage)
+                            ? null
+                            : Text(
+                          'SK',
+                          style: TextStyle(
+                              color: Colors.white, fontSize: 30),
+                        ),
+                      ),
+                      Positioned(
+                          child: InkWell(
+                            onTap: uploadImage,
+                            child: CircleAvatar(
+                              radius: 15,
+                              backgroundColor: Theme.of(context).primaryColor,
+                              child: Icon(
+                                Icons.camera_alt_rounded,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ))
+                    ],
+                  ),
+  ]),),
                   Container(
-                    margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
+                    margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
                     decoration: BoxDecoration(
                         color: Colors.black,
                         border: Border.all(color: Colors.blueGrey, width: 1),
@@ -209,7 +259,7 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                                 detailsViewModel.allOnboardDetails[0].mobileNo,
                             email: emailId,
                         password: '',
-                        physioimg: singleImageFile),
+                        physioimg: detailsViewModel.allOnboardDetails[0].physioimg),
                         );
 
                         debugPrint("debz1"+singleImageFile);
@@ -256,4 +306,20 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
       ],
     ),);
   }
+
+  void uploadImage() async {
+    img = await imagePicker.ImagePicker().pickImage(
+      source: imagePicker.ImageSource.gallery,
+    );
+    debugPrint("before"+img!.path);
+
+    setState(() {
+      imgFile = File(img!.path);
+      debugPrint("after"+img!.path);
+      hasGotImage = true;
+    });
+
+    detailsViewModel.updateDetails(OnboardDetailsModel(id: detailsViewModel.allOnboardDetails[0].id, firstName: detailsViewModel.allOnboardDetails[0].firstName, lastName: detailsViewModel.allOnboardDetails[0].lastName, mobileNo: detailsViewModel.allOnboardDetails[0].mobileNo, email: '', password: '', physioimg: img!.path.toString()));
+  }
+
 }
