@@ -431,16 +431,15 @@ const subtitle2 = TextStyle(
   fontSize: 12,
 );
 
-
 const Description = TextStyle(
   color: Color.fromRGBO(235, 235, 245, 0.6),
   fontFamily: "Mulish",
   fontWeight: FontWeight.normal,
+);
 
 const subtitle3 = TextStyle(
   color: Colors.white,
   fontFamily: "Mulish",
   fontWeight: FontWeight.w700,
-
   fontSize: 12,
 );
