@@ -138,6 +138,17 @@ const labletextStyle1 = TextStyle(
     fontSize: 16.0,
     color: Color(0xFFC4C4C4));
 
+const labletextStyle2 = TextStyle(
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w400,
+    fontSize: 16.0,
+    color: AppColors.numberwhite);
+const labletextStyle3 = TextStyle(
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w400,
+    fontSize: 16.0,
+    color: AppColors.numberwhite2);
+
 const profilefieldtextStyle = TextStyle(
     fontFamily: 'Mulish',
     fontWeight: FontWeight.w400,
