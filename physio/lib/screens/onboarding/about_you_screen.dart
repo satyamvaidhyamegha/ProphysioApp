@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:physio/constants/style.dart';
+import 'package:physio/database/model/certificateDetailsModel.dart';
+import 'package:physio/database/model/onboardingDetailsModel.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:physio/screens/onboarding/certification_screen.dart';
 import 'package:physio/utility/gap_between.dart';
+import 'package:physio/viewmodel/certificate_view_model.dart';
+import 'package:physio/viewmodel/onboard_view_model.dart';
 import '../../../BaseWidget/text.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/text_constants.dart';
@@ -21,6 +26,9 @@ class _AboutYouScreenPageState extends State<AboutYouScreen> {
   var windowWidth;
   var windowHeight;
 
+  final viewModel = Get.put(CertiViewModel());
+  final oviewModel = Get.put(OnboardViewModel());
+
   final TextEditingController aboutYouController = TextEditingController();
   final TextEditingController educationController = TextEditingController();
   final TextEditingController specialityController = TextEditingController();
@@ -32,7 +40,10 @@ class _AboutYouScreenPageState extends State<AboutYouScreen> {
   var itemsLanguage = [
     'Language',
     'Engligh',
-    'kannada',
+    'Kannada',
+    'Hindi',
+    'Bengali',
+    'Tamil',
   ];
 
 
@@ -293,6 +304,9 @@ class _AboutYouScreenPageState extends State<AboutYouScreen> {
                       color: AppColors.buttonColor),
                   child: GestureDetector(
                     onTap: () {
+
+                      viewModel.addDetails(CertificateDetailsModel(id: 0, aboutYou: aboutYou, education: education, speciality: speciality, language: dropdownLanguage, certificateName: '', issuingOrg: '', issueDate: '', media: '', name: "${oviewModel.allOnboardDetails[0].firstName} ${oviewModel.allOnboardDetails[0].lastName}" ));
+
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(

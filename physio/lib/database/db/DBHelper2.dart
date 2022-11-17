@@ -1,17 +1,18 @@
 import 'dart:io';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:physio/database/model/certificateDetailsModel.dart';
 import 'package:physio/database/model/onboardingDetailsModel.dart';
 import 'package:sqflite/sqflite.dart';
 
-class DatabaseOneHelper {
+class DatabaseTwoHelper {
   final String tableName = "OnboardingTwoDetails";
 
-  DatabaseOneHelper._();
+  DatabaseTwoHelper._();
 
-  static final DatabaseOneHelper _db = DatabaseOneHelper._();
+  static final DatabaseTwoHelper _db = DatabaseTwoHelper._();
 
-  factory DatabaseOneHelper() => _db;
+  factory DatabaseTwoHelper() => _db;
 
   static Database? _dataBase;
 
@@ -36,18 +37,18 @@ class DatabaseOneHelper {
     _onCreate(db, newVersion);
   }
 
-  getOnboardOneData() async {
+  getCertificateData() async {
     var res = await ((await database)?.query(tableName));
-    List<OnboardDetailsModel> list = res!.isNotEmpty
-        ? res.map((item) => OnboardDetailsModel.fromMap(item)).toList()
+    List<CertificateDetailsModel> list = res!.isNotEmpty
+        ? res.map((item) => CertificateDetailsModel.fromMap(item)).toList()
         : [];
     return list;
   }
 
-  insertDetails(OnboardDetailsModel model) async =>
+  insertDetails(CertificateDetailsModel model) async =>
       await ((await database)!.insert(tableName, model.toMap()));
 
-  updateDetails(OnboardDetailsModel model) async =>
+  updateDetails(CertificateDetailsModel model) async =>
       await ((await database)!.update(tableName, model.toMap(),
           where: "id = ?", whereArgs: [model.id]));
 }

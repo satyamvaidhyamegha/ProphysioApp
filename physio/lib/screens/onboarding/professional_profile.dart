@@ -366,7 +366,7 @@ class _ProfessionalProfilePageState extends State<ProfessionalProfile> {
     var stream = new http.ByteStream(imgFile!.openRead());
     stream.cast();
 
-    var uri = Uri.parse('http://api.prophysio.in/mobile/physios/signup');
+    var uri = Uri.parse('https://api.prophysio.in/mobile/physios/signup');
 
     var req = new http.MultipartRequest("POST", uri);
 

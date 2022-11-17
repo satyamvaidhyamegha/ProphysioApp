@@ -35,7 +35,7 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
   late final imagePicker.XFile? img;
 
   bool isApiCallProcess = false;
-  String singleImageFile ="";
+
 
   @override
   void dispose() {
@@ -263,7 +263,7 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                         physioId: 0),
                         );
 
-                        debugPrint("debz1"+singleImageFile);
+
 
                         Navigator.pushReplacement(
                             context,
