@@ -94,7 +94,7 @@ class _AboutYouScreenPageState extends State<AboutYouScreen> {
                       border: Border.all(color: Colors.blueGrey, width: 1),
                       borderRadius: BorderRadius.circular(15)),
                   child: TextFormField(
-                    style: const TextStyle(color: Color(0xCCCCCC)),
+                    style: const TextStyle(color: Colors.white),
                     controller: aboutYouController,
                     decoration: InputDecoration(
                         labelText: "Tell us a little bit about yourself",
@@ -139,8 +139,6 @@ class _AboutYouScreenPageState extends State<AboutYouScreen> {
                         child: TextFormField(
                           style: const TextStyle(color: Colors.white),
                           controller: educationController,
-                          autofocus: false,
-                          obscureText: true,
                           decoration: InputDecoration(
                               labelText: "Education",
                               labelStyle: headertext,

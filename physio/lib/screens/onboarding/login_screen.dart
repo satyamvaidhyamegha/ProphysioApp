@@ -7,6 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:physio/API/login_service.dart';
 import 'package:physio/screens/Home/home2.dart';
+import 'package:physio/screens/schedule/dashboard_icon.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../BaseWidget/base_image_widget.dart';
 import '../../BaseWidget/custom_button.dart';
@@ -129,8 +130,8 @@ class _LoginPagePageState extends State<LoginPage> {
                               // labelText: Strings.PASSWORD,
                               enableSuggestions: false,
                               autocorrect: false,
-                              cursorColor: Colors.transparent,
-                              cursorWidth: 0,
+                              cursorColor: Colors.white,
+
                               style: const TextStyle(color: Colors.white),
                               decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -178,7 +179,7 @@ class _LoginPagePageState extends State<LoginPage> {
                                     Navigator.pushAndRemoveUntil(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Home2(),
+                                        builder: (context) => DashboardIcons(),
                                       ),
                                           (route) => false,
                                     );
