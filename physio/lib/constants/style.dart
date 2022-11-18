@@ -229,7 +229,7 @@ class BaseStyles {
     fontFamily: "Mulish",
     // height: 0.01,
     fontWeight: FontWeight.w400,
-    fontSize: 16,
+    fontSize: 17,
   );
 
   static const TextStyle appBarTextStyle = TextStyle(
