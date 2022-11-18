@@ -244,7 +244,7 @@ class _AboutYouScreenPageState extends State<AboutYouScreen> {
                         labelText: "Years of experience",
                         labelStyle: headertext,
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50.0),
+                          borderRadius: BorderRadius.circular(15.0),
                         ),
                         filled: true,
                         hintStyle: TextStyle(color: Colors.grey[300]),

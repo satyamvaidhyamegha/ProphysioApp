@@ -526,12 +526,10 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
     img = await imagePicker.ImagePicker().pickImage(
       source: imagePicker.ImageSource.gallery,
     );
-    debugPrint("before"+img!.path);
 
     if(img!=null) {
       imgFile = File(img!.path);
       setState(() {
-        debugPrint("after" + img!.path);
         hasGotImage = true;
       });
 
