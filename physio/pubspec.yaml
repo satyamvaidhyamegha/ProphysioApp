@@ -60,8 +60,16 @@ dependencies:
   snippet_coder_utils: ^1.0.9
   otp_timer_button: ^1.1.0
   badges: ^2.0.3
+  group_list_view: ^1.1.1
  
   syncfusion_flutter_charts: ^20.3.52
+  common_utils: ^2.1.0
+  alphabet_scroll_view: ^0.3.2
+  draggable_scrollbar: ^0.1.0
+  azlistview: ^2.0.0
+  lpinyin: ^2.0.3
+ 
+
 
 dev_dependencies:
   flutter_test:
