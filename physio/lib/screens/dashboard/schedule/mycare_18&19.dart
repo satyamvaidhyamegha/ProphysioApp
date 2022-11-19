@@ -1,8 +1,11 @@
 import 'package:blurrycontainer/blurrycontainer.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_launcher_icons/xml_templates.dart';
+import 'package:iconly/iconly.dart';
+import 'package:physio/constants/colors.dart';
 import 'package:physio/main.dart';
 import 'package:physio/utility/gap_between.dart';
 import 'package:physio/constants/string.dart';
@@ -41,11 +44,11 @@ initScreen(BuildContext context) {
 
   var itemCredential;
   return Scaffold(
-    backgroundColor: Color(0xff1C1C1E),
+    backgroundColor: const Color.fromRGBO(28, 28, 30, 1),
     appBar: PreferredSize(
-      preferredSize: Size.fromHeight(120),
+      preferredSize: const Size.fromHeight(120),
       child: Container(
-        color: Color(0xff1B232366),
+        color: const Color.fromRGBO(34, 34, 34, 1),
         child: Padding(
           padding: EdgeInsets.only(
             top: MediaQuery.of(context).size.height * 0.05,
@@ -58,12 +61,13 @@ initScreen(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  height: 44,
                   alignment: Alignment.centerLeft,
-                  child: const Icon(
-                    Icons.arrow_back_ios_new_rounded,
-                    size: 24,
-                    color: Colors.white,
+                  child: GestureDetector(
+                    onTap: () => Navigator.of(context).pop(false),
+                    child: const Icon(
+                      Icons.arrow_back_ios_new_rounded,
+                      color: AppColors.textColor,
+                    ),
                   ),
                 ),
                 Container(
@@ -99,11 +103,11 @@ initScreen(BuildContext context) {
                 verticalGap(context: context, screenSize: 0.02),
                 SearchWidget(
                     suffixIcon: const Icon(
-                      Icons.mic_none,
+                      IconlyLight.voice,
                       color: Colors.white,
                     ),
-                    prefixIcon:
-                        const Icon(Icons.search, color: Color(0xff9E9EA5)),
+                    prefixIcon: const Icon(IconlyLight.search,
+                        color: Color(0xff9E9EA5)),
                     controller: myCareSearch,
                     hintText: Strings.SEARCH,
                     inputAction: TextInputAction.search),
@@ -127,7 +131,7 @@ initScreen(BuildContext context) {
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
-                  icon: Icons.more_horiz,
+                  icon: IconlyLight.more_square,
                   label: 'More',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -137,7 +141,7 @@ initScreen(BuildContext context) {
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
-                  icon: Icons.close,
+                  icon: IconlyLight.close_square,
                   label: 'Reject',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -149,7 +153,7 @@ initScreen(BuildContext context) {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(8),
                       bottomRight: Radius.circular(8)),
-                  icon: Icons.check,
+                  icon: IconlyLight.tick_square,
                   label: 'Accept',
                 ),
               ],
@@ -222,7 +226,11 @@ initScreen(BuildContext context) {
                                 left: MediaQuery.of(context).size.width * 0.004,
                                 right:
                                     MediaQuery.of(context).size.width * 0.04),
-                            icon: const Icon(Icons.videocam_outlined),
+                            icon: const Icon(
+                              CupertinoIcons.videocam,
+                              color: Colors.blue,
+                              size: 30.0,
+                            ),
                             color: Colors.blue,
                             onPressed: () {},
                           ),
@@ -236,7 +244,7 @@ initScreen(BuildContext context) {
                         ),
                         child: getText(
                             text: 'Wed, 12:00 pm - 1:00 pm',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -246,7 +254,7 @@ initScreen(BuildContext context) {
                             bottom: MediaQuery.of(context).size.width * 0.02),
                         child: getText(
                             text: 'Condition: Back and shoulder pain',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                     ],
                   ),
@@ -276,7 +284,7 @@ initScreen(BuildContext context) {
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
-                  icon: Icons.more_horiz,
+                  icon: IconlyLight.more_square,
                   label: 'More',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -286,7 +294,7 @@ initScreen(BuildContext context) {
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
-                  icon: Icons.close,
+                  icon: IconlyLight.close_square,
                   label: 'Reject',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -298,7 +306,7 @@ initScreen(BuildContext context) {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(8),
                       bottomRight: Radius.circular(8)),
-                  icon: Icons.check,
+                  icon: IconlyLight.tick_square,
                   label: 'Accept',
                 ),
               ],
@@ -373,7 +381,11 @@ initScreen(BuildContext context) {
                                 left: MediaQuery.of(context).size.width * 0.004,
                                 right:
                                     MediaQuery.of(context).size.width * 0.04),
-                            icon: const Icon(Icons.videocam_outlined),
+                            icon: const Icon(
+                              CupertinoIcons.videocam,
+                              color: Colors.blue,
+                              size: 30.0,
+                            ),
                             color: Colors.blue,
                             onPressed: () {},
                           ),
@@ -387,7 +399,7 @@ initScreen(BuildContext context) {
                         ),
                         child: getText(
                             text: 'Wed, 12:00 pm - 1:00 pm',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -397,7 +409,7 @@ initScreen(BuildContext context) {
                             bottom: MediaQuery.of(context).size.width * 0.02),
                         child: getText(
                             text: 'Condition: Back and shoulder pain',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                     ],
                   ),
@@ -423,7 +435,7 @@ initScreen(BuildContext context) {
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
-                  icon: Icons.more_horiz,
+                  icon: IconlyLight.more_square,
                   label: 'More',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -433,7 +445,7 @@ initScreen(BuildContext context) {
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
-                  icon: Icons.close,
+                  icon: IconlyLight.close_square,
                   label: 'Reject',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -445,7 +457,7 @@ initScreen(BuildContext context) {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(8),
                       bottomRight: Radius.circular(8)),
-                  icon: Icons.check,
+                  icon: IconlyLight.tick_square,
                   label: 'Accept',
                 ),
               ],
@@ -521,7 +533,11 @@ initScreen(BuildContext context) {
                                 left: MediaQuery.of(context).size.width * 0.004,
                                 right:
                                     MediaQuery.of(context).size.width * 0.04),
-                            icon: const Icon(Icons.videocam_outlined),
+                            icon: const Icon(
+                              CupertinoIcons.videocam,
+                              color: Colors.blue,
+                              size: 30.0,
+                            ),
                             color: Colors.blue,
                             onPressed: () {},
                           ),
@@ -536,7 +552,7 @@ initScreen(BuildContext context) {
                         ),
                         child: getText(
                             text: 'Wed, 12:00 pm - 1:00 pm',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -546,7 +562,7 @@ initScreen(BuildContext context) {
                             bottom: MediaQuery.of(context).size.width * 0.02),
                         child: getText(
                             text: 'Condition: Back and shoulder pain',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                     ],
                   ),
@@ -572,7 +588,7 @@ initScreen(BuildContext context) {
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
-                  icon: Icons.more_horiz,
+                  icon: IconlyLight.more_square,
                   label: 'More',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -582,7 +598,7 @@ initScreen(BuildContext context) {
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
-                  icon: Icons.close,
+                  icon: IconlyLight.close_square,
                   label: 'Reject',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -594,7 +610,7 @@ initScreen(BuildContext context) {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(8),
                       bottomRight: Radius.circular(8)),
-                  icon: Icons.check,
+                  icon: IconlyLight.tick_square,
                   label: 'Accept',
                 ),
               ],
@@ -669,7 +685,11 @@ initScreen(BuildContext context) {
                                 left: MediaQuery.of(context).size.width * 0.004,
                                 right:
                                     MediaQuery.of(context).size.width * 0.04),
-                            icon: const Icon(Icons.videocam_outlined),
+                            icon: const Icon(
+                              CupertinoIcons.videocam,
+                              color: Colors.blue,
+                              size: 30.0,
+                            ),
                             color: Colors.blue,
                             onPressed: () {},
                           ),
@@ -683,7 +703,7 @@ initScreen(BuildContext context) {
                         ),
                         child: getText(
                             text: 'Wed, 12:00 pm - 1:00 pm',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -693,7 +713,7 @@ initScreen(BuildContext context) {
                             bottom: MediaQuery.of(context).size.width * 0.02),
                         child: getText(
                             text: 'Condition: Back and shoulder pain',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                     ],
                   ),
@@ -720,7 +740,7 @@ initScreen(BuildContext context) {
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
-                  icon: Icons.more_horiz,
+                  icon: IconlyLight.more_square,
 
                   label: 'More',
                 ),
@@ -731,7 +751,7 @@ initScreen(BuildContext context) {
                   backgroundColor: Color.fromARGB(146, 144, 146, 134),
                   foregroundColor: Colors.white,
                   borderRadius: BorderRadius.only(),
-                  icon: Icons.close,
+                  icon: IconlyLight.close_square,
                   label: 'Reject',
                 ),
                 Padding(padding: EdgeInsets.all(0.2)),
@@ -743,7 +763,7 @@ initScreen(BuildContext context) {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(8),
                       bottomRight: Radius.circular(8)),
-                  icon: Icons.check,
+                  icon: IconlyLight.tick_square,
                   label: 'Accept',
                 ),
               ],
@@ -816,7 +836,11 @@ initScreen(BuildContext context) {
                                 left: MediaQuery.of(context).size.width * 0.004,
                                 right:
                                     MediaQuery.of(context).size.width * 0.04),
-                            icon: const Icon(Icons.videocam_outlined),
+                            icon: const Icon(
+                              CupertinoIcons.videocam,
+                              color: Colors.blue,
+                              size: 30.0,
+                            ),
                             color: Colors.blue,
                             onPressed: () {},
                           ),
@@ -830,7 +854,7 @@ initScreen(BuildContext context) {
                         ),
                         child: getText(
                             text: 'Wed, 12:00 pm - 1:00 pm',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -840,7 +864,7 @@ initScreen(BuildContext context) {
                             bottom: MediaQuery.of(context).size.width * 0.02),
                         child: getText(
                             text: 'Condition: Back and shoulder pain ',
-                            textStyle: BaseStyles.carddetailsStyle),
+                            textStyle: BaseStyles.carddetailsStyle1),
                       ),
                     ],
                   ),

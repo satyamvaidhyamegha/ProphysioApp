@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:physio/constants/colors.dart';
 import 'package:physio/utility/gap_between.dart';
 import 'package:physio/constants/string.dart';
 import '../../../BaseWidget/search_widget.dart';
@@ -8,6 +10,7 @@ import '../../../constants/style.dart';
 import '../../../constants/text_constants.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
+// ignore: camel_case_types
 class Report_32Screen extends StatefulWidget {
   const Report_32Screen({Key? key}) : super(key: key);
 
@@ -33,11 +36,11 @@ initScreen(BuildContext context) {
   ScrollController mycontroller2 = ScrollController();
 
   return Scaffold(
-      backgroundColor: Color(0xff1C1C1E),
+      backgroundColor: const Color.fromRGBO(28, 28, 30, 1),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(120),
+        preferredSize: const Size.fromHeight(120),
         child: Container(
-          color: Color(0xff1B232366),
+          color: const Color.fromRGBO(34, 34, 34, 1),
           child: Padding(
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).size.height * 0.05,
@@ -50,14 +53,16 @@ initScreen(BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    height: 44,
                     alignment: Alignment.centerLeft,
-                    child: const Icon(
-                      Icons.arrow_back_ios_new_rounded,
-                      size: 24,
-                      color: Colors.white,
+                    child: GestureDetector(
+                      onTap: () => Navigator.of(context).pop(false),
+                      child: const Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        color: AppColors.textColor,
+                      ),
                     ),
                   ),
+                  verticalGap(context: context, screenSize: 0.03),
                   Container(
                     height: 44,
                     padding: const EdgeInsets.only(top: 5),
@@ -94,7 +99,8 @@ initScreen(BuildContext context) {
                       Icons.mic_none,
                       color: Colors.white,
                     ),
-                    prefixIcon: Icon(Icons.search, color: Color(0xff9E9EA5)),
+                    prefixIcon: const Icon(Icons.search,
+                        color: const Color(0xff9E9EA5)),
                     controller: myCareSearch,
                     hintText: Strings.SEARCH,
                     inputAction: TextInputAction.search),
@@ -207,7 +213,7 @@ initScreen(BuildContext context) {
                                                   .size
                                                   .height *
                                               0.01),
-                                      icon: const Icon(Icons.videocam_outlined),
+                                      icon: const Icon(CupertinoIcons.videocam),
                                       color: Colors.blue,
                                       onPressed: () {},
                                     ),
@@ -346,7 +352,7 @@ initScreen(BuildContext context) {
                                                   .size
                                                   .height *
                                               0.01),
-                                      icon: const Icon(Icons.videocam_outlined),
+                                      icon: const Icon(CupertinoIcons.videocam),
                                       color: Colors.blue,
                                       onPressed: () {},
                                     ),
@@ -485,7 +491,7 @@ initScreen(BuildContext context) {
                                                   .size
                                                   .height *
                                               0.01),
-                                      icon: const Icon(Icons.videocam_outlined),
+                                      icon: const Icon(CupertinoIcons.videocam),
                                       color: Colors.blue,
                                       onPressed: () {},
                                     ),
@@ -636,7 +642,7 @@ initScreen(BuildContext context) {
                                                   .size
                                                   .height *
                                               0.01),
-                                      icon: const Icon(Icons.videocam_outlined),
+                                      icon: const Icon(CupertinoIcons.videocam),
                                       color: Colors.blue,
                                       onPressed: () {},
                                     ),
@@ -775,7 +781,7 @@ initScreen(BuildContext context) {
                                                   .size
                                                   .height *
                                               0.01),
-                                      icon: const Icon(Icons.videocam_outlined),
+                                      icon: const Icon(CupertinoIcons.videocam),
                                       color: Colors.blue,
                                       onPressed: () {},
                                     ),
@@ -914,7 +920,7 @@ initScreen(BuildContext context) {
                                                   .size
                                                   .height *
                                               0.01),
-                                      icon: const Icon(Icons.videocam_outlined),
+                                      icon: const Icon(CupertinoIcons.videocam),
                                       color: Colors.blue,
                                       onPressed: () {},
                                     ),
