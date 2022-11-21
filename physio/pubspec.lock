@@ -506,6 +506,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.26.0"
+
   scrollable_positioned_list:
     dependency: transitive
     description:
@@ -513,6 +514,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.3"
+
   share_plus:
     dependency: "direct main"
     description:
@@ -650,7 +652,7 @@ packages:
       name: syncfusion_flutter_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "20.3.52"
+    version: "20.3.57"
   synchronized:
     dependency: transitive
     description:
