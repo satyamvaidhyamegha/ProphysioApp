@@ -94,7 +94,7 @@ initScreen(BuildContext context) {
                           icon: const Icon(
                             CupertinoIcons.plus,
                             color: AppColors.buttonColor,
-                            size: 50,
+                            size: 40,
                           ),
                         ),
                       ),
@@ -633,7 +633,7 @@ initScreen(BuildContext context) {
           horizontalGap(context: context, screenSize: 0.04),
           getText(text: 'Closed Session', textStyle: todaytext),
           horizontalGap(context: context, screenSize: 0.35),
-          getText(text: '(4)', textStyle: todaytext),
+          getText(text: '(25)', textStyle: todaytext),
           horizontalGap(context: context, screenSize: 0.0001),
           IconButton(
             icon: const Icon(Icons.arrow_forward_ios_outlined),
