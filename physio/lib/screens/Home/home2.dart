@@ -6,7 +6,7 @@ import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
-import 'package:physio/screens/Home/barchart_model.dart';
+import 'package:physio/model/barchart_model.dart';
 import 'package:physio/utility/gap_between.dart';
 
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -68,9 +68,8 @@ class _Home2State extends State<Home2> {
       backgroundColor: AppColors.kBGcolor,
       body: SingleChildScrollView(
         child: SizedBox(
-          width: double.infinity,
+          width: windowWidth,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               verticalGap(context: context, screenSize: 0.1),
@@ -84,7 +83,7 @@ class _Home2State extends State<Home2> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  horizontalGap(context: context, screenSize: 0.04),
+                  horizontalGap(context: context, screenSize: 0.03),
                   getText(text: 'Dr. Janet', textStyle: subheadertext1),
                   horizontalGap(context: context, screenSize: 0.44),
                   Align(
@@ -98,8 +97,8 @@ class _Home2State extends State<Home2> {
                         );
                       },
                       child: Container(
-                          height: 50,
-                          width: 50,
+                          height: 48,
+                          width: 48,
                           decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
@@ -132,10 +131,10 @@ class _Home2State extends State<Home2> {
                   getText(text: '03', textStyle: BaseStyles.numberStyle),
                   horizontalGap(context: context, screenSize: 0.02),
                   getText(text: 'Report \nPending', textStyle: navlablecolor1),
-                  horizontalGap(context: context, screenSize: 0.08),
+                  horizontalGap(context: context, screenSize: 0.06),
                   getText(text: '3.5', textStyle: BaseStyles.numberStyle),
                   horizontalGap(context: context, screenSize: 0.02),
-                  getText(text: 'K Earning \nToday', textStyle: navlablecolor1),
+                  getText(text: 'Earning \nToday', textStyle: navlablecolor1),
                   horizontalGap(context: context, screenSize: 0.04)
                 ],
               ),
@@ -204,7 +203,7 @@ class _Home2State extends State<Home2> {
                                 xValueMapper: (ChartData data, _) => data.x,
                                 yValueMapper: (ChartData data, _) => data.y,
                                 borderRadius:
-                                const BorderRadius.all(Radius.circular(18)))
+                                    const BorderRadius.all(Radius.circular(18)))
                           ]),
                     ),
                   ),
@@ -219,7 +218,7 @@ class _Home2State extends State<Home2> {
                     getText(
                         text: 'Patient updates',
                         textStyle: profilefieldtextStyle3),
-                    horizontalGap(context: context, screenSize: 0.4),
+                    horizontalGap(context: context, screenSize: 0.3),
                     getText(text: '(25)', textStyle: todaytext),
                     horizontalGap(context: context, screenSize: 0.02),
                     const Icon(
@@ -246,7 +245,7 @@ class _Home2State extends State<Home2> {
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
                                       image:
-                                      AssetImage("assets/DoctorImage.png"),
+                                          AssetImage("assets/DoctorImage.png"),
                                       fit: BoxFit.cover))),
                           horizontalGap(context: context, screenSize: 0.02),
                           verticalGap(context: context, screenSize: 0.04),
@@ -257,27 +256,27 @@ class _Home2State extends State<Home2> {
                                 Padding(
                                     padding: EdgeInsets.only(
                                         left:
-                                        MediaQuery.of(context).size.width *
-                                            0.06,
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
                                         right:
-                                        MediaQuery.of(context).size.width *
-                                            0.04),
+                                            MediaQuery.of(context).size.width *
+                                                0.04),
                                     child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           getText(
                                               text: "DR. Pramod",
                                               textStyle: aboutYouText1),
                                           horizontalGap(
                                               context: context,
-                                              screenSize: 0.34),
+                                              screenSize: 0.32),
                                           getText(
                                               text: "Yesterday",
                                               textStyle: navlablecolor2),
                                           horizontalGap(
                                               context: context,
-                                              screenSize: 0.002),
+                                              screenSize: 0.001),
                                           const Icon(
                                             Icons.arrow_forward_ios_outlined,
                                             color: Colors.white,
@@ -292,7 +291,7 @@ class _Home2State extends State<Home2> {
                                           0.14),
                                   child: getText(
                                       text:
-                                      'Has finished the self assessment mode \n(Shared on 3rd jul)',
+                                          'Has finished the self assessment mode \n(Shared on 3rd jul)',
                                       textStyle: subtitle2),
                                 ),
                               ]),
@@ -316,7 +315,7 @@ class _Home2State extends State<Home2> {
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
                                       image:
-                                      AssetImage("assets/DoctorImage.png"),
+                                          AssetImage("assets/DoctorImage.png"),
                                       fit: BoxFit.cover))),
                           horizontalGap(context: context, screenSize: 0.02),
                           verticalGap(context: context, screenSize: 0.04),
@@ -326,21 +325,21 @@ class _Home2State extends State<Home2> {
                                 Padding(
                                     padding: EdgeInsets.only(
                                         left:
-                                        MediaQuery.of(context).size.width *
-                                            0.06,
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
                                         right:
-                                        MediaQuery.of(context).size.width *
-                                            0.04),
+                                            MediaQuery.of(context).size.width *
+                                                0.04),
                                     child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           getText(
                                               text: "DR. Pramod",
                                               textStyle: aboutYouText1),
                                           horizontalGap(
                                               context: context,
-                                              screenSize: 0.34),
+                                              screenSize: 0.32),
                                           getText(
                                               text: "Yesterday",
                                               textStyle: navlablecolor2),
@@ -361,7 +360,7 @@ class _Home2State extends State<Home2> {
                                           0.14),
                                   child: getText(
                                       text:
-                                      'Has finished the self assessment mode \n(Shared on 3rd jul)',
+                                          'Has finished the self assessment mode \n(Shared on 3rd jul)',
                                       textStyle: subtitle2),
                                 ),
                               ]),
@@ -385,7 +384,7 @@ class _Home2State extends State<Home2> {
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
                                       image:
-                                      AssetImage("assets/DoctorImage.png"),
+                                          AssetImage("assets/DoctorImage.png"),
                                       fit: BoxFit.cover))),
                           horizontalGap(context: context, screenSize: 0.02),
                           verticalGap(context: context, screenSize: 0.04),
@@ -396,21 +395,21 @@ class _Home2State extends State<Home2> {
                                 Padding(
                                     padding: EdgeInsets.only(
                                         left:
-                                        MediaQuery.of(context).size.width *
-                                            0.06,
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
                                         right:
-                                        MediaQuery.of(context).size.width *
-                                            0.04),
+                                            MediaQuery.of(context).size.width *
+                                                0.04),
                                     child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           getText(
                                               text: "DR. Pramod",
                                               textStyle: aboutYouText1),
                                           horizontalGap(
                                               context: context,
-                                              screenSize: 0.34),
+                                              screenSize: 0.32),
                                           getText(
                                               text: "Yesterday",
                                               textStyle: navlablecolor2),
@@ -431,7 +430,7 @@ class _Home2State extends State<Home2> {
                                           0.14),
                                   child: getText(
                                       text:
-                                      'Has finished the self assessment mode \n(Shared on 3rd jul)',
+                                          'Has finished the self assessment mode \n(Shared on 3rd jul)',
                                       textStyle: subtitle2),
                                 ),
                               ]),
@@ -455,31 +454,32 @@ class _Home2State extends State<Home2> {
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
                                       image:
-                                      AssetImage("assets/DoctorImage.png"),
+                                          AssetImage("assets/DoctorImage.png"),
                                       fit: BoxFit.cover))),
                           horizontalGap(context: context, screenSize: 0.02),
                           verticalGap(context: context, screenSize: 0.04),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Column(children: [
                                 Padding(
                                     padding: EdgeInsets.only(
                                         left:
-                                        MediaQuery.of(context).size.width *
-                                            0.06,
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
                                         right:
-                                        MediaQuery.of(context).size.width *
-                                            0.04),
+                                            MediaQuery.of(context).size.width *
+                                                0.04),
                                     child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           getText(
                                               text: "DR. Pramod",
                                               textStyle: aboutYouText1),
                                           horizontalGap(
                                               context: context,
-                                              screenSize: 0.34),
+                                              screenSize: 0.32),
                                           getText(
                                               text: "Yesterday",
                                               textStyle: navlablecolor2),
@@ -500,7 +500,7 @@ class _Home2State extends State<Home2> {
                                           0.14),
                                   child: getText(
                                       text:
-                                      'Has finished the self assessment mode \n(Shared on 3rd jul)',
+                                          'Has finished the self assessment mode \n(Shared on 3rd jul)',
                                       textStyle: subtitle2),
                                 ),
                               ]),
@@ -521,7 +521,7 @@ class _Home2State extends State<Home2> {
                 horizontalGap(context: context, screenSize: 0.04),
                 getText(
                     text: 'New messages', textStyle: profilefieldtextStyle3),
-                horizontalGap(context: context, screenSize: 0.4),
+                horizontalGap(context: context, screenSize: 0.3),
                 getText(text: '(25)', textStyle: todaytext),
                 horizontalGap(context: context, screenSize: 0.04),
                 const Icon(
@@ -542,6 +542,7 @@ class _Home2State extends State<Home2> {
                         children: [
                           horizontalGap(context: context, screenSize: 0.04),
                           Badge(
+                            position: BadgePosition.topStart(),
                             badgeContent: const Text('3'),
                             badgeColor: Colors.orange,
                             child: Container(
@@ -563,14 +564,14 @@ class _Home2State extends State<Home2> {
                                 Padding(
                                     padding: EdgeInsets.only(
                                         left:
-                                        MediaQuery.of(context).size.width *
-                                            0.06,
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
                                         right:
-                                        MediaQuery.of(context).size.width *
-                                            0.04),
+                                            MediaQuery.of(context).size.width *
+                                                0.04),
                                     child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           getText(
                                               text: "DR. Pramod",
@@ -598,7 +599,157 @@ class _Home2State extends State<Home2> {
                                           0.14),
                                   child: getText(
                                       text:
-                                      'Has finished the self assessment mode \n(Shared on 3rd jul)',
+                                          'Has finished the self assessment mode \n(Shared on 3rd jul)',
+                                      textStyle: subtitle2),
+                                ),
+                              ]),
+                            ],
+                          ),
+                        ]),
+                    const Divider(
+                      height: 20,
+                      thickness: 0.25,
+                      indent: 20,
+                      color: Colors.grey,
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          horizontalGap(context: context, screenSize: 0.04),
+                          Badge(
+                            position: BadgePosition.topStart(),
+                            badgeContent: const Text('3'),
+                            badgeColor: Colors.orange,
+                            child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/DoctorImage.png"),
+                                        fit: BoxFit.cover))),
+                          ),
+                          horizontalGap(context: context, screenSize: 0.02),
+                          verticalGap(context: context, screenSize: 0.04),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(children: [
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left:
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
+                                        right:
+                                            MediaQuery.of(context).size.width *
+                                                0.04),
+                                    child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          getText(
+                                              text: "DR. Pramod",
+                                              textStyle: aboutYouText1),
+                                          horizontalGap(
+                                              context: context,
+                                              screenSize: 0.32),
+                                          getText(
+                                              text: "Yesterday",
+                                              textStyle: navlablecolor2),
+                                          horizontalGap(
+                                              context: context,
+                                              screenSize: 0.002),
+                                          const Icon(
+                                            Icons.arrow_forward_ios_outlined,
+                                            color: Colors.white,
+                                            size: 14.0,
+                                          ),
+                                        ])),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      left: MediaQuery.of(context).size.width *
+                                          0.002,
+                                      right: MediaQuery.of(context).size.width *
+                                          0.14),
+                                  child: getText(
+                                      text:
+                                          'Has finished the self assessment mode \n(Shared on 3rd jul)',
+                                      textStyle: subtitle2),
+                                ),
+                              ]),
+                            ],
+                          ),
+                        ]),
+                    const Divider(
+                      height: 20,
+                      thickness: 0.25,
+                      indent: 20,
+                      color: Colors.grey,
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          horizontalGap(context: context, screenSize: 0.04),
+                          Badge(
+                            position: BadgePosition.topStart(),
+                            badgeContent: const Text('3'),
+                            badgeColor: Colors.orange,
+                            child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/DoctorImage.png"),
+                                        fit: BoxFit.cover))),
+                          ),
+                          horizontalGap(context: context, screenSize: 0.02),
+                          verticalGap(context: context, screenSize: 0.04),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(children: [
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left:
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
+                                        right:
+                                            MediaQuery.of(context).size.width *
+                                                0.04),
+                                    child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          getText(
+                                              text: "DR. Pramod",
+                                              textStyle: aboutYouText1),
+                                          horizontalGap(
+                                              context: context,
+                                              screenSize: 0.32),
+                                          getText(
+                                              text: "Yesterday",
+                                              textStyle: navlablecolor2),
+                                          horizontalGap(
+                                              context: context,
+                                              screenSize: 0.002),
+                                          const Icon(
+                                            Icons.arrow_forward_ios_outlined,
+                                            color: Colors.white,
+                                            size: 14.0,
+                                          ),
+                                        ])),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      left: MediaQuery.of(context).size.width *
+                                          0.002,
+                                      right: MediaQuery.of(context).size.width *
+                                          0.14),
+                                  child: getText(
+                                      text:
+                                          'Has finished the self assessment mode \n(Shared on 3rd jul)',
                                       textStyle: subtitle2),
                                 ),
                               ]),
@@ -637,14 +788,14 @@ class _Home2State extends State<Home2> {
                                 Padding(
                                     padding: EdgeInsets.only(
                                         left:
-                                        MediaQuery.of(context).size.width *
-                                            0.06,
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
                                         right:
-                                        MediaQuery.of(context).size.width *
-                                            0.04),
+                                            MediaQuery.of(context).size.width *
+                                                0.04),
                                     child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           getText(
                                               text: "DR. Pramod",
@@ -672,7 +823,7 @@ class _Home2State extends State<Home2> {
                                           0.14),
                                   child: getText(
                                       text:
-                                      'Has finished the self assessment mode \n(Shared on 3rd jul)',
+                                          'Has finished the self assessment mode \n(Shared on 3rd jul)',
                                       textStyle: subtitle2),
                                 ),
                               ]),
@@ -690,6 +841,7 @@ class _Home2State extends State<Home2> {
                         children: [
                           horizontalGap(context: context, screenSize: 0.04),
                           Badge(
+                            position: BadgePosition.topStart(),
                             badgeContent: const Text('3'),
                             badgeColor: Colors.orange,
                             child: Container(
@@ -711,14 +863,14 @@ class _Home2State extends State<Home2> {
                                 Padding(
                                     padding: EdgeInsets.only(
                                         left:
-                                        MediaQuery.of(context).size.width *
-                                            0.06,
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
                                         right:
-                                        MediaQuery.of(context).size.width *
-                                            0.04),
+                                            MediaQuery.of(context).size.width *
+                                                0.04),
                                     child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           getText(
                                               text: "DR. Pramod",
@@ -746,7 +898,7 @@ class _Home2State extends State<Home2> {
                                           0.14),
                                   child: getText(
                                       text:
-                                      'Has finished the self assessment mode \n(Shared on 3rd jul)',
+                                          'Has finished the self assessment mode \n(Shared on 3rd jul)',
                                       textStyle: subtitle2),
                                 ),
                               ]),
@@ -764,6 +916,7 @@ class _Home2State extends State<Home2> {
                         children: [
                           horizontalGap(context: context, screenSize: 0.04),
                           Badge(
+                            position: BadgePosition.topStart(),
                             badgeContent: const Text('3'),
                             badgeColor: Colors.orange,
                             child: Container(
@@ -785,14 +938,14 @@ class _Home2State extends State<Home2> {
                                 Padding(
                                     padding: EdgeInsets.only(
                                         left:
-                                        MediaQuery.of(context).size.width *
-                                            0.06,
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
                                         right:
-                                        MediaQuery.of(context).size.width *
-                                            0.04),
+                                            MediaQuery.of(context).size.width *
+                                                0.04),
                                     child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           getText(
                                               text: "DR. Pramod",
@@ -820,7 +973,7 @@ class _Home2State extends State<Home2> {
                                           0.14),
                                   child: getText(
                                       text:
-                                      'Has finished the self assessment mode \n(Shared on 3rd jul)',
+                                          'Has finished the self assessment mode \n(Shared on 3rd jul)',
                                       textStyle: subtitle2),
                                 ),
                               ]),
@@ -838,6 +991,7 @@ class _Home2State extends State<Home2> {
                         children: [
                           horizontalGap(context: context, screenSize: 0.04),
                           Badge(
+                            position: BadgePosition.topStart(),
                             badgeContent: const Text('3'),
                             badgeColor: Colors.orange,
                             child: Container(
@@ -859,14 +1013,14 @@ class _Home2State extends State<Home2> {
                                 Padding(
                                     padding: EdgeInsets.only(
                                         left:
-                                        MediaQuery.of(context).size.width *
-                                            0.06,
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
                                         right:
-                                        MediaQuery.of(context).size.width *
-                                            0.04),
+                                            MediaQuery.of(context).size.width *
+                                                0.04),
                                     child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           getText(
                                               text: "DR. Pramod",
@@ -894,155 +1048,7 @@ class _Home2State extends State<Home2> {
                                           0.14),
                                   child: getText(
                                       text:
-                                      'Has finished the self assessment mode \n(Shared on 3rd jul)',
-                                      textStyle: subtitle2),
-                                ),
-                              ]),
-                            ],
-                          ),
-                        ]),
-                    const Divider(
-                      height: 20,
-                      thickness: 0.25,
-                      indent: 20,
-                      color: Colors.grey,
-                    ),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          horizontalGap(context: context, screenSize: 0.04),
-                          Badge(
-                            badgeContent: const Text('3'),
-                            badgeColor: Colors.orange,
-                            child: Container(
-                                height: 50,
-                                width: 50,
-                                decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            "assets/DoctorImage.png"),
-                                        fit: BoxFit.cover))),
-                          ),
-                          horizontalGap(context: context, screenSize: 0.02),
-                          verticalGap(context: context, screenSize: 0.04),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(children: [
-                                Padding(
-                                    padding: EdgeInsets.only(
-                                        left:
-                                        MediaQuery.of(context).size.width *
-                                            0.06,
-                                        right:
-                                        MediaQuery.of(context).size.width *
-                                            0.04),
-                                    child: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          getText(
-                                              text: "DR. Pramod",
-                                              textStyle: aboutYouText1),
-                                          horizontalGap(
-                                              context: context,
-                                              screenSize: 0.32),
-                                          getText(
-                                              text: "Yesterday",
-                                              textStyle: navlablecolor2),
-                                          horizontalGap(
-                                              context: context,
-                                              screenSize: 0.002),
-                                          const Icon(
-                                            Icons.arrow_forward_ios_outlined,
-                                            color: Colors.white,
-                                            size: 14.0,
-                                          ),
-                                        ])),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      left: MediaQuery.of(context).size.width *
-                                          0.002,
-                                      right: MediaQuery.of(context).size.width *
-                                          0.14),
-                                  child: getText(
-                                      text:
-                                      'Has finished the self assessment mode \n(Shared on 3rd jul)',
-                                      textStyle: subtitle2),
-                                ),
-                              ]),
-                            ],
-                          ),
-                        ]),
-                    const Divider(
-                      height: 20,
-                      thickness: 0.25,
-                      indent: 20,
-                      color: Colors.grey,
-                    ),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          horizontalGap(context: context, screenSize: 0.04),
-                          Badge(
-                            badgeContent: const Text('3'),
-                            badgeColor: Colors.orange,
-                            child: Container(
-                                height: 50,
-                                width: 50,
-                                decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            "assets/DoctorImage.png"),
-                                        fit: BoxFit.cover))),
-                          ),
-                          horizontalGap(context: context, screenSize: 0.02),
-                          verticalGap(context: context, screenSize: 0.04),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(children: [
-                                Padding(
-                                    padding: EdgeInsets.only(
-                                        left:
-                                        MediaQuery.of(context).size.width *
-                                            0.06,
-                                        right:
-                                        MediaQuery.of(context).size.width *
-                                            0.04),
-                                    child: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          getText(
-                                              text: "DR. Pramod",
-                                              textStyle: aboutYouText1),
-                                          horizontalGap(
-                                              context: context,
-                                              screenSize: 0.32),
-                                          getText(
-                                              text: "Yesterday",
-                                              textStyle: navlablecolor2),
-                                          horizontalGap(
-                                              context: context,
-                                              screenSize: 0.002),
-                                          const Icon(
-                                            Icons.arrow_forward_ios_outlined,
-                                            color: Colors.white,
-                                            size: 14.0,
-                                          ),
-                                        ])),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      left: MediaQuery.of(context).size.width *
-                                          0.002,
-                                      right: MediaQuery.of(context).size.width *
-                                          0.14),
-                                  child: getText(
-                                      text:
-                                      'Has finished the self assessment mode \n(Shared on 3rd jul)',
+                                          'Has finished the self assessment mode \n(Shared on 3rd jul)',
                                       textStyle: subtitle2),
                                 ),
                               ]),
@@ -1063,7 +1069,7 @@ class _Home2State extends State<Home2> {
                 horizontalGap(context: context, screenSize: 0.04),
                 getText(
                     text: 'New Exercises', textStyle: profilefieldtextStyle3),
-                horizontalGap(context: context, screenSize: 0.4),
+                horizontalGap(context: context, screenSize: 0.3),
                 getText(text: '(25)', textStyle: todaytext),
                 horizontalGap(context: context, screenSize: 0.04),
                 const Icon(
@@ -1114,36 +1120,36 @@ class _Home2State extends State<Home2> {
                                 ),
                                 Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       horizontalGap(
                                           context: context, screenSize: 0.02),
                                       getText(
                                           text:
-                                          'Details/discription of the expercise that is being \nshown here.',
+                                              'Details/discription of the expercise that is being \nshown here.',
                                           textStyle: subtitle2),
                                     ]),
                                 Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     legs     ',
@@ -1153,20 +1159,20 @@ class _Home2State extends State<Home2> {
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     Lower back     ',
@@ -1218,36 +1224,36 @@ class _Home2State extends State<Home2> {
                                 ),
                                 Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       horizontalGap(
                                           context: context, screenSize: 0.02),
                                       getText(
                                           text:
-                                          'Details/discription of the expercise that is being \nshown here.',
+                                              'Details/discription of the expercise that is being \nshown here.',
                                           textStyle: subtitle2),
                                     ]),
                                 Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     legs     ',
@@ -1257,20 +1263,20 @@ class _Home2State extends State<Home2> {
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     Lower back     ',
@@ -1322,36 +1328,36 @@ class _Home2State extends State<Home2> {
                                 ),
                                 Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       horizontalGap(
                                           context: context, screenSize: 0.02),
                                       getText(
                                           text:
-                                          'Details/discription of the expercise that is being \nshown here.',
+                                              'Details/discription of the expercise that is being \nshown here.',
                                           textStyle: subtitle2),
                                     ]),
                                 Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     legs     ',
@@ -1361,20 +1367,20 @@ class _Home2State extends State<Home2> {
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     Lower back     ',
@@ -1426,36 +1432,36 @@ class _Home2State extends State<Home2> {
                                 ),
                                 Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       horizontalGap(
                                           context: context, screenSize: 0.02),
                                       getText(
                                           text:
-                                          'Details/discription of the expercise that is being \nshown here.',
+                                              'Details/discription of the expercise that is being \nshown here.',
                                           textStyle: subtitle2),
                                     ]),
                                 Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     legs     ',
@@ -1465,20 +1471,20 @@ class _Home2State extends State<Home2> {
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     Lower back     ',
@@ -1530,36 +1536,36 @@ class _Home2State extends State<Home2> {
                                 ),
                                 Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       horizontalGap(
                                           context: context, screenSize: 0.02),
                                       getText(
                                           text:
-                                          'Details/discription of the expercise that is being \nshown here.',
+                                              'Details/discription of the expercise that is being \nshown here.',
                                           textStyle: subtitle2),
                                     ]),
                                 Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     legs     ',
@@ -1569,20 +1575,20 @@ class _Home2State extends State<Home2> {
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     Lower back     ',
@@ -1634,36 +1640,36 @@ class _Home2State extends State<Home2> {
                                 ),
                                 Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       horizontalGap(
                                           context: context, screenSize: 0.02),
                                       getText(
                                           text:
-                                          'Details/discription of the expercise that is being \nshown here.',
+                                              'Details/discription of the expercise that is being \nshown here.',
                                           textStyle: subtitle2),
                                     ]),
                                 Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     legs     ',
@@ -1673,20 +1679,20 @@ class _Home2State extends State<Home2> {
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     Lower back     ',
@@ -1738,36 +1744,36 @@ class _Home2State extends State<Home2> {
                                 ),
                                 Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       horizontalGap(
                                           context: context, screenSize: 0.02),
                                       getText(
                                           text:
-                                          'Details/discription of the expercise that is being \nshown here.',
+                                              'Details/discription of the expercise that is being \nshown here.',
                                           textStyle: subtitle2),
                                     ]),
                                 Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     legs     ',
@@ -1777,20 +1783,20 @@ class _Home2State extends State<Home2> {
                                     TextButton(
                                         style: ButtonStyle(
                                             foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.black),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.black),
                                             backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
+                                                MaterialStateProperty.all<Color>(
+                                                    Colors.white),
                                             padding: MaterialStateProperty.all<
-                                                EdgeInsets>(
+                                                    EdgeInsets>(
                                                 const EdgeInsets.all(8)),
                                             shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius:
+                                              borderRadius:
                                                   BorderRadius.circular(10),
-                                                ))),
+                                            ))),
                                         onPressed: () {},
                                         child: getText(
                                             text: '     Lower back     ',
@@ -1804,7 +1810,7 @@ class _Home2State extends State<Home2> {
                           ]),
                     ),
                   ),
-                  verticalGap(context: context, screenSize: 0.02),
+                  verticalGap(context: context, screenSize: 0.04),
                 ]),
               )
             ],
@@ -1815,17 +1821,18 @@ class _Home2State extends State<Home2> {
   }
 
   Widget _buildPopupDialog(BuildContext context) {
+    windowWidth = MediaQuery.of(context).size.width;
+    windowHeight = MediaQuery.of(context).size.height;
     return Column(
       children: [
-        verticalGap(context: context, screenSize: 0.15),
+        verticalGap(context: context, screenSize: 0.17),
         SizedBox(
-          height: 284,
+          height: MediaQuery.of(context).size.height * 0.33,
           child: Row(
             children: [
-              horizontalGap(context: context, screenSize: 0.28),
+              horizontalGap(context: context, screenSize: 0.32),
               Container(
-                width: 266,
-                height: 284,
+                width: MediaQuery.of(context).size.width * 0.65,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(
                     Radius.circular(10.0),
@@ -1836,8 +1843,9 @@ class _Home2State extends State<Home2> {
                   children: [
                     verticalGap(context: context, screenSize: 0.02),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        horizontalGap(context: context, screenSize: 0.58),
+                        horizontalGap(context: context, screenSize: 0.46),
                         GestureDetector(
                           onTap: () {
                             Navigator.of(context).pop();
@@ -1850,7 +1858,7 @@ class _Home2State extends State<Home2> {
                         ),
                       ],
                     ),
-                    verticalGap(context: context, screenSize: 0.02),
+                    verticalGap(context: context, screenSize: 0.015),
                     GestureDetector(
                       onTap: () {},
                       child: Row(
@@ -1861,7 +1869,7 @@ class _Home2State extends State<Home2> {
                         ],
                       ),
                     ),
-                    verticalGap(context: context, screenSize: 0.02),
+                    verticalGap(context: context, screenSize: 0.015),
                     GestureDetector(
                       onTap: () {},
                       child: Row(
@@ -1872,7 +1880,7 @@ class _Home2State extends State<Home2> {
                         ],
                       ),
                     ),
-                    verticalGap(context: context, screenSize: 0.02),
+                    verticalGap(context: context, screenSize: 0.015),
                     GestureDetector(
                       onTap: () {},
                       child: Row(
@@ -1884,7 +1892,7 @@ class _Home2State extends State<Home2> {
                         ],
                       ),
                     ),
-                    verticalGap(context: context, screenSize: 0.02),
+                    verticalGap(context: context, screenSize: 0.015),
                     GestureDetector(
                       onTap: () {},
                       child: Row(
@@ -1896,7 +1904,7 @@ class _Home2State extends State<Home2> {
                         ],
                       ),
                     ),
-                    verticalGap(context: context, screenSize: 0.02),
+                    verticalGap(context: context, screenSize: 0.015),
                     GestureDetector(
                       onTap: () {},
                       child: Row(
@@ -1906,7 +1914,7 @@ class _Home2State extends State<Home2> {
                         ],
                       ),
                     ),
-                    verticalGap(context: context, screenSize: 0.02),
+                    verticalGap(context: context, screenSize: 0.015),
                     GestureDetector(
                       onTap: () {},
                       child: Row(

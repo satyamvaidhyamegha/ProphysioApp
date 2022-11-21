@@ -14,6 +14,9 @@ class SelectP extends StatefulWidget {
   State<SelectP> createState() => _SelectPState();
 }
 
+var windowWidth;
+var windowHeight;
+
 class _SelectPState extends State<SelectP> {
   @override
   Widget build(BuildContext context) {
@@ -44,10 +47,7 @@ class _SelectPState extends State<SelectP> {
                           horizontal: 146.0, vertical: 20.0),
                       shape: const StadiumBorder(),
                     ),
-                    child: buttonText(
-                        text: 'Next',
-                        textStyle:
-                            const TextStyle(color: Colors.white, fontSize: 18)),
+                    child: buttonText(text: 'Next', textStyle: buttonTextStyle),
                     onPressed: () {}),
                 verticalGap(context: context, screenSize: 0.02)
               ])),
@@ -57,7 +57,8 @@ class _SelectPState extends State<SelectP> {
   initScreen(BuildContext context) {
     final TextEditingController myCareSearch = TextEditingController();
     ScrollController mycontroller1 = ScrollController();
-
+    windowWidth = MediaQuery.of(context).size.width;
+    windowHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         backgroundColor: AppColors.kBGcolor,
         body: ListView(

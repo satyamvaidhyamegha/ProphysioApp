@@ -37,6 +37,7 @@ class AppColors {
   static const appointmentBackgroundColor = Color(0xff1C1C1E);
   static const profileSubtitleColor = Color.fromRGBO(235, 235, 245, 0.6);
   static const profileCardColor = Color.fromRGBO(28, 28, 30, 1);
+  static const backgroundCardColor = Color.fromRGBO(56, 56, 58, 1);
   static const allDoctorBackGroundColor = Color.fromRGBO(34, 34, 34, 1);
   static const allCareIdeasPhotosBgcolor = Color.fromRGBO(82, 82, 139, 1);
   static const allRecomendedPicBgColor = Color.fromRGBO(82, 139, 111, 1);
