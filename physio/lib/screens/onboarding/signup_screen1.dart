@@ -1,12 +1,20 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:physio/constants/string.dart';
-import 'package:physio/screens/onboarding/auth_screen3.dart';
+import 'package:get/get.dart';
+
+import 'package:physio/database/model/onboardingDetailsModel.dart';
+
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:image_picker/image_picker.dart' as imagePicker;
 import 'package:physio/screens/onboarding/signup_screen2.dart';
+
+import 'package:snippet_coder_utils/multi_images_utils.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/style.dart';
 import '../../constants/text_constants.dart';
+import '../../viewmodel/onboard_view_model.dart';
 
 class SignupScreen1 extends StatefulWidget {
   const SignupScreen1({Key? key}) : super(key: key);
@@ -21,6 +29,14 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
   var windowWidth;
   var windowHeight;
 
+  final detailsViewModel = Get.put(OnboardViewModel());
+
+  File? image;
+  late final imagePicker.XFile? img;
+
+  bool isApiCallProcess = false;
+
+
   @override
   void dispose() {
     super.dispose();
@@ -32,6 +48,14 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController secondNameController = TextEditingController();
   final TextEditingController emailIdController = TextEditingController();
+
+  File? imgFile;
+
+  bool hasGotImage = false;
+
+  bool showSaveChangesLoader = false;
+
+
 
   String dropdownvalue = 'Doctor';
   var items = [
@@ -103,7 +127,9 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                         const EdgeInsets.only(right: 20, left: 20, bottom: 20),
                     child: getText(
                         textAlign: TextAlign.center,
-                        text: Strings.DOCTOR_NAME,
+                        text: detailsViewModel.allOnboardDetails[0].firstName +
+                            " " +
+                            detailsViewModel.allOnboardDetails[0].lastName,
                         textStyle: doctorNameText),
                   ),
                   Container(
@@ -147,56 +173,50 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                           },
                         ),
                       )),
-                  Container(
-                    margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        border: Border.all(color: Colors.blueGrey, width: 1),
-                        borderRadius: BorderRadius.circular(15)),
-                    child: TextFormField(
-                      style: const TextStyle(color: Colors.white),
-                      controller: firstNameController,
-                      decoration: InputDecoration(
-                          labelText: "First Name",
-                          labelStyle: headertext,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          filled: true,
-                          hintStyle: TextStyle(color: Colors.grey[300]),
-                          fillColor: Colors.black),
-                      onChanged: (String fname) {
-                        fname = firstNameController.text;
-                        firstName = fname;
-                      },
-                    ),
+
+                //
+
+
+            Container(
+              alignment:Alignment.centerLeft,
+              margin: EdgeInsets.only(top: 15, left: 20),
+              child: Wrap(
+                runSpacing: 10,
+                children: [
+                  Stack(
+                    alignment: Alignment.topRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 50,
+                        backgroundImage: (hasGotImage)
+                            ? FileImage(imgFile!, scale: 1)
+                            : null,
+                        backgroundColor: Theme.of(context).primaryColor,
+                        child: (hasGotImage)
+                            ? null
+                            : Text(
+                          'SK',
+                          style: TextStyle(
+                              color: Colors.white, fontSize: 30),
+                        ),
+                      ),
+                      Positioned(
+                          child: InkWell(
+                            onTap: uploadImage,
+                            child: CircleAvatar(
+                              radius: 15,
+                              backgroundColor: Theme.of(context).primaryColor,
+                              child: Icon(
+                                Icons.camera_alt_rounded,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ))
+                    ],
                   ),
+  ]),),
                   Container(
-                    margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        border: Border.all(color: Colors.blueGrey, width: 1),
-                        borderRadius: BorderRadius.circular(15)),
-                    child: TextFormField(
-                      style: const TextStyle(color: Colors.white),
-                      controller: secondNameController,
-                      decoration: InputDecoration(
-                          labelText: "Last Name",
-                          labelStyle: headertext,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          filled: true,
-                          hintStyle: TextStyle(color: Colors.grey[300]),
-                          fillColor: Colors.black),
-                      onChanged: (String lname) {
-                        lname = secondNameController.text;
-                        lastName = lname;
-                      },
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
+                    margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
                     decoration: BoxDecoration(
                         color: Colors.black,
                         border: Border.all(color: Colors.blueGrey, width: 1),
@@ -229,6 +249,22 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
                         color: AppColors.buttonColor),
                     child: GestureDetector(
                       onTap: () {
+                        detailsViewModel.updateDetails(OnboardDetailsModel(
+                            id: 0,
+                            firstName:
+                                detailsViewModel.allOnboardDetails[0].firstName,
+                            lastName:
+                                detailsViewModel.allOnboardDetails[0].lastName,
+                            mobileNo:
+                                detailsViewModel.allOnboardDetails[0].mobileNo,
+                            email: emailId,
+                        password: '',
+                        physioimg: detailsViewModel.allOnboardDetails[0].physioimg,
+                        physioId: 0),
+                        );
+
+
+
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
@@ -251,4 +287,31 @@ class _SignupScreenPageState1 extends State<SignupScreen1> {
           )),
     );
   }
+
+
+
+  Future uploadImage() async {
+    img = await imagePicker.ImagePicker().pickImage(
+      source: imagePicker.ImageSource.gallery,
+    );
+    debugPrint("before"+img!.path);
+
+    if(img!=null){
+      imgFile = File(img!.path);
+      setState(() {
+        debugPrint("after"+img!.path);
+        hasGotImage = true;
+      });
+
+      debugPrint(imgFile.toString());
+
+      detailsViewModel.updateDetails(OnboardDetailsModel(id: detailsViewModel.allOnboardDetails[0].id, firstName: detailsViewModel.allOnboardDetails[0].firstName, lastName: detailsViewModel.allOnboardDetails[0].lastName, mobileNo: detailsViewModel.allOnboardDetails[0].mobileNo, email: '', password: '', physioimg: img!.path.toString(), physioId: 0));
+    }
+    else {
+      debugPrint('No image selected');
+    }
+
+
+  }
+
 }

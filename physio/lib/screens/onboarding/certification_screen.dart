@@ -1,12 +1,22 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:physio/API/signupDetails_service.dart';
 import 'package:physio/constants/style.dart';
+import 'package:image_picker/image_picker.dart' as imagePicker;
 import 'package:physio/screens/onboarding/helpus_helpyou.dart';
-import 'package:physio/screens/onboarding/signup_screen3.dart';
+import 'package:physio/screens/onboarding/about_you_screen.dart';
+import 'package:physio/viewmodel/certificate_view_model.dart';
+import 'package:physio/viewmodel/onboard_view_model.dart';
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
+import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
 import '../../constants/string.dart';
 import '../../constants/text_constants.dart';
 
@@ -35,10 +45,19 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
   var windowWidth;
   var windowHeight;
 
+  final viewModel = Get.put(CertiViewModel());
+  final oviewModel = Get.put(OnboardViewModel());
+
+  File? image;
+  late final imagePicker.XFile? img;
+
   final TextEditingController certificationNameController =
       TextEditingController();
   final TextEditingController organisationController = TextEditingController();
   final TextEditingController mediaController = TextEditingController();
+
+  File? imgFile;
+  bool hasGotImage = false;
 
   String? aboutYou;
   String? education;
@@ -76,7 +95,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
           onPressed: () => Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => SignupScreen3(physioid: "", name: "")),
+                builder: (context) => AboutYouScreen()),
           ),
         ),
       ),
@@ -305,7 +324,7 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                             child: Image.asset("assets/plusBtn.png"),
                           ),
                           onTap: () {
-                            debugPrint("Add media event");
+                            uploadImage();
                           },
                         ),
                       ),
@@ -345,31 +364,15 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
                             child: GestureDetector(
                               onTap: () {
                                 debugPrint("Click hua");
-                                debugPrint(
-                                    "${physioId!} ${aboutYou!} ${education!} ${speciality!} ${dropdownLanguage!} $certificationName $organisationName $date $media ${name!}");
-                                SignupDetailsService.signupDetails(
-                                        physioId!,
-                                        aboutYou!,
-                                        education!,
-                                        speciality!,
-                                        dropdownLanguage!,
-                                        certificationName,
-                                        organisationName,
-                                        date.toString(),
-                                        media,
-                                        name!)
-                                    .then((response) async {
-                                  debugPrint(response.speciality);
-                                  if (response.speciality != null) {
-                                    debugPrint(response.speciality);
 
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                HelpUsScreen()));
-                                  }
-                                });
+                                if(imgFile!.path.isNotEmpty){
+                                  uploadImgS3();
+                                } else {
+                                  Fluttertoast.showToast(fontSize: 18,
+                                  gravity: ToastGravity.TOP,
+                                  msg: "Please select certificate from Gallery");
+                                }
+
                               },
                               child: Center(
                                 child: getText(
@@ -517,5 +520,79 @@ class _CertificationScreenPageState extends State<CertificationScreen> {
         ),
       ),
     );
+  }
+
+  Future uploadImage() async {
+    img = await imagePicker.ImagePicker().pickImage(
+      source: imagePicker.ImageSource.gallery,
+    );
+
+    if(img!=null) {
+      imgFile = File(img!.path);
+      setState(() {
+        hasGotImage = true;
+      });
+
+      debugPrint(imgFile.toString());
+    }
+    else {
+      debugPrint('No image selected');
+    }
+  }
+
+  Future<void> uploadImgS3() async{
+
+    String path = imgFile!.path;
+    debugPrint("debzsecondpath $path");
+
+
+    var uri = Uri.parse('https://api.prophysio.in/mobile/physios/signupDetails');
+
+    var req = new http.MultipartRequest("POST", uri);
+
+    req.fields['physioid'] = oviewModel.allOnboardDetails[0].physioId.toString();
+    req.fields['aboutYou'] = viewModel.allCertiDetails[0].aboutYou;
+    req.fields['education'] = viewModel.allCertiDetails[0].education;
+    req.fields['speciality'] = viewModel.allCertiDetails[0].speciality;
+    req.fields['language'] = viewModel.allCertiDetails[0].language;
+    req.fields['certificateName'] = certificationName;
+    req.fields['issuing_org'] = organisationName;
+    req.fields['issue_date'] = date.toString();
+    req.fields['name'] = viewModel.allCertiDetails[0].name;
+
+
+    http.MultipartFile imageFile = await http.MultipartFile.fromPath('media', path, contentType: new MediaType('image', 'jpg'));
+
+    req.files.add(imageFile);
+
+    var response = await req.send();
+
+    response.stream.transform(utf8.decoder).listen((value) {
+
+      var results = jsonDecode(value);
+      int dbId = results['result']['id'];
+      debugPrint(dbId.toString());
+
+    });
+
+
+    if(response.statusCode == 201){
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) => HelpUsScreen()));
+      debugPrint('Uploaded');
+
+      Fluttertoast.showToast(fontSize: 18,
+          gravity: ToastGravity.TOP,
+          msg: "Certificate Uploaded");
+
+    } else {
+      debugPrint('Not Uploaded');
+
+      Fluttertoast.showToast(fontSize: 18,
+          gravity: ToastGravity.TOP,
+          msg: "Error. Please use jpg format");
+    }
   }
 }

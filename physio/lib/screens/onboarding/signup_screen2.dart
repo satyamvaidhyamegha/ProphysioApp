@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:physio/database/model/onboardingDetailsModel.dart';
 import 'package:physio/screens/onboarding/professional_profile.dart';
 import 'package:physio/screens/onboarding/signup_screen1.dart';
 
 import '../../BaseWidget/text.dart';
 import '../../constants/colors.dart';
 import '../../constants/text_constants.dart';
+import '../../viewmodel/onboard_view_model.dart';
 
 class SignupScreen2 extends StatefulWidget {
   String? firstName;
@@ -22,6 +25,9 @@ class SignupScreen2 extends StatefulWidget {
 }
 
 class _SignupScreenPageState2 extends State<SignupScreen2> {
+  final detailsViewModel = Get.put(OnboardViewModel());
+
+
   var windowWidth;
   var windowHeight;
 
@@ -36,6 +42,7 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
     super.dispose();
     passController.dispose();
   }
+
 
   final TextEditingController passController = TextEditingController();
   final TextEditingController repassController = TextEditingController();
@@ -155,6 +162,9 @@ class _SignupScreenPageState2 extends State<SignupScreen2> {
               child: GestureDetector(
                 onTap: () {
                   if (pass == repass) {
+
+                    detailsViewModel.updateDetails(OnboardDetailsModel(id: detailsViewModel.allOnboardDetails[0].id, firstName: detailsViewModel.allOnboardDetails[0].firstName, lastName: detailsViewModel.allOnboardDetails[0].lastName, mobileNo: detailsViewModel.allOnboardDetails[0].mobileNo, email: detailsViewModel.allOnboardDetails[0].email, password: pass, physioimg: detailsViewModel.allOnboardDetails[0].physioimg, physioId: 0));
+                    debugPrint(pass);
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(

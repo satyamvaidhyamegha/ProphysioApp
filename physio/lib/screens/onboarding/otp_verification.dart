@@ -2,11 +2,14 @@ import 'dart:async';
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:physio/API/otp_api_service.dart';
 import 'package:otp_timer_button/otp_timer_button.dart';
 import 'package:physio/API/otp_verify_service.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
+import 'package:physio/viewmodel/onboard_view_model.dart';
+import 'package:provider/provider.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import '../../BaseWidget/base_image_widget.dart';
 import '../../BaseWidget/text.dart';
@@ -14,13 +17,14 @@ import '../../constants/string.dart';
 import '../../constants/style.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import '../../constants/text_constants.dart';
+import '../../database/model/onboardingDetailsModel.dart';
 
 class OtpVerificationPage extends StatefulWidget {
   String? veriCode;
 
-  String? mobileNo;
-  String? firstName;
-  String? secondName;
+  String mobileNo;
+  String firstName;
+  String secondName;
 
   OtpVerificationPage(
       {required this.mobileNo,
@@ -33,9 +37,11 @@ class OtpVerificationPage extends StatefulWidget {
 }
 
 class _OtpVerificationPageState extends State<OtpVerificationPage> {
-  String? mobileNo;
-  String? firstName;
-  String? secondName;
+  final detailsViewModel = Get.put(OnboardViewModel());
+
+  String mobileNo;
+  String firstName;
+  String secondName;
 
   final TextEditingController phoneNumberController = TextEditingController();
 
@@ -64,6 +70,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
   Widget build(BuildContext context) {
     windowWidth = MediaQuery.of(context).size.width;
     windowHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(body: initScreen(context));
   }
 
@@ -107,7 +114,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                     padding:
                         const EdgeInsets.only(left: 15, bottom: 15, top: 70),
                     child: Text(
-                      mobileNo!,
+                      mobileNo,
                       style: BaseStyles.otpTextStyleTwo,
                     ),
                   ),
@@ -154,14 +161,26 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                     debugPrint("+91" + "$mobileNo");
 
                     OtpVerifyService.verifyOtp(
-                            int.parse(verificationCode), "+91${mobileNo!}")
+                            int.parse(verificationCode), "+91${mobileNo}")
                         .then((response) async {
                       if (response.valid == true) {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const AuthPage3()));
+                       debugPrint('aa rha');
                       }
+
+                      detailsViewModel.addDetails(
+                        OnboardDetailsModel(
+                            id: 0,
+                            firstName: firstName,
+                            lastName: secondName,
+                            mobileNo: mobileNo,
+                            email: '',
+                            password: '',
+                            physioimg: '',
+                        physioId: 0),
+                      );
+
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => const AuthPage3()));
                     });
                   },
                 ),
@@ -175,7 +194,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                         backgroundColor: Colors.transparent,
                         onPressed: () async {
                           var req = await OtpApiService.otpSignup(
-                                  firstName!, secondName!, "+91" + "$mobileNo")
+                                  firstName, secondName, "+91" + "$mobileNo")
                               .then((response) async {
                             setState(() {
                               isAPICallProcess = false;
@@ -211,7 +230,22 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 borderRadius: BorderRadius.circular(30),
                 color: AppColors.buttonColor),
             child: GestureDetector(
-              onTap: () async {},
+              onTap: () async {
+                detailsViewModel.addDetails(
+                  OnboardDetailsModel(
+                      id: 0,
+                      firstName: firstName,
+                      lastName: secondName,
+                      mobileNo: mobileNo,
+                      email: '',
+                      password: '',
+                      physioimg: '',
+                  physioId: 0),
+                );
+
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const AuthPage3()));
+              },
               child: Center(
                 child: getText(
                     textAlign: TextAlign.center,
@@ -255,7 +289,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
       mobileNo = value;
 
       var req = await OtpApiService.otpSignup(
-              firstName!, secondName!, "+91" + "$mobileNo")
+              firstName, secondName, "+91" + "$mobileNo")
           .then((response) async {
         setState(() {
           isAPICallProcess = false;

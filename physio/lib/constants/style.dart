@@ -72,6 +72,13 @@ class BaseStyles {
       fontSize: 16.0,
       color: Color(0xFF767C83));
 
+  static TextStyle signInText = TextStyle(
+    color: AppColors.buttonColor,
+    fontFamily: "Mulish",
+    fontWeight: FontWeight.w600,
+    fontSize: 16,
+  );
+
   static TextStyle orSignInWithbutton = TextStyle(
     fontFamily: 'Mulish',
     fontWeight: FontWeight.w600,

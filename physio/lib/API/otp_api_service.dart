@@ -27,7 +27,7 @@ class OtpApiService {
       ),
     );
 
-    return OtpSignupResponse.fromJson(json.decode(response.body));
+    return OtpSignupResponse.fromJson(json.decode(json.encode(response.body)));
   }
 
   // static Future<OtpSignupResponse> verifyOtp(

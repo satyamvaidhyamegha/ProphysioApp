@@ -1,27 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:physio/constants/style.dart';
+import 'package:physio/database/model/certificateDetailsModel.dart';
+import 'package:physio/database/model/onboardingDetailsModel.dart';
 import 'package:physio/screens/onboarding/auth_screen3.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:physio/screens/onboarding/certification_screen.dart';
 import 'package:physio/utility/gap_between.dart';
+import 'package:physio/viewmodel/certificate_view_model.dart';
+import 'package:physio/viewmodel/onboard_view_model.dart';
 import '../../../BaseWidget/text.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/text_constants.dart';
 
-class SignupScreen3 extends StatefulWidget {
-  SignupScreen3({required this.physioid, required this.name});
-
-  String physioid;
-  String name;
+class AboutYouScreen extends StatefulWidget {
+  const AboutYouScreen({Key? key}) : super(key: key);
 
   @override
-  _SignupScreen3PageState createState() =>
-      _SignupScreen3PageState(physioid, name);
+  State<StatefulWidget> createState() {
+    return _AboutYouScreenPageState();
+  }
 }
 
-class _SignupScreen3PageState extends State<SignupScreen3> {
+class _AboutYouScreenPageState extends State<AboutYouScreen> {
   var windowWidth;
   var windowHeight;
+
+  final viewModel = Get.put(CertiViewModel());
+  final oviewModel = Get.put(OnboardViewModel());
 
   final TextEditingController aboutYouController = TextEditingController();
   final TextEditingController educationController = TextEditingController();
@@ -34,13 +40,13 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
   var itemsLanguage = [
     'Language',
     'Engligh',
-    'kannada',
+    'Kannada',
+    'Hindi',
+    'Bengali',
+    'Tamil',
   ];
 
-  String physioid;
-  String name;
 
-  _SignupScreen3PageState(this.physioid, this.name);
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +105,7 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
                       border: Border.all(color: Colors.blueGrey, width: 1),
                       borderRadius: BorderRadius.circular(15)),
                   child: TextFormField(
-                    style: const TextStyle(color: Color(0xCCCCCC)),
+                    style: const TextStyle(color: Colors.white),
                     controller: aboutYouController,
                     decoration: InputDecoration(
                         labelText: "Tell us a little bit about yourself",
@@ -144,8 +150,6 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
                         child: TextFormField(
                           style: const TextStyle(color: Colors.white),
                           controller: educationController,
-                          autofocus: false,
-                          obscureText: true,
                           decoration: InputDecoration(
                               labelText: "Education",
                               labelStyle: headertext,
@@ -240,7 +244,7 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
                         labelText: "Years of experience",
                         labelStyle: headertext,
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50.0),
+                          borderRadius: BorderRadius.circular(15.0),
                         ),
                         filled: true,
                         hintStyle: TextStyle(color: Colors.grey[300]),
@@ -300,16 +304,19 @@ class _SignupScreen3PageState extends State<SignupScreen3> {
                       color: AppColors.buttonColor),
                   child: GestureDetector(
                     onTap: () {
+
+                      viewModel.addDetails(CertificateDetailsModel(id: 0, aboutYou: aboutYou, education: education, speciality: speciality, language: dropdownLanguage, certificateName: '', issuingOrg: '', issueDate: '', media: '', name: "${oviewModel.allOnboardDetails[0].firstName} ${oviewModel.allOnboardDetails[0].lastName}" ));
+
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CertificationScreen(
-                              physioId: physioid,
+                              physioId: '',
                               aboutYou: aboutYou,
                               education: education,
                               speciality: speciality,
                               dropdownLanguage: dropdownLanguage,
-                              name: name),
+                              name: ''),
                         ),
                       );
                     },
