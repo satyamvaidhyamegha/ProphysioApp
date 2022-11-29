@@ -16,7 +16,10 @@ class AppColors {
   static const schedulebg = Color.fromRGBO(22, 22, 22, 0.8);
   static const schedulecard = Color.fromRGBO(147, 167, 190, 0.19);
   static const schedulecard1 = Color.fromRGBO(118, 118, 128, 0.24);
+  static const barGreycolor = Color.fromRGBO(229, 229, 229, 0.47);
+  static const greycolor = Color.fromRGBO(196, 196, 196, 1);
   static const blueColor = Color(0xff007BE2);
+
   static const subTextColor = Color(0xFFC4C4C4);
   static const goldColorText = Color(0xFFBA9562);
   static const blueLightColor = Color(0xff0A84FF);
@@ -43,6 +46,7 @@ class AppColors {
   static const allRecomendedPicBgColor = Color.fromRGBO(82, 139, 111, 1);
   static const allSelfCarePicBgColor = Color.fromRGBO(142, 7, 121, 1);
   static const allSelfHealingPicBgColor = Color.fromRGBO(139, 121, 82, 1);
+  static const allSelfHeal = Color.fromRGBO(22, 152, 152, 1);
   static const pageIndicatorActiveDotColor = Color(0xFF007CE2);
   static const pageIndicatorInactiveDotColor = Color(0xFF727272);
   static const loginDeviderColor = Color(0xFF767C83);

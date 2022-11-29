@@ -3,7 +3,7 @@ import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
-import 'package:physio/model/barchart_model.dart';
+import 'package:physio/model/Barchart%20Model/barchart_model.dart';
 import 'package:physio/utility/gap_between.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -50,6 +50,24 @@ class _Home3State extends State<Home3> {
       backgroundColor: AppColors.kBGcolor,
       body: initScreen(context),
     );
+  }
+
+  late TrackballBehavior _trackballBehavior;
+  late TrackballBehavior _trackballBehavior1;
+
+  @override
+  void initState() {
+    _trackballBehavior = TrackballBehavior(
+        enable: true,
+        tooltipSettings: const InteractiveTooltip(
+            // Formatting trackball tooltip text
+            format: 'point.x : point.y'));
+    _trackballBehavior1 = TrackballBehavior(
+        enable: true,
+        tooltipSettings: const InteractiveTooltip(
+            // Formatting trackball tooltip text
+            format: 'point.x : point.y'));
+    super.initState();
   }
 
   initScreen(BuildContext context) {
@@ -340,6 +358,7 @@ class _Home3State extends State<Home3> {
                     width: double.infinity,
                     child: SfCartesianChart(
                         plotAreaBorderWidth: 0,
+                        trackballBehavior: _trackballBehavior,
                         primaryYAxis: NumericAxis(
                           isVisible: false,
                           axisLine: const AxisLine(width: 0),
@@ -383,6 +402,7 @@ class _Home3State extends State<Home3> {
                     height: 170,
                     width: double.infinity,
                     child: SfCartesianChart(
+                        trackballBehavior: _trackballBehavior,
                         plotAreaBorderWidth: 0,
                         primaryYAxis: NumericAxis(
                           isVisible: false,

@@ -6,7 +6,7 @@ import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
-import 'package:physio/model/barchart_model.dart';
+import 'package:physio/model/Barchart%20Model/barchart_model.dart';
 import 'package:physio/utility/gap_between.dart';
 
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -45,7 +45,7 @@ class _Home2State extends State<Home2> {
             int seriesIndex) {
           return SizedBox(
             child: Text(
-              '${pointIndex.toString()} session',
+              '${point.y.toString()} session',
               style: const TextStyle(color: Colors.white),
             ),
           );
