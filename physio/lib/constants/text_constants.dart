@@ -160,7 +160,7 @@ const profilefieldtextStyle2 = TextStyle(
     fontWeight: FontWeight.w400,
 
     /// overflow: TextOverflow.visible,
-    fontSize: 16.0,
+    fontSize: 15.0,
     color: Color(0xFFFFFFFF));
 
 const profilefieldtextStyle1 = TextStyle(

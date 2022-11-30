@@ -7,6 +7,7 @@ import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/string.dart';
 import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
+import 'package:physio/screens/Home/people.dart';
 
 import '../../BaseWidget/search_widget.dart';
 import '../../utility/gap_between.dart';
@@ -36,7 +37,7 @@ initScreen(BuildContext context) {
   return Scaffold(
     backgroundColor: Color(0xff222222),
     appBar: PreferredSize(
-      preferredSize: Size.fromHeight(190),
+      preferredSize: Size.fromHeight(205),
       child: Container(
         color: Color(0xff222222),
         child: Padding(
@@ -109,10 +110,9 @@ initScreen(BuildContext context) {
             ),
           ],
         ),
-        verticalGap(context: context, screenSize: 0.02),
+        verticalGap(context: context, screenSize: 0.01),
         SizedBox(
-          height: 309,
-          width: 343,
+          width: windowWidth,
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -139,15 +139,17 @@ initScreen(BuildContext context) {
                                   image: AssetImage("assets/exercise-1.png"),
                                   fit: BoxFit.cover))),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.02,
-                                right:
-                                    MediaQuery.of(context).size.width * 0.50),
-                            child: getText(
-                                text: 'Sit ups', textStyle: aboutYouText1),
-                          ),
+                          verticalGap(context: context, screenSize: 0.01),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                horizontalGap(
+                                    context: context, screenSize: 0.02),
+                                getText(
+                                    text: 'Sit ups', textStyle: aboutYouText1),
+                              ]),
                           Row(children: [
                             horizontalGap(context: context, screenSize: 0.02),
                             getText(
@@ -157,6 +159,7 @@ initScreen(BuildContext context) {
                           ]),
                           Row(
                             children: [
+                              horizontalGap(context: context, screenSize: 0.13),
                               TextButton(
                                   style: ButtonStyle(
                                       foregroundColor:
@@ -228,15 +231,18 @@ initScreen(BuildContext context) {
                                       "assets/Mask Group 135@4x.png"),
                                   fit: BoxFit.cover))),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.001,
-                                right:
-                                    MediaQuery.of(context).size.width * 0.42),
-                            child: getText(
-                                text: 'Air Rowing', textStyle: aboutYouText1),
-                          ),
+                          verticalGap(context: context, screenSize: 0.01),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                horizontalGap(
+                                    context: context, screenSize: 0.02),
+                                getText(
+                                    text: 'Air Rowing',
+                                    textStyle: aboutYouText1),
+                              ]),
                           Row(children: [
                             horizontalGap(context: context, screenSize: 0.02),
                             getText(
@@ -246,6 +252,7 @@ initScreen(BuildContext context) {
                           ]),
                           Row(
                             children: [
+                              horizontalGap(context: context, screenSize: 0.13),
                               TextButton(
                                   style: ButtonStyle(
                                       foregroundColor:
@@ -317,15 +324,17 @@ initScreen(BuildContext context) {
                                   image: AssetImage("assets/Exercise-3.png"),
                                   fit: BoxFit.cover))),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.02,
-                                right:
-                                    MediaQuery.of(context).size.width * 0.50),
-                            child: getText(
-                                text: 'Sit ups', textStyle: aboutYouText1),
-                          ),
+                          verticalGap(context: context, screenSize: 0.01),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                horizontalGap(
+                                    context: context, screenSize: 0.02),
+                                getText(
+                                    text: 'Sit ups', textStyle: aboutYouText1),
+                              ]),
                           Row(children: [
                             horizontalGap(context: context, screenSize: 0.02),
                             getText(
@@ -335,6 +344,7 @@ initScreen(BuildContext context) {
                           ]),
                           Row(
                             children: [
+                              horizontalGap(context: context, screenSize: 0.13),
                               TextButton(
                                   style: ButtonStyle(
                                       foregroundColor:
@@ -389,22 +399,24 @@ initScreen(BuildContext context) {
             ),
           ),
         ),
-        verticalGap(context: context, screenSize: 0.03),
-        Padding(
-          padding: EdgeInsets.only(
-            top: MediaQuery.of(context).size.height * 0.001,
-            left: MediaQuery.of(context).size.width * 0.05,
-            right: MediaQuery.of(context).size.width * 0.04,
-          ),
-          child: getText(
-            text: "Upper Body",
-            textStyle: todaytext,
-          ),
+        verticalGap(context: context, screenSize: 0.01),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                horizontalGap(context: context, screenSize: 0.04),
+                getText(
+                  text: "Upper Body",
+                  textStyle: todaytext,
+                ),
+              ],
+            ),
+          ],
         ),
-        verticalGap(context: context, screenSize: 0.03),
+        verticalGap(context: context, screenSize: 0.01),
         SizedBox(
-          height: 309,
-          width: 343,
+          width: windowWidth,
           child: SingleChildScrollView(
             child: Column(children: [
               Padding(
@@ -430,14 +442,13 @@ initScreen(BuildContext context) {
                                 image: AssetImage("assets/Exercise-4.png"),
                                 fit: BoxFit.cover))),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width * 0.02,
-                              right: MediaQuery.of(context).size.width * 0.50),
-                          child: getText(
-                              text: 'Sit ups', textStyle: aboutYouText1),
-                        ),
+                        verticalGap(context: context, screenSize: 0.01),
+                        Row(children: [
+                          horizontalGap(context: context, screenSize: 0.02),
+                          getText(text: 'Sit ups', textStyle: aboutYouText1),
+                        ]),
                         Row(children: [
                           horizontalGap(context: context, screenSize: 0.02),
                           getText(
@@ -447,6 +458,7 @@ initScreen(BuildContext context) {
                         ]),
                         Row(
                           children: [
+                            horizontalGap(context: context, screenSize: 0.13),
                             TextButton(
                                 style: ButtonStyle(
                                     foregroundColor:
@@ -517,14 +529,16 @@ initScreen(BuildContext context) {
                                 image: AssetImage("assets/Exercise-5.png"),
                                 fit: BoxFit.cover))),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width * 0.001,
-                              right: MediaQuery.of(context).size.width * 0.42),
-                          child: getText(
-                              text: 'Air Rowing', textStyle: aboutYouText1),
-                        ),
+                        verticalGap(context: context, screenSize: 0.01),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              horizontalGap(context: context, screenSize: 0.02),
+                              getText(
+                                  text: 'Air Rowing', textStyle: aboutYouText1),
+                            ]),
                         Row(children: [
                           horizontalGap(context: context, screenSize: 0.02),
                           getText(
@@ -534,6 +548,7 @@ initScreen(BuildContext context) {
                         ]),
                         Row(
                           children: [
+                            horizontalGap(context: context, screenSize: 0.13),
                             TextButton(
                                 style: ButtonStyle(
                                     foregroundColor:
@@ -605,14 +620,16 @@ initScreen(BuildContext context) {
                                 image: AssetImage("assets/Exercise-6.png"),
                                 fit: BoxFit.cover))),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width * 0.02,
-                              right: MediaQuery.of(context).size.width * 0.50),
-                          child: getText(
-                              text: 'Sit ups', textStyle: aboutYouText1),
-                        ),
+                        verticalGap(context: context, screenSize: 0.01),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              horizontalGap(context: context, screenSize: 0.02),
+                              getText(
+                                  text: 'Sit ups', textStyle: aboutYouText1),
+                            ]),
                         Row(children: [
                           horizontalGap(context: context, screenSize: 0.02),
                           getText(
@@ -622,6 +639,7 @@ initScreen(BuildContext context) {
                         ]),
                         Row(
                           children: [
+                            horizontalGap(context: context, screenSize: 0.13),
                             TextButton(
                                 style: ButtonStyle(
                                     foregroundColor:

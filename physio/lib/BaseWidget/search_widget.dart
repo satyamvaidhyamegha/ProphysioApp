@@ -17,7 +17,8 @@ class SearchWidget extends StatelessWidget {
 
   final Widget? suffixIcon;
 
-  SearchWidget({
+  // ignore: use_key_in_widget_constructors
+  const SearchWidget({
     required this.controller,
     required this.hintText,
     this.prefixIcon,

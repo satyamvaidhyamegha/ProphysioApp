@@ -30,9 +30,6 @@ class _DashboardIconsState extends State<DashboardIcons> {
   Widget build(BuildContext context) {
     final List<Widget> children = [
       const Home5(),
-
-      const AboutPage(),
-
       const AboutPage(),
       const AboutPage(),
       const MyCare_27(),
@@ -43,7 +40,7 @@ class _DashboardIconsState extends State<DashboardIcons> {
         child: Scaffold(
             body: children[_currentIndex],
             bottomNavigationBar: BottomNavigationBar(
-              backgroundColor: AppColors.kBGcolor,
+              backgroundColor: const Color.fromRGBO(22, 22, 22, 0.8),
               onTap: onTabTapped,
               currentIndex: _currentIndex,
               unselectedItemColor: Colors.grey,

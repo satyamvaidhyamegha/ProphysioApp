@@ -1,29 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:iconly/iconly.dart';
 import 'package:physio/BaseWidget/search_widget.dart';
+import 'package:physio/BaseWidget/style.dart';
 import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/string.dart';
-import 'package:physio/constants/style.dart';
 import 'package:physio/constants/text_constants.dart';
 import 'package:physio/screens/dashboard/schedule/mycare_27.dart';
-import 'package:physio/screens/onboarding/policy_terms/privacy_policy.dart';
 import 'package:physio/utility/gap_between.dart';
 
-// ignore: camel_case_types
-class myCare_25 extends StatefulWidget {
-  const myCare_25({Key? key}) : super(key: key);
+class MyCare_28 extends StatefulWidget {
+  const MyCare_28({Key? key}) : super(key: key);
 
   @override
-  State<myCare_25> createState() => _myCare_25State();
+  State<MyCare_28> createState() => _MyCare_28State();
 }
 
-// ignore: camel_case_types
-class _myCare_25State extends State<myCare_25> {
-  // ignore: prefer_typing_uninitialized_variables
+class _MyCare_28State extends State<MyCare_28> {
   var windowWidth;
 
   // ignore: prefer_typing_uninitialized_variables
@@ -46,7 +40,7 @@ initScreen(BuildContext context) {
   return Scaffold(
     backgroundColor: const Color.fromRGBO(28, 28, 30, 1),
     appBar: PreferredSize(
-      preferredSize: const Size.fromHeight(260),
+      preferredSize: const Size.fromHeight(210),
       child: Column(
         children: [
           Container(
@@ -82,10 +76,9 @@ initScreen(BuildContext context) {
                       Expanded(
                         flex: 8,
                         child: Container(
-                          height: 83,
                           padding: const EdgeInsets.only(top: 5),
                           child: const Text(
-                            "Session \nReports Today",
+                            "Completed Reports",
                             style: TextStyle(
                               fontSize: 34,
                               color: Colors.white,
@@ -109,7 +102,7 @@ initScreen(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                verticalGap(context: context, screenSize: 0.01),
+                verticalGap(context: context, screenSize: 0.001),
                 SearchWidget(
                     suffixIcon: const Icon(
                       IconlyLight.voice,
@@ -120,10 +113,10 @@ initScreen(BuildContext context) {
                     controller: myCareSearch,
                     hintText: Strings.SEARCH,
                     inputAction: TextInputAction.search),
-                verticalGap(context: context, screenSize: 0.01),
+                verticalGap(context: context, screenSize: 0.001),
               ],
             ),
-          ),
+          )
         ],
       ),
     ),
@@ -141,17 +134,17 @@ initScreen(BuildContext context) {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              verticalGap(context: context, screenSize: 0.01),
+              verticalGap(context: context, screenSize: 0.001),
               Row(
                 children: [
                   horizontalGap(context: context, screenSize: 0.0001),
                   Expanded(
-                    child: getText(text: 'Morning', textStyle: todaytext),
+                    child: getText(text: '27th March', textStyle: todaytext),
                     flex: 7,
                   ),
                 ],
               ),
-              verticalGap(context: context, screenSize: 0.02),
+              verticalGap(context: context, screenSize: 0.03),
               Column(
                 children: [
                   verticalGap(context: context, screenSize: 0.006),
@@ -412,14 +405,14 @@ initScreen(BuildContext context) {
                       ),
                     ),
                   ),
+                  verticalGap(context: context, screenSize: 0.03),
                 ],
               ),
-              verticalGap(context: context, screenSize: 0.03),
               Row(
                 children: [
                   horizontalGap(context: context, screenSize: 0.0001),
                   Expanded(
-                    child: getText(text: 'Afternoon', textStyle: todaytext),
+                    child: getText(text: '25th March', textStyle: todaytext),
                     flex: 7,
                   ),
                 ],
