@@ -182,6 +182,13 @@ class BaseStyles {
       fontSize: 14.0,
       color: AppColors.greyColors);
 
+  static const TextStyle smallSize = TextStyle(
+      decoration: TextDecoration.none,
+      fontFamily: 'Mulish',
+      fontWeight: FontWeight.w400,
+      fontSize: 14.0,
+      color: AppColors.greycolor);
+
   static const TextStyle appointmentDateStyle = TextStyle(
     color: Color(0xFF007CE2),
     fontFamily: "Mulish",

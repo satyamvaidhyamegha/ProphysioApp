@@ -19,3 +19,10 @@ class TimeData {
   final int y;
   final Color? color;
 }
+
+class TrendsData {
+  TrendsData(this.x, this.y, this.color);
+  final String x;
+  final int y;
+  final Color? color;
+}

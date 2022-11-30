@@ -82,6 +82,12 @@ const otpText = TextStyle(
   fontWeight: FontWeight.w400,
   fontSize: 18,
 );
+const otpText1 = TextStyle(
+  color: Colors.blue,
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w700,
+  fontSize: 18,
+);
 
 const infoStyle2 = TextStyle(
   color: Color(0xFFC4C4C4),
@@ -278,7 +284,13 @@ const doctorNameText = TextStyle(
   color: Color(0xFFFFFFFF),
   fontFamily: "Mulish",
   fontWeight: FontWeight.w400,
-  fontSize: 27,
+  fontSize: 26,
+);
+const doctorNameText1 = TextStyle(
+  color: Colors.blue,
+  fontFamily: "Mulish",
+  fontWeight: FontWeight.w400,
+  fontSize: 26,
 );
 
 const professionProfileHeading1 = TextStyle(
@@ -435,6 +447,7 @@ const Description = TextStyle(
   color: Color.fromRGBO(235, 235, 245, 0.6),
   fontFamily: "Mulish",
   fontWeight: FontWeight.normal,
+  fontSize: 12,
 );
 
 const subtitle3 = TextStyle(
