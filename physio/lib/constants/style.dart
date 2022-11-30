@@ -285,7 +285,7 @@ class BaseStyles {
       fontFamily: "Mulish",
       height: 1,
       fontWeight: FontWeight.w400,
-      color: Colors.white);
+      color: Color.fromRGBO(235, 235, 245, 0.6));
   static const TextStyle sessionName = TextStyle(
       fontSize: 22,
       fontFamily: "Mulish",
