@@ -3,8 +3,11 @@ import 'package:physio/BaseWidget/text.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:physio/constants/style.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
+import 'package:physio/patient/screens/onboarding/about_screen.dart';
+import 'package:physio/patient/screens/onboarding/splash_screen2.dart';
 import 'package:physio/screens/onboarding/camera.dart';
 import 'package:physio/screens/onboarding/login_screen.dart';
+import 'package:physio/screens/onboarding/splash_screen2.dart';
 import 'about_screen.dart';
 
 class ProfileSelectionPage extends StatefulWidget {
@@ -156,6 +159,11 @@ class _ProfileSelectionPageState extends State<ProfileSelectionPage> {
                           isButtonPressed = false;
                           isTxtbtnPressed = false;
                         }
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>  AboutScreen()),
+                        );
                       });
                     },
                   ),

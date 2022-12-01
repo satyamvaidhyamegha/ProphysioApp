@@ -77,8 +77,15 @@ class AppColors {
   static const numberwhite2 = Color.fromRGBO(235, 235, 245, 1);
   static const numberwhite1 = Color.fromRGBO(112, 112, 112, 1);
   static const barBlueGreen = Color.fromRGBO(16, 213, 213, 1);
-
+  static const PROFILE_SUBTITLE_COLOR = Color.fromRGBO(235, 235, 245, 0.6);
+  static const ORANGE = Color(0xffFF7340);
+  static const GREEN = Color(0Xff37EAF2);
   static const PROACTIVE_APPBAR_COLOR = Color(0XFFFBA9562);
+  static const ROUTINE_STEP_COLOR = Color.fromRGBO(239, 160, 57, 1);
+  static const PAGE_INDICATOR_ACTIVE_DOT_COLOR = Color(0xFF007CE2);
+  static const PAGE_INDICATOR_INACTIVE_DOT_COLOR = Color(0xFF727272);
+  static const PROGRESS_YELLOW_LINE = Color.fromRGBO(255, 181, 13, 1);
+  static const PROGRESS_YELLOWLINE_BG_COLOR = Color.fromRGBO(255, 255, 255, 1);
 
   static const buttonVerify = Color.fromRGBO(121, 121, 121, 1);
   static const buttonVerifyBG = Color(0xff0D0E0E);
@@ -88,6 +95,7 @@ class AppColors {
 
   static const schedulebgs = Color.fromRGBO(22, 22, 22, 0.8);
   static const signupscreen = Color.fromRGBO(28, 28, 30, 1);
+  static const BACKGROUND_COLOR = Color(0xff182021);
 }
 
 class ErrorColor {

@@ -27,4 +27,19 @@ class APIPath {
   static const NOTIFICATION_ADD = "$BASEURL/mobile/pushnotif";
   static const DEMO_NOTIFICATION_LIST =
       "$BASEURL/mobile/userNotification/list/0/10";
+
+  static const FOOD_LIFE_LIST = "$BASEURL/mobile/content/ContentSectionFilter";
+  static const ADD_CONTENT_DATA = "$BASEURL/mobile/content/ContentSectionSave";
+  static const HISTORY_SESSION_API = "$BASEURL/mobile/session/getHistory";
+  static const UCOOMING_API = "$BASEURL/mobile/session/getUpcoming";
+  static const UPCOMING_LIST = "$BASEURL/mobile/session/getUpcomingList";
+  static const GET_FOOD_LIFE_STYLE = "$BASEURL/mobile/content/foodlifestyle";
+  static const FOOD_SEARCH_PATH = "$BASEURL/mobile/Food/list/0/10";
+  static const HEALTH_CONDITION_PATH = "$BASEURL/mobile/Healthissue/list/0/10";
+  static const PROFILE_PIC_UPLOAD = "$BASEURL/mobile/user/profileImage";
+  static const SETTING_FIRST_SAVE = "$BASEURL/mobile/usersetting";
+  static const HOMEPAGE_CARE_IDEAS = "$BASEURL/mobile/content/ContentSection";
+  static const WELBEING_CREATE_API = "$BASEURL/mobile/wellbeing";
+  static const WELBEING_PAIN_RECOVERY_SAVE_API = "$BASEURL/mobile/recovery";
+
 }

@@ -11,19 +11,19 @@ class InputField extends StatelessWidget {
   final TextInputAction? inputAction;
   final TextEditingController controller;
   final FormFieldValidator validator;
-
+  FormFieldSetter<String> onSaved;
   ValueChanged<String>? onChanged;
 
   InputField(
       {Key? key,
-      required this.labelText,
-      required this.icon,
-      required this.onChanged,
-      this.inputType,
-      this.inputAction,
-      required this.controller,
-
-      required this.validator})
+        required this.labelText,
+        required this.icon,
+        required this.onSaved,
+        this.inputType,
+        this.inputAction,
+        required this.controller,
+        this.onChanged,
+        required this.validator})
       : super(key: key);
 
   @override

@@ -25,6 +25,7 @@ class BaseStyles {
     height: 1.5,
     fontSize: 42,
   );
+
   static TextStyle buttonTextStyle = TextStyle(
       fontFamily: 'Montserrat',
       fontWeight: FontWeight.w500,
