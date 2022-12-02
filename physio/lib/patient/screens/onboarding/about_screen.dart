@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:physio/patient/screens/Login/mobilelogin/login_screen.dart';
 import '../../../BaseWidget/base_image_widget.dart';
 import '../../../BaseWidget/style.dart';
 import '../../../BaseWidget/text.dart';
@@ -10,7 +10,6 @@ import '../../../constants/colors.dart';
 import '../../../constants/raddi.dart';
 import '../../../constants/string.dart';
 import '../../../constants/text_constants.dart';
-import '../../../screens/onboarding/login_screen.dart';
 import '../Login/mobilelogin/signup_screen.dart.dart';
 
 class AboutScreen extends StatefulWidget {

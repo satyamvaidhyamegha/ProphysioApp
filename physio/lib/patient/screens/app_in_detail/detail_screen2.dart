@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:physio/patient/model/Notification%20Model/notification_model.dart';
 import 'package:physio/patient/screens/Success%20Screen/register_success.dart';
 import 'package:physio/patient/services/Push%20Notification/all_notification.dart';
 
@@ -11,7 +12,6 @@ import '../../../constants/colors.dart';
 import '../../../constants/raddi.dart';
 import '../../../constants/string.dart';
 import '../../../constants/text_constants.dart';
-import '../../../model/Notification Model/notification_model.dart';
 import '../../../utility/gap_between.dart';
 import '../../../utility/navigation.dart';
 

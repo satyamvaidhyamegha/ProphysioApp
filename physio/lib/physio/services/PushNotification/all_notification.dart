@@ -1,11 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:physio/patient/model/Notification%20Model/notification_model.dart';
+import 'package:physio/constants/apipath.dart';
+import 'package:physio/physio/model/Notification%20Model/notification_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../../constants/apipath.dart';
-
 
 class AllNotification {
   Future<List<NotificationModel>> getAllNotification() async {
@@ -18,7 +16,7 @@ class AllNotification {
         "Content-Type": "application/json; charset=UTF-8"
       };
 
-      String url = APIPath.NOTIFICATION_LIST;
+      String url = APIPath.notificationList;
       http.Response response =
           await http.post(Uri.parse(url), headers: headers, body: body);
 
@@ -45,7 +43,7 @@ class AllNotification {
         "Content-Type": "application/json; charset=UTF-8"
       };
 
-      String url = APIPath.NOTIFICATION_ADD;
+      String url = APIPath.notificationAdd;
       http.Response response =
           await http.post(Uri.parse(url), headers: headers, body: body);
       var jsonResponse = json.decode(response.body);

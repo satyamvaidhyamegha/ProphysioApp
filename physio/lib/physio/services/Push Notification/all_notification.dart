@@ -1,11 +1,10 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:physio/patient/model/Notification%20Model/notification_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../constants/apipath.dart';
-
+import '../../model/Notification Model/notification_model.dart';
 
 class AllNotification {
   Future<List<NotificationModel>> getAllNotification() async {

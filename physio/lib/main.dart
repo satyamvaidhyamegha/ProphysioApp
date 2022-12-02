@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:physio/constants/colors.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:physio/screens/onboarding/helpus_helpyou.dart';
-import 'package:physio/screens/onboarding/login_screen.dart';
-import 'package:physio/screens/schedule/dashboard_icon.dart';
-import 'package:physio/screens/schedule/report_screen8.dart';
-import 'package:physio/screens/schedule/session_report.dart';
-import 'package:physio/screens/schedule/addAppointment/appointmentTypeScreen.dart';
-import 'package:physio/screens/onboarding/auth_screen3.dart';
-import 'package:physio/screens/onboarding/signup_screen1.dart';
-import 'package:physio/screens/onboarding/splash_screen2.dart';
-import 'package:physio/screens/onboarding/splash_screen.dart';
-import 'package:physio/screens/onboarding/profile_selection.dart';
-import 'package:physio/screens/onboarding/about_screen.dart';
-import 'package:physio/screens/onboarding/auth_screen.dart';
+import 'package:physio/physio/screens/onboarding/auth_screen.dart';
+import 'package:physio/physio/screens/onboarding/helpus_helpyou.dart';
+import 'package:physio/physio/screens/onboarding/login_screen.dart';
+import 'package:physio/physio/screens/schedule/dashboard_icon.dart';
+import 'package:physio/physio/screens/schedule/report_screen8.dart';
+import 'package:physio/physio/screens/schedule/session_report.dart';
+import 'package:physio/physio/screens/schedule/addAppointment/appointmentTypeScreen.dart';
+import 'package:physio/physio/screens/onboarding/auth_screen3.dart';
+import 'package:physio/physio/screens/onboarding/signup_screen1.dart';
+import 'package:physio/physio/screens/onboarding/splash_screen2.dart';
+import 'package:physio/physio/screens/onboarding/splash_screen.dart';
+import 'package:physio/physio/screens/onboarding/profile_selection.dart';
+import 'package:physio/physio/screens/onboarding/about_screen.dart';
+import 'package:physio/physio/screens/onboarding/auth_screen.dart';
+
+import 'physio/screens/onboarding/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
